@@ -1,0 +1,17 @@
+.title-section {
+    background-color: #0F233B;
+    padding: 100px 80px 80px 50px;
+}
+
+.title-text {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.description-text {
+    color: white;
+    font-weight: 300;
+    font-size: 22px;
+}
