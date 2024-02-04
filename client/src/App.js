@@ -7,7 +7,6 @@ import ResourcesPage from './Components/ResourcesPage/ResourcesPage';
 import EventsPage from './Components/EventsPage/EventsPage';
 import AboutUs from './Components/AboutUs/AboutUs';
 
-
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function App() {
