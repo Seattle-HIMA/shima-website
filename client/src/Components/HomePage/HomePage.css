@@ -1,17 +1,35 @@
 .title-section {
+    padding: 100px 500px 100px 50px;
     background-color: #0F233B;
-    padding: 100px 80px 80px 50px;
+}
+
+.title-image {
+    color: white;
+    width: 430px;
+    position: absolute;
+    top: 250px;
+    right: 70px;
 }
 
 .title-text {
     color: white;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 50px;
+    font-size: 45px;
 }
 
 .description-text {
     color: white;
     font-weight: 300;
-    font-size: 22px;
+    font-size: 20px;
+    margin: 30px 20px 30px 0;
+}
+
+.learn-more-button {
+    color: #0F233B;
+    background-color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 10px 40px;
 }
