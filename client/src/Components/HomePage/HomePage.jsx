@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 function HomePage() {
-  return(
-    <div>Hi</div>
-  )
+    return (
+        <div>Hi</div>
+    );
 }
 
 export default HomePage;
