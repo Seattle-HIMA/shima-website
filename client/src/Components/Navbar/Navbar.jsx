@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
 
-function Navbar() {
-  return(
-    <div>Hi</div>
-  )
+function NavBar() {
+  return (
+    <div id="navbar">
+      <span>Logo</span>
+      <div id="pages-links">
+        <Link className="nav-btn" to='/'>Home</Link>
+        <Link className="nav-btn" to='/Membership'>Membership</Link>
+        <Link className="nav-btn" to='/Resources'>Resources</Link>
+        <Link className="nav-btn" to='/Events'>Events</Link>
+        <Link className="nav-btn" to='/About'>About Us</Link>
+      </div>
+      <button>Login</button>
+    </div>
+  );
 }
 
-export default Navbar;
+export default NavBar;
