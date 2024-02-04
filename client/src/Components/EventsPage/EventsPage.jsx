@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function EventsPage() {
   return(
-    <div>Hi</div>
+    <div>Bye</div>
   )
 }
 

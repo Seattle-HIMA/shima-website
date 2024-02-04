@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function HomePage() {
   return(
-    <div>Hi</div>
+    <div>Hello</div>
   )
 }
 
