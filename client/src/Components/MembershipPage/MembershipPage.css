@@ -1,0 +1,51 @@
+.title {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-color: #0F233B;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+h1 {
+    font-weight: 600;
+}
+
+.caption-text {
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 30px 20px 30px 0;
+}
+
+.apply-button {
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.apply-button-2 {
+    background-color: #0F233B;
+    color: white;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+h2, h3 {
+    color: #0F233B;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 45px;
+}
+
+.information-section {
+    padding-left: 1%;
+}
