@@ -1,0 +1,9 @@
+:root {
+    /* fonts */
+    --main-font: 'Inter';
+    --page-title: 45px;
+
+    /* colors */
+    --dark-blue: #0F233B;
+    --white: #fff;
+}

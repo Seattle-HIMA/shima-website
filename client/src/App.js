@@ -8,6 +8,8 @@ import EventsPage from './Components/EventsPage/EventsPage';
 import AboutUs from './Components/AboutUs/AboutUs';
 import Footer from './Components/Footer/Footer';
 
+import './utils/variables.css';
+
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function App() {
