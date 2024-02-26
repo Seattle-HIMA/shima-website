@@ -3,7 +3,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 import NavBar from './Components/Navbar/Navbar';
 import HomePage from './Components/HomePage/HomePage';
 import Membership from './Components/MembershipPage/MembershipPage';
-import ResourcesPage from './Components/ResourcesPage/ResourcesPage';
+import Scholarship from './Components/ScholarshipsPage/ScholarshipsPage';
 import EventsPage from './Components/EventsPage/EventsPage';
 import AboutUs from './Components/AboutUs/AboutUs';
 import Footer from './Components/Footer/Footer';
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route index element={<HomePage />}></Route>
           <Route path='/Membership' element={<Membership />}></Route>
-          <Route path='/Resources' element={<ResourcesPage />}></Route>
+          <Route path='/ScholarShips' element={<Scholarship />}></Route>
           <Route path='/Events' element={<EventsPage />}></Route>
           <Route path='/About' element={<AboutUs />}></Route>
         </Routes>
