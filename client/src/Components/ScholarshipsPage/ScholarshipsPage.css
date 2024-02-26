@@ -1,6 +1,8 @@
 .scholarships-section {
   margin-bottom: 60px;
 }
+
+/* HEADER */
 .scholarships-header {
   display: flex;
   flex-direction: row;
@@ -24,4 +26,30 @@ img {
   width: 752px;
   height: 442px;
   opacity: 0.5;
+}
+
+/* ABOUT OUR SCHOLARSHIP SECTION */
+.about-our-scholarships {
+  margin: 100px;
+}
+
+.about-our-scholarships h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #AAA5A5;
+  font-weight: 200;
+}
+
+.scholarship-info {
+  margin: 40px;
+  margin-left: 20px;
+}
+
+.details {
+  border-left: solid #D9D9D9 4px;
+}
+
+.scholarship-info h3 {
+  font-size: 18px;
+  font-weight: 600;
 }
