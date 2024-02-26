@@ -6,6 +6,7 @@ import Membership from './Components/MembershipPage/MembershipPage';
 import ResourcesPage from './Components/ResourcesPage/ResourcesPage';
 import EventsPage from './Components/EventsPage/EventsPage';
 import AboutUs from './Components/AboutUs/AboutUs';
+import Footer from './Components/Footer/Footer';
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
@@ -24,6 +25,9 @@ function App() {
           <Route path='/About' element={<AboutUs />}></Route>
         </Routes>
       </main>
+      <footer>
+        <Footer></Footer>
+      </footer>
     </div>
   )
 }
