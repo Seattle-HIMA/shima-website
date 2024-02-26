@@ -1,3 +1,4 @@
+/* TITLE SECTION */
 .title-section {
     padding: 100px 500px 100px 50px;
     background-color: #0F233B;
@@ -32,4 +33,59 @@
     font-weight: 600;
     font-size: 17px;
     padding: 10px 40px;
+}
+
+/* WHAT WE DO SECTION */
+.what-we-do-section {
+    padding: 200px 50px;
+}
+
+.what-we-do-text {
+    color: #0F233B;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.what-we-do-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.what-we-do-card {
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px #D9D9D6;
+    width: 340px;
+    height: 387px;
+    overflow: hidden;
+}
+
+.card-header {
+    border-radius: 15px;
+    background-color: #0F233B;
+    width: 340px;
+    height: 99px;
+}
+
+.card-body {
+    margin: 40px;
+}
+
+.img {
+    color: white;
+    text-align: center;
+    padding-top: 10%;
+}
+
+.card-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card-body {
+    text-align: center;
 }
