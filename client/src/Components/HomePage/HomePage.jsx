@@ -67,17 +67,21 @@ const getMembershipCards = () => {
                     <p className={"membership-card-title"}>Eligibility</p>
                     <p className={"membership-card-subtitle"}>Who should join.</p>
                 </div>
-                <div>
-                    <div className={"membership-card-content membership-eligibility-card-content"}>
-                        <ul>
-                            Current and future professionals interested in the intersection between people, data and
-                            technology
-                        </ul>
-                        <ul>
-                            Professionals working formally or informally in a Health Information Management (HIM) or
-                            healthcare informatics role
-                        </ul>
-                    </div>
+                <div className={"membership-card-content membership-eligibility-card-content"}>
+                    <ul className={"eligibility-list"}>
+                        <li className={"eligibility-list-item"}>
+                            <span>
+                                Current and future professionals interested in the intersection between people, data and
+                                technology
+                            </span>
+                        </li>
+                        <li className={"eligibility-list-item"}>
+                            <span>
+                                Professionals working formally or informally in a Health Information Management (HIM) or
+                                healthcare informatics role
+                            </span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

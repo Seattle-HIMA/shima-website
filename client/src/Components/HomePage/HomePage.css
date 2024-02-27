@@ -73,10 +73,10 @@ body {
 }
 
 .membership-section-background {
-    height: 300px;
+    height: 550px;
     width: 100vw;
     position: absolute;
-    top: 1200px;
+    top: 1150px;
     background-color: var(--dark-blue);
     z-index: -1;
 }
@@ -130,17 +130,26 @@ body {
     list-style-image: url("../../utils/images/icons/blue-checkmark.svg");
 }
 
-.benefits-list-item {
+.eligibility-list {
+    list-style-image: url("../../utils/images/icons/gray-bullet.svg");
+}
+
+.benefits-list-item, .eligibility-list-item {
     padding-bottom: 25px;
 }
 
-.membership-eligibility-card-content {
+.eligibility-list-item span {
+    position: relative;
+    left: 10px;
+}
 
+.membership-eligibility-card-content {
+    padding-right: 110px;
 }
 
 /* WHAT WE DO SECTION */
 .what-we-do-section {
-    padding: 90px 50px;
+    padding: 270px 50px;
 }
 
 .what-we-do-text {
