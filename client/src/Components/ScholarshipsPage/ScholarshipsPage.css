@@ -1,5 +1,6 @@
 .scholarships-section {
   margin-bottom: 60px;
+  font-family: var(--main-font);
 }
 .scholarships-header {
   display: flex;
@@ -9,7 +10,7 @@
 
 .title {
   text-align: left;
-  background-color: #0F233B;
+  background-color: var(--dark-blue);
   padding: 100px 50px;
   align-items: center;
 }
