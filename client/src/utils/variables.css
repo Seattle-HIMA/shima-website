@@ -2,8 +2,14 @@
     /* fonts */
     --main-font: 'Inter';
     --page-title: 45px;
+    --section-heading: 38px;
 
     /* colors */
     --dark-blue: #0F233B;
     --white: #fff;
+    --gray: #717171;
+
+    /* cards */
+    --card-shadow-bottom-right: 3px 3px 3px #D9D9D6;
+    --card-shadow-sides: 0px 2px 3px 1px #D9D9D6;
 }
