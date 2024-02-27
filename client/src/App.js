@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Route, Routes, Link} from 'react-router-dom';
 import NavBar from './Components/Navbar/Navbar';
 import HomePage from './Components/HomePage/HomePage';
 import Membership from './Components/MembershipPage/MembershipPage';
@@ -7,6 +7,8 @@ import Scholarship from './Components/ScholarshipsPage/ScholarshipsPage';
 import EventsPage from './Components/EventsPage/EventsPage';
 import AboutUs from './Components/AboutUs/AboutUs';
 import Footer from './Components/Footer/Footer';
+
+import './utils/variables.css';
 
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
