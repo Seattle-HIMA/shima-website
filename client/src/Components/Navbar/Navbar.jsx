@@ -4,16 +4,19 @@ import './Navbar.css';
 
 function NavBar() {
   return (
-    <div id="navbar">
+    <div className={"navbar"}>
       <span>Logo</span>
-      <div id="pages-links">
-        <Link className="nav-btn" to='/'>Home</Link>
-        <Link className="nav-btn" to='/Membership'>Membership</Link>
-        <Link className="nav-btn" to='/Scholarships'>Scholarships</Link>
-        <Link className="nav-btn" to='/Events'>Events</Link>
-        <Link className="nav-btn" to='/About'>About Us</Link>
+      <div className={"pages-links"}>
+        <Link className={"nav-btn"} to='/'>Home</Link>
+        <Link className={"nav-btn"} to='/Membership'>Membership</Link>
+        <Link className={"nav-btn"} to='/Scholarships'>Scholarships</Link>
+        <Link className={"nav-btn"} to='/Events'>Events</Link>
+        <Link className={"nav-btn"} to='/About'>About Us</Link>
       </div>
-      <button>Login</button>
+      <div className={"account-btns"}>
+        <button>Login</button>
+        <button>Sign up</button>
+      </div>
     </div>
   );
 }

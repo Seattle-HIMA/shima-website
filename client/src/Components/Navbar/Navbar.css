@@ -1,24 +1,35 @@
 
-#navbar {
+.navbar {
+  background-color: var(--white);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin: 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  z-index: 999;
 }
 
-#pages-links {
+.pages-links {
   display: inline;
 }
 
-#pages-links .nav-btn {
+.pages-links .nav-btn {
   margin: 40px;
   text-decoration: none;
   color: black;
 }
 
-button {
+.account-btns button {
   border-radius: 25px;
-  padding: 10px 20px;
-  background-color: #000000;
-  color: white;
+  margin: 0px 10px;
+  padding: 8px 15px;
+  border: none;
+  background-color: var(--white);
+}
+
+.account-btns button:hover {
+  background-color: var(--dark-blue);
+  color: var(--white);
 }
