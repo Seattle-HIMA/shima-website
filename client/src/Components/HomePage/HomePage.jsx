@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import './HomePage.css';
 
 import seattleImg from '../../utils/images/space-needle-sunset.png';
+import presidentImg from '../../utils/images/president-photo.png';
 
 const learnMoreButton = () => {
     console.log("you clicked the learn more button");
@@ -49,7 +50,7 @@ function HomePage() {
                 </div>
             </div>
             <div className={"pres-letter"}>
-                <img src="" alt="president's photo"></img>
+                <img src={presidentImg} alt="president's photo"></img>
                 <div className={"letter"}>
                     <h3>A letter from the President</h3>
                     <p>
@@ -79,7 +80,7 @@ function HomePage() {
                     </p>
                     <p>If you are interested in joining our community, please feel free to reach out to us.</p>
                     <p>Thank you,</p>
-                    <p>Tien Nguyen</p>
+                    <p id="signature">Tien Nguyen</p>
                     <p>SHIMA President</p>
                 </div>
             </div>
