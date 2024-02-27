@@ -1,21 +1,29 @@
 /* BODY */
-body {
+body, html {
     font-family: var(--main-font, sans-serif);
+    width: 100%;
 }
 
 /* TITLE SECTION */
 .title-section {
-    padding: 100px 500px 100px 50px;
-    width: 100vw;
+    padding: 100px 500px 50px 50px;
     background-color: var(--dark-blue);
 }
 
-.title-image {
-    color: var(--white);
-    width: 430px;
-    position: absolute;
-    top: 250px;
-    right: 70px;
+.title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: max-content;
+}
+
+.seattle-sunset-image {
+    align-self: flex-end;
+    width: 33vw;
+}
+
+.title-text-container {
+    max-width: 60vw;
 }
 
 .title-text {
@@ -28,7 +36,7 @@ body {
     color: var(--white);
     font-weight: 300;
     font-size: 20px;
-    margin: 30px 20px 30px 0;
+    margin: 30px 30px 30px 0;
 }
 
 .about-us-button {
@@ -74,7 +82,8 @@ body {
 
 .membership-section-background {
     height: 50vh;
-    width: 100vw;
+    /*width: 90vw;*/
+    width: inherit;
     position: absolute;
     top: 1100px;
     background-color: var(--dark-blue);
