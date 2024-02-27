@@ -73,10 +73,10 @@ body {
 }
 
 .membership-section-background {
-    height: 550px;
+    height: 50vh;
     width: 100vw;
     position: absolute;
-    top: 1150px;
+    top: 1100px;
     background-color: var(--dark-blue);
     z-index: -1;
 }
