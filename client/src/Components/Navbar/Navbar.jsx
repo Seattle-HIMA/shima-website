@@ -9,7 +9,7 @@ function NavBar() {
       <div id="pages-links">
         <Link className="nav-btn" to='/'>Home</Link>
         <Link className="nav-btn" to='/Membership'>Membership</Link>
-        <Link className="nav-btn" to='/Resources'>Resources</Link>
+        <Link className="nav-btn" to='/Scholarships'>Scholarships</Link>
         <Link className="nav-btn" to='/Events'>Events</Link>
         <Link className="nav-btn" to='/About'>About Us</Link>
       </div>
