@@ -51,9 +51,7 @@ const WINNER = {
                       Throughout the HIHIM program, Eliot helped both classmates and professors
                       with computer issues; earning him the nickname IT guy. He will continue
                       working in HIM and improving his IT skills on the side. Eventually he plans
-                      to work for an EMR company and improve the user experience for employees and
-                      patients.`,
-
+                      to work for an EMR company and improve the user experience for employees and`,
                     `Eliot is currently working at Equinox Primary Care as their Medical Records
                       lead. In his free time he enjoys drawing, filming videos, and weightlifting.
                       He is grateful for the classmates, professors, and colleagues he met in the 2
@@ -133,7 +131,7 @@ function ScholarshipsPage() {
 
 function makeWinnerSection(winner, scholarship, winYear, photo, details) {
   let name = scholarship.split("Scholarship")
-
+  
     const description = details.map((para) => {
       return <p className={"long-desc"}>{para}</p>
     })
