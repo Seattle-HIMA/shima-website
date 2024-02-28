@@ -1,5 +1,6 @@
 .scholarships-section {
   margin-bottom: 60px;
+  font-family: var(--main-font);
 }
 
 /* HEADER */
@@ -11,7 +12,7 @@
 
 .title {
   text-align: left;
-  background-color: #0F233B;
+  background-color: var(--dark-blue);
   padding: 100px 50px;
   align-items: center;
 }
@@ -27,6 +28,7 @@
   height: 442px;
   opacity: 0.5;
 }
+
 /* WINNERS SECTION */
 .winner-section {
   margin: 100px;
@@ -35,7 +37,7 @@
 .winner-section h2 {
   text-align: center;
   color: #AAA5A5;
-  font-weight: 200;
+  font-weight: 100;
   margin-bottom: 100px;
 }
 
