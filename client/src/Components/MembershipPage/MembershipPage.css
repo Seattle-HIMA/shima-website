@@ -101,3 +101,26 @@ h3 {
     font-size: 25px;
     font-weight: 500;
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.apply-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.apply-section image {
+    margin-left:10px;
+}
+
+.apply-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.apply-text p {
+    margin: 0;
+  }
