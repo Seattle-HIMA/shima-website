@@ -1,0 +1,100 @@
+.scholarships-section {
+  margin-bottom: 60px;
+  font-family: var(--main-font);
+}
+
+/* HEADER */
+.scholarships-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title {
+  text-align: left;
+  background-color: var(--dark-blue);
+  padding: 100px 50px;
+  align-items: center;
+}
+
+.title h1 {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.scholarships-header img {
+  width: 752px;
+  height: 442px;
+  opacity: 0.5;
+}
+
+/* WINNERS SECTION */
+.winner-section {
+  margin: 100px;
+}
+
+.winner-section h2 {
+  text-align: center;
+  color: #AAA5A5;
+  font-weight: 100;
+  margin-bottom: 100px;
+}
+
+.winner-details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 40px;
+}
+
+.winner-details h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.winner-info {
+  border-left: solid #D9D9D9 4px;
+  margin-left: 20px;
+  padding-left: 30px;
+  padding-right: 60px;
+}
+
+.short-desc {
+  font-size: 14px;
+}
+
+.long-desc {
+  font-size: 17px;
+}
+
+.winner-details img {
+  width: 170px;
+  height: 228px;
+}
+
+/* ABOUT OUR SCHOLARSHIP SECTION */
+.about-our-scholarships {
+  margin: 100px;
+}
+
+.about-our-scholarships h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #AAA5A5;
+  font-weight: 200;
+}
+
+.scholarship-info {
+  margin: 40px;
+  margin-left: 20px;
+}
+
+.details {
+  border-left: solid #D9D9D9 4px;
+}
+
+.scholarship-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
