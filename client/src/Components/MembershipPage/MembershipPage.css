@@ -49,3 +49,55 @@ h2 {
 .information-section {
     padding-left: 1%;
 }
+
+.caption {
+    padding-top: 10px;
+    font-weight: 600;
+    font-size: medium;
+}
+
+#annual-rates {
+    text-align: center;
+    background-color: #F7F7F7;
+    padding: 20px;
+    font-size: large;
+}
+
+.rates {
+    display: flex;
+    justify-content: center;
+} 
+
+h3 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.price-box {
+    width: 328px;
+    height: 243px; 
+    background-color: #FFFFFF;
+    margin-right: 5%;
+    margin-left: 5%;
+    border-radius: 15px;
+    box-shadow: 4px 4px #e5e5e5;
+    margin-bottom: 20px;
+}
+
+.price-text {
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.price {
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.price-type {
+    font-size: 25px;
+    font-weight: 500;
+}
