@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './MembershipPage.css';
 
 import backgroundImg from '../../utils/images/membership-background.png';
+import qrImg from '../../utils/images/QR-code.png';
 
 function MembershipPage() {
   return(
@@ -37,20 +38,22 @@ function MembershipPage() {
           </div>
         </div>
         <br></br>
-        <div>
-          <h2>How to apply</h2>
-          <h4>Online</h4>
-          <p>
-            Complete the 2024 SHIMA membership form.
-            Once you have completed the membership form you will receive a confirmation email with a link to PayPal.
-          </p>
-          <button class="apply-button-2">Apply now</button>
-          <h4>In-person</h4>
-          <p>
-            Attend one of our upcoming workshops and complete a new membership form.
-          </p>
+        <div class="apply-section">
+          <div class="apply-text">
+            <h2>How to apply</h2>
+            <h4>Online</h4>
+            <p class="caption">
+            Complete the 2024 SHIMA membership form below <span class="bold">OR</span> by scanning the QR code.
+            Once you have completed the membership form you will receive a confirmation email with a link to PayPal. 
+            </p>
+            <h4>In-person</h4>
+            <p class="caption">
+              Attend one of our upcoming workshops and complete a new membership form.
+            </p>
+          </div>
+          <img src={qrImg} alt="QR Code for membership application"></img>
         </div>
-      </div>
+        <iframe title="SHIMA Membership Form" src="https://docs.google.com/forms/d/e/1FAIpQLSe9a82zcd24NAEtSnb4ka5bhq_ggqvsxu2Th5IKHOG23Qv_Uw/viewform?embedded=true" width="640" height="596" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>      </div>
     </div>
   )
 }
