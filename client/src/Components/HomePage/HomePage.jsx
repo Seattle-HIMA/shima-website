@@ -117,7 +117,6 @@ function HomePage() {
             </div>
             <div className={"membership-cards-section"}>
                 {getMembershipCards()}
-                <div className={"membership-section-background"}></div>
             </div>
             <div className={"what-we-do-section"}>
                 <p className={"what-we-do-text"}>
