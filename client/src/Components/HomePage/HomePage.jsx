@@ -10,16 +10,19 @@ const aboutUsButton = () => {
 
 const getTitleSection = () => {
     return (
-        <div>
-            <p className={"title-text"}>
-                Seattle Health Information Management Association
-            </p>
-            <p className={"description-text"}>
-                Welcome! We are a dedicated group of volunteers working to ensure that the Seattle Health
-                Information Management community has access to a network of professionals, engaging workshops and
-                scholarships.
-            </p>
-            <button className={"about-us-button"} onClick={aboutUsButton}>About Us</button>
+        <div className={"title-container"}>
+            <div className={"title-text-container"}>
+                <p className={"title-text"}>
+                    Seattle Health Information Management Association
+                </p>
+                <p className={"description-text"}>
+                    Welcome! We are a dedicated group of volunteers working to ensure that the Seattle Health
+                    Information Management community has access to a network of professionals, engaging workshops and
+                    scholarships.
+                </p>
+                <button className={"about-us-button"} onClick={aboutUsButton}>About Us</button>
+            </div>
+            <img src={seattleImg} alt={"space needle sunset"} className={"seattle-sunset-image"}/>
         </div>
     );
 };
@@ -109,15 +112,11 @@ function HomePage() {
             <div className={"title-section"}>
                 {getTitleSection()}
             </div>
-            <div className={"title-image"}>
-                <img src={seattleImg} alt={"space needle sunset"}/>
-            </div>
             <div className={"become-a-member-section"}>
                 {getBecomeAMemberSection()}
             </div>
             <div className={"membership-cards-section"}>
                 {getMembershipCards()}
-                <div className={"membership-section-background"}></div>
             </div>
             <div className={"what-we-do-section"}>
                 <p className={"what-we-do-text"}>
