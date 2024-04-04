@@ -1,35 +1,70 @@
-
 .navbar {
-  background-color: var(--white);
+  background-color: var(--light-gray);
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 40px;
-  z-index: 999;
+  padding: 0;
+
+  font-family: "Arimo", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .pages-links {
-  display: inline;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-btn {
+  padding: 40px 0 20px 0;
+  margin: 0 25px 20px 25px;
+  align-content: center;
+
+  display: inline-block;
+  background-image: linear-gradient(var(--dark-blue) 0 0, var(--dark-blue) 100%);
+  background-position: 0 100%;
+  background-size: 0 2px;
+  background-repeat: no-repeat;
+  transition:
+          background-size 0.3s,
+          background-position 0s 0.3s; /*change after the size immediately*/
 }
 
 .pages-links .nav-btn {
-  margin: 40px;
   text-decoration: none;
-  color: black;
+  color: var(--dark-blue);
+}
+
+.nav-btn:hover {
+  background-position: 100% 100%; /*OR bottom right*/
+  background-size: 100% 2px;
 }
 
 .account-btns button {
   border-radius: 25px;
-  margin: 0px 10px;
-  padding: 8px 15px;
+  margin: 0 8px;
+  padding: 12px 20px;
   border: none;
-  background-color: var(--white);
+  background-color: var(--light-gray);
+  transition: 0.3s;
+
+  font-family: "Arimo", sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .account-btns button:hover {
   background-color: var(--dark-blue);
-  color: var(--white);
+  color: var(--light-gray);
+  transition: 0.3s;
+}
+
+.logo {
+  padding: 20px;
 }
