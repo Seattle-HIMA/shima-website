@@ -1,5 +1,5 @@
 .navbar {
-  background-color: var(--light-gray);
+  background-color: var(--gray-white);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,11 +7,13 @@
   top: 0;
   width: 100%;
   padding: 0;
+  box-shadow: 0 2px 10px var(--light-gray);
 
   font-family: "Arimo", sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
+  z-index: 999;
 }
 
 .pages-links {
@@ -50,7 +52,7 @@
   margin: 0 8px;
   padding: 12px 20px;
   border: none;
-  background-color: var(--light-gray);
+  background-color: var(--gray-white);
   transition: 0.3s;
 
   font-family: "Arimo", sans-serif;
@@ -61,7 +63,7 @@
 
 .account-btns button:hover {
   background-color: var(--dark-blue);
-  color: var(--light-gray);
+  color: var(--gray-white);
   transition: 0.3s;
 }
 
