@@ -2,7 +2,6 @@ import React from 'react';
 
 import './Login.css';
 import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';
-import walkingImg from '../../utils/images/undraw_walking_outside_re_56xo.svg';
 
 function Login() {
     return (
@@ -13,16 +12,25 @@ function Login() {
             </div>
             <div className={"login-box"}>
                 <div className={"login-box-text"}>Log In</div>
-                <div>
-                    <p>Email</p>
-                    <input/>
+
+                <div className={"login-email-wrapper"}>
+                    <p className={"login-email-label"}>Email</p>
+                    <input className={"login-email-input"}/>
                 </div>
-                <div>
-                    <p>Password</p>
-                    <input/>
+                <div className={"login-password-wrapper"}>
+                    <p className={"login-password-label"}>Password</p>
+                    <input className={"login-password-input"}/>
                 </div>
-                <p>Don't have an account? <a>Create Account Here</a></p>
-                <img src={walkingImg} alt={"walking with the trees"} className={"walkingImg"}/>
+
+                <p className={"dont-have-account"}>Don't have an account?
+                    <a className={"create-account-link"}>Create an account</a>
+                </p>
+
+                <button className={"login-submit-button"}>
+                    <span>Log In</span>
+                    <span></span>
+                </button>
+
             </div>
         </div>
     )
