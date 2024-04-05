@@ -13,5 +13,5 @@
 
     /* cards */
     --card-shadow-bottom-right: 3px 3px 3px #D9D9D6;
-    --card-shadow-sides: 0px 2px 3px 1px #D9D9D6;
+    --card-shadow-sides: 0px 0px 2px 2px #D9D9D6;
 }

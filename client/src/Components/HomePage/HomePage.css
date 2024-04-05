@@ -29,7 +29,7 @@ body, html {
 }
 
 .seattle-sunset-image:hover {
-    transform:scale(1.04);
+    transform: scale(1.04);
     transition: 0.5s;
 }
 
@@ -104,7 +104,7 @@ body, html {
     border-radius: 8px;
     box-sizing: border-box;
     cursor: pointer;
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 16px;
     height: 48px;
     justify-content: center;
@@ -148,6 +148,7 @@ body, html {
     display: flex;
     flex-direction: column;
     padding-bottom: 50px;
+    font-family: 'Inter', sans-serif;
 
     background: linear-gradient(
             to bottom,
@@ -164,6 +165,21 @@ body, html {
     box-shadow: var(--card-shadow-sides);
     display: flex;
     flex-direction: row;
+    transition: 0.3s ease-out;
+}
+
+.membership-card:hover {
+    box-shadow: 0 2px 3px 4px rgba(15, 35, 59, 0.53);
+    transition: 0.3s ease-in;
+    transform: scale(1.01);
+
+    .membership-card-subtitle {
+        background-position: 0;
+    }
+
+    .membership-card-subtitle:after {
+        width: 100%;
+    }
 }
 
 .membership-card-left {
@@ -177,9 +193,45 @@ body, html {
 }
 
 .membership-card-subtitle {
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 23px;
+    font-weight: bold;
     color: var(--gray);
+    padding-top: 15px;
+
+    text-decoration: none;
+    z-index: 1;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(
+            to right,
+            #FF6584,
+            #FF6584 50%,
+            var(--gray) 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    transition: all 0.4s ease-in-out;
+
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.membership-card-subtitle:before {
+    z-index: 0;
+    background: var(--dark-blue);
+    transition: all 0.3s ease-in-out;
+}
+
+.membership-card-subtitle:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FF6584;
+    transition: width 0.3s ease-in-out;
 }
 
 .membership-card-content {
@@ -197,6 +249,16 @@ body, html {
 .benefits-list {
     flex: 1 0 0;
     list-style-image: url("../../utils/icons/blue-checkmark.svg");
+    padding-right: 6px;
+}
+
+.benefits-list-item {
+    transition: transform 0.3s ease-in-out;
+    transform-origin: left;
+}
+
+.benefits-list-item:hover {
+    transform: scale(1.05);
 }
 
 .eligibility-list {
@@ -210,6 +272,15 @@ body, html {
 .eligibility-list-item span {
     position: relative;
     left: 10px;
+}
+
+.eligibility-list-item {
+    transition: transform 0.3s ease-in-out;
+    transform-origin: left;
+}
+
+.eligibility-list-item:hover {
+    transform: scale(1.05);
 }
 
 .membership-eligibility-card-content {
