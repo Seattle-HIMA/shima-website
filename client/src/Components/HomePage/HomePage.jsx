@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import './HomePage.css';
 
-import seattleImg from '../../utils/images/space-needle-sunset.png';
+import seattleImg from '../../utils/images/seattle-sunset-image.webp';
 
 const aboutUsButton = () => {
     console.log("you clicked the about us button");
@@ -22,7 +22,9 @@ const getTitleSection = () => {
                 </p>
                 <button className={"about-us-button"} onClick={aboutUsButton}>About Us</button>
             </div>
-            <img src={seattleImg} alt={"space needle sunset"} className={"seattle-sunset-image"}/>
+            <div className={"img-wrapper"}>
+                <img src={seattleImg} alt={"space needle sunset"} className={"seattle-sunset-image"}/>
+            </div>
         </div>
     );
 };

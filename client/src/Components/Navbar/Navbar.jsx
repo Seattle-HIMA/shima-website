@@ -3,7 +3,6 @@ import './Navbar.css';
 
 function NavBar() {
     const navigate = useNavigate()
-
     return (
         <div className={"navbar"}>
             <span className={"logo"}>Logo</span>
