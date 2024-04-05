@@ -23,7 +23,7 @@ function Login() {
                 </div>
 
                 <p className={"dont-have-account"}>Don't have an account?
-                    <a className={"create-account-link"}>Create an account</a>
+                    <a className={"create-account-link"} href={'/SignUp'}>Create an account</a>
                 </p>
 
                 <button className={"login-submit-button"}>

@@ -27,7 +27,7 @@ function SignUp() {
                 </div>
 
                 <p className={"already-have-account"}>Already have an account?
-                    <a className={"log-into-account-link"}>Log In</a>
+                    <a className={"log-into-account-link"} href={'/LogIn'}>Log In</a>
                 </p>
 
                 <button className={"signup-submit-button"}>
