@@ -24,7 +24,7 @@ body, html {
 
 .seattle-sunset-image {
     height: 100%;
-    width: auto;
+    width: 40vw;
     transition: 0.5s;
 }
 
@@ -34,7 +34,7 @@ body, html {
 }
 
 .title-text-container {
-    width: 60%;
+    width: 60vw;
     padding: 0 40px 0 50px;
 }
 
