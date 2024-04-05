@@ -236,8 +236,7 @@ body, html {
 }
 
 .what-we-do-card {
-    border-radius: 15px;
-    box-shadow: var(--card-shadow-bottom-right);
+    box-shadow: 3px 3px 3px #D9D9D9;
     width: 340px;
     height: 387px;
     overflow: hidden;
@@ -246,12 +245,24 @@ body, html {
 .card-header {
     border-radius: 15px;
     background-color: var(--dark-blue);
-    width: 340px;
-    height: 99px;
+    width: 374px;
+    height: 174px;
 }
 
 .card-body {
-    margin: 40px;
+    margin: 30px 20px 5px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    text-align: center;
+}
+
+.card-body button {
+    background-color: white;
+    padding: 2px 10px;
+    border-radius: 50%;
+    color: black;
 }
 
 .img {
@@ -261,12 +272,41 @@ body, html {
 }
 
 .card-name {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.card-body {
-    text-align: center;
+.card-content {
+    margin-left: 20px;
+}
+
+/* LETTER FROM PRESIDENT */
+.pres-letter {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 200px;
+}
+
+.pres-letter img {
+    width: 260px;
+    height: 386px;
+}
+
+.letter {
+    margin: 0 10px 0 40px;
+}
+
+.letter h3 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.letter p {
+    font-size: 14px;
+}
+
+#signature {
+    margin-bottom: 0;
 }
