@@ -1,0 +1,44 @@
+.login-page-wrapper {
+    height: max-content;
+    background-color: var(--dark-blue);
+    font-family: 'Inter', sans-serif;
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+}
+
+.login-title {
+    width: 35%;
+}
+
+.login-title-text {
+    text-transform: uppercase;
+    word-spacing: 100vw;
+    line-height: 45px;
+    text-align: left;
+    font-size: 35px;
+    font-weight: 300;
+    padding: 0 0 100px 80px;
+    margin-top: 130px;
+    color: var(--white);
+}
+
+.login-box {
+    width: 75%;
+    background-color: var(--white);
+    margin-top: 100px;
+    padding: 80px 20px 40px 80px;
+}
+
+.login-box-text {
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.cityImg {
+    width: 35vw;
+}
+
+.walkingImg {
+    width: 300px;
+}

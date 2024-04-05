@@ -136,11 +136,11 @@ body, html {
 
 .benefits-list {
     flex: 1 0 0;
-    list-style-image: url("../../utils/images/icons/blue-checkmark.svg");
+    list-style-image: url("../../utils/icons/blue-checkmark.svg");
 }
 
 .eligibility-list {
-    list-style-image: url("../../utils/images/icons/gray-bullet.svg");
+    list-style-image: url("../../utils/icons/gray-bullet.svg");
 }
 
 .benefits-list-item, .eligibility-list-item {
