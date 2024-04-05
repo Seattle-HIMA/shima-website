@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import './AboutUs.css'
+import bg from '../../utils/images/board-members-bg.jpeg'
 
 function AboutUs() {
   return(
     <div className={"members-page"}>
       <div className={"header"}>
-        <h1>2024 Board Members</h1>
+        <img src={bg}></img>
+        <section>
+          <h1>Board Members</h1>
+          <p>Meet the 2024 team at SHIMA</p>
+        </section>
       </div>
     </div>
   )
