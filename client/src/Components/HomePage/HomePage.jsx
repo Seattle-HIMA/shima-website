@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import './HomePage.css';
 
-import seattleImg from '../../utils/images/seattle-sunset-image.webp';
+import seattleImg from '../../utils/images/seattle-sunset-image.jpg';
 import presidentImg from '../../utils/images/president-photo.png';
 
 const aboutUsButton = () => {

@@ -1,0 +1,138 @@
+.login-page-wrapper {
+    height: max-content;
+    background-color: var(--dark-blue);
+    font-family: 'Inter', sans-serif;
+    padding: 90px 0 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.login-title {
+    width: 35%;
+}
+
+.login-title-text {
+    text-transform: uppercase;
+    word-spacing: 100vw;
+    line-height: 45px;
+    text-align: left;
+    font-size: 30px;
+    font-weight: 300;
+    padding: 100px 0 70px 80px;
+    color: var(--white);
+}
+
+.login-box {
+    width: 75%;
+    margin-top: 50px;
+    padding: 60px 20px 60px 150px;
+
+    background-color: var(--white);
+    background-image: url("../../utils/images/undraw_walking_outside_re_56xo.svg");
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+    color: var(--dark-blue);
+}
+
+.login-box-text {
+    font-weight: 700;
+    font-size: 30px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.login-email-wrapper, .login-password-wrapper {
+    margin-bottom: 20px;
+}
+
+.login-email-label, .login-password-label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.login-email-input, .login-password-input {
+    border: 1px solid var(--dark-blue);
+    width: 300px;
+}
+
+.dont-have-account {
+    font-size: 12px;
+    padding-top: 50px;
+}
+
+.create-account-link {
+    font-size: 12px;
+    padding-left: 20px;
+    font-weight: 600;
+    text-decoration: underline solid transparent;
+    transition: text-decoration 0.3s;
+    color: var(--dark-blue);
+    cursor: pointer;
+}
+
+.create-account-link:hover {
+    text-decoration: underline solid var(--dark-blue);
+    text-underline-offset: 3px;
+    font-weight: 600;
+    transition: text-decoration 0.3s;
+}
+
+.login-submit-button {
+    margin: 10px 0 30px 0;
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: var(--white);
+    border-radius: 30px;
+    border: 1px solid var(--dark-blue);
+    font-weight: 600;
+    color: var(--dark-blue);
+    box-shadow: 0 0 0 2px #ffffff20;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.login-submit-button span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--dark-blue);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.login-submit-button span:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+.login-submit-button:hover {
+    box-shadow: 0 0 0 5px var(--dark-blue);
+    color: var(--white);
+    background-color: var(--dark-blue);
+    transition: 0.5s;
+}
+
+.login-submit-button:active {
+    scale: 0.93;
+}
+
+.login-submit-button:hover span:last-child {
+    width: 150px;
+    height: 150px;
+    opacity: 1;
+}
+
+.cityImg {
+    width: 35vw;
+}

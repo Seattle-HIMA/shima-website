@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 function NavBar() {
+    const navigate = useNavigate()
     return (
         <div className={"navbar"}>
             <span className={"logo"}>Logo</span>
@@ -14,8 +14,8 @@ function NavBar() {
                 <Link className={"nav-btn"} to='/About'>About Us</Link>
             </div>
             <div className={"account-btns"}>
-                <button>Login</button>
-                <button>Sign up</button>
+                <button onClick={() => navigate('/LogIn')}>Login</button>
+                <button onClick={() => navigate('/SignUp')}>Sign up</button>
             </div>
         </div>
     );
