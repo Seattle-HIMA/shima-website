@@ -6,26 +6,36 @@ body, html {
 
 /* TITLE SECTION */
 .title-section {
-    padding: 120px 500px 30px 50px;
+    padding-top: 70px;
     background-color: var(--dark-blue);
+    align-items: stretch;
 }
 
 .title-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: max-content;
+    align-items: center;
+}
+
+.img-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    height: auto;
 }
 
 .seattle-sunset-image {
-    align-self: flex-end;
-    margin-left: 100px;
-    width: 28vw;
+    height: 100%;
+    width: auto;
+    transition: 0.5s;
+}
+
+.seattle-sunset-image:hover {
+    transform:scale(1.04);
+    transition: 0.5s;
 }
 
 .title-text-container {
-    max-width: 60vw;
-    padding-right: 20px;
+    width: 60%;
+    padding: 0 40px 0 50px;
 }
 
 .title-text {
@@ -136,11 +146,11 @@ body, html {
 
 .benefits-list {
     flex: 1 0 0;
-    list-style-image: url("../../utils/images/icons/blue-checkmark.svg");
+    list-style-image: url("../../utils/icons/blue-checkmark.svg");
 }
 
 .eligibility-list {
-    list-style-image: url("../../utils/images/icons/gray-bullet.svg");
+    list-style-image: url("../../utils/icons/gray-bullet.svg");
 }
 
 .benefits-list-item, .eligibility-list-item {
