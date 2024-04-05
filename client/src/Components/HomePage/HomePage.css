@@ -98,19 +98,12 @@ body, html {
 .membership-button {
     background-color: var(--white);
     color: var(--dark-blue);
-    /*font-weight: 550;*/
-    /*font-size: 17px;*/
-    /*padding: 12px 65px;*/
-    /*margin-top: 10px;*/
-    /*border-radius: 12px;*/
-
+    margin-top: 10px;
     align-items: center;
     border: 2px solid var(--dark-blue);
     border-radius: 8px;
     box-sizing: border-box;
-    /*color: #111;*/
     cursor: pointer;
-    display: flex;
     font-family: Inter,sans-serif;
     font-size: 16px;
     height: 48px;
@@ -120,14 +113,10 @@ body, html {
     padding: 0 25px;
     position: relative;
     text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
 }
 
 .membership-button:after {
-    background-color: #111;
+    background-color: var(--dark-blue);
     border-radius: 8px;
     content: "";
     display: block;
@@ -143,11 +132,6 @@ body, html {
 
 .membership-button:hover:after {
     transform: translate(0, 0);
-}
-
-.membership-button:active {
-    background-color: #ffdeda;
-    outline: 0;
 }
 
 .membership-button:hover {
