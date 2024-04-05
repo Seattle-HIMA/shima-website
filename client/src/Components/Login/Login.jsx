@@ -30,7 +30,6 @@ function Login() {
                     <span>Log In</span>
                     <span></span>
                 </button>
-
             </div>
         </div>
     )
