@@ -6,26 +6,36 @@ body, html {
 
 /* TITLE SECTION */
 .title-section {
-    padding: 120px 500px 30px 50px;
+    padding-top: 70px;
     background-color: var(--dark-blue);
+    align-items: stretch;
 }
 
 .title-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: max-content;
+    align-items: center;
+}
+
+.img-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    height: auto;
 }
 
 .seattle-sunset-image {
-    align-self: flex-end;
-    margin-left: 100px;
-    width: 28vw;
+    height: 100%;
+    width: auto;
+    transition: 0.5s;
+}
+
+.seattle-sunset-image:hover {
+    transform:scale(1.04);
+    transition: 0.5s;
 }
 
 .title-text-container {
-    max-width: 60vw;
-    padding-right: 20px;
+    width: 60%;
+    padding: 0 40px 0 50px;
 }
 
 .title-text {
@@ -43,12 +53,29 @@ body, html {
 }
 
 .about-us-button {
+    background-color: var(--dark-blue);
+    border: 1px solid var(--white);
+    border-radius: 30px;
+    box-sizing: border-box;
+    color: var(--white);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: normal;
+    min-height: 30px;
+    padding: 10px 10px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    width: 130px;
+    will-change: transform;
+}
+
+.about-us-button:hover {
     color: var(--dark-blue);
     background-color: var(--white);
-    font-weight: 600;
-    font-size: 17px;
-    padding: 10px 40px;
-    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
 }
 
 /* BECOME A MEMBER SECTION */
@@ -69,13 +96,46 @@ body, html {
 }
 
 .membership-button {
-    color: var(--white);
-    background-color: var(--dark-blue);
-    font-weight: 550;
-    font-size: 17px;
-    padding: 12px 65px;
+    background-color: var(--white);
+    color: var(--dark-blue);
     margin-top: 10px;
-    border-radius: 12px;
+    align-items: center;
+    border: 2px solid var(--dark-blue);
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+}
+
+.membership-button:after {
+    background-color: var(--dark-blue);
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+}
+
+.membership-button:hover:after {
+    transform: translate(0, 0);
+}
+
+.membership-button:hover {
+    outline: 0;
 }
 
 /* MEMBERSHIP CARDS */
@@ -136,11 +196,11 @@ body, html {
 
 .benefits-list {
     flex: 1 0 0;
-    list-style-image: url("../../utils/images/icons/blue-checkmark.svg");
+    list-style-image: url("../../utils/icons/blue-checkmark.svg");
 }
 
 .eligibility-list {
-    list-style-image: url("../../utils/images/icons/gray-bullet.svg");
+    list-style-image: url("../../utils/icons/gray-bullet.svg");
 }
 
 .benefits-list-item, .eligibility-list-item {
