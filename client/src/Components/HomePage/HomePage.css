@@ -194,7 +194,7 @@ body, html {
 
 .membership-card-subtitle {
     font-size: 23px;
-    font-weight: bold;
+    font-weight: 600;
     color: var(--gray);
     padding-top: 15px;
 
