@@ -9,13 +9,6 @@ async function main() {
   await mongoose.connect(`mongodb+srv://shima:${process.env.MONGO_PW}@shima-website.1q7b4aj.mongodb.net/`);
   console.log('Success!');
 
-  const PageInfoSchema = new mongoose.Schema({
-    pageTitle: String,
-    pageDesc: String,
-    sectionsName: [String],
-    sectionsInfo: [String]
-  })
-
   const UserSchema = new mongoose.Schema({
     username: String,
     password: String,
@@ -44,7 +37,6 @@ async function main() {
 
   models.User = mongoose.model('User', UserSchema);
   models.User = mongoose.model('Board', BoardMemberSchema);
-
 
   console.log('Models created');
 }

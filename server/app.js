@@ -1,12 +1,12 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
-var apiRouter = require('./routes/api');
-var models = require('./models.js');
+const apiRouter = require('./routes/routes.js');
+const models = require('./database/models.js');
 
-var app = express();
+const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -20,6 +20,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api', apiRouter);
+app.use('/routes', apiRouter);
 
 module.exports = app;
