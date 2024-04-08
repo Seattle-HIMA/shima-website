@@ -90,18 +90,29 @@ const getMembershipCards = () => {
 };
 
 // will move into a json file later
-const WHATWEDO = {
-    "Opportunities": `Host workshops, panel disscussions, speakers, and
+const WHATWEDO = [
+    {
+        "name": "Opportunities",
+        "description": `Host workshops, panel disscussions, speakers, and
                         create networking opportunities.`,
-    "Scholarships": `Provide Undergraduate and Graduate Scholarships for Health
+        "image": require('../../utils/images/opportunities-photo.jpeg')
+    },
+    {
+        "name": "Scholarships",
+        "description": `Provide Undergraduate and Graduate Scholarships for Health
                         Information Management and Informatics students.`,
-    "Reimbursement": `Provide professional exam fee reimbursement for the AHIMA
-                        credentials.`
-};
+        "image": require('../../utils/images/scholarships-photo.jpeg')
+    },
+    {
+        "name": "Reimbursement",
+        "description": `Provide professional exam fee reimbursement for the AHIMA
+                        credentials.`,
+        "image": require('../../utils/images/reimbursement-photo.jpeg')
+    }];
 
 function HomePage() {
-    const whatWeDoCards = Object.keys(WHATWEDO).map((key) => {
-        const card = makeCard(key, WHATWEDO[key]);
+    const whatWeDoCards = WHATWEDO.map((item) => {
+        const card = makeCard(item.name, item.description, item.image);
         return card;
     });
 
@@ -163,11 +174,9 @@ function HomePage() {
         </div>);
 }
 
-function makeCard(name, content) {
+function makeCard(name, content, img) {
     return (<div className={"what-we-do-card"}>
-            <div className={"card-header"}>
-                <p className={"img"}>insert image</p>
-            </div>
+            <div className={"card-header"} style={{backgroundImage: `url(${img})`}}></div>
 
             <div className={"card-body"}>
                 <h2 className={"card-name"}>{name}</h2>

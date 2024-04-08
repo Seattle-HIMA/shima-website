@@ -315,7 +315,8 @@ body, html {
 
 .card-header {
     border-radius: 15px;
-    background-color: var(--dark-blue);
+    background-position: center;
+    background-size: cover;
     width: 374px;
     height: 174px;
 }
