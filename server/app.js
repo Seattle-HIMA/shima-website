@@ -1,9 +1,25 @@
-const express = require("express");
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+require('dotenv').config();
 
-const app = express();
+var apiRouter = require('./routes/api');
+var models = require('./models.js');
 
-app.get("/", (req, res) => {
-  res.send("hello world!");
-})
+var app = express();
 
-module.exports = app
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+// mongodb middleware
+app.use((req, res, next) => {
+  req.models = models;
+  next();
+});
+
+app.use('/api', apiRouter);
+
+module.exports = app;
