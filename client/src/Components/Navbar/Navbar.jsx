@@ -9,6 +9,7 @@ function NavBar() {
       <div className={"pages-links"}>
         <Link className={"nav-btn"} to='/'>Home</Link>
         <Link className={"nav-btn"} to='/Membership'>Membership</Link>
+        <Link className={"nav-btn"} to='/Workshops'>Workshops</Link>
         <Link className={"nav-btn"} to='/Scholarships'>Scholarships</Link>
         <Link className={"nav-btn"} to='/Events'>Events</Link>
         <Link className={"nav-btn"} to='/About'>About Us</Link>
