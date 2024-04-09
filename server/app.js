@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 const apiRouter = require('./routes/routes.js');
-const models = require('./database/models.js');
+const models = require('./models.js');
 
 const app = express();
 
