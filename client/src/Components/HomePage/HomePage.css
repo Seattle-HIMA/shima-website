@@ -299,7 +299,7 @@ body, html {
 
 .what-we-do-text {
     color: var(--text-gray);
-    font-weight: 200;
+    font-weight: 300;
     font-size: var(--section-heading);
     text-align: center;
     padding-bottom: 80px;
