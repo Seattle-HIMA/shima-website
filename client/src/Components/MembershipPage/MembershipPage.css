@@ -1,8 +1,14 @@
-.title {
+.membership-title {
     position: relative;
     text-align: center;
+    display: flex;
     color: white;
-    background-color: #0F233B;
+    justify-content: center;
+    flex-direction: column;
+}
+#membership-img {
+    width: 100vw;
+    height: auto;
 }
 
 .centered {
@@ -11,8 +17,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-  
-h1 {
+
+.membership-h1 {
     font-weight: 600;
 }
 
@@ -37,11 +43,11 @@ h1 {
     font-family: 'Inter', sans-serif;
 }
 
-h2, h3 {
+.membership-h2, .membership-h3 {
     color: #0F233B;
 }
 
-h2 {
+.membership-h2 {
     font-weight: 600;
     font-size: 45px;
 }

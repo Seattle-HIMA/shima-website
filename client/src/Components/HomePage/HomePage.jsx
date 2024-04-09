@@ -1,17 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {useNavigate} from "react-router-dom";
 
 import './HomePage.css';
 
 import seattleImg from '../../utils/images/seattle-sunset-image.jpg';
 import presidentImg from '../../utils/images/president-photo.png';
 
-const aboutUsButton = () => {
-    console.log("you clicked the about us button");
-};
-
-const getTitleSection = () => {
-    return (
-        <div className={"title-container"}>
+const getTitleSection = (navigate) => {
+    return (<div className={"title-container"}>
             <div className={"title-text-container"}>
                 <p className={"title-text"}>
                     Seattle Health Information Management Association
@@ -21,28 +17,28 @@ const getTitleSection = () => {
                     Information Management community has access to a network of professionals, engaging workshops and
                     scholarships.
                 </p>
-                <button className={"about-us-button"} onClick={aboutUsButton}>About Us</button>
+                <button className={"about-us-button"} onClick={
+                    () => navigate('/About')
+                }>About Us</button>
             </div>
             <div className={"img-wrapper"}>
                 <img src={seattleImg} alt={"space needle sunset"} className={"seattle-sunset-image"}/>
             </div>
-        </div>
-    );
+        </div>);
 };
 
-const getBecomeAMemberSection = () => {
-    return (
-        <div>
+const getBecomeAMemberSection = (navigate) => {
+    return (<div>
             <p className={"become-member-text"}>Become a member</p>
             <p className={"become-member-subtext"}>Join as a 2024 SHIMA member today.</p>
-            <button className={"membership-button"}>Membership</button>
-        </div>
-    );
+            <button className={"membership-button"} onClick={
+                () => navigate('/Membership')
+            }>Membership</button>
+        </div>);
 };
 
 const getMembershipCards = () => {
-    return (
-        <div className={"membership-cards-container"}>
+    return (<div className={"membership-cards-container"}>
             <div className={"membership-card"}>
                 <div className={"membership-card-left"}>
                     <p className={"membership-card-title"}>Benefits</p>
@@ -90,33 +86,44 @@ const getMembershipCards = () => {
                     </ul>
                 </div>
             </div>
-        </div>
-    );
+        </div>);
 };
 
 // will move into a json file later
-const WHATWEDO = {
-    "Opportunities": `Host workshops, panel disscussions, speakers, and
+const WHATWEDO = [
+    {
+        "name": "Opportunities",
+        "description": `Host workshops, panel disscussions, speakers, and
                         create networking opportunities.`,
-    "Scholarships": `Provide Undergraduate and Graduate Scholarships for Health
+        "image": require('../../utils/images/opportunities-photo.jpeg')
+    },
+    {
+        "name": "Scholarships",
+        "description": `Provide Undergraduate and Graduate Scholarships for Health
                         Information Management and Informatics students.`,
-    "Reimbursement": `Provide professional exam fee reimbursement for the AHIMA
-                        credentials.`
-};
+        "image": require('../../utils/images/scholarships-photo.jpeg')
+    },
+    {
+        "name": "Reimbursement",
+        "description": `Provide professional exam fee reimbursement for the AHIMA
+                        credentials.`,
+        "image": require('../../utils/images/reimbursement-photo.jpeg')
+    }];
 
 function HomePage() {
-    const whatWeDoCards = Object.keys(WHATWEDO).map((key) => {
-        const card = makeCard(key, WHATWEDO[key]);
+    const whatWeDoCards = WHATWEDO.map((item) => {
+        const card = makeCard(item.name, item.description, item.image);
         return card;
     });
 
-    return (
-        <div>
+    const navigate = useNavigate();
+
+    return (<div>
             <div className={"title-section"}>
-                {getTitleSection()}
+                {getTitleSection(navigate)}
             </div>
             <div className={"become-a-member-section"}>
-                {getBecomeAMemberSection()}
+                {getBecomeAMemberSection(navigate)}
             </div>
             <div className={"membership-cards-section"}>
                 {getMembershipCards()}
@@ -164,24 +171,19 @@ function HomePage() {
                     <p>SHIMA President</p>
                 </div>
             </div>
-        </div>
-    );
+        </div>);
 }
 
-function makeCard(name, content) {
-    return (
-        <div className={"what-we-do-card"}>
-            <div className={"card-header"}>
-                <p className={"img"}>insert image</p>
-            </div>
+function makeCard(name, content, img) {
+    return (<div className={"what-we-do-card"}>
+            <div className={"card-header"} style={{backgroundImage: `url(${img})`}}></div>
 
             <div className={"card-body"}>
                 <h2 className={"card-name"}>{name}</h2>
                 <button>{'>'}</button>
             </div>
             <p className={"card-content"}>{content}</p>
-        </div>
-    );
+        </div>);
 }
 
 export default HomePage;
