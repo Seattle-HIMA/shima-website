@@ -3,6 +3,7 @@ import {Route, Routes, Link} from 'react-router-dom';
 import NavBar from './Components/Navbar/Navbar';
 import HomePage from './Components/HomePage/HomePage';
 import Membership from './Components/MembershipPage/MembershipPage';
+import Workshops from './Components/WorkshopsPage/WorkshopsPage';
 import Scholarship from './Components/ScholarshipsPage/ScholarshipsPage';
 import EventsPage from './Components/EventsPage/EventsPage';
 import AboutUs from './Components/AboutUs/AboutUs';
