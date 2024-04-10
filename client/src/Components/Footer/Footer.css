@@ -21,7 +21,6 @@
 }
 
 .links {
-  display: inline;
   display: flex;
   justify-content: center;
 }

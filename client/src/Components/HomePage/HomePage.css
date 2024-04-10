@@ -1,14 +1,3 @@
-/* BODY */
-body, html {
-    font-family: var(--main-font, sans-serif);
-    width: 100%;
-}
-
-.home-page-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
 /* TITLE SECTION */
 .title-section {
     padding-top: 70px;
