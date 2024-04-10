@@ -9,6 +9,18 @@ const EVENT_INFO = [
     "speaker": "Tabitha Lieberman",
     "description": "A renowned health IT leader, Tabitha Lieberman has more than 30 years of experience powering transformational implementations, digital integrations, and deployments.",
     "flyerSource": "flyer-1.png"
+  }, 
+  {
+    "title": "From Data Entry to Policy Input",
+    "speaker": "Jim Condon",
+    "description": "Dr. Jim Condon is an Associate Teaching Professor and Director of the Health Informatics and Health Information Management undergraduate and graduate programs at the University of Washington",
+    "flyerSource": "flyer-2.png"
+  },
+  {
+    "title": "Event 3",
+    "speaker": "Speaker 3",
+    "description": "description here",
+    "flyerSource": "flyer-1.png"
   }
 ]
 
