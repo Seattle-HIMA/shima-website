@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './Login.css';
 import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';
@@ -7,6 +7,10 @@ import microsoftLogo from '../../utils/icons/ms-symbollockup_signin_light.svg'
 
 function Login(props) {
     props.setShowFooter(false);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <div className={"login-page-wrapper"}>

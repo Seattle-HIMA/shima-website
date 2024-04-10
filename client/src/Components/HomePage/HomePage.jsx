@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import './HomePage.css';
@@ -119,6 +119,10 @@ const WHAT_WE_DO = [
 function HomePage(props) {
     const navigate = useNavigate();
     props.setShowFooter(true);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const whatWeDoCards = WHAT_WE_DO.map((item) => {
         return makeCard(navigate, item.name, item.description, item.image, item.link);

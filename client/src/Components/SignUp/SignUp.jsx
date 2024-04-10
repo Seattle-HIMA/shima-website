@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, {useEffect} from 'react';
 import './SignUp.css';
 import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';
 import googleLogo from "../../utils/icons/google_signin_light.svg";
@@ -7,6 +6,10 @@ import microsoftLogo from "../../utils/icons/ms-symbollockup_signin_light.svg";
 
 function SignUp(props) {
     props.setShowFooter(false);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <div className={"signup-page-wrapper"}>
