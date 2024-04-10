@@ -5,7 +5,9 @@ import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';
 import googleLogo from '../../utils/icons/google_signin_light.svg'
 import microsoftLogo from '../../utils/icons/ms-symbollockup_signin_light.svg'
 
-function Login() {
+function Login(props) {
+    props.setShowFooter(false);
+
     return (
         <div className={"login-page-wrapper"}>
             <div className={"login-page-before-footer"}>

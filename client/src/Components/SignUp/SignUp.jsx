@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function SignUp() {
+function SignUp(props) {
+  props.setShowFooter(false);
+
   return(
     <div>Hi</div>
   )
