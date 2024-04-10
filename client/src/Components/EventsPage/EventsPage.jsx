@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import backgroundImg from '../../utils/images/events-background.png';
 
 import './EventsPage.css';
@@ -25,6 +25,10 @@ const EVENT_INFO = [
 ]
 
 function makeSection(title, speaker, description, flyer, index) {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
   console.log("index:", index)
   const flyerImg = require(`../../utils/images/${flyer}`);
   const styleNum = index % 2 === 0 ? 1 : 2;

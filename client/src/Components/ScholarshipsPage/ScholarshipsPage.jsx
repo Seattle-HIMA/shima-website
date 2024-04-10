@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import './ScholarshipsPage.css'
 
 import background from '../../utils/images/scholarships-page.jpg';
@@ -83,6 +83,10 @@ const WINNER = {
 }
 
 function ScholarshipsPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const scholarshipsInfo = Object.keys(SCHOLARSHIPS).map((key) => {
     return (
       <div className={"scholarship-info"}>

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './Login.css';
 import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';
 
 function Login() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className={"login-page-wrapper"}>
             <div className={"login-title"}>
