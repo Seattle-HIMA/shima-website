@@ -20,6 +20,8 @@ async function main() {
 
   const UserSchema = new mongoose.Schema({
     username: String,
+    firstName: String,
+    lastName: String,
     password: String,
     profilePhoto: String,
     membership: String,
