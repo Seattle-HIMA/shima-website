@@ -84,7 +84,7 @@ const WINNER = {
 
 function ScholarshipsPage(props) {
     props.setShowFooter(true);
-  
+
     const scholarshipsInfo = Object.keys(SCHOLARSHIPS).map((key) => {
         return (
             <div className={"scholarship-info"}>

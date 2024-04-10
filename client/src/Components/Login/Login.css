@@ -1,8 +1,10 @@
-.login-page-before-footer {
-    background-color: var(--dark-blue);
+.login-page-wrapper {
+    background-color: var(--white);
     font-family: 'Inter', sans-serif;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    height: 100vh;
 }
 
 .login-title {
@@ -12,6 +14,8 @@
     align-items: center;
     justify-content: center;
     padding-top: 80px;
+    background-color: var(--dark-blue);
+    height: 100%;
 }
 
 .login-title-text {
@@ -20,14 +24,14 @@
     text-align: center;
     font-size: 1.5vw;
     font-weight: 300;
-    padding-top: 50px;
+    padding-top: 80px;
     color: var(--white);
 }
 
 .login-box {
     width: 75%;
-    padding: 30px 250px 10px 250px;
-    margin-top: 40px;
+    padding: 0 250px 0 250px;
+    margin-top: 50px;
     color: var(--dark-blue);
     background-color: var(--white);
     display: flex;
@@ -60,10 +64,6 @@
     font-size: 13px;
 }
 
-.login-forgot-password {
-
-}
-
 .login-forgot-password-text {
     color: var(--purple);
     font-size: 12px;
@@ -82,7 +82,7 @@
 }
 
 .dont-have-account {
-    margin-top: 30px;
+    margin-top: 40px;
     font-size: 12px;
     font-weight: 500;
     align-self: center;
@@ -106,7 +106,7 @@
 }
 
 .login-submit-button {
-    margin: 17px 0 30px 0;
+    margin: 35px 0 30px 0;
     width: 100%;
     position: relative;
     display: inline-block;
@@ -148,7 +148,7 @@
 .login-or-section {
     position: relative;
     text-align: center;
-    margin: 10px 0 30px 0;
+    margin: 30px 0 50px 0;
 }
 
 .login-or-line {
@@ -193,7 +193,7 @@
     -webkit-appearance: none;
     background-color: WHITE;
     background-image: none;
-    border: 1px solid #747775;
+    border: 1px solid var(--dark-blue);
     -webkit-border-radius: 4px;
     border-radius: 7px;
     -webkit-box-sizing: border-box;
@@ -283,6 +283,7 @@
 .gsi-material-button:not(:disabled):hover {
     -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+    transition: 0.3s;
 }
 
 .gsi-material-button:not(:disabled):hover .gsi-material-button-state {
@@ -296,12 +297,6 @@
     height: 40px;
     border-radius: 7px;
     margin-top: 15px;
-}
-
-@font-face {
-    font-family: 'Segoe UI';
-    src: local('Segoe UI'),
-    url("../../utils/fonts/segoe-ui.woff") format('woff');
 }
 
 .msft-button-contents {
