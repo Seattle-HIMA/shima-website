@@ -73,7 +73,7 @@
 .rates {
     display: flex;
     justify-content: center;
-} 
+}
 
 h3 {
     margin-bottom: 20px;
@@ -84,7 +84,7 @@ h3 {
 
 .price-box {
     width: 328px;
-    height: 243px; 
+    height: 243px;
     background-color: #FFFFFF;
     margin-right: 5%;
     margin-left: 5%;
@@ -120,7 +120,7 @@ h3 {
 }
 
 .apply-section image {
-    margin-left:10px;
+    margin-left: 10px;
 }
 
 .apply-text {
@@ -130,4 +130,4 @@ h3 {
 
 .apply-text p {
     margin: 0;
-  }
+}
