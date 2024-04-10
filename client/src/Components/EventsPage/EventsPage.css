@@ -19,7 +19,32 @@
     z-index: 0;
     text-align: center;
 }
-    
+
+.events-label {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.events-label h2 {
+    font-size: 50px;
+    font-weight: 250;
+    color: #AAA5A5;
+}
+
+.events-label p {
+    display: inline-block;
+    margin: 20px 30px;
+    font-weight: 700;
+}
+
+.events-label p:nth-child(2) {
+    color: #0A7AFF;
+}
+.events-label p:nth-child(3) {
+    color: #6530E8;
+}
+
 .events-page .header h1 {
     font-size: var(--page-title);
 }
@@ -31,40 +56,51 @@
     transform: translate(-50%, -50%);
 }
 
-.event-section {
+.event-section1, .event-section2 {
     display: flex;
-    align-items: center;
-    background-color: lightblue;
+    align-items: center; 
+    background-color: #0F233B;
 }
 
-.section-image {
-    flex-shrink: 0; /* Prevent image from growing */
+.event-section2 {
+    background-color: #FBFAFA;
+}
+
+.section-image1, .section-image2 {
+    /* align image2 to the right */
+    flex-shrink: 0;
     margin-right: 40px;
 }
 
-.section-body {
+.section-body1, .section-body2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 20px;
-
 }
 
-.section-title {
+.section-title1, .section-title2 {
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 10px;
+    color:#FFFFFF;
 }
 
-.section-title span {
+.section-title1 span,
+.section-title2 span {
     font-weight: lighter;
 }
 
-.section-description {
+.section-description1 {
     margin-bottom: 20px;
+    color:#FFFFFF
 }
 
-button {
+.section-title2, .section-description2 {
+    color:#0F233B
+}
+
+.event-button1, .event-button2 {
     padding: 10px 20px;
     background-color: #FFFFFF;
     color: black;
@@ -73,3 +109,8 @@ button {
     cursor: pointer;
     align-self: flex-start;
   }
+
+.event-button2 {
+    background-color: #0F233B;
+    color: white;
+}
