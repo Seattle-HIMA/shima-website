@@ -104,14 +104,16 @@ function ScholarshipsPage() {
   return(
     <div className={"scholarships-section"}>
       <div className={"scholarships-header"}>
-        <div className={"title"}>
+        <img src={background} alt="library view"></img>
+        <section>
           <h1>Scholarships</h1>
           <p>
-            View scholarship winners for the Exam Reimbursement Scholarship
-            and Graduate Scholarship.
+            Seattle Health Information Management Association offers scholarship
+            opportunities for students and professionals for demonstration of
+            excellence and potential leadership in the Health Information Management
+            industry
           </p>
-        </div>
-        <img src={background} alt="library view"></img>
+        </section>
       </div>
 
       <div className={"winner-section"}>
@@ -131,7 +133,7 @@ function ScholarshipsPage() {
 
 function makeWinnerSection(winner, scholarship, winYear, photo, details) {
   let name = scholarship.split("Scholarship")
-  
+
     const description = details.map((para) => {
       return <p className={"long-desc"}>{para}</p>
     })

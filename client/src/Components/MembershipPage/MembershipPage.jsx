@@ -8,10 +8,10 @@ import qrImg from '../../utils/images/QR-code.png';
 function MembershipPage() {
   return(
     <div>
-      <div class="title">
-        <img src={backgroundImg} alt="Seattle skyline"></img>
+      <div class="membership-title">
+        <img src={backgroundImg} alt="Seattle skyline" id="membership-img"></img>
         <div class="centered">
-          <h1 class="title-text">Membership</h1>
+          <h1 class="membership-h1">Membership</h1>
           <p className={"caption-text"}>
             SHIMA Membership is annual. If you are unsure if you are currently a member, please feel free to email us.
           </p>
@@ -21,10 +21,10 @@ function MembershipPage() {
       <br></br>
       <div class="information-section"> 
         <div>
-          <h2>Why join?</h2>
+          <h2 class="membership-h2">Why join?</h2>
           <p class="caption">Here at SHIMA, we offer discounted workshops, professional development, networking opportunities, Inexpensive Continuing Education Units (CEUs), and volunteering to members.</p>
           <div id="annual-rates">
-            <h3>Annual Rates</h3>
+            <h3 class="membership-h3">Annual Rates</h3>
             <div class="rates">
               <div class="price-box">
                 <p class="price-text"><span class="price">$5</span> / year</p>
@@ -40,7 +40,7 @@ function MembershipPage() {
         <br></br>
         <div class="apply-section">
           <div class="apply-text">
-            <h2>How to apply</h2>
+            <h2 class="membership-h2">How to apply</h2>
             <h4>Online</h4>
             <p class="caption">
             Complete the 2024 SHIMA membership form below <span class="bold">OR</span> by scanning the QR code.
