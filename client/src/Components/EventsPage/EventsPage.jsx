@@ -16,7 +16,7 @@ function makeSection(title, speaker, description, flyer) {
   const flyerImg = require(`../../utils/images/${flyer}`);
   return (
     <div className={"event-section"}>
-      <div className="section-image">
+      <div className={"section-image"}>
         <img src={flyerImg} alt="Event Flyer" />
       </div>
       <div className={"section-body"}>
@@ -39,13 +39,13 @@ function EventsPage() {
 
   return(
     <div>
-      <div class="events-title">
-        <img src={backgroundImg} alt="Rooftop view" id="events-img"></img>
-        <div class="centered">
-          <h1 class="events-h1">Workshops</h1>
-          <p className={"caption-text"}>
-            Upcoming workshops and events.
-          </p>
+      <div class="events-page">
+        <div class="header">
+          <img src={backgroundImg} alt="Rooftop view" id="events-img"></img>
+          <section>
+            <h1>Workshops</h1>
+            <p className={"caption-text"}>Upcoming workshops and events.</p>
+          </section>
         </div>
       </div>
       <div class="events-header">
