@@ -1,8 +1,13 @@
-import React, {useState} from 'react';
+import React, { useEffect } from 'react';
 import './AboutUs.css'
 import bg from '../../utils/images/board-members-bg.jpeg'
 
-function AboutUs() {
+function AboutUs(props) {
+    props.setShowFooter(true);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className={"members-page"}>
             <div className={"header"}>

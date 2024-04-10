@@ -1,11 +1,15 @@
-import React, {useState} from 'react';
-
+import React, {useEffect} from 'react';
 import './MembershipPage.css';
 
 import backgroundImg from '../../utils/images/membership-background.png';
 import qrImg from '../../utils/images/QR-code.png';
 
-function MembershipPage() {
+function MembershipPage(props) {
+    props.setShowFooter(true);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div>
             <div class="membership-title">

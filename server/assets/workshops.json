@@ -1,0 +1,14 @@
+{
+  "title": "Workshops",
+  "description": "Upcoming workshops and events.",
+  "subsections": [
+    {
+      "subTitle": "Upcoming workshops",
+      "subText": ["Registration Form", "Speaker Interest Form"],
+      "link": ["registration form link", "speaker interest form link"]
+    },
+    {
+      "subTitle": "Previous workshops"
+    }
+  ]
+}
