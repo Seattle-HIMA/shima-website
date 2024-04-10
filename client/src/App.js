@@ -15,24 +15,26 @@ import './utils/variables.css';
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function App() {
+    const [showFooter, setShowFooter] = useState(true);
+
     return (
         <div>
             <header>
-                <NavBar></NavBar>
+                <NavBar/>
             </header>
             <main>
                 <Routes>
-                    <Route index element={<HomePage/>}></Route>
-                    <Route path='/Membership' element={<Membership/>}></Route>
-                    <Route path='/ScholarShips' element={<Scholarship/>}></Route>
-                    <Route path='/Events' element={<EventsPage/>}></Route>
-                    <Route path='/About' element={<AboutUs/>}></Route>
-                    <Route path='/LogIn' element={<Login/>}></Route>
-                    <Route path='/SignUp' element={<SignUp/>}></Route>
+                    <Route index element={<HomePage setShowFooter={setShowFooter}/>}/>
+                    <Route path='/Membership' element={<Membership setShowFooter={setShowFooter}/>}/>
+                    <Route path='/ScholarShips' element={<Scholarship setShowFooter={setShowFooter}/>}/>
+                    <Route path='/Events' element={<EventsPage setShowFooter={setShowFooter}/>}/>
+                    <Route path='/About' element={<AboutUs setShowFooter={setShowFooter}/>}/>
+                    <Route path='/LogIn' element={<Login setShowFooter={setShowFooter}/>}/>
+                    <Route path='/SignUp' element={<SignUp setShowFooter={setShowFooter}/>}/>
                 </Routes>
             </main>
             <footer>
-                <Footer></Footer>
+                {showFooter && <Footer/>}
             </footer>
         </div>
     )

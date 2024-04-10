@@ -116,8 +116,9 @@ const WHAT_WE_DO = [
         "link": '/Membership'
     }];
 
-function HomePage() {
+function HomePage(props) {
     const navigate = useNavigate();
+    props.setShowFooter(true);
 
     useEffect(() => {
         window.scrollTo(0, 0)
