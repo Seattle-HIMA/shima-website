@@ -1,108 +1,108 @@
 .scholarships-section {
-  margin-bottom: 60px;
-  font-family: var(--main-font);
+    margin-bottom: 60px;
+    font-family: var(--main-font);
 }
 
 /* HEADER */
 .scholarships-header {
-  width: 100%;
-  height: 500px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
+    width: 100%;
+    height: 500px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .scholarships-header img {
-  position: absolute;
-  width: 100%;
-  filter: brightness(0.4);
+    position: absolute;
+    width: 100%;
+    filter: brightness(0.4);
 }
 
 .scholarships-header section {
-  color: white;
-  z-index: 0;
-  text-align: center;
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px 120px
+    color: white;
+    z-index: 0;
+    text-align: center;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 120px
 }
 
 .scholarships-header h1 {
-  font-size: var(--page-title);
-  margin: 20px 0px;
+    font-size: var(--page-title);
+    margin: 20px 0px;
 }
 
 /* WINNERS SECTION */
 .winner-section {
-  margin: 70px 100px;
+    margin: 70px 100px;
 }
 
 .winner-section h2 {
-  text-align: center;
-  color: #AAA5A5;
-  font-weight: 200;
-  margin-bottom: 100px;
+    text-align: center;
+    color: #AAA5A5;
+    font-weight: 200;
+    margin-bottom: 100px;
 }
 
 .winner-details {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 40px;
 }
 
 .winner-details h3 {
-  font-size: 22px;
-  font-weight: 700;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 .winner-info {
-  border-left: solid #D9D9D9 4px;
-  margin-left: 20px;
-  padding-left: 30px;
-  padding-right: 60px;
+    border-left: solid #D9D9D9 4px;
+    margin-left: 20px;
+    padding-left: 30px;
+    padding-right: 60px;
 }
 
 .short-desc {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .long-desc {
-  font-size: 17px;
+    font-size: 17px;
 }
 
 .winner-details img {
-  width: 170px;
-  height: 228px;
+    width: 170px;
+    height: 228px;
 }
 
 /* ABOUT OUR SCHOLARSHIP SECTION */
 .about-our-scholarships {
-  margin: 100px;
+    margin: 100px;
 }
 
 .about-our-scholarships h2 {
-  text-align: center;
-  margin-bottom: 50px;
-  color: #AAA5A5;
-  font-weight: 200;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #AAA5A5;
+    font-weight: 200;
 }
 
 .scholarship-info {
-  margin: 40px;
-  margin-left: 20px;
+    margin: 40px;
+    margin-left: 20px;
 }
 
 .details {
-  border-left: solid #D9D9D9 4px;
+    border-left: solid #D9D9D9 4px;
 }
 
 .scholarship-info h3 {
-  font-size: 18px;
-  font-weight: 600;
+    font-size: 18px;
+    font-weight: 600;
 }

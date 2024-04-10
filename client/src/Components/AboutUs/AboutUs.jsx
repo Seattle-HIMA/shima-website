@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import './AboutUs.css'
 import bg from '../../utils/images/board-members-bg.jpeg'
 

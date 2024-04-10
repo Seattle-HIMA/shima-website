@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useState} from 'react';
 import backgroundImg from '../../utils/images/events-background.png';
 
 import './EventsPage.css';
@@ -25,37 +25,33 @@ const EVENT_INFO = [
 ]
 
 function makeSection(title, speaker, description, flyer, index) {
-  console.log("index:", index)
-  const flyerImg = require(`../../utils/images/${flyer}`);
-  const styleNum = index % 2 === 0 ? 1 : 2;
-  console.log(styleNum)
-  return (
-    <div className={"event-section" + styleNum}>
-      <div className={"section-image" + styleNum}>
-        <img src={flyerImg} alt="Event Flyer" />
-      </div>
-      <div className={"section-body"+ styleNum}>
-        <h2 className={"section-title"+ styleNum}>
-          {title}<br></br><span>by {speaker}</span>
-        </h2>
-        <p className={"section-description" + styleNum}>{description}</p>
-        <button class={"event-button" + styleNum}>Click here</button>
-      </div>
-    </div>
-  );
-  /* annie's notes
-  if styleNum is 1, return div with image first and .1 styles
-  if styleNum is 2, return div with text elements above image
-  may be easier to align the image to the right this way and prob makes more sense
-  */
+    console.log("index:", index)
+    const flyerImg = require(`../../utils/images/${flyer}`);
+    const styleNum = index % 2 === 0 ? 1 : 2;
+    console.log(styleNum)
+    return (
+        <div className={"event-section" + styleNum}>
+            <div className={"section-image" + styleNum}>
+                <img src={flyerImg} alt="Event Flyer"/>
+            </div>
+            <div className={"section-body" + styleNum}>
+                <h2 className={"section-title" + styleNum}>
+                    {title}<br></br><span>by {speaker}</span>
+                </h2>
+                <p className={"section-description" + styleNum}>{description}</p>
+                <button class={"event-button" + styleNum}>Click here</button>
+            </div>
+        </div>
+    );
+    /* annie's notes
+    if styleNum is 1, return div with image first and .1 styles
+    if styleNum is 2, return div with text elements above image
+    may be easier to align the image to the right this way and prob makes more sense
+    */
+
 }
 
-function EventsPage(props) {
-    props.setShowFooter(true);
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
-
+function EventsPage() {
     const eventSections = EVENT_INFO.map((item, index) => {
         const section = makeSection(item.title, item.speaker, item.description, item.flyerSource, index);
         return section;

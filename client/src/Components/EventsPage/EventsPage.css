@@ -14,6 +14,7 @@
     width: 100%;
     filter: brightness(0.8);
 }
+
 .events-page .header section {
     color: white;
     z-index: 0;
@@ -41,6 +42,7 @@
 .events-label p:nth-child(2) {
     color: #0A7AFF;
 }
+
 .events-label p:nth-child(3) {
     color: #6530E8;
 }
@@ -58,7 +60,7 @@
 
 .event-section1, .event-section2 {
     display: flex;
-    align-items: center; 
+    align-items: center;
     background-color: #0F233B;
 }
 
@@ -83,7 +85,7 @@
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 10px;
-    color:#FFFFFF;
+    color: #FFFFFF;
 }
 
 .section-title1 span,
@@ -93,11 +95,11 @@
 
 .section-description1 {
     margin-bottom: 20px;
-    color:#FFFFFF
+    color: #FFFFFF
 }
 
 .section-title2, .section-description2 {
-    color:#0F233B
+    color: #0F233B
 }
 
 .event-button1, .event-button2 {
@@ -108,7 +110,7 @@
     border-radius: 5px;
     cursor: pointer;
     align-self: flex-start;
-  }
+}
 
 .event-button2 {
     background-color: #0F233B;
