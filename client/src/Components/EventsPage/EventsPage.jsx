@@ -25,10 +25,6 @@ const EVENT_INFO = [
 ]
 
 function makeSection(title, speaker, description, flyer, index) {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
-
   console.log("index:", index)
   const flyerImg = require(`../../utils/images/${flyer}`);
   const styleNum = index % 2 === 0 ? 1 : 2;
@@ -56,6 +52,9 @@ function makeSection(title, speaker, description, flyer, index) {
 
 function EventsPage(props) {
     props.setShowFooter(true);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const eventSections = EVENT_INFO.map((item, index) => {
         const section = makeSection(item.title, item.speaker, item.description, item.flyerSource, index);
