@@ -96,7 +96,7 @@ function ScholarshipsPage(props) {
             </div>
         )
     });
-    
+
     const winnerCards = Object.keys(SCHOLARSHIPS).map((key) => {
         const winners = SCHOLARSHIPS[key].winner
         const winnerCard = winners.map((winner) => {
