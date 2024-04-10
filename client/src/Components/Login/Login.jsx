@@ -6,7 +6,7 @@ import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';
 function Login() {
     return (
         <div className={"login-page-wrapper"}>
-            <div className={"login-page-top-half"}>
+            <div className={"login-page-before-footer"}>
                 <div className={"login-title"}>
                     <img src={cityImg} alt={"walking in the city"} className={"cityImg"}/>
                     <div className={"login-title-text"}>Seattle Health Information <br /> Management Association</div>
@@ -31,6 +31,17 @@ function Login() {
                         <span>Log In</span>
                         <span></span>
                     </button>
+
+                    <div>or</div>
+
+                    <div>
+                        log in with google
+                    </div>
+
+                    <div>
+                        log in with microsoft
+                    </div>
+
                 </div>
             </div>
             <hr className={"login-bottom-line"}/>
