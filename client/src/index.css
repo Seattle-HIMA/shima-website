@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Segoe UI';
+    src: local('Segoe UI'),
+    url("./utils/fonts/segoe-ui.woff") format('woff');
+}
+
+/* BODY */
+body, html {
+    font-family: var(--main-font, sans-serif);
+    width: 100%;
+    height: 100%;
+}

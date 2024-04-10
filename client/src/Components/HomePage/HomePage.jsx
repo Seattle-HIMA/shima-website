@@ -116,8 +116,9 @@ const WHAT_WE_DO = [
         "link": '/Membership'
     }];
 
-function HomePage() {
+function HomePage(props) {
     const navigate = useNavigate();
+    props.setShowFooter(true);
 
     const whatWeDoCards = WHAT_WE_DO.map((item) => {
         return makeCard(navigate, item.name, item.description, item.image, item.link);
