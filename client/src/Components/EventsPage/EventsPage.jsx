@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import backgroundImg from '../../utils/images/events-background.png';
 
 import './EventsPage.css';
@@ -25,10 +25,8 @@ const EVENT_INFO = [
 ]
 
 function makeSection(title, speaker, description, flyer, index) {
-    console.log("index:", index)
     const flyerImg = require(`../../utils/images/${flyer}`);
     const styleNum = index % 2 === 0 ? 1 : 2;
-    console.log(styleNum)
     return (
         <div className={"event-section" + styleNum}>
             <div className={"section-image" + styleNum}>
@@ -48,10 +46,13 @@ function makeSection(title, speaker, description, flyer, index) {
     if styleNum is 2, return div with text elements above image
     may be easier to align the image to the right this way and prob makes more sense
     */
-
 }
 
-function EventsPage() {
+function EventsPage(props) {
+    props.setShowFooter(true);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const eventSections = EVENT_INFO.map((item, index) => {
         const section = makeSection(item.title, item.speaker, item.description, item.flyerSource, index);
         return section;
@@ -82,6 +83,5 @@ function EventsPage() {
         </div>
     )
 }
-
 
 export default EventsPage;
