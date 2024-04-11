@@ -40,7 +40,7 @@ router.post('/update', async(req, res) => {
 
       // write updated info into file
       await fs.writeFile('./assets/homepage.json', JSON.stringify(data));
-      res.send("Successfully updated information");
+      res.send("The information has been updated successfully");
     }else {
       res.status(400).send("Updated section or updated information is missing.");
     }
