@@ -64,7 +64,7 @@ function makePastEvent(title, speaker, description, flyer, eventDate, index) {
 
     return (
         <article className="past-event-card">
-            <div className={"past-event-header-img"} style={{backgroundImage: `url(${flyerImg}`}}></div>
+            <div className={"past-event-card-header-img"} style={{backgroundImage: `url(${flyerImg}`}}></div>
             <div className={"past-event-card-body"}>
                 <h3 className={"past-event-card-name"}>{title} by {speaker}</h3>
                 <h3 className={"past-event-card-text"}>
@@ -77,6 +77,7 @@ function makePastEvent(title, speaker, description, flyer, eventDate, index) {
             </div>
         </article>
     );
+
 }
 
 function EventsPage(props) {
