@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import backgroundImg from '../../utils/images/events-background.png';
 
 import './EventsPage.css';
@@ -9,28 +9,36 @@ const EVENT_INFO = [
         "speaker": "Tabitha Lieberman",
         "description": "A renowned health IT leader, Tabitha Lieberman has more than 30 years of experience powering transformational implementations, digital integrations, and deployments.",
         "flyerSource": "flyer-1.png",
-        "date": "Sat Oct 21 2023"
+        "date": "2023-10-21"
     },
     {
         "title": "From Data Entry to Policy Input",
         "speaker": "Jim Condon",
         "description": "Dr. Jim Condon is an Associate Teaching Professor and Director of the Health Informatics and Health Information Management undergraduate and graduate programs at the University of Washington",
-        "flyerSource": "flyer-2.png"
+        "flyerSource": "flyer-2.png",
+        "date": "2023-11-18"
     },
     {
         "title": "Event 3",
         "speaker": "Speaker 3",
         "description": "description here",
-        "flyerSource": "flyer-3.jpg"
+        "flyerSource": "flyer-3.jpg",
+        "date": "2024-04-13"
+    },
+    {
+        "title": "Spheres & Shades",
+        "speaker": "Isaac Gribben",
+        "description": "A Look Into The Venn Diagram Of Differing Aspects Of Clinical Operations And Risk Stratification",
+        "flyerSource": "spheres-and-shades.jpg",
+        "date": "2024-05-04"
     }
+
 ]
 
-function makeSection(title, speaker, description, flyer, date, index) {
-    var currentDate = new Date();
-    console.log("index:", index)
+function makeUpcomingEvent(title, speaker, description, flyer, eventDate, index) {
     const flyerImg = require(`../../utils/images/${flyer}`);
     const styleNum = index % 2 === 0 ? 1 : 2;
-    console.log(styleNum)
+    // discovered a bug - the index is based on its order in the json array, not on the page
     return (
         <div className={"event-section" + styleNum}>
             <div className={"event-image" + styleNum}>
@@ -41,11 +49,12 @@ function makeSection(title, speaker, description, flyer, date, index) {
                     {title}<br></br><span>by {speaker}</span>
                 </h2>
                 <p className={"event-description" + styleNum}>{description}</p>
-                <p className={"event-date" + styleNum}>Date: {date}</p>
+                <p className={"event-date" + styleNum}>Date: {eventDate}</p>
                 <button class={"event-button" + styleNum}>Click here</button>
             </div>
         </div>
     );
+
     /* annie's notes
     if styleNum is 1, return div with image first and .1 styles
     if styleNum is 2, return div with text elements above image
@@ -53,11 +62,28 @@ function makeSection(title, speaker, description, flyer, date, index) {
     */
 }
 
-function EventsPage() {
-    const eventSections = EVENT_INFO.map((item, index) => {
-        const section = makeSection(item.title, item.speaker, item.description, item.flyerSource, item.date, index);
-        return section;
-    });
+function makePastEvent(title, speaker, description, flyer, eventDate, index) {
+    console.log(title);
+    return (
+        <div></div>
+    );
+}
+
+function EventsPage(props) {
+    props.setShowFooter(true);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    var currentDate = new Date();
+    const {upcomingEvents, pastEvents} = EVENT_INFO.reduce((acc, item, index) => {
+        var eventDate = new Date(item.date);
+        if (currentDate <= eventDate) {
+            acc.upcomingEvents.push(makeUpcomingEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
+        } else {
+            acc.upcomingEvents.push(makePastEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
+        }
+        return acc;
+    }, {upcomingEvents: [], pastEvents: [] });
 
     return (
         <div>
@@ -76,14 +102,16 @@ function EventsPage() {
                 <p>Speaker Interest Form</p>
             </div>
             <div>
-                {eventSections}
+                {upcomingEvents}
             </div>
             <div class="events-label">
                 <h2>Previous Workshops</h2>
             </div>
+            <div>
+                {pastEvents}
+            </div>
         </div>
     )
 }
-
 
 export default EventsPage;
