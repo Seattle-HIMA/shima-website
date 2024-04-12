@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+// import {useNavigate} from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 
 import './EventsPage.css';
@@ -38,49 +39,59 @@ const EVENT_INFO = [
 function makeUpcomingEvent(title, speaker, description, flyer, eventDate, index) {
     const flyerImg = require(`../../utils/images/${flyer}`);
     const styleNum = index % 2 === 0 ? 1 : 2;
+    console.log("upcoming event: ", title)
     // discovered a bug - the index is based on its order in the json array, not on the page
     return (
-        <div className={"event-section" + styleNum}>
-            <div className={"event-image" + styleNum}>
+        <div className={"upcoming-event-section" + styleNum}>
+            <div className={"upcoming-event-image" + styleNum}>
                 <img src={flyerImg} alt="Event Flyer"/>
             </div>
-            <div className={"event-body" + styleNum}>
-                <h2 className={"event-title" + styleNum}>
+            <div className={"upcoming-event-body" + styleNum}>
+                <h2 className={"upcoming-event-title" + styleNum}>
                     {title}<br></br><span>by {speaker}</span>
                 </h2>
-                <p className={"event-description" + styleNum}>{description}</p>
-                <p className={"event-date" + styleNum}>Date: {eventDate}</p>
-                <button class={"event-button" + styleNum}>Click here</button>
+                <p className={"upcoming-event-description" + styleNum}>{description}</p>
+                <p className={"upcoming-event-date" + styleNum}>Date: {eventDate}</p>
+                <button class={"upcoming-event-button" + styleNum}>Click here</button>
             </div>
         </div>
     );
-
-    /* annie's notes
-    if styleNum is 1, return div with image first and .1 styles
-    if styleNum is 2, return div with text elements above image
-    may be easier to align the image to the right this way and prob makes more sense
-    */
 }
 
 function makePastEvent(title, speaker, description, flyer, eventDate, index) {
     console.log(title);
+    const flyerImg = require(`../../utils/images/${flyer}`);
+
     return (
-        <div></div>
+        <article className="past-event-card">
+            <div className={"past-event-header-img"} style={{backgroundImage: `url(${flyerImg}`}}></div>
+            <div className={"past-event-card-body"}>
+                <h3 className={"past-event-card-name"}>{title} by {speaker}</h3>
+                <h3 className={"past-event-card-text"}>
+                    {description}
+                </h3>
+                <h3 className={"past-event-card-arrow-button"} onClick={() => {}}>
+                    <div className={"past-event-card-read-more-text"}>Read More</div>
+                    <span className={"material-symbols-outlined"}>expand_circle_right</span>
+                </h3>
+            </div>
+        </article>
     );
 }
 
 function EventsPage(props) {
     props.setShowFooter(true);
-    useEffect(() => {
+    /*useEffect(() => {
         window.scrollTo(0, 0)
-    }, [])
+    }, []);*/
+    
     var currentDate = new Date();
     const {upcomingEvents, pastEvents} = EVENT_INFO.reduce((acc, item, index) => {
         var eventDate = new Date(item.date);
         if (currentDate <= eventDate) {
             acc.upcomingEvents.push(makeUpcomingEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
         } else {
-            acc.upcomingEvents.push(makePastEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
+            acc.pastEvents.push(makePastEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
         }
         return acc;
     }, {upcomingEvents: [], pastEvents: [] });
@@ -104,11 +115,11 @@ function EventsPage(props) {
             <div>
                 {upcomingEvents}
             </div>
-            <div class="events-label">
+            <div class="past-event-section">
                 <h2>Previous Workshops</h2>
-            </div>
-            <div>
-                {pastEvents}
+                <div class="past-event-cards">
+                    {pastEvents}
+                </div>
             </div>
         </div>
     )
