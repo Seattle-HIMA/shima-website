@@ -9,6 +9,7 @@ const EVENT_INFO = [
         "speaker": "Tabitha Lieberman",
         "description": "A renowned health IT leader, Tabitha Lieberman has more than 30 years of experience powering transformational implementations, digital integrations, and deployments.",
         "flyerSource": "flyer-1.png",
+        "date": "Sat Oct 21 2023"
     },
     {
         "title": "From Data Entry to Policy Input",
@@ -24,21 +25,23 @@ const EVENT_INFO = [
     }
 ]
 
-function makeSection(title, speaker, description, flyer, index) {
+function makeSection(title, speaker, description, flyer, date, index) {
+    var currentDate = new Date();
     console.log("index:", index)
     const flyerImg = require(`../../utils/images/${flyer}`);
     const styleNum = index % 2 === 0 ? 1 : 2;
     console.log(styleNum)
     return (
         <div className={"event-section" + styleNum}>
-            <div className={"section-image" + styleNum}>
+            <div className={"event-image" + styleNum}>
                 <img src={flyerImg} alt="Event Flyer"/>
             </div>
-            <div className={"section-body" + styleNum}>
-                <h2 className={"section-title" + styleNum}>
+            <div className={"event-body" + styleNum}>
+                <h2 className={"event-title" + styleNum}>
                     {title}<br></br><span>by {speaker}</span>
                 </h2>
-                <p className={"section-description" + styleNum}>{description}</p>
+                <p className={"event-description" + styleNum}>{description}</p>
+                <p className={"event-date" + styleNum}>Date: {date}</p>
                 <button class={"event-button" + styleNum}>Click here</button>
             </div>
         </div>
@@ -48,12 +51,11 @@ function makeSection(title, speaker, description, flyer, index) {
     if styleNum is 2, return div with text elements above image
     may be easier to align the image to the right this way and prob makes more sense
     */
-
 }
 
 function EventsPage() {
     const eventSections = EVENT_INFO.map((item, index) => {
-        const section = makeSection(item.title, item.speaker, item.description, item.flyerSource, index);
+        const section = makeSection(item.title, item.speaker, item.description, item.flyerSource, item.date, index);
         return section;
     });
 
