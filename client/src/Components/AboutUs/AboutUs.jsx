@@ -1,4 +1,6 @@
 import React, {useEffect} from 'react';
+import { useState } from 'react';
+
 import './AboutUs.css'
 import bg from '../../utils/images/board-members-bg.jpeg'
 
@@ -13,11 +15,11 @@ const MEMBER_INFO = [
         "profileImg": "bm-1.png"
     },
     {
-        "name": "First Last",
-        "position": "Position",
+        "name": "Sandra Andrade",
+        "position": "Secretary",
         "degree": "Degree",
         "currentStatus": "working",
-        "about": "hi",
+        "about": "Sandra is a proven leader in revenue cycle management with extensive experience in coding, auditing, project management, training, and education. Sandra completed her graduate and undergraduate studies in Health Information Management at Texas State University. Her commitment in the HIM industry expands into higher education, where she teaches Medical Billing and Coding courses at Everett Community College.",
         "linkedinUrl": "",
         "profileImg": "bm-2.png"
     },
@@ -75,7 +77,7 @@ function AboutUs(props) {
     props.setShowFooter(true);
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [])
+    }, []);
 
     const profileCards = MEMBER_INFO.map((item) => {
         return createProfileCard(item.name, item.position, item.degree, item.currentStatus, item.about, item.linkedinUrl, item.profileImg)
@@ -91,9 +93,11 @@ function AboutUs(props) {
                     <p>Meet the 2024 team at SHIMA</p>
                 </section>
             </div>
+            <h1>Executive Board</h1>
             <div class="member-grid">
                 {profileCards}
             </div>
+            <h1>Volunteers</h1>
         </div>
     )
 }
