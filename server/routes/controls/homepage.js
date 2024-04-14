@@ -1,7 +1,9 @@
-const express = require('express');
+import express from 'express'
+import models from '../../models.js';
+import { promises as fs } from 'fs';
+
 const router = express.Router();
-const models = require('../../models.js');
-const fs = require('fs').promises;
+
 
 // get information from homepage json files
 router.get('/', async (req, res) => {
@@ -18,4 +20,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router

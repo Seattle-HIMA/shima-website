@@ -1,11 +1,11 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
-const homepageRouter = require('./controls/homepage.js');
-const boardMembersRouter = require('./controls/board-members.js');
+import homepageRouter from './controls/homepage.js';
+import boardMembersRouter from './controls/board-members.js';
 
 
 router.use('/homepage', homepageRouter);
 router.use('/members', boardMembersRouter);
 
-module.exports = router;
+export default router
