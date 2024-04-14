@@ -21,7 +21,7 @@ const EVENT_INFO = [
     },
     {
         "title": "Event 3",
-        "speaker": "Speakergi 3",
+        "speaker": "Speaker 3",
         "description": "description here",
         "flyerSource": "flyer-3.jpg",
         "date": "2024-04-13"

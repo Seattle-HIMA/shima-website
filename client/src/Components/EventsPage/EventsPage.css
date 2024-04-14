@@ -208,7 +208,7 @@
     'opsz' 24
 }
 
-.past-event-card:hover .what-we-do-card-body {
+.past-event-card:hover .past-event-card-body {
     transform: translateY(-260px);
 }
 
