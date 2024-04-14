@@ -1,5 +1,7 @@
 import {Link, useNavigate} from 'react-router-dom';
 import './Navbar.css';
+import LoginButton from '../Auth/LoginButton';
+import SignUpButton from '../Auth/SignUpButton';
 
 function NavBar() {
     const navigate = useNavigate()
@@ -14,8 +16,11 @@ function NavBar() {
                 <Link className={"nav-btn"} to='/About'>About Us</Link>
             </div>
             <div className={"account-btns"}>
-                <button onClick={() => navigate('/LogIn')}>Login</button>
-                <button onClick={() => navigate('/SignUp')}>Sign up</button>
+                {/*<button onClick={() => navigate('/LogIn')}>Login</button>*/}
+                {/*<button onClick={() => navigate('/SignUp')}>Sign up</button>*/}
+                <LoginButton />
+                <SignUpButton />
+
             </div>
         </div>
     );

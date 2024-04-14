@@ -36,7 +36,7 @@ function LoginPage(props) {
                     <a className={"login-forgot-password-text"}>Forgot Password</a>
                 </div>
 
-                <LoginButton />
+                {/*<LoginButton />*/}
 
                 <div className={"login-or-section"}>
                     <hr className={"login-or-line"}/>
