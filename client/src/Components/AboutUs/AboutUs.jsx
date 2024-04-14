@@ -61,17 +61,21 @@ const MEMBER_INFO = [
     }
 ]
 
-function createProfileCard(name, position, degree, currentStatus, about, linkedinUrl, profileImg) {
-    
-    const img = require(`../../utils/images/board-members/${profileImg}`);
+// Profile card component
+function ProfileCard({ name, position, profileImg }) {
+    const imgSrc = require(`../../utils/images/board-members/${profileImg}`);
+
     return (
-        <article class="member-profile-card">
-            <img src={img} alt="profile photo"/>
-            <p class="member-name">{name}</p>
-            <p class ="member-position">{position}</p>
-        </article>
+        <div>
+            <article className="member-profile-card">
+                <img src={imgSrc} alt="profile photo" />
+                <p className="member-name">{name}</p>
+                <p className="member-position">{position}</p>
+            </article>
+        </div>
     );
 }
+
 
 function AboutUs(props) {
     props.setShowFooter(true);
@@ -79,11 +83,19 @@ function AboutUs(props) {
         window.scrollTo(0, 0)
     }, []);
 
-    const profileCards = MEMBER_INFO.map((item) => {
-        return createProfileCard(item.name, item.position, item.degree, item.currentStatus, item.about, item.linkedinUrl, item.profileImg)
+    const profileCards = MEMBER_INFO.map((item, index) => (
+        <ProfileCard
+            key={index}
+            name={item.name}
+            position={item.position}
+            degree={item.degree}
+            currentStatus={item.currentStatus}
+            about={item.about}
+            linkedinUrl={item.linkedinUrl}
+            profileImg={item.profileImg}
 
-    });
-
+        />
+    ));
     return (
         <div className={"members-page"}>
             <div className={"header"}>
