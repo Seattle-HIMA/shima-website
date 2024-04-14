@@ -39,8 +39,6 @@ const EVENT_INFO = [
 function makeUpcomingEvent(title, speaker, description, flyer, eventDate, index) {
     const flyerImg = require(`../../utils/images/${flyer}`);
     const styleNum = index % 2 === 0 ? 1 : 2;
-    console.log("upcoming event: ", title)
-    // discovered a bug - the index is based on its order in the json array, not on the page
     return (
         <div className={"upcoming-event-section" + styleNum}>
             <div className={"upcoming-event-image" + styleNum}>
@@ -77,14 +75,13 @@ function makePastEvent(title, speaker, description, flyer, eventDate, index) {
             </div>
         </article>
     );
-
 }
 
 function EventsPage(props) {
     props.setShowFooter(true);
-    /*useEffect(() => {
+    useEffect(() => {
         window.scrollTo(0, 0)
-    }, []);*/
+    }, []);
     
     var currentDate = new Date();
     const {upcomingEvents, pastEvents} = EVENT_INFO.reduce((acc, item, index) => {
