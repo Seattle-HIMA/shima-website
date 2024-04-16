@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+// import {useNavigate} from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 
 import './EventsPage.css';
@@ -9,54 +10,89 @@ const EVENT_INFO = [
         "speaker": "Tabitha Lieberman",
         "description": "A renowned health IT leader, Tabitha Lieberman has more than 30 years of experience powering transformational implementations, digital integrations, and deployments.",
         "flyerSource": "flyer-1.png",
+        "date": "2023-10-21"
     },
     {
         "title": "From Data Entry to Policy Input",
         "speaker": "Jim Condon",
         "description": "Dr. Jim Condon is an Associate Teaching Professor and Director of the Health Informatics and Health Information Management undergraduate and graduate programs at the University of Washington",
-        "flyerSource": "flyer-2.png"
+        "flyerSource": "flyer-2.png",
+        "date": "2023-11-18"
     },
     {
         "title": "Event 3",
         "speaker": "Speaker 3",
         "description": "description here",
-        "flyerSource": "flyer-3.jpg"
+        "flyerSource": "flyer-3.jpg",
+        "date": "2024-04-21"
+    },
+    {
+        "title": "Spheres & Shades",
+        "speaker": "Isaac Gribben",
+        "description": "A Look Into The Venn Diagram Of Differing Aspects Of Clinical Operations And Risk Stratification",
+        "flyerSource": "spheres-and-shades.jpg",
+        "date": "2024-05-04"
     }
+
 ]
 
-function makeSection(title, speaker, description, flyer, index) {
+function makeUpcomingEvent(title, speaker, description, flyer, eventDate, index) {
     const flyerImg = require(`../../utils/images/${flyer}`);
     const styleNum = index % 2 === 0 ? 1 : 2;
     return (
-        <div className={"event-section" + styleNum}>
-            <div className={"section-image" + styleNum}>
+        <div className={"upcoming-event-section" + styleNum}>
+            <div className={"upcoming-event-image" + styleNum}>
                 <img src={flyerImg} alt="Event Flyer"/>
             </div>
-            <div className={"section-body" + styleNum}>
-                <h2 className={"section-title" + styleNum}>
+            <div className={"upcoming-event-body" + styleNum}>
+                <h2 className={"upcoming-event-title" + styleNum}>
                     {title}<br></br><span>by {speaker}</span>
                 </h2>
-                <p className={"section-description" + styleNum}>{description}</p>
-                <button class={"event-button" + styleNum}>Click here</button>
+                <p className={"upcoming-event-description" + styleNum}>{description}</p>
+                <p className={"upcoming-event-date" + styleNum}>Date: {eventDate}</p>
+                <button class={"upcoming-event-button" + styleNum}>Click here</button>
             </div>
         </div>
     );
-    /* annie's notes
-    if styleNum is 1, return div with image first and .1 styles
-    if styleNum is 2, return div with text elements above image
-    may be easier to align the image to the right this way and prob makes more sense
-    */
+}
+
+function makePastEvent(title, speaker, description, flyer, eventDate, index) {
+    console.log(title);
+    const flyerImg = require(`../../utils/images/${flyer}`);
+
+    return (
+        <article className="past-event-card">
+            <div className={"past-event-card-header-img"} style={{backgroundImage: `url(${flyerImg}`}}></div>
+            <div className={"past-event-card-body"}>
+                <h3 className={"past-event-card-name"}>{title} by {speaker}</h3>
+                <h3 className={"past-event-card-text"}>
+                    {description}
+                </h3>
+                <h3 className={"past-event-card-arrow-button"} onClick={() => {}}>
+                    <div className={"past-event-card-read-more-text"}>Read More</div>
+                    <span className={"material-symbols-outlined"}>expand_circle_right</span>
+                </h3>
+            </div>
+        </article>
+    );
 }
 
 function EventsPage(props) {
     props.setShowFooter(true);
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [])
-    const eventSections = EVENT_INFO.map((item, index) => {
-        const section = makeSection(item.title, item.speaker, item.description, item.flyerSource, index);
-        return section;
-    });
+    }, []);
+    
+    var currentDate = new Date();
+    const {upcomingEvents, pastEvents} = EVENT_INFO.reduce((acc, item, index) => {
+        var eventDate = new Date(item.date);
+        if (currentDate <= eventDate) {
+            acc.upcomingEvents.push(makeUpcomingEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
+        } else {
+            acc.pastEvents.push(makePastEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
+        }
+        return acc;
+    }, {upcomingEvents: [], pastEvents: [] });
 
     return (
         <div>
@@ -75,10 +111,13 @@ function EventsPage(props) {
                 <p>Speaker Interest Form</p>
             </div>
             <div>
-                {eventSections}
+                {upcomingEvents}
             </div>
-            <div class="events-label">
+            <div class="past-event-section">
                 <h2>Previous Workshops</h2>
+                <div class="past-event-cards">
+                    {pastEvents}
+                </div>
             </div>
         </div>
     )

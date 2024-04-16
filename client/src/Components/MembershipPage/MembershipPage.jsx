@@ -20,7 +20,6 @@ function MembershipPage(props) {
                         SHIMA Membership is annual. If you are unsure if you are currently a member, please feel free to
                         email us.
                     </p>
-                    <button class="apply-button">Apply now</button>
                 </div>
             </div>
             <br></br>
@@ -55,17 +54,13 @@ function MembershipPage(props) {
                             Once you have completed the membership form you will receive a confirmation email with a
                             link to PayPal.
                         </p>
+                        <button class="apply-button">Apply</button>
                         <h4>In-person</h4>
                         <p class="caption">
                             Attend one of our upcoming workshops and complete a new membership form.
                         </p>
                     </div>
-                    <img src={qrImg} alt="QR Code for membership application"></img>
-                </div>
-                <iframe title="SHIMA Membership Form"
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSe9a82zcd24NAEtSnb4ka5bhq_ggqvsxu2Th5IKHOG23Qv_Uw/viewform?embedded=true"
-                        width="640" height="596" frameborder="0" marginheight="0" marginwidth="0">Loading…
-                </iframe>
+                </div> 
             </div>
         </div>
     )
