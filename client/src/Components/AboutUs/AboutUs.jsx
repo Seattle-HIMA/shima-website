@@ -87,7 +87,7 @@ function ProfileCard({ name, position, degree, currentStatus, about, linkedinUrl
                 )}
                 {popupVisible && (
                     <div class="popup-content">
-                        <img src={imgSrc} alt="profile"/>
+                        <img src={imgSrc} alt="profile" class="popup-profile-photo"/>
                         <div class="text-content">
                             <div class="popup-title">
                                 <p>{name}</p>
