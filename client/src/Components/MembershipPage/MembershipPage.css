@@ -31,13 +31,6 @@
 }
 
 .apply-button {
-    background-color: white;
-    color: black;
-    font-weight: 600;
-    font-family: 'Inter', sans-serif;
-}
-
-.apply-button-2 {
     background-color: #0F233B;
     color: white;
     font-weight: 600;
@@ -113,9 +106,8 @@ h3 {
     font-weight: bold;
 }
 
+/* remove */
 .apply-section {
-    display: flex;
-    align-items: center;
     margin-bottom: 50px;
 }
 
@@ -123,11 +115,13 @@ h3 {
     margin-left: 10px;
 }
 
-.apply-text {
-    display: flex;
-    flex-direction: column;
-}
-
 .apply-text p {
     margin: 0;
+}
+
+.apply-button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 40px 10px 40px;
+    border-radius: 10px;
 }
