@@ -67,6 +67,8 @@ const MEMBER_INFO = [
 function ProfileCard({ name, position, degree, currentStatus, about, linkedinUrl, profileImg }) {
     const imgSrc = require(`../../utils/images/board-members/${profileImg}`);
     const linkedInIcon = require(`../../utils/images/board-members/linkedin-icon.png`);
+    const xButton = require(`../../utils/images/board-members/close-popup.png`);
+
 
     const [popupVisible, setPopupVisible] = useState(false);
     
@@ -87,13 +89,14 @@ function ProfileCard({ name, position, degree, currentStatus, about, linkedinUrl
                 )}
                 {popupVisible && (
                     <div class="popup-content">
-                        <img src={imgSrc} alt="profile" class="popup-profile-photo"/>
+                        <img id="pfp" src={imgSrc} alt="profile" class="popup-profile-photo"/>
                         <div class="text-content">
                             <div class="popup-title">
                                 <p>{name}</p>
                                 <a href={linkedinUrl}>
-                                    <img src={linkedInIcon} alt="profile" onClick={togglePopup} />
+                                    <img id="linkedin-icon" src={linkedInIcon} alt="linkedin logo"/>
                                 </a>
+                                <img id="close-popup" src={xButton} alt="x button" class="top-right" onClick={togglePopup} />
                             </div>
                             <p>{degree}</p>
                             <p>{currentStatus}</p>

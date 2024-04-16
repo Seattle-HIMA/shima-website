@@ -39,14 +39,14 @@
 
 .member-name {
     margin-top: 15px;
-    font-size: 28px;
+    font-size: 24px;
     color: #0F233B;
     margin-bottom: 5px;
     font-weight:800;
 }
 
 .member-position {
-    font-size: 20px;
+    font-size: 16px;
     text-transform: uppercase;
     color: #0A7AFF;
     font-weight: 500;
@@ -55,6 +55,8 @@
 
 .popup {
     cursor: pointer;
+    width: 240px;
+    height: auto;
 }
 
 .popup-content {
@@ -68,7 +70,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 9999; 
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .overlay {
@@ -82,16 +84,17 @@
 }
 
  .popup-profile-photo {
-    padding: 100px 50px 100px 50px;
+    padding: 100px 20px 100px 20px;
+    width: 200px;
+    height: auto;
 }
 
 .text-content {
     color: white;
     display: flex;
     flex-direction: column;
-    padding-right: 50px;
-    padding-bottom: 50px;
-    
+    padding-right: 20px;
+    padding-bottom: 20px;   
 }
 
 .text-content p, .text-content h3 {
@@ -100,24 +103,30 @@
 }
 
 .text-content p:nth-child(1){
-    font-size: 40px;
+    font-size: 16px;
     font-weight: 700;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .text-content p:nth-child(2) {
+    font-size: 12px;
     font-style: italic;
     color: darkgray;
     margin-bottom: 5px;
 }
 
 .text-content p:nth-child(3) {
-    font-size: 20px;
+    font-size: 12px;
     margin-bottom: 15px;
 }
 
 .text-content p:nth-child(4) {
-    font-size: 30px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.text-content p:nth-child(5) {
+    font-size: 12px;
     margin-bottom: 10px;
 }
 
@@ -129,10 +138,26 @@
 .popup-title {
     display: flex;
     align-items: baseline;
-    margin-bottom: 10px;
 }
 
 .popup-title img {
     margin-left: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+}
+
+#linkedin-icon {
+    width: 24px;
+    height: auto;
+}
+
+#close-popup {
+    width: 40px;
+    height:auto;
+    padding-left: 20px;
+}
+
+.popup-content img.top-right {
+    position:absolute;
+    top: 30px;
+    right: 30px;
 }
