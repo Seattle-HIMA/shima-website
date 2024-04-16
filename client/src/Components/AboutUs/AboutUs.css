@@ -84,8 +84,8 @@
 }
 
  .popup-profile-photo {
-    padding: 100px 20px 100px 20px;
-    width: 200px;
+    padding: 40px 20px 40px 20px;
+    width: 220px;
     height: auto;
 }
 
@@ -103,30 +103,30 @@
 }
 
 .text-content p:nth-child(1){
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     padding-top: 20px;
 }
 
 .text-content p:nth-child(2) {
-    font-size: 12px;
+    font-size: 14px;
     font-style: italic;
     color: darkgray;
     margin-bottom: 5px;
 }
 
 .text-content p:nth-child(3) {
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 15px;
 }
 
 .text-content p:nth-child(4) {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 10px;
 }
 
 .text-content p:nth-child(5) {
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 10px;
 }
 
@@ -140,14 +140,11 @@
     align-items: baseline;
 }
 
-.popup-title img {
-    margin-left: 20px;
-    margin-bottom: 5px;
-}
-
 #linkedin-icon {
     width: 24px;
     height: auto;
+    margin-left: 10px;
+    margin-bottom: 8px;
 }
 
 #close-popup {
@@ -157,7 +154,7 @@
 }
 
 .popup-content img.top-right {
-    position:absolute;
+    position: absolute;
     top: 30px;
     right: 30px;
 }
