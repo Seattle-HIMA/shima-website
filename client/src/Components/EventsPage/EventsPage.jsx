@@ -24,7 +24,7 @@ const EVENT_INFO = [
         "speaker": "Speaker 3",
         "description": "description here",
         "flyerSource": "flyer-3.jpg",
-        "date": "2024-04-13"
+        "date": "2024-04-21"
     },
     {
         "title": "Spheres & Shades",
