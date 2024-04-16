@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 import './AboutUs.css'
 import bg from '../../utils/images/board-members-bg.jpeg'
+import linkedInIcon from '../../utils/images/board-members/linkedin-icon.png';
+
 
 const MEMBER_INFO = [
     {
@@ -11,7 +13,7 @@ const MEMBER_INFO = [
         "degree": "B.S. Health Informatics & Health Information Management",
         "currentStatus": "Student in Master of Science in Business Analytics (Expected graduation 2025)",
         "about": "Tien holds a Bachelor of Science in Health Informatics and Health Information Management from the University of Washington. Currently, she is actively pursuing a Master's in Business Analytics at Seattle University. Since 2020, Tien has been a dedicated volunteer at SHIMA, driven by a strong passion for SHIMA's mission. She is enthusiastic about contributing to the professional growth of SHIMA and looks forward to playing a key role in its development.",
-        "linkedinUrl": "",
+        "linkedinUrl": "https://www.linkedin.com/",
         "profileImg": "bm-1.png"
     },
     {
@@ -62,13 +64,44 @@ const MEMBER_INFO = [
 ]
 
 // Profile card component
-function ProfileCard({ name, position, profileImg }) {
+function ProfileCard({ name, position, degree, currentStatus, about, linkedinUrl, profileImg }) {
     const imgSrc = require(`../../utils/images/board-members/${profileImg}`);
+    const linkedInIcon = require(`../../utils/images/board-members/linkedin-icon.png`);
+
+    const [popupVisible, setPopupVisible] = useState(false);
+    
+    const togglePopup = () => {
+        setPopupVisible(!popupVisible);
+    };
+    
+    const closePopup = () => {
+        setPopupVisible(false);
+    };
 
     return (
         <div>
             <article className="member-profile-card">
-                <img src={imgSrc} alt="profile photo" />
+                <img src={imgSrc} alt="profile" class="popup" onClick={togglePopup}/>
+                {popupVisible && (
+                    <div className="overlay" onClick={closePopup}></div>
+                )}
+                {popupVisible && (
+                    <div class="popup-content">
+                        <img src={imgSrc} alt="profile"/>
+                        <div class="text-content">
+                            <div class="popup-title">
+                                <p>{name}</p>
+                                <a href={linkedinUrl}>
+                                    <img src={linkedInIcon} alt="profile" onClick={togglePopup} />
+                                </a>
+                            </div>
+                            <p>{degree}</p>
+                            <p>{currentStatus}</p>
+                            <p>About</p>
+                            <p>{about}</p>
+                        </div>
+                    </div>
+                )}
                 <p className="member-name">{name}</p>
                 <p className="member-position">{position}</p>
             </article>
@@ -76,6 +109,11 @@ function ProfileCard({ name, position, profileImg }) {
     );
 }
 
+function togglePopup() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    console.log("toggling")
+}
 
 function AboutUs(props) {
     props.setShowFooter(true);
@@ -93,7 +131,6 @@ function AboutUs(props) {
             about={item.about}
             linkedinUrl={item.linkedinUrl}
             profileImg={item.profileImg}
-
         />
     ));
     return (
