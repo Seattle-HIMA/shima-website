@@ -1,6 +1,5 @@
 import express from 'express'
-import models from '../../models.js';
-import { promises as fs } from 'fs';
+import { getJSONFile, updateJSONFile } from '../utils/fileUtils.js'
 
 const router = express.Router();
 
@@ -8,14 +7,13 @@ const router = express.Router();
 // get information from homepage json files
 router.get('/', async (req, res) => {
   try {
-    let homepageData = await fs.readFile('./assets/homepage.json', 'utf8');
-    let data = JSON.parse(homepageData);
+    let data = await getJSONFile('./assets/homepage.json')
     res.json(data);
   } catch(err){
     if (err.code === "ENOENT") {
       res.type('text').status(500).send("file does not exist");
     } else {
-      res.type('text').status(500).send("something went wrong on the server");
+      res.type('text').status(500).send({ message: err.message });
     }
   }
 });
@@ -27,22 +25,18 @@ router.post('/update', async(req, res) => {
     // get body params
     let {section, info} = req.body;
     if(section && info){
-      let file = await fs.readFile('./assets/homepage.json', 'utf8');
-      let data = JSON.parse(file);
-
+      let result = ""
       // update json file according to given information
       if(section === "homepage") {
-        data[info.updatedPart] = info.updatedInfo
+        result = await updateJSONFile('./assets/homepage.json', {"title": info.updatedPart, "value": info.updatedInfo})
       } else if (data[section]) {
-        data.section[info.updatedPart] = info.updatedInfo
+        result = await updateJSONFile('./assets/homepage.json', {"title": section[info.updatedPart], "value": info.updatedInfo})
       } else {
         response = `There's no ${section} section on this page`
         res.status(400).send(response);
       }
 
-      // write updated info into file
-      await fs.writeFile('./assets/homepage.json', JSON.stringify(data));
-      res.send("The information has been updated successfully");
+      res.send(result);
     }else {
       res.status(400).send("Updated section or updated information is missing.");
     }

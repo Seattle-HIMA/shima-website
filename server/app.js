@@ -3,8 +3,7 @@ import path from 'path';
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import cookieParser from 'cookie-parser';
-import dotenv from 'dotenv';
-dotenv.config();
+import 'dotenv/config'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

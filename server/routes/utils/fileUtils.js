@@ -19,10 +19,11 @@ export async function getJSONFile(fileName){
 export async function updateJSONFile(fileName, updateData){
   try{
     let data = await getJSONFile(fileName);
-    let key = updateData.key;
+    let key = updateData.title;
     let value = updateData.value;
     data[key] = value;
     await fs.writeFile(fileName, JSON.stringify(data));
+    return "The information has been updated successfully"
   }catch(err){
     if (err.code === "ENOENT") {
       res.status(500).send("file does not exist");

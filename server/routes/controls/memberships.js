@@ -1,4 +1,3 @@
-const fs = require('fs').promises;
 import { getJSONFile, updateJSONFile } from '../utils/fileUtils.js'
 import express from 'express'
 import models from '../../models.js'
@@ -27,22 +26,18 @@ router.post('/update', async(req, res) => {
     // get body params
     let {section, info} = req.body;
     if(section && info){
-      let file = await fs.readFile('./assets/homepage.json', 'utf8');
-      let data = JSON.parse(file);
-
+      let result = ""
       // update json file according to given information
-      if(section === "homepage") {
-        data[info.updatedPart] = info.updatedInfo
+      if(section === "memberships") {
+        result = await updateJSONFile('./assets/memberships.json', {"title": info.updatedPart, "value": info.updatedInfo})
       } else if (data[section]) {
-        data.section[info.updatedPart] = info.updatedInfo
+        result = await updateJSONFile('./assets/memberships.json', {"title": section[info.updatedPart], "value": info.updatedInfo})
       } else {
         response = `There's no ${section} section on this page`
         res.status(400).send(response);
       }
 
-      // write updated info into file
-      await fs.writeFile('./assets/homepage.json', JSON.stringify(data));
-      res.send("The information has been updated successfully");
+      res.send(result);
     }else {
       res.status(400).send("Updated section or updated information is missing.");
     }
