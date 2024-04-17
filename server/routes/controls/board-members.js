@@ -34,4 +34,26 @@ router.post('/add', async (req, res) => {
   }
 });
 
+// update member's info
+router.post('/update', async (req, res) => {
+  try {
+    let { name, updatedInfo } = req.body;
+    let member = await models.BoardMembers.findOneAndUpdate({ username: name }, updatedInfo, { new: true });
+    res.json(member);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// delete a member
+router.post('/delete', async (req, res) => {
+  try {
+    let { name } = req.body;
+    await models.BoardMembers.findOneAndDelete({ username: name });
+    res.type('text').send("A board member has been successfully deleted");
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
