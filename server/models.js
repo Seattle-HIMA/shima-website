@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 let models = {};
 
@@ -45,4 +45,4 @@ async function main() {
   console.log('Models created');
 }
 
-module.exports = models;
+export default models
