@@ -3,39 +3,56 @@
   "description": "Welcome! We are a dedicated group of volunteers working to ensure that the Seattle Health Information Management community has access to a network of professionals, engaging workshops and scholarships.",
   "subsections": [
     {
-      "subTitle": "Become a member",
-      "subDesc": "Join as a 2024 SHIMA member today."
+      "Become a member": {
+        "description": "Join as a 2024 SHIMA member today."
+      }
     },
     {
-      "subTitle": "Benefits",
-      "subDesc": "What we offer.",
-      "subText": ["Scholarships", "Inexpensive Continuing Education Units (CEUs) to maintain your professional certification", "Low membership fees", "Networking", "Professional and personal development", "stay up-to-date on information management and informatics"]
+      "Benefits": {
+        "description": "What we offer.",
+        "text": [
+          "Scholarships",
+          "Inexpensive Continuing Education Units (CEUs) to maintain your professional certification",
+          "Low membership fees",
+          "Networking",
+          "Professional and personal development",
+          "stay up-to-date on information management and informatics"
+        ]
+      }
     },
     {
-      "subTitle": "Eligibility",
-      "subDesc": "Who should join.",
-      "subText": ["Current and future professionals interested in the intersection between people, data and technology", "Professionals working formally or informally in a Health Information Management (HIM) or healthcare informatics role"]
+      "Eligibility": {
+        "description": "Who should join.",
+        "text": [
+          "Current and future professionals interested in the intersection between people, data and technology",
+          "Professionals working formally or informally in a Health Information Management (HIM) or healthcare informatics role"
+        ]
+      }
     },
     {
-      "subTitle": "What we do",
-      "subDesc": "",
-      "subSubSection" : [
-        {
-          "name": "Opportunities",
-          "description": "Host workshops, panel disscussions, speakers, and create networking opportunities.",
-          "image": "../../utils/images/opportunities-photo.jpeg"
-        },
-        {
-            "name": "Scholarships",
-            "description": "Provide Undergraduate and Graduate Scholarships for Health Information Management and Informatics students.",
-            "image": "../../utils/images/scholarships-photo.jpeg"
-        },
-        {
-            "name": "Membership",
-            "description": "Provide professional exam fee reimbursement for the AHIMA credentials.",
-            "image": "../../utils/images/reimbursement-photo.jpeg"
-        }
-      ]
+      "What we do": {
+        "description": "",
+        "subSections": [
+          {
+            "Opportunities": {
+              "description": "Host workshops, panel disscussions, speakers, and create networking opportunities.",
+              "image": "../../utils/images/opportunities-photo.jpeg"
+            }
+          },
+          {
+            "Scholarships": {
+              "description": "Provide Undergraduate and Graduate Scholarships for Health Information Management and Informatics students.",
+              "image": "../../utils/images/scholarships-photo.jpeg"
+            }
+          },
+          {
+            "Membership": {
+              "description": "Provide professional exam fee reimbursement for the AHIMA credentials.",
+              "image": "../../utils/images/reimbursement-photo.jpeg"
+            }
+          }
+        ]
+      }
     }
   ]
 }

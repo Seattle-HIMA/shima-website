@@ -1,7 +1,8 @@
-import {Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import LoginButton from '../Auth/LoginButton';
 import SignUpButton from '../Auth/SignUpButton';
+import Profile from '../Auth/Profile';
 
 function NavBar() {
     const navigate = useNavigate()
@@ -18,8 +19,8 @@ function NavBar() {
             <div className={"account-btns"}>
                 {/*<button onClick={() => navigate('/LogIn')}>Login</button>*/}
                 {/*<button onClick={() => navigate('/SignUp')}>Sign up</button>*/}
-                <LoginButton />
-                <SignUpButton />
+                <LoginButton/>
+                <SignUpButton/>
 
             </div>
         </div>

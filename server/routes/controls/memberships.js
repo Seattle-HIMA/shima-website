@@ -1,5 +1,6 @@
-import express from 'express'
 import { getJSONFile, updateJSONFile } from '../utils/fileUtils.js'
+import express from 'express'
+import models from '../../models.js'
 
 const router = express.Router();
 
@@ -7,7 +8,8 @@ const router = express.Router();
 // get information from homepage json files
 router.get('/', async (req, res) => {
     try {
-        let data = await getJSONFile('./assets/homepage.json')
+        let data = await getJSONFile('./assets/memberships.json')
+        console.log(data)
         res.json(data);
     } catch (err) {
         if (err.code === "ENOENT") {
@@ -26,15 +28,15 @@ router.post('/update', async (req, res) => {
         let {section, info} = req.body;
         if (section && info) {
             let result = ""
-            let data = await getJSONFile('./assets/homepage.json');
+            let data = await getJSONFile('./assets/memberships.json');
             // update json file according to given information
-            if (section === "homepage") {
-                result = await updateJSONFile('./assets/homepage.json', {
+            if (section === "memberships") {
+                result = await updateJSONFile('./assets/memberships.json', {
                     "title": info.updatedPart,
                     "value": info.updatedInfo
                 })
             } else if (data[section]) {
-                result = await updateJSONFile('./assets/homepage.json', {
+                result = await updateJSONFile('./assets/memberships.json', {
                     "title": section[info.updatedPart],
                     "value": info.updatedInfo
                 })
