@@ -9,10 +9,20 @@ export async function getJSONFile(fileName){
 
 // update information in a specified json file
 export async function updateJSONFile(fileName, updateData){
-  let data = await getJSONFile(fileName);
-  let key = updateData.title;
-  let value = updateData.value;
-  data[key] = value;
+  let data = await getJSONFile(`./assets/${fileName}.json`);
+
+  let section = updateData.section;
+  let changePart = updateData.part;
+  let val = updateData.value;
+
+  if(section === fileName) {
+    data[changePart] = val;
+  } else if (data.subsections.section) {
+    data.subsections.section.changePart = val;
+  } else {
+    return {}
+  }
+
   await fs.writeFile(fileName, JSON.stringify(data));
   return data
 }
