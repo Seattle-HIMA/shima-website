@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import NavBar from './Components/Navbar/Navbar';
 import HomePage from './Components/HomePage/HomePage';
 import Membership from './Components/MembershipPage/MembershipPage';
@@ -12,6 +12,7 @@ import SignUp from './Components/SignUp/SignUp';
 
 import './utils/variables.css';
 
+// eslint-disable-next-line
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function App() {

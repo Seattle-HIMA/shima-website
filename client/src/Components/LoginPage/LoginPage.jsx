@@ -5,8 +5,6 @@ import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';
 import googleLogo from '../../utils/icons/google_signin_light.svg'
 import microsoftLogo from '../../utils/icons/ms-symbollockup_signin_light.svg'
 
-import LoginButton from '../Auth/LoginButton';
-
 function LoginPage(props) {
     useEffect(() => {
         props.setShowFooter(false);

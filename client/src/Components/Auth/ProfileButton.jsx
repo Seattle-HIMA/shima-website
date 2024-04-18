@@ -5,7 +5,7 @@ import profileIcon from "../../utils/icons/user-profile-icon.png";
 import './ProfileButton.css';
 
 const ProfileButton = () => {
-    const {user, isAuthenticated, isLoading} = useAuth0();
+    const { isAuthenticated, isLoading} = useAuth0();
 
     if (isLoading) {
         return <div>Loading ...</div>;
