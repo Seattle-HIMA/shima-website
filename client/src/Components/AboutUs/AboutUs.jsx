@@ -63,7 +63,7 @@ const MEMBER_INFO = [
     }
 ]
 
-// Profile card component
+// ProfileButton card component
 function ProfileCard({name, position, degree, currentStatus, about, linkedinUrl, profileImg}) {
     const imgSrc = require(`../../utils/images/board-members/${profileImg}`);
     const linkedInIcon = require(`../../utils/images/board-members/linkedin-icon.png`);
