@@ -13,18 +13,12 @@ const ProfileButton = () => {
         return <div>Loading ...</div>;
     }
 
-    /*
-    pfp = user.picture
-    full name = user.name
-    email = user.email
-     */
-
     return (isAuthenticated && (
         <img
             src={profileIcon}
             alt="Profile icon"
             onClick={() => navigate('/MyProfile')}
-            className="profile-icon"
+            className="profile-icon-navbar"
         />));
 };
 
