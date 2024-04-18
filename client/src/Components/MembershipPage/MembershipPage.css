@@ -47,8 +47,11 @@
 }
 
 .membership-why-join-text {
+    color: var(--dark-blue);
     font-weight: 600;
-    font-size: 45px;
+    font-size: var(--section-heading);
+    padding-top: 90px;
+    margin-left: 60px;
 }
 
 .information-section {
@@ -56,16 +59,22 @@
 }
 
 .membership-why-join-description {
-    padding-top: 10px;
-    font-weight: 600;
-    font-size: medium;
+    padding-top: 20px;
+    font-size: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 .membership-annual-rates-section {
+    margin-top: 90px;
+    padding: 40px 20px 90px 20px;
     text-align: center;
     background-color: #F7F7F7;
-    padding: 20px;
     font-size: large;
+}
+
+.membership-annual-rates-text {
+    margin-bottom: 50px;
 }
 
 .membership-page-rates-cards {
@@ -112,7 +121,7 @@ h3 {
 }
 
 .membership-page-apply-section {
-    margin-bottom: 50px;
+    margin: 90px 60px 50px 60px;
 }
 
 .membership-page-apply-section image {
@@ -121,6 +130,10 @@ h3 {
 
 .membership-page-apply-section-text p {
     margin: 0;
+}
+
+.membership-page-apply-section-text h2 {
+    padding-bottom: 20px;
 }
 
 .membership-page-apply-section-subtext {

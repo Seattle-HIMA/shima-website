@@ -47,7 +47,7 @@ function MembershipPage(props) {
                 <br></br>
                 <div className="membership-page-apply-section">
                     <div className="membership-page-apply-section-text">
-                        <h2 className="membership-h2">How to apply</h2>
+                        <h2>How to apply</h2>
                         <h4>Online</h4>
                         <p className="membership-page-apply-section-subtext">
                             Complete the 2024 SHIMA membership form below <span>OR</span> by scanning
