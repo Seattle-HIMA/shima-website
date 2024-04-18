@@ -10,14 +10,18 @@
             "Tien Nguyen": {
               "year": "2022",
               "photo": "../../utils/images/winner1.png",
-              "description": ["Tien graduated from the University of Washington with a Bachelor of Science in Health Informatics and Health Information Management. She is an active volunteer of SHIMA and facilitates many workshops. She is grateful to be the winner of the SHIMA Exam Reimbursement Scholarship 2022 and would love to devote more effort to the HIM community."]
+              "description": [
+                "Tien graduated from the University of Washington with a Bachelor of Science in Health Informatics and Health Information Management. She is an active volunteer of SHIMA and facilitates many workshops. She is grateful to be the winner of the SHIMA Exam Reimbursement Scholarship 2022 and would love to devote more effort to the HIM community."
+              ]
             }
           },
           {
             "Kirshauna Day": {
               "year": "2022",
               "photo": "../../utils/images/winner2.png",
-              "description": ["Thank you, Seattle Health Information Management Association for this opportunity in becoming a Certified Coding Associate. Being a Certified Coding Associate has inspired me to further my education. With excitement, I will soon complete my Registered Health Information Technology degree this upcoming year."]
+              "description": [
+                "Thank you, Seattle Health Information Management Association for this opportunity in becoming a Certified Coding Associate. Being a Certified Coding Associate has inspired me to further my education. With excitement, I will soon complete my Registered Health Information Technology degree this upcoming year."
+              ]
             }
           },
           {
@@ -38,7 +42,7 @@
         "description": "This scholarship rewards HIM students/professionals who show exemplary efforts in the HIM profession.",
         "winners": [
           {
-            "Mingjing Feng":{
+            "Mingjing Feng": {
               "year": "2017",
               "photo": "../../utils/images/winner4.png",
               "description": [

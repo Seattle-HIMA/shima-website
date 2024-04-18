@@ -14,15 +14,15 @@ import models from './models.js';
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
 // mongodb middleware
 app.use((req, res, next) => {
-  req.models = models;
-  next();
+    req.models = models;
+    next();
 });
 
 app.use('/routes', apiRouter);

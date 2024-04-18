@@ -42,7 +42,7 @@
     font-size: 24px;
     color: #0F233B;
     margin-bottom: 5px;
-    font-weight:800;
+    font-weight: 800;
 }
 
 .member-position {
@@ -68,7 +68,7 @@
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 9999; 
+    z-index: 9999;
     display: flex;
     align-items: center;
 }
@@ -83,7 +83,7 @@
     z-index: 9998;
 }
 
- .popup-profile-photo {
+.popup-profile-photo {
     padding: 40px 20px 40px 20px;
     width: 220px;
     height: auto;
@@ -94,7 +94,7 @@
     display: flex;
     flex-direction: column;
     padding-right: 20px;
-    padding-bottom: 20px;   
+    padding-bottom: 20px;
 }
 
 .text-content p, .text-content h3 {
@@ -102,7 +102,7 @@
     margin: 0px;
 }
 
-.text-content p:nth-child(1){
+.text-content p:nth-child(1) {
     font-size: 18px;
     font-weight: 700;
     padding-top: 20px;
@@ -149,7 +149,7 @@
 
 #close-popup {
     width: 40px;
-    height:auto;
+    height: auto;
     padding-left: 20px;
 }
 

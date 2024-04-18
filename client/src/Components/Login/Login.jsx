@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 import './Login.css';
 import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';

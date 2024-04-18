@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Routes, Link} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes, Link } from 'react-router-dom';
 import NavBar from './Components/Navbar/Navbar';
 import HomePage from './Components/HomePage/HomePage';
 import Membership from './Components/MembershipPage/MembershipPage';

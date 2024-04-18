@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 // import {useNavigate} from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 
@@ -68,7 +68,8 @@ function makePastEvent(title, speaker, description, flyer, eventDate, index) {
                 <h3 className={"past-event-card-text"}>
                     {description}
                 </h3>
-                <h3 className={"past-event-card-arrow-button"} onClick={() => {}}>
+                <h3 className={"past-event-card-arrow-button"} onClick={() => {
+                }}>
                     <div className={"past-event-card-read-more-text"}>Read More</div>
                     <span className={"material-symbols-outlined"}>expand_circle_right</span>
                 </h3>
@@ -82,7 +83,7 @@ function EventsPage(props) {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
-    
+
     var currentDate = new Date();
     const {upcomingEvents, pastEvents} = EVENT_INFO.reduce((acc, item, index) => {
         var eventDate = new Date(item.date);
@@ -92,7 +93,7 @@ function EventsPage(props) {
             acc.pastEvents.push(makePastEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
         }
         return acc;
-    }, {upcomingEvents: [], pastEvents: [] });
+    }, {upcomingEvents: [], pastEvents: []});
 
     return (
         <div>
