@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './SignUp.css';
 import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';
 import googleLogo from "../../utils/icons/google_signin_light.svg";

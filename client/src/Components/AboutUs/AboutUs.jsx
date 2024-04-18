@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 import './AboutUs.css'
@@ -64,18 +64,18 @@ const MEMBER_INFO = [
 ]
 
 // Profile card component
-function ProfileCard({ name, position, degree, currentStatus, about, linkedinUrl, profileImg }) {
+function ProfileCard({name, position, degree, currentStatus, about, linkedinUrl, profileImg}) {
     const imgSrc = require(`../../utils/images/board-members/${profileImg}`);
     const linkedInIcon = require(`../../utils/images/board-members/linkedin-icon.png`);
     const xButton = require(`../../utils/images/board-members/close-popup.png`);
 
 
     const [popupVisible, setPopupVisible] = useState(false);
-    
+
     const togglePopup = () => {
         setPopupVisible(!popupVisible);
     };
-    
+
     const closePopup = () => {
         setPopupVisible(false);
     };
@@ -96,7 +96,8 @@ function ProfileCard({ name, position, degree, currentStatus, about, linkedinUrl
                                 <a href={linkedinUrl}>
                                     <img id="linkedin-icon" src={linkedInIcon} alt="linkedin logo"/>
                                 </a>
-                                <img id="close-popup" src={xButton} alt="x button" class="top-right" onClick={togglePopup} />
+                                <img id="close-popup" src={xButton} alt="x button" class="top-right"
+                                     onClick={togglePopup}/>
                             </div>
                             <p>{degree}</p>
                             <p>{currentStatus}</p>
