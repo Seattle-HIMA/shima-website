@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import NavBar from './Components/Navbar/Navbar';
 import HomePage from './Components/HomePage/HomePage';
 import Membership from './Components/MembershipPage/MembershipPage';
@@ -9,6 +10,7 @@ import AboutUs from './Components/AboutUs/AboutUs';
 import Footer from './Components/Footer/Footer';
 import LoginPage from './Components/LoginPage/LoginPage';
 import SignUp from './Components/SignUp/SignUp';
+import MyProfile from './Components/ProfilePage/ProfilePage';
 
 import './utils/variables.css';
 
@@ -18,27 +20,26 @@ const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 function App() {
     const [showFooter, setShowFooter] = useState(true);
 
-    return (
-        <div>
+    return (<div>
             <header>
                 <NavBar/>
             </header>
             <main>
                 <Routes>
                     <Route index element={<HomePage setShowFooter={setShowFooter}/>}/>
-                    <Route path='/Membership' element={<Membership setShowFooter={setShowFooter}/>}/>
-                    <Route path='/ScholarShips' element={<Scholarship setShowFooter={setShowFooter}/>}/>
-                    <Route path='/Events' element={<EventsPage setShowFooter={setShowFooter}/>}/>
-                    <Route path='/About' element={<AboutUs setShowFooter={setShowFooter}/>}/>
-                    <Route path='/LogIn' element={<LoginPage setShowFooter={setShowFooter}/>}/>
-                    <Route path='/SignUp' element={<SignUp setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/Membership'} element={<Membership setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/ScholarShips'} element={<Scholarship setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/Events'} element={<EventsPage setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/About'} element={<AboutUs setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/LogIn'} element={<LoginPage setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/SignUp'} element={<SignUp setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/MyProfile'} element={<MyProfile setShowFooter={setShowFooter}/>}/>
                 </Routes>
             </main>
             <footer>
                 {showFooter && <Footer/>}
             </footer>
-        </div>
-    )
+        </div>)
 }
 
 export default App;
