@@ -8,7 +8,6 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     let data = await getJSONFile('./assets/scholarships.json')
-    console.log(data)
     res.json(data);
   } catch(err){
     if (err.code === "ENOENT") {
@@ -29,14 +28,14 @@ router.post('/update', async(req, res) => {
     let {section, info} = req.body;
     if(section && info){
       let result = ""
+      let data = await getJSONFile('./assets/scholarships.json');
       // update json file according to given information
-      if(section === "memberships") {
+      if(section === "scholarships") {
         result = await updateJSONFile('./assets/scholarships.json', {"title": info.updatedPart, "value": info.updatedInfo})
       } else if (data[section]) {
         result = await updateJSONFile('./assets/scholarships.json', {"title": section[info.updatedPart], "value": info.updatedInfo})
       } else {
-        response = `There's no ${section} section on this page`
-        res.type('text').status(400).send(response);
+        res.type('text').status(400).send(`There's no ${section} section on this page`);
       }
 
       res.json(result);
