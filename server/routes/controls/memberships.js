@@ -27,14 +27,14 @@ router.post('/update', async(req, res) => {
     let {section, info} = req.body;
     if(section && info){
       let result = ""
+      let data = await getJSONFile('./assets/memberships.json');
       // update json file according to given information
       if(section === "memberships") {
         result = await updateJSONFile('./assets/memberships.json', {"title": info.updatedPart, "value": info.updatedInfo})
       } else if (data[section]) {
         result = await updateJSONFile('./assets/memberships.json', {"title": section[info.updatedPart], "value": info.updatedInfo})
       } else {
-        response = `There's no ${section} section on this page`
-        res.status(400).send(response);
+        res.type('text').status(400).send(`There's no ${section} section on this page`);
       }
 
       res.send(result);

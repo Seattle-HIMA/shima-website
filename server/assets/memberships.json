@@ -1,1 +1,25 @@
-{"title":"Membership","description":"SHIMA Membership is annual. If you are unsure if you are currently a member, please feel free to email us.","subsections":[{"subTitle":"Why join?","subDesc":"Here at SHIMA, we offer discounted workshops, professional development, networking opportunities, Inexpensive Continuing Education Units (CEUs), and volunteering to members."},{"subTitle":"Annual Rates","subDesc":[["$5/year","Student"],["$20/year","Professional"]]},{"subTitle":"How to apply","subDesc":["Online","Complete the 2024 SHIMA membership form below OR by scanning the QR code. Once you have completed the membership form you will receive a confirmation email with a link to PayPal.","In-person","Attend one of our upcoming workshops and complete a new membership form."],"form":"qr-code-link"}]}
+{
+  "title":"Membership",
+  "description":"SHIMA Membership is annual. If you are unsure if you are currently a member, please feel free to email us.",
+  "subsections":[
+    {
+      "Why join?": {
+        "description": "Here at SHIMA, we offer discounted workshops, professional development, networking opportunities, Inexpensive Continuing Education Units (CEUs), and volunteering to members."
+      }
+    },
+    {
+      "Annual Rates": {
+        "Student": "$5/year",
+        "Professional": "$20/year"
+      }
+    },
+    {
+      "How to apply": {
+        "description":"",
+        "Online": "Complete the 2024 SHIMA membership form below OR by scanning the QR code. Once you have completed the membership form you will receive a confirmation email with a link to PayPal.",
+        "In-person": "Attend one of our upcoming workshops and complete a new membership form.",
+        "form":"qr-code-link"
+      }
+    }
+  ]
+}
