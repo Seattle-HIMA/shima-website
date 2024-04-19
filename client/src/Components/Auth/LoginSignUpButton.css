@@ -1,0 +1,60 @@
+.navbar-auth-buttons {
+    border-radius: 20px;
+    margin: 0 6px;
+    padding: 6px 14px;
+    border: none;
+    background-color: var(--gray-white);
+
+    font-family: "Arimo", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    position: relative;
+    display: inline-block;
+    color: var(--dark-blue);
+    box-shadow: 0 0 0 2px #ffffff20;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.navbar-sign-up-button {
+    margin-right: 15px;
+}
+
+.navbar-auth-buttons span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: var(--dark-blue);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.navbar-auth-buttons span:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+.navbar-auth-buttons:hover {
+    box-shadow: 0 0 0 5px var(--dark-blue);
+    color: var(--gray-white);
+    background-color: var(--dark-blue);
+    transition: 0.5s;
+}
+
+.navbar-auth-buttons:active {
+    scale: 0.93;
+}
+
+.navbar-auth-buttons:hover span:last-child {
+    width: 150px;
+    height: 150px;
+    opacity: 1;
+}
