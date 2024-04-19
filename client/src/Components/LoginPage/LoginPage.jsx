@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 
-import './Login.css';
+import './LoginPage.css';
 import cityImg from '../../utils/images/undraw_city_life_gnpr.svg';
 import googleLogo from '../../utils/icons/google_signin_light.svg'
 import microsoftLogo from '../../utils/icons/ms-symbollockup_signin_light.svg'
 
-function Login(props) {
-    props.setShowFooter(false);
-
+function LoginPage(props) {
     useEffect(() => {
+        props.setShowFooter(false);
         window.scrollTo(0, 0)
     }, [])
 
@@ -35,10 +34,7 @@ function Login(props) {
                     <a className={"login-forgot-password-text"}>Forgot Password</a>
                 </div>
 
-                <button className={"login-submit-button"}>
-                    <span>Log In</span>
-                    <span></span>
-                </button>
+                {/*<LoginButton />*/}
 
                 <div className={"login-or-section"}>
                     <hr className={"login-or-line"}/>
@@ -78,4 +74,4 @@ function Login(props) {
     )
 }
 
-export default Login;
+export default LoginPage;

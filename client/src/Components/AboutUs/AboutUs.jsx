@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 import './AboutUs.css'
 import bg from '../../utils/images/board-members-bg.jpeg'
-import linkedInIcon from '../../utils/images/board-members/linkedin-icon.png';
 
 
 const MEMBER_INFO = [
@@ -63,7 +62,7 @@ const MEMBER_INFO = [
     }
 ]
 
-// Profile card component
+// ProfileButton card component
 function ProfileCard({name, position, degree, currentStatus, about, linkedinUrl, profileImg}) {
     const imgSrc = require(`../../utils/images/board-members/${profileImg}`);
     const linkedInIcon = require(`../../utils/images/board-members/linkedin-icon.png`);
@@ -113,12 +112,6 @@ function ProfileCard({name, position, degree, currentStatus, about, linkedinUrl,
     );
 }
 
-function togglePopup() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-    console.log("toggling")
-}
-
 function AboutUs(props) {
     props.setShowFooter(true);
     useEffect(() => {
@@ -137,17 +130,18 @@ function AboutUs(props) {
             profileImg={item.profileImg}
         />
     ));
+    
     return (
         <div className={"members-page"}>
             <div className={"header"}>
-                <img src={bg}></img>
+                <img src={bg} alt={"member page header"}></img>
                 <section>
                     <h1>Board Members</h1>
                     <p>Meet the 2024 team at SHIMA</p>
                 </section>
             </div>
             <h1>Executive Board</h1>
-            <div class="member-grid">
+            <div className="member-grid">
                 {profileCards}
             </div>
             <h1>Volunteers</h1>

@@ -147,7 +147,7 @@ function HomePage(props) {
             </div>
         </div>
         <div className={"pres-letter"}>
-            <img src={presidentImg} alt="president's photo"></img>
+            <img src={presidentImg} alt="president"></img>
             <div className={"letter"}>
                 <h3>A letter from the President</h3>
                 <p>
