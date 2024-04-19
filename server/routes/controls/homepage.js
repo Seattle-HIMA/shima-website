@@ -26,10 +26,12 @@ router.post('/update', async (req, res) => {
     //    newInfo = { partToChange: 'new value' }
     let { section, newInfo } = req.body;
     if (section && newInfo) {
-      updateData = {}
+      let updateData = {}
       updateData.section = section;
       updateData.part = newInfo.partToChange;
       updateData.updatedInfo = newInfo.value;
+      let updated = await updateJSONFile('homepage', updateData);
+      res.json(updated);
     }
   } catch (err) {
     if (err.code === "ENOENT") {
