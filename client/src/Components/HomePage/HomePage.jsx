@@ -1,10 +1,23 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-
+import statusCheck from '../../utils/utils';
 import './HomePage.css';
 
 import seattleImg from '../../utils/images/seattle-sunset-image.jpg';
 import presidentImg from '../../utils/images/president-photo.png';
+
+const getPageDetails = async (fileName) => {
+  try {
+    let res = await fetch(`routes/${fileName}`);
+    await statusCheck(res);
+    let details = await res.json();
+    console.log(details);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+await getPageDetails('homepage');
 
 const getTitleSection = (navigate) => {
     return (<div className={"title-container"}>
