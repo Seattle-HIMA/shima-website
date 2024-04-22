@@ -18,7 +18,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 // mongodb middleware
 app.use((req, res, next) => {
     req.models = models;
