@@ -63,14 +63,14 @@ function ScholarshipsPage(props) {
             </div>
 
             <div className={"about-our-scholarships"}>
-                <h2>{scholarshipSection[0]}</h2>
+                <h2>{scholarshipSection.description}</h2>
                 <div className={"details"}>
                     {scholarshipsInfo}
                 </div>
             </div>
 
             <div className={"winner-section"}>
-                <h2>{winnersSection[0]}</h2>
+                <h2>{scholarshipSection.description}</h2>
                 {winnerCards}
             </div>
         </div>
