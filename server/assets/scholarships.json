@@ -2,44 +2,46 @@
   "title": "Scholarships",
   "description": "Seattle Health Information Management Association offers scholarship opportunities for students and professionals who demonstrate excellence and potential leadership in the Health Information Management industry.",
   "subsections": {
-    "Exam Reimbursement Scholarship": {
-      "description": "This scholarship rewards professionals looking to advance their HIM careers by further credentialing themselves.",
-      "winners": {
-        "Tien Nguyen": {
-          "year": "2022",
-          "photo": "../../utils/images/winner1.png",
-          "description": [
-            "Tien graduated from the University of Washington with a Bachelor of Science in Health Informatics and Health Information Management. She is an active volunteer of SHIMA and facilitates many workshops. She is grateful to be the winner of the SHIMA Exam Reimbursement Scholarship 2022 and would love to devote more effort to the HIM community."
-          ]
-        },
-        "Kirshauna Day": {
-          "year": "2022",
-          "photo": "../../utils/images/winner2.png",
-          "description": [
-            "Thank you, Seattle Health Information Management Association for this opportunity in becoming a Certified Coding Associate. Being a Certified Coding Associate has inspired me to further my education. With excitement, I will soon complete my Registered Health Information Technology degree this upcoming year."
-          ]
-        },
-        "Eliot Sipes": {
-          "year": "2018",
-          "photo": "../../utils/images/winner3.png",
-          "description": [
-            "Eliot graduated from the University of Washington with a B.S. degree in Health Informatics and Health Information Management. His interests in technology and the advancements of EMRs led him to the HIM field. Throughout the HIHIM program, Eliot helped both classmates and professors with computer issues, earning him the nickname IT guy.",
-            "Eliot is currently working at Equinox Primary Care as their Medical Records lead. In his free time, he enjoys drawing, filming videos, and weightlifting. He is grateful for the classmates, professors, and colleagues he met in the 2 years of HIHIM and SHIMA. He would like to thank SHIMA for offering this scholarship and the hard work invested to keep the Seattle HIM community together."
-          ]
-        }
+    "scholarships": {
+      "description": "About our Scholarships",
+      "Exam Reimbursement Scholarship": {
+        "description": "The Exam Reimbursement Scholarship is awarded to professionals striving to advance their HIM careers through credentials. Examples of credentials certified for this scholarship include RHIA, RHIT, CCA, CCS/CCS-P, CDIP, CHDA, CHPS, and CHTS."
+      },
+      "Graduate Scholarship": {
+        "description": "The Graduate Scholarship is awarded to HIM students and professionals who portray exemplary efforts in their HIM profession."
       }
     },
-    "Graduate Scholarship": {
-      "description": "This scholarship rewards HIM students/professionals who show exemplary efforts in the HIM profession.",
-      "winners": {
-        "Mingjing Feng": {
-          "year": "2017",
-          "photo": "../../utils/images/winner4.png",
-          "description": [
-            "Mingjing is a graduate student of Health Informatics and Health Information Management (MHIHIM) Program at University of Washington. She obtained her bachelor's degree in life science at Shandong University and master's degree in biochemistry and molecular biology at Peking University.",
-            "With experience in both research and health informatics, she aims to utilize precious research findings for clinical care and unlock the power of patient data, realizing real-time and more precise clinical decision making. She will devote herself to public health and healthcare system improvement. Mingjing thanks SHIMA for awarding her the honor and appreciates their efforts to help HIM professionals and improve healthcare. She would love to do more volunteer work and devote more efforts to the HIM community."
-          ]
-        }
+    "winners": {
+      "description": "Meet our scholarship winner",
+      "Tien Nguyen": {
+        "scholarship": "Exam Reimbursement 2022 Scholarship Winner",
+        "photo": "winner1.png",
+        "description": [
+          "Tien graduated from the University of Washington with a Bachelor of Science in Health Informatics and Health Information Management. She is an active volunteer of SHIMA and facilitates many workshops. She is grateful to be the winner of the SHIMA Exam Reimbursement Scholarship 2022 and would love to devote more effort to the HIM community."
+        ]
+      },
+      "Kirshauna Day": {
+        "scholarship": "Exam Reimbursement 2022 Scholarship Winner",
+        "photo": "winner2.png",
+        "description": [
+          "Thank you, Seattle Health Information Management Association for this opportunity in becoming a Certified Coding Associate. Being a Certified Coding Associate has inspired me to further my education. With excitement, I will soon complete my Registered Health Information Technology degree this upcoming year."
+        ]
+      },
+      "Eliot Sipes": {
+        "scholarship": "Exam Reimbursement 2018 Scholarship Winner",
+        "photo": "winner3.png",
+        "description": [
+          "Eliot graduated from the University of Washington with a B.S. degree in Health Informatics and Health Information Management. His interests in technology and the advancements of EMRs led him to the HIM field. Throughout the HIHIM program, Eliot helped both classmates and professors with computer issues, earning him the nickname IT guy.",
+          "Eliot is currently working at Equinox Primary Care as their Medical Records lead. In his free time, he enjoys drawing, filming videos, and weightlifting. He is grateful for the classmates, professors, and colleagues he met in the 2 years of HIHIM and SHIMA. He would like to thank SHIMA for offering this scholarship and the hard work invested to keep the Seattle HIM community together."
+        ]
+      },
+      "Mingjing Feng": {
+        "scholarship": "Graduate 2017 Scholarship Winner",
+        "photo": "winner4.png",
+        "description": [
+          "Mingjing is a graduate student of Health Informatics and Health Information Management (MHIHIM) Program at University of Washington. She obtained her bachelor's degree in life science at Shandong University and master's degree in biochemistry and molecular biology at Peking University.",
+          "With experience in both research and health informatics, she aims to utilize precious research findings for clinical care and unlock the power of patient data, realizing real-time and more precise clinical decision making. She will devote herself to public health and healthcare system improvement. Mingjing thanks SHIMA for awarding her the honor and appreciates their efforts to help HIM professionals and improve healthcare. She would love to do more volunteer work and devote more efforts to the HIM community."
+        ]
       }
     }
   }
