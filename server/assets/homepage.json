@@ -1,1 +1,47 @@
-{"title":"Seattle Health Information Management Association","description":"Welcome! We are a dedicated group of volunteers working to ensure that the Seattle Health Information Management community has access to a network of professionals, engaging workshops and scholarships.","subsections":{"Become a member":{"description":"Join as a 2024 SHIMA member today."},"Benefits":{"description":"What we offer.","text":["Scholarships","Inexpensive Continuing Education Units (CEUs) to maintain your professional certification","Low membership fees","Networking","Professional and personal development","stay up-to-date on information management and informatics"]},"Eligibility":{"description":"Who should join.","text":["Current and future professionals interested in the intersection between people, data and technology","Professionals working formally or informally in a Health Information Management (HIM) or healthcare informatics role"]},"What we do":{"description":"","Opportunities":{"description":"Host workshops, panel disscussions, speakers, and create networking opportunities.","image":"../../utils/images/opportunities-photo.jpeg"},"Scholarships":{"description":"Provide Undergraduate and Graduate Scholarships for Health Information Management and Informatics students.","image":"../../utils/images/scholarships-photo.jpeg"},"Membership":{"description":"Provide professional exam fee reimbursement for the AHIMA credentials.","image":"../../utils/images/reimbursement-photo.jpeg"}}}}
+{
+  "title": "Seattle Health Information Management Association",
+  "description": "Welcome! We are a dedicated group of volunteers working to ensure that the Seattle Health Information Management community has access to a network of professionals, engaging workshops and scholarships.",
+  "subsections": {
+    "Become a member": {
+      "description": "Join as a 2024 SHIMA member today."
+    },
+    "Benefits": {
+      "description": "What we offer.",
+      "text": [
+        "Scholarships",
+        "Inexpensive Continuing Education Units (CEUs) to maintain your professional certification",
+        "Low membership fees",
+        "Networking",
+        "Professional and personal development",
+        "stay up-to-date on information management and informatics"
+      ]
+    },
+    "Eligibility": {
+      "description": "Who should join.",
+      "text": [
+        "Current and future professionals interested in the intersection between people, data and technology",
+        "Professionals working formally or informally in a Health Information Management (HIM) or healthcare informatics role"
+      ]
+    },
+    "What we do": {
+      "description": "",
+      "Opportunities": {
+        "description": "Host workshops, panel disscussions, speakers, and create networking opportunities.",
+        "image": "opportunities-photo.jpeg"
+      },
+      "Scholarships": {
+        "description": "Provide Undergraduate and Graduate Scholarships for Health Information Management and Informatics students.",
+        "image": "scholarships-photo.jpeg"
+      },
+      "Membership": {
+        "description": "Provide professional exam fee reimbursement for the AHIMA credentials.",
+        "image": "reimbursement-photo.jpeg"
+      }
+    },
+    "A letter from the President": {
+      "text": ["Hello, At the Seattle Health Information Management Association (SHIMA), we extend scholarship opportunities to individuals pursuing various certifications accredited by AHIMA. Our organization proudly hosts engaging and informative workshops led by esteemed researchers and professionals in the healthcare industry. These workshops not only provide valuable knowledge but also contribute to Continuing Education Units (CEUs), essential for the continuous development of your professional certification.", "SHIMA serves as a unique platform offering exceptional opportunities to enhance your professional skills within a supportive and enjoyable environment. Whether you are a student new to health information management or a seasoned professional aiming to elevate your career, SHIMA provides a secure space to pursue your overarching goals in the field. Our organizational focus encompasses leadership development, organizational growth, and the acquisition of technical skills.", "We recognize that your active participation requires a personal time investment. However, we assure you that SHIMA is poised to deliver one of the most substantial returns on your time investment. The relevance of our initiatives is amplified by your engagement and commitment.", "If you are interested in joining our community, please feel free to reach out to us.", "Thank you,"],
+      "signature": "Tien Nguyen",
+      "ending": "SHIMA President"
+    }
+  }
+}
