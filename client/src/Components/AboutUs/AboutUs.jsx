@@ -18,18 +18,18 @@ const MEMBER_INFO = [
     {
         "name": "Sandra Andrade",
         "position": "Secretary",
-        "degree": "Degree",
+        "degree": "B.S. and M.S. in Health Information Management at Texas State University",
         "currentStatus": "working",
         "about": "Sandra is a proven leader in revenue cycle management with extensive experience in coding, auditing, project management, training, and education. Sandra completed her graduate and undergraduate studies in Health Information Management at Texas State University. Her commitment in the HIM industry expands into higher education, where she teaches Medical Billing and Coding courses at Everett Community College.",
         "linkedinUrl": "",
         "profileImg": "bm-2.png"
     },
     {
-        "name": "First Last",
-        "position": "Position",
-        "degree": "Degree",
+        "name": "Harsha Velpula",
+        "position": "Treasurer",
+        "degree": "M.S. in Health informatics and Health Information Management, B.S. Dentistry ",
         "currentStatus": "working",
-        "about": "hi",
+        "about": "Harsha has a strong healthcare background, with a Master's degree in Health informatics and Health Information Management, Bachelor’s degree in dentistry and experience in information management, data analysis, quality improvement. Harsha  believes that health IT and its innovations help to improve the quality of patient care. Harsha is excited to serve as SHIMA's Treasurer and contribute to members professional development.",
         "linkedinUrl": "",
         "profileImg": "bm-3.png"
     },
