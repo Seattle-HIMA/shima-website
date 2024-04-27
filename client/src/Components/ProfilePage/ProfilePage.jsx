@@ -16,6 +16,8 @@ function ProfilePage(props) {
         return <div>Loading Profile Information...</div>;
     }
 
+    if (!user) return null;
+
     return (isAuthenticated && (
         <div className="profile-page-wrapper">
             <img src={user.picture} alt={"pfp picture"}/>
