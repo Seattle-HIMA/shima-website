@@ -1,24 +1,23 @@
 import express from 'express';
-import path from 'path';
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+import path, { dirname } from 'path';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
 import 'dotenv/config'
-import { auth } from "express-oauth2-jwt-bearer"
+import apiRouter from './routes/routes.js';
+import models from './models.js';
+import { CLIENT_ORIGIN_URL, PORT } from './constants.js';
 
-const PORT = process.env.PORT || 8080;
+dotenv.config();
 
-const jwtCheck = auth({
-    audience: 'https://shima-website.com/api',
-    issuerBaseURL: 'https://dev-wdf7styoee63xjux.us.auth0.com/',
-    tokenSigningAlg: 'RS256'
-});
+if (!(PORT && CLIENT_ORIGIN_URL)) {
+    throw new Error(
+        "Missing required environment variables. Check docs for more info."
+    );
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-import apiRouter from './routes/routes.js';
-import models from './models.js';
 
 const app = express();
 
@@ -34,8 +33,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/routes', apiRouter);
-
-app.use(jwtCheck)
 
 
 export default app;

@@ -6,7 +6,6 @@ import './HomePage.css';
 import seattleImg from '../../utils/images/seattle-sunset-image.jpg';
 import presidentImg from '../../utils/images/president-photo.png';
 
-
 let pageInfo = await getPageDetails('homepage');
 let sectionKeys = Object.keys(pageInfo.subsections);
 

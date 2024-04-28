@@ -1,32 +1,19 @@
-import React from 'react';
-import { Auth0Provider } from '@auth0/auth0-react';
-import { BrowserRouter } from 'react-router-dom';
-import ReactDOM from 'react-dom/client';
-import Modal from "react-modal";
-import { AUTH0_DOMAIN, AUTH0_CLIENT_ID } from './constants';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import { Auth0ProviderWithNavigate } from "./Auth0ProviderWithNavigate";
 import './index.css';
-import App from './App';
 
-Modal.setAppElement('#root');
-
-const auth0Domain = AUTH0_DOMAIN;
-const auth0ClientId = AUTH0_CLIENT_ID;
-const redirectUri = window.location.origin;
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const container = document.getElementById("root");
+const root = createRoot(container);
 
 root.render(
-    <Auth0Provider
-        domain={auth0Domain}
-        clientId={auth0ClientId}
-        authorizationParams={{
-            redirect_uri: redirectUri
-        }}
-    >
+    <React.StrictMode>
         <BrowserRouter>
-            <React.StrictMode>
-                <App/>
-            </React.StrictMode>
+            <Auth0ProviderWithNavigate>
+                <App />
+            </Auth0ProviderWithNavigate>
         </BrowserRouter>
-    </Auth0Provider>
+    </React.StrictMode>
 );

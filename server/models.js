@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { MONGO_PW } from "./constants.js";
 
 let models = {};
 
@@ -6,7 +7,7 @@ main().catch(err => console.log(err));
 
 async function main() {
     console.log('Connecting to database...');
-    await mongoose.connect(`mongodb+srv://shima:${process.env.MONGO_PW}@shima-website.1q7b4aj.mongodb.net/`);
+    await mongoose.connect(`mongodb+srv://shima:${MONGO_PW}@shima-website.1q7b4aj.mongodb.net/`);
     console.log('Success!');
 
     const WorkshopSchema = new mongoose.Schema({
