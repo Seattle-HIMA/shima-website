@@ -11,6 +11,7 @@ import Footer from './Components/Footer/Footer';
 import LoginPage from './Components/LoginPage/LoginPage';
 import SignUp from './Components/SignUp/SignUp';
 import MyProfile from './Components/ProfilePage/ProfilePage';
+import Registration from './Components/RegistrationPage/RegistrationPage';
 
 import './utils/variables.css';
 
@@ -34,6 +35,7 @@ function App() {
                     <Route path={'/LogIn'} element={<LoginPage setShowFooter={setShowFooter}/>}/>
                     <Route path={'/SignUp'} element={<SignUp setShowFooter={setShowFooter}/>}/>
                     <Route path={'/MyProfile'} element={<MyProfile setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/Registration'} element={<Registration setShowFooter={setShowFooter}/>}/>
                 </Routes>
             </main>
             <footer>

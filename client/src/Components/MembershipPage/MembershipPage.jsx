@@ -12,14 +12,16 @@ function MembershipPage(props) {
 
     return (
         <div>
-            <div class="membership-title">
-                <img src={backgroundImg} alt="Seattle skyline" id="membership-img"></img>
-                <div class="centered">
-                    <h1 class="membership-h1">Membership</h1>
-                    <p className={"caption-text"}>
-                        SHIMA Membership is annual. If you are unsure if you are currently a member, please feel free to
-                        email us.
-                    </p>
+            <div class="membership-page">
+                <div class="header">
+                    <img src={backgroundImg} alt="Seattle skyline"></img>
+                    <section>
+                        <h1 class="membership-h1">Membership</h1>
+                        <p>
+                            SHIMA Membership is annual. If you are unsure if you are currently a member, please feel free to
+                            email us.
+                        </p>
+                    </section>
                 </div>
             </div>
             <br></br>

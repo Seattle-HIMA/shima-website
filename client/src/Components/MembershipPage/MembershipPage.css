@@ -1,29 +1,8 @@
-.membership-title {
-    position: relative;
-    text-align: center;
-    display: flex;
-    color: white;
-    justify-content: center;
-    flex-direction: column;
+.header h1 {
+    font-size: var(--page-title);
 }
 
-#membership-img {
-    width: 100vw;
-    height: auto;
-}
-
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.membership-h1 {
-    font-weight: 600;
-}
-
-.caption-text {
+.membership-title p {
     color: white;
     font-weight: 400;
     font-size: 20px;
@@ -36,6 +15,11 @@
     font-weight: 600;
     font-family: 'Inter', sans-serif;
 }
+
+.apply-button:hover {
+    background-image: linear-gradient(rgb(0 0 0/25%) 0 0);
+  }
+  
 
 .membership-h2, .membership-h3 {
     color: #0F233B;
