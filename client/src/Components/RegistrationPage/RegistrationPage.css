@@ -1,0 +1,73 @@
+.registration-page h2 {
+    font-size: 50px;
+    font-weight: 250;
+    color: #AAA5A5;
+    margin-left: 100px;
+}
+
+.registration-form {
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.form {
+    width: 60%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #0F233B;
+}
+
+input[type="text"],
+input[type="email"]{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #AAA5A5;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus
+{
+    border-bottom-color: purple;
+    /* change */
+}
+
+
+input[type="radio"] {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+label.radio-label {
+    display: inline-block;
+}
+
+button {
+    display: block;
+    width: 160px;
+    padding: 10px;
+    margin: 20px auto 0;
+    background-color: #0F233B;
+    color: white;
+    border-radius: 10px;
+    border:none;
+}
+
+button:hover {
+    background-color: gray;
+}
