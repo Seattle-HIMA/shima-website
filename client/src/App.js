@@ -11,6 +11,7 @@ import Footer from './Components/Footer/Footer';
 import LoginPage from './Components/LoginPage/LoginPage';
 import SignUp from './Components/SignUp/SignUp';
 import MyProfile from './Components/ProfilePage/ProfilePage';
+import AdminMembersList from "./Components/AdminMembersList/AdminMembersList";
 
 import './utils/variables.css';
 import { AuthenticationGuard } from "./Components/AuthenticationGuard";
@@ -38,7 +39,12 @@ function App() {
                     path={"/MyProfile"}
                     element={<AuthenticationGuard component={MyProfile} setShowFooter={setShowFooter} />}
                 />
+                <Route
+                    path={"/ViewMembershipList"}
+                    element={<AuthenticationGuard component={AdminMembersList} setShowFooter={setShowFooter} />}
+                />
 
+                {/* Page not found */}
                 <Route path="*" element={<NotFoundPage setShowFooter={setShowFooter} />} />
 
             </Routes>
