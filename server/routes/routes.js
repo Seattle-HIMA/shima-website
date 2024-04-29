@@ -14,6 +14,4 @@ router.use('/membership', membershipRouter);
 router.use('/members', boardMembersRouter);
 router.use('/messages', messagesRouter);
 
-console.log("Calling messages router for Auth0");
-
 export default router

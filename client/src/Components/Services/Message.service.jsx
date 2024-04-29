@@ -5,7 +5,7 @@ const apiServerUrl = API_SERVER_URL;
 
 export const getPublicResource = async () => {
     const config = {
-        url: `${apiServerUrl}/api/messages/public`,
+        url: `${apiServerUrl}/routes/messages/public`,
         method: "GET",
         headers: {
             "content-type": "application/json",
@@ -22,7 +22,7 @@ export const getPublicResource = async () => {
 
 export const getProtectedResource = async (accessToken) => {
     const config = {
-        url: `${apiServerUrl}/api/messages/protected`,
+        url: `${apiServerUrl}/routes/messages/protected`,
         method: "GET",
         headers: {
             "content-type": "application/json",
@@ -40,7 +40,7 @@ export const getProtectedResource = async (accessToken) => {
 
 export const getAdminResource = async (accessToken) => {
     const config = {
-        url: `${apiServerUrl}/api/messages/admin`,
+        url: `${apiServerUrl}/routes/messages/admin`,
         method: "GET",
         headers: {
             "content-type": "application/json",
