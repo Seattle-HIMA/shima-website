@@ -14,6 +14,7 @@ import MyProfile from './Components/ProfilePage/ProfilePage';
 
 import './utils/variables.css';
 import { AuthenticationGuard } from "./Components/AuthenticationGuard";
+import { NotFoundPage } from "./Components/Pages/NotFoundPage";
 
 function App() {
     const [showFooter, setShowFooter] = useState(true);
@@ -37,6 +38,8 @@ function App() {
                     path={"/MyProfile"}
                     element={<AuthenticationGuard component={MyProfile} setShowFooter={setShowFooter} />}
                 />
+
+                <Route path="*" element={<NotFoundPage setShowFooter={setShowFooter} />} />
 
             </Routes>
 
