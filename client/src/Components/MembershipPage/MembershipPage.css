@@ -17,17 +17,23 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
 
-.membership-h1 {
-    font-weight: 600;
+    .header h1 {
+        font-size: var(--page-title);
+    }
+
+    .membership-h1 {
+        font-weight: 600;
+    }
 }
 
 .membership-why-join-description-text {
-    color: white;
-    font-weight: 400;
-    font-size: 20px;
-    margin: 30px 20px 30px 0;
+    .membership-title p {
+        color: white;
+        font-weight: 400;
+        font-size: 20px;
+        margin: 30px 20px 30px 0;
+    }
 }
 
 .membership-page-apply-button {
@@ -43,6 +49,13 @@
 }
 
 .membership-why-join-text, .membership-annual-rates-tex {
+    .apply-button:hover {
+        /*background-image: linear-gradient(rgb(0 0 0/25%) 0 0);*/
+    }
+}
+
+
+.membership-h2, .membership-h3 {
     color: #0F233B;
 }
 
@@ -135,8 +148,3 @@ h3 {
 .membership-page-apply-section-text h2 {
     padding-bottom: 20px;
 }
-
-.membership-page-apply-section-subtext {
-
-}
-

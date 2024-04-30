@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 
 import './EventsPage.css';
@@ -24,7 +24,7 @@ const EVENT_INFO = [
         "speaker": "Speaker 3",
         "description": "description here",
         "flyerSource": "flyer-3.jpg",
-        "date": "2024-04-21"
+        "date": "2025-04-21"
     },
     {
         "title": "Spheres & Shades",
@@ -36,7 +36,7 @@ const EVENT_INFO = [
 
 ]
 
-function makeUpcomingEvent(title, speaker, description, flyer, eventDate, index) {
+function makeUpcomingEvent(navigate, title, speaker, description, flyer, eventDate, index) {
     const flyerImg = require(`../../utils/images/${flyer}`);
     const styleNum = index % 2 === 0 ? 1 : 2;
     return (
@@ -50,14 +50,13 @@ function makeUpcomingEvent(title, speaker, description, flyer, eventDate, index)
                 </h2>
                 <p className={"upcoming-event-description" + styleNum}>{description}</p>
                 <p className={"upcoming-event-date" + styleNum}>Date: {eventDate}</p>
-                <button class={"upcoming-event-button" + styleNum}>Click here</button>
+                <button class={"upcoming-event-button" + styleNum} onClick={() => navigate('/Registration')}>Register</button>
             </div>
         </div>
     );
 }
 
 function makePastEvent(title, speaker, description, flyer, eventDate, index) {
-    console.log(title);
     const flyerImg = require(`../../utils/images/${flyer}`);
 
     return (
@@ -79,6 +78,7 @@ function makePastEvent(title, speaker, description, flyer, eventDate, index) {
 }
 
 function EventsPage(props) {
+    const navigate = useNavigate();
     props.setShowFooter(true);
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -88,7 +88,7 @@ function EventsPage(props) {
     const {upcomingEvents, pastEvents} = EVENT_INFO.reduce((acc, item, index) => {
         var eventDate = new Date(item.date);
         if (currentDate <= eventDate) {
-            acc.upcomingEvents.push(makeUpcomingEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
+            acc.upcomingEvents.push(makeUpcomingEvent(navigate, item.title, item.speaker, item.description, item.flyerSource, item.date, index));
         } else {
             acc.pastEvents.push(makePastEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
         }
