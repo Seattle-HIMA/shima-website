@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import getPageDetails from '../../utils/utils';
 import './HomePage.css';
 
-import seattleImg from '../../utils/images/seattle-sunset-image.jpg';
+import seattleImg from '../../utils/images/seattle-sunset-image.webp';
+import seattleCompressed from '../../utils/images/seattle-sunset-image-compressed.webp';
 import presidentImg from '../../utils/images/president-photo.png';
 
 let pageInfo = await getPageDetails('homepage');
 let sectionKeys = Object.keys(pageInfo.subsections);
 
-const getTitleSection = (navigate) => {
+const getTitleSection = (navigate, imageLoaded, setImageLoaded) => {
+  const handleImageLoaded = () => {
+    setImageLoaded(true);
+  };
+
   return (<div className={"title-container"}>
     <div className={"title-text-container"}>
       <p className={"title-text"}>{pageInfo.title}</p>
@@ -20,7 +25,21 @@ const getTitleSection = (navigate) => {
       </button>
     </div>
     <div className={"img-wrapper"}>
-      <img src={seattleImg} alt={"space needle sunset"} className={"seattle-sunset-image"}/>
+      {imageLoaded ? (
+          <img
+              src={seattleImg}
+              alt={"space needle sunset"}
+              className={"seattle-sunset-image"}
+              onLoad={handleImageLoaded}
+          />
+      ) : (
+          <img
+              src={seattleCompressed}
+              alt={"compressed space needle sunset"}
+              className={"seattle-sunset-image"}
+              onLoad={handleImageLoaded}
+          />
+      )}
     </div>
   </div>);
 };
@@ -132,6 +151,8 @@ function HomePage(props) {
     window.scrollTo(0, 0)
   }, []);
 
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const whatWeDoSection = pageInfo.subsections[sectionKeys[3]];
   const list = Object.keys(whatWeDoSection).slice(1);
 
@@ -143,7 +164,7 @@ function HomePage(props) {
 
     return (<div className={"home-page-wrapper"}>
       <div className={"title-section"}>
-        {getTitleSection(navigate)}
+        {getTitleSection(navigate, imageLoaded, setImageLoaded)}
       </div>
       <div className={"become-a-member-section"}>
         {getBecomeAMemberSection(navigate)}
