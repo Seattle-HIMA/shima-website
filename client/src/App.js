@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Favicon from 'react-favicon';
 
 import NavBar from './Components/Navbar/Navbar';
 import HomePage from './Components/HomePage/HomePage';
@@ -21,7 +22,12 @@ const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 function App() {
     const [showFooter, setShowFooter] = useState(true);
 
+    const [faviconUrl, setFaviconUrl] = useState(
+        "https://i.postimg.cc/CxfDg7Y3/image-13.png"
+    );
+
     return (<div>
+        <Favicon url={faviconUrl} />
             <header>
                 <NavBar/>
             </header>
