@@ -1,5 +1,5 @@
 const AdminMessagesPermissions = {
-    Read: "read:admin-messages"
+    Read: "read:admin-interface"
 };
 
 export {
