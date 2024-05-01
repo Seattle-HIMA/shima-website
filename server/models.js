@@ -21,18 +21,15 @@ async function main() {
     const UserSchema = new mongoose.Schema({
         username: String,
         firstName: String,
+        email: String,
         lastName: String,
         password: String,
-        profilePhoto: String,
-        membership: String,
-        paidWorkshops: [WorkshopSchema],
+        membershipType: {type: String, default: "none"},
+        customerId: {type: String, default: "none"},
+        paidWorkshops: [WorkshopSchema]
     });
 
     const BoardMemberSchema = new mongoose.Schema({
-        username: String,
-        password: String,
-        firstName: String,
-        lastName: String,
         imageURL: String,
         about: String,
         degree: [String],
