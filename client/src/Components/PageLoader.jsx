@@ -1,11 +1,9 @@
 import React from "react";
+import './PageLoader.css';
 
 export const PageLoader = () => {
-    const loadingImg = "https://cdn.auth0.com/blog/hello-auth0/loader.svg";
-
-    return (
-        <div className={"page-loader"}>
-            <img src={loadingImg} alt="Loading..." />
+    return (<div style={{marginTop: "130px"}}>
+            <div className="loader"></div>
         </div>
     );
 };
