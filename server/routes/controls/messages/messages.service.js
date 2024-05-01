@@ -17,7 +17,5 @@ const getAdminMessage = () => {
 };
 
 export {
-    getPublicMessage,
-    getProtectedMessage,
-    getAdminMessage
+    getPublicMessage, getProtectedMessage, getAdminMessage
 };

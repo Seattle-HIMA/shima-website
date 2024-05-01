@@ -21,12 +21,10 @@ import { NotFoundPage } from "./Components/Pages/NotFoundPage";
 function App() {
     const [showFooter, setShowFooter] = useState(true);
 
-    const [faviconUrl, setFaviconUrl] = useState(
-        "https://i.postimg.cc/CxfDg7Y3/image-13.png"
-    );
+    const [faviconUrl, setFaviconUrl] = useState("https://i.postimg.cc/CxfDg7Y3/image-13.png");
 
     return (<div>
-        <Favicon url={faviconUrl} />
+        <Favicon url={faviconUrl}/>
         <header>
             <NavBar/>
         </header>
@@ -43,15 +41,15 @@ function App() {
                 {/* Protected Routes */}
                 <Route
                     path={"/MyProfile"}
-                    element={<AuthenticationGuard component={MyProfile} setShowFooter={setShowFooter} />}
+                    element={<AuthenticationGuard component={MyProfile} setShowFooter={setShowFooter}/>}
                 />
                 <Route
                     path={"/ViewMembershipList"}
-                    element={<AuthenticationGuard component={AdminMembersList} setShowFooter={setShowFooter} />}
+                    element={<AuthenticationGuard component={AdminMembersList} setShowFooter={setShowFooter}/>}
                 />
 
                 {/* Page not found */}
-                <Route path="*" element={<NotFoundPage setShowFooter={setShowFooter} />} />
+                <Route path="*" element={<NotFoundPage setShowFooter={setShowFooter}/>}/>
 
             </Routes>
 

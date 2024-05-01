@@ -9,8 +9,7 @@ function MembershipPage(props) {
         window.scrollTo(0, 0)
     }, [])
 
-    return (
-        <div>
+    return (<div>
             <div className="membership-title">
                 <img src={backgroundImg} alt="Seattle skyline" id="membership-img"></img>
                 <div className="membership-title-centered">
@@ -34,11 +33,13 @@ function MembershipPage(props) {
                         <h3 className="membership-annual-rates-text">Annual Rates</h3>
                         <div className="membership-page-rates-cards">
                             <div className="membership-page-price-box">
-                                <p className="membership-page-price-text"><span className="membership-page-price-num">$5</span> / year</p>
+                                <p className="membership-page-price-text"><span
+                                    className="membership-page-price-num">$5</span> / year</p>
                                 <p className="membership-page-price-type">Student</p>
                             </div>
                             <div className="membership-page-price-box">
-                                <p className="membership-page-price-text"><span className="membership-page-price-num">$20</span> / year</p>
+                                <p className="membership-page-price-text"><span
+                                    className="membership-page-price-num">$20</span> / year</p>
                                 <p className="membership-page-price-type">Professional</p>
                             </div>
                         </div>
@@ -64,8 +65,7 @@ function MembershipPage(props) {
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        </div>);
 }
 
 export default MembershipPage;

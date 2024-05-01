@@ -5,9 +5,7 @@ const apiServerUrl = API_SERVER_URL;
 
 export const getPublicResource = async () => {
     const config = {
-        url: `${apiServerUrl}/routes/messages/public`,
-        method: "GET",
-        headers: {
+        url: `${apiServerUrl}/routes/messages/public`, method: "GET", headers: {
             "content-type": "application/json",
         },
     };
@@ -15,44 +13,35 @@ export const getPublicResource = async () => {
     const {data, error} = await callExternalApi({config});
 
     return {
-        data: data || null,
-        error,
+        data: data || null, error,
     };
 };
 
 export const getProtectedResource = async (accessToken) => {
     const config = {
-        url: `${apiServerUrl}/routes/messages/protected`,
-        method: "GET",
-        headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
+        url: `${apiServerUrl}/routes/messages/protected`, method: "GET", headers: {
+            "content-type": "application/json", Authorization: `Bearer ${accessToken}`,
         },
     };
 
     const {data, error} = await callExternalApi({config});
 
     return {
-        data: data || null,
-        error,
+        data: data || null, error,
     };
 };
 
 export const getAdminResource = async (accessToken) => {
     const config = {
-        url: `${apiServerUrl}/routes/messages/admin`,
-        method: "GET",
-        headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
+        url: `${apiServerUrl}/routes/messages/admin`, method: "GET", headers: {
+            "content-type": "application/json", Authorization: `Bearer ${accessToken}`,
         },
     };
 
     const {data, error} = await callExternalApi({config});
 
     return {
-        data: data || null,
-        error,
+        data: data || null, error,
     };
 };
 
