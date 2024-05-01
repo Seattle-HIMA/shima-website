@@ -1,6 +1,32 @@
 import React, {useEffect} from 'react';
 import './MembershipPage.css';
 
+let studentId;
+let profId;
+
+const statusCheck = async (res) => {
+  if (!res.ok) {
+    throw new Error(await res.text());
+  }
+  return res;
+}
+
+const membershipId = async () => {
+  try {
+    let res = await fetch("routes/payment/get-product-id");
+    await statusCheck(res);
+    let info = await res.json();
+    studentId = info['student_id'];
+    profId = info['prof_id'];
+  } catch(err){
+    console.log(err);
+  }
+}
+
+await membershipId();
+
+console.log(`student: ${studentId}`);
+
 function MembershipAppForm() {
   return(
     <div className={"membership-form"}>
@@ -17,12 +43,12 @@ function MembershipAppForm() {
 
         <p>Select a membership registration type:</p>
         <div className={"options-questions"}>
-          <input type="radio" id="professional" name="professional" value="2500" />
+          <input type="radio" id="professional" name="professional" value={profId} />
           <label for="professional">Professional ($25.00)</label>
         </div>
 
         <div className={"options-questions"}>
-          <input type="radio" id="student" name="student" value="1000" />
+          <input type="radio" id="student" name="student" value={studentId} />
           <label for="student">Student ($10.00)</label>
         </div>
 
@@ -110,10 +136,27 @@ function MembershipAppForm() {
           <label for="no">Not interested</label>
         </div>
 
-        <button>Continue to payment</button>
+        <button onClick={createPaymentSession}>Continue to payment</button>
       </form>
     </div>
   )
+}
+
+async function createPaymentSession(event) {
+  event.preventDefault();
+  try {
+    let response = await fetch("/routes/payment/create-checkout-session", {
+      method: "POST",
+      body: JSON.stringify({id: document.querySelector('input[type="radio"]:checked').value}),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    response = await response.json();
+    window.location.href = response.url;
+  } catch (error) {
+    console.error("Error", error);
+  }
 }
 
 export default MembershipAppForm;
