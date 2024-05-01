@@ -9,7 +9,7 @@ function NavBar() {
     const {isAuthenticated, isLoading} = useAuth0();
 
     return (<div className={"navbar"}>
-            <span className={"logo"}>Logo</span>
+            <span className={"logo"}><img src={"https://i.postimg.cc/CxfDg7Y3/image-13.png"} alt={"logo"} className={"nav-logo-icon"}/></span>
             <div className={"pages-links"}>
                 <Link className={"nav-btn"} to='/'>Home</Link>
                 <Link className={"nav-btn"} to='/Membership'>Membership</Link>

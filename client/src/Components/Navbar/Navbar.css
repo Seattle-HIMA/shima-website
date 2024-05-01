@@ -48,5 +48,10 @@
 }
 
 .logo {
-    padding: 20px;
+    padding-left: 20px;
+}
+
+.nav-logo-icon {
+    width: 57px;
+    border-radius: 50%;
 }
