@@ -15,6 +15,7 @@ async function main() {
         description: String,
         speaker: String,
         flyer: String,
+        attendee: [String],
         recordLink: String
     });
 
@@ -22,17 +23,14 @@ async function main() {
         username: String,
         firstName: String,
         lastName: String,
+        email: String,
         password: String,
-        profilePhoto: String,
-        membership: String,
+        membershipType: {type: String, default: "none"},
+        customerID: {type: String, default: "none"},
         paidWorkshops: [WorkshopSchema],
     });
 
     const BoardMemberSchema = new mongoose.Schema({
-        username: String,
-        password: String,
-        firstName: String,
-        lastName: String,
         imageURL: String,
         about: String,
         degree: [String],
