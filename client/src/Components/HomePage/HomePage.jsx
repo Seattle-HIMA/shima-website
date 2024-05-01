@@ -31,6 +31,7 @@ const getTitleSection = (navigate, imageLoaded, setImageLoaded) => {
               alt={"space needle sunset"}
               className={"seattle-sunset-image"}
               onLoad={handleImageLoaded}
+              loading={"lazy"}
           />
       ) : (
           <img
