@@ -8,6 +8,7 @@
 .title-container {
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 .img-wrapper {
@@ -23,7 +24,7 @@
 }
 
 .seattle-sunset-image:hover {
-    transform: scale(1.04);
+    transform: scale(1.01);
     transition: 0.5s;
 }
 

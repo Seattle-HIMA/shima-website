@@ -6,7 +6,6 @@ import './HomePage.css';
 import seattleImg from '../../utils/images/seattle-sunset-image.webp';
 import seattleCompressed from '../../utils/images/seattle-sunset-image-compressed.webp';
 import presidentImg from '../../utils/images/president-photo.png';
-import { PageLoader } from "../PageLoader";
 
 let pageInfo = await getPageDetails('homepage');
 let sectionKeys = Object.keys(pageInfo.subsections);
@@ -35,6 +34,7 @@ const getTitleSection = (navigate, imageLoaded, setImageLoaded) => {
                     alt={"compressed space needle sunset"}
                     className={"seattle-sunset-image"}
                     onLoad={handleImageLoaded}
+                    loading={"lazy"}
                 />)}
         </div>
     </div>);
