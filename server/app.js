@@ -68,6 +68,8 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
         // connect customerID with logged in username
         console.log(data);
         console.log(`username: ${data.object}`)
+
+        // add a message/loading page about successful payment
         break;
       case 'invoice.paid':
         // Continue to provision the subscription as payments continue to be made.
