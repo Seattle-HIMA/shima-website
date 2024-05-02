@@ -142,9 +142,6 @@
         width: 90%;
     }
 
-    .popup-content {
-        width: 80%;
-    }
     .popup-profile-photo {
         width: 50%;
         height: auto;
@@ -159,5 +156,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 80%;
     }
 }

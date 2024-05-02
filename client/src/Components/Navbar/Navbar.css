@@ -1,3 +1,4 @@
+/* Styles for navbar */
 .navbar {
     background-color: var(--gray-white);
     display: flex;
@@ -5,10 +6,11 @@
     align-items: center;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     padding: 0;
     box-shadow: 0 2px 10px var(--light-gray);
-
     font-family: "Arimo", sans-serif;
     font-weight: 600;
     font-size: 16px;
@@ -17,36 +19,83 @@
     z-index: 999;
 }
 
-.pages-links {
-    height: 80px;
-    display: flex;
-    flex-direction: row;
+.logo {
+    padding: 20px;
 }
 
-.nav-btn {
-    padding: 40px 0 20px 0;
-    margin: 0 25px 20px 25px;
-    align-content: center;
+.account-btns {
+    margin-left: auto;
+}
 
-    display: inline-block;
-    background-image: linear-gradient(var(--dark-blue) 0 0, var(--dark-blue) 100%);
-    background-position: 0 100%;
-    background-size: 0 2px;
-    background-repeat: no-repeat;
-    transition: background-size 0.3s,
-    background-position 0s 0.3s; /*change after the size immediately*/
+/* Styles for hamburger menu */
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
+    margin-right: 20px;
+}
+
+/* Styles for navigation links */
+.navPages {
+    display: flex;
+}
+.pages-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pages-links ul li {
+    margin-bottom: 10px;
+}
+
+.pages-links ul li:last-child {
+    margin-bottom: 0;
 }
 
 .pages-links .nav-btn {
+    display: block;
+    padding: 15px 20px;
     text-decoration: none;
     color: var(--dark-blue);
+    transition: background-color 0.3s;
 }
 
-.nav-btn:hover {
-    background-position: 100% 100%; /*OR bottom right*/
-    background-size: 100% 2px;
+.pages-links .nav-btn:hover {
+    background-color: var(--light-gray);
 }
 
-.logo {
-    padding: 20px;
+/* Media query for mobile */
+@media screen and (max-width: 768px) {
+    .navPages {
+        display: flex;
+        flex-direction: column;
+    }
+    .pages-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--gray-white);
+        box-shadow: 0 2px 10px var(--light-gray);
+        z-index: 998;
+    }
+
+    .pages-links.open {
+        display: block;
+    }
+
+    .pages-links.open ul {
+        padding: 20px 0;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+        cursor: pointer;
+    }
 }

@@ -421,3 +421,16 @@
 #signature {
     margin-bottom: 0;
 }
+
+/* mobile styles */
+@media screen and (max-width: 768px) {
+    .title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .img-wrapper {
+
+    }
+}
