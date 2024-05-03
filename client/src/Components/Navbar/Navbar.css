@@ -93,6 +93,9 @@
 
 /* Media query for mobile */
 @media screen and (max-width: 768px) {
+    .navbar {
+        width: 100vw;
+    }
     .nav-list {
         display: flex;
         flex-direction: column;

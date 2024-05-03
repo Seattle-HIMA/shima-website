@@ -425,12 +425,65 @@
 /* mobile styles */
 @media screen and (max-width: 768px) {
     .title-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
+        flex-direction: column;     
     }
     .img-wrapper {
+        margin: 20px 20px 30px 20px;
+    }
+    .description-text {
+        color: var(--white);
+        font-weight: 300;
+        font-size: 16px;
+        margin: 30px 10px 30px 0;
+    }
+    .membership-card, .membership-card-content,
+    .membership-benefits-card-content, .pres-letter, .what-we-do-cards {
+        flex-direction: column;
 
     }
+
+    .what-we-do-cards {
+        width: 100vw;
+    }
+
+    .benefits-list {
+
+    }
+
+    .membership-cards-container {
+
+    }
+    .membership-card-content {
+        margin-left: 5px;
+        padding-top: 20px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .pres-letter {
+        margin: 20px 20px;
+    }
+    .letter {
+        border-left: solid #D9D9D9 4px;
+        margin-left: 20px;
+        margin-top: 20px;
+        padding-left: 30px;
+        padding-right: 60px;
+    }
+    
+    .title-section, .title-container {
+        margin:0px;
+        padding-right: 10px;
+    }
+
+    .title-text-container {
+        width: 60vw;
+        padding: 0;
+    }
+
+    .title-text {
+        padding-top: 100px;
+        font-size: 20px;
+    }
+
 }

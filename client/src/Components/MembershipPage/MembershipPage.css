@@ -1,3 +1,6 @@
+.members-page {
+    width: 100%;
+}
 .header h1 {
     font-size: var(--page-title);
 }

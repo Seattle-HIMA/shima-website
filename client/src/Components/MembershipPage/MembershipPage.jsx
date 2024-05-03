@@ -11,7 +11,7 @@ function MembershipPage(props) {
     }, [])
 
     return (
-        <div>
+        <div className="full-width">
             <div class="membership-page">
                 <div class="header">
                     <img src={backgroundImg} alt="Seattle skyline"></img>
