@@ -17,7 +17,7 @@ function NavBar() {
     return (<div className={"navbar"}>
             <span className={"logo"}>Logo</span>
             <div className={`pages-links ${isMobileMenuOpen ? 'open' : ''}`}>
-                <ul className="navPages">
+                <ul className="nav-list">
                     <li><Link className="nav-btn" to="/">Home</Link></li>
                     <li><Link className="nav-btn" to="/Membership">Membership</Link></li>
                     <li><Link className="nav-btn" to="/Scholarships">Scholarships</Link></li>
