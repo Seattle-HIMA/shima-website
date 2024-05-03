@@ -447,17 +447,37 @@
     }
 
     .benefits-list {
+        margin-bottom: 0px;
+    }
+
+    .benefits-list-item {
+        padding-bottom: 5px;
 
     }
 
-    .membership-cards-container {
-
+    .membership-card {
+        margin: 0px 30px 30px 30px;
+        padding: 0px 10px 20px 30px;
     }
+
+    .membership-card-title {
+        margin-top: 15px;
+    }
+
     .membership-card-content {
-        margin-left: 5px;
-        padding-top: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-top: 0px;
         font-size: 16px;
         font-weight: 500;
+    }
+
+    .membership-eligibility-card-content {
+        padding-right: 40px;
+    }
+
+    .eligibility-list {
+        margin-bottom: 0px;
     }
 
     .pres-letter {

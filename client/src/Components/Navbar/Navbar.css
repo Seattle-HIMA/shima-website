@@ -119,6 +119,11 @@
     .pages-links.open ul {
         padding: 20px 0;
     }
+    
+    .pages-links ul li {
+        padding-top: 0px;
+        margin: 0px;
+    }
 
     .mobile-menu-icon {
         display: block;
