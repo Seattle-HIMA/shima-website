@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import getPageDetails from '../../utils/utils';
 import './HomePage.css';
@@ -24,18 +24,18 @@ const getTitleSection = (navigate, imageLoaded, setImageLoaded) => {
         </div>
         <div className={"img-wrapper"}>
             {imageLoaded ? (<img
-                    src={seattleImg}
-                    alt={"space needle sunset"}
-                    className={"seattle-sunset-image"}
-                    onLoad={handleImageLoaded}
-                    loading={"lazy"}
-                />) : (<img
-                    src={seattleCompressed}
-                    alt={"compressed space needle sunset"}
-                    className={"seattle-sunset-image"}
-                    onLoad={handleImageLoaded}
-                    loading={"lazy"}
-                />)}
+                src={seattleImg}
+                alt={"space needle sunset"}
+                className={"seattle-sunset-image"}
+                onLoad={handleImageLoaded}
+                loading={"lazy"}
+            />) : (<img
+                src={seattleCompressed}
+                alt={"compressed space needle sunset"}
+                className={"seattle-sunset-image"}
+                onLoad={handleImageLoaded}
+                loading={"lazy"}
+            />)}
         </div>
     </div>);
 };
@@ -54,8 +54,8 @@ const makeCardText = (info, start, end, ulClass, liClass) => {
     let benefits = info.slice(start, end)
 
     return (<ul className={ulClass}>
-            {benefits.map((benefit, index) => (<li className={liClass} key={index}>{benefit}</li>))}
-        </ul>)
+        {benefits.map((benefit, index) => (<li className={liClass} key={index}>{benefit}</li>))}
+    </ul>)
 }
 
 const getMembershipCards = () => {
@@ -93,19 +93,19 @@ const getMembershipCards = () => {
 
 const makeWhatWeDoCards = (navigate, name, content, img, link) => {
     return (<article className="what-we-do-card">
-            <div className={"what-we-do-card-header-img"}
-                 style={{backgroundImage: `url(${require(`../../utils/images/${img}`)})`}}></div>
-            <div className={"what-we-do-card-body"}>
-                <h2 className={"what-we-do-card-name"}>{name}</h2>
-                <h3 className={"what-we-do-card-text"}>
-                    {content}
-                </h3>
-                <h3 className={"what-we-do-card-arrow-button"} onClick={() => navigate(link)}>
-                    <div className={"what-we-do-card-read-more-text"}>Read More</div>
-                    <span className={"material-symbols-outlined"}>expand_circle_right</span>
-                </h3>
-            </div>
-        </article>);
+        <div className={"what-we-do-card-header-img"}
+             style={{backgroundImage: `url(${require(`../../utils/images/${img}`)})`}}></div>
+        <div className={"what-we-do-card-body"}>
+            <h2 className={"what-we-do-card-name"}>{name}</h2>
+            <h3 className={"what-we-do-card-text"}>
+                {content}
+            </h3>
+            <h3 className={"what-we-do-card-arrow-button"} onClick={() => navigate(link)}>
+                <div className={"what-we-do-card-read-more-text"}>Read More</div>
+                <span className={"material-symbols-outlined"}>expand_circle_right</span>
+            </h3>
+        </div>
+    </article>);
 }
 
 const getLetterInfo = (content) => {
@@ -118,14 +118,14 @@ const getLetterSection = () => {
     const letterPar = letterSection.text
 
     return (<div className={"pres-letter"}>
-            <img src={presidentImg} alt="president"></img>
-            <div className={"letter"}>
-                <h3>{sectionKeys[4]}</h3>
-                {getLetterInfo(letterPar)}
-                <p id="signature">{letterSection.signature}</p>
-                <p>{letterSection.ending}</p>
-            </div>
-        </div>)
+        <img src={presidentImg} alt="president"></img>
+        <div className={"letter"}>
+            <h3>{sectionKeys[4]}</h3>
+            {getLetterInfo(letterPar)}
+            <p id="signature">{letterSection.signature}</p>
+            <p>{letterSection.ending}</p>
+        </div>
+    </div>)
 }
 
 function HomePage(props) {

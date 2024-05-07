@@ -13,9 +13,7 @@ import { CLIENT_ORIGIN_URL, PORT } from './constants.js';
 dotenv.config();
 
 if (!(PORT && CLIENT_ORIGIN_URL)) {
-    throw new Error(
-        "Missing required environment variables. Check docs for more info."
-    );
+    throw new Error("Missing required environment variables. Check docs for more info.");
 }
 
 const __filename = fileURLToPath(import.meta.url);
@@ -36,14 +34,9 @@ app.use((req, res, next) => {
 
 app.use(nocache());
 
-app.use(
-    cors({
-        origin: CLIENT_ORIGIN_URL,
-        methods: ["GET"],
-        allowedHeaders: ["Authorization", "Content-Type"],
-        maxAge: 86400,
-    })
-);
+app.use(cors({
+    origin: CLIENT_ORIGIN_URL, methods: ["GET"], allowedHeaders: ["Authorization", "Content-Type"], maxAge: 86400,
+}));
 
 // mongodb middleware
 app.use((req, res, next) => {

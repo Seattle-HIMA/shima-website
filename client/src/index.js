@@ -8,12 +8,8 @@ import './index.css';
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <Auth0ProviderWithNavigate>
-                <App />
-            </Auth0ProviderWithNavigate>
-        </BrowserRouter>
-    </React.StrictMode>
-);
+root.render(<BrowserRouter>
+    <Auth0ProviderWithNavigate>
+        <App/>
+    </Auth0ProviderWithNavigate>
+</BrowserRouter>);

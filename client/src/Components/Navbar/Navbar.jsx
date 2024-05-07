@@ -5,11 +5,13 @@ import LoginButton from '../Auth/LoginButton';
 import SignUpButton from '../Auth/SignUpButton';
 import ProfileButton from '../Auth/ProfileButton';
 
+const logo = "https://i.postimg.cc/CxfDg7Y3/image-13.png";
+
 function NavBar() {
     const {isAuthenticated, isLoading} = useAuth0();
 
     return (<div className={"navbar"}>
-        <span className={"logo"}><img src={"https://i.postimg.cc/CxfDg7Y3/image-13.png"} alt={"logo"}
+        <span className={"logo"}><img src={logo} alt={"logo"}
                                       className={"nav-logo-icon"}/></span>
         <div className={"pages-links"}>
             <Link className={"nav-btn"} to='/'>Home</Link>
@@ -19,15 +21,10 @@ function NavBar() {
             <Link className={"nav-btn"} to='/About'>About Us</Link>
         </div>
         <div className={"account-btns"}>
-            {isAuthenticated ? (
-                <ProfileButton/>
-            ) : (
-                <>
-                    <LoginButton/>
-                    <SignUpButton/>
-                </>
-            )
-            }
+            {isAuthenticated ? (<ProfileButton/>) : (<>
+                <LoginButton/>
+                <SignUpButton/>
+            </>)}
         </div>
     </div>);
 }

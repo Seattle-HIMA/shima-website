@@ -9,7 +9,7 @@ const ProfileButton = () => {
     const navigate = useNavigate()
     const {isAuthenticated, isLoading} = useAuth0();
 
-   return (isAuthenticated && (<img
+    return (isAuthenticated && (<img
         src={profileIcon}
         alt="Profile icon"
         onClick={() => {
