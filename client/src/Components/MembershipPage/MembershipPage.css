@@ -148,3 +148,26 @@ h3 {
 .membership-page-apply-section-text h2 {
     padding-bottom: 20px;
 }
+
+.membership-form {
+    margin: 100px 20px;
+}
+
+.membership-form input[type=text] {
+    display:block;
+    margin-bottom: 10px;
+}
+
+.membership-form input[type=text] {
+    outline: 0;
+    border-width: 0 0 2px;
+    width: 80%;
+    border-color: black
+}
+.membership-form label {
+    margin-top: 20px;
+}
+
+.options-questions input {
+    margin-right: 10px;
+}

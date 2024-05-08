@@ -14,6 +14,13 @@ import MyProfile from './Components/ProfilePage/ProfilePage';
 import AdminMembersList from "./Components/AdminMembersList/AdminMembersList";
 import { AuthenticationGuard } from "./Components/AuthenticationGuard";
 import { NotFoundPage } from "./Components/Pages/NotFoundPage";
+import MembershipAppForm from './Components/MembershipPage/MembershipAppForm';
+import Registration from './Components/RegistrationPage/RegistrationPage';
+
+import './utils/variables.css';
+
+// eslint-disable-next-line
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function App() {
     const [showFooter, setShowFooter] = useState(true);
@@ -31,6 +38,8 @@ function App() {
                 <Route path={'/ScholarShips'} element={<Scholarship setShowFooter={setShowFooter}/>}/>
                 <Route path={'/Events'} element={<EventsPage setShowFooter={setShowFooter}/>}/>
                 <Route path={'/About'} element={<AboutUs setShowFooter={setShowFooter}/>}/>
+                <Route path="/application-form" element={<MembershipAppForm/>}/>
+                <Route path={'/Registration'} element={<Registration setShowFooter={setShowFooter}/>}/>
 
                 {/* Protected Routes */}
                 <Route

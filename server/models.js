@@ -16,6 +16,7 @@ async function main() {
         description: String,
         speaker: String,
         flyer: String,
+        attendee: [String],
         recordLink: String
     });
 
@@ -29,7 +30,10 @@ async function main() {
     });
 
     const BoardMemberSchema = new mongoose.Schema({
-        imageURL: String, about: String, degree: [String], currJob: String
+        imageURL: String,
+        about: String,
+        degree: [String],
+        currJob: String
     });
 
     models.User = mongoose.model('User', UserSchema);
