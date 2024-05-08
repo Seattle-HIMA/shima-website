@@ -109,7 +109,7 @@ function RegistrationPage(props) {
                         <input type="radio" id="payment3" name="payment" value="stripe" checked={formData.payment === 'stripe'} onChange={handleInputChange} />
                         <label className="radio-label" htmlFor="payment3">Pay with Stripe</label>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button className="submit-form" type="submit">Submit</button>
                 </form>
             </div>
         </div>

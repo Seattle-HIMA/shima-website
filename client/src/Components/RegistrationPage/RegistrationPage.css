@@ -57,7 +57,7 @@ label.radio-label {
     display: inline-block;
 }
 
-button {
+.form button {
     display: block;
     width: 160px;
     padding: 10px;
@@ -67,6 +67,8 @@ button {
     border-radius: 10px;
     border:none;
 }
+
+.registration-page
 
 button:hover {
     background-color: gray;
