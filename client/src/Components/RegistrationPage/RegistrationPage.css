@@ -5,12 +5,7 @@
     margin-left: 100px;
 }
 
-.registration-form {
-    margin-left: 100px;
-    margin-top: 10px;
-}
-
-.form {
+.registration-page-form {
     width: 60%;
     margin: 50px auto;
     background-color: #fff;
@@ -19,11 +14,11 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.registration-page-form-group {
     margin-bottom: 20px;
 }
 
-label {
+.registration-form-label {
     display: block;
     margin-bottom: 5px;
     font-weight: 500;
@@ -46,17 +41,16 @@ input[type="email"]:focus {
     /* change */
 }
 
-
 input[type="radio"] {
     margin-right: 10px;
     vertical-align: middle;
 }
 
-label.radio-label {
+.registration-form-label.radio-label {
     display: inline-block;
 }
 
-button {
+.registration-form-button {
     display: block;
     width: 160px;
     padding: 10px;
@@ -67,6 +61,6 @@ button {
     border: none;
 }
 
-button:hover {
+.registration-form-button:hover {
     background-color: gray;
 }
