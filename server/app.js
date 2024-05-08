@@ -9,7 +9,7 @@ import 'dotenv/config'
 import stripeLib from "stripe";
 import apiRouter from './routes/routes.js';
 import models from './models.js';
-import { CLIENT_ORIGIN_URL, PORT, STRIPE_TEST_API_KEY } from './constants.js';
+import { CLIENT_ORIGIN_URL, PORT, STRIPE_TEST_API_KEY, STRIPE_TEST_WEBHOOK_SECRET } from './constants.js';
 
 const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
 
@@ -52,7 +52,7 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
     let eventType;
 
     // Check if webhook signing is configured.
-    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+    const webhookSecret = STRIPE_TEST_WEBHOOK_SECRET;
     if (webhookSecret) {
         // Retrieve the event by verifying the signature using the raw body and secret.
         let event;
