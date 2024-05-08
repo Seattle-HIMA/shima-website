@@ -11,7 +11,8 @@ import apiRouter from './routes/routes.js';
 import models from './models.js';
 import { CLIENT_ORIGIN_URL, PORT, STRIPE_TEST_API_KEY, STRIPE_TEST_WEBHOOK_SECRET } from './constants.js';
 
-const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
+let apiKey = STRIPE_TEST_API_KEY
+const STRIPE = stripeLib(apiKey);
 
 dotenv.config();
 

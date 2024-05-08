@@ -1,10 +1,11 @@
 import express from "express"
 import stripeLib from "stripe";
-import { STRIPE_TEST_API_KEY } from "../../constants.js";
+import { CLIENT_ORIGIN_URL, STRIPE_TEST_API_KEY } from '../../constants.js';
 
 const router = express.Router();
 
 const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
+const REDIRECTURL = CLIENT_ORIGIN_URL + '/Membership';
 
 // list of "products" (memberships and workshops)
 const student = await STRIPE.products.create({
@@ -51,8 +52,8 @@ router.post('/create-checkout-session', async (req, res) => {
             },
         ],
         mode: 'subscription',
-        success_url: 'Membership?session_id={CHECKOUT_SESSION_ID}',
-        cancel_url: 'Membership'
+        success_url: REDIRECTURL + `?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: REDIRECTURL
     });
 
     res.json({url: session.url});
@@ -70,8 +71,8 @@ router.post('/workshop-checkout-session', async (req, res) => {
             },
         ],
         mode: 'payment',
-        success_url: '/Membership',
-        cancel_url: '/Membership',
+        success_url: REDIRECTURL,
+        cancel_url: REDIRECTURL,
     });
 
     res.json({url: session.url});

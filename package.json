@@ -1,5 +1,5 @@
 {
-  "name": "final-project-pathpals",
+  "name": "capstone-shima-website",
   "version": "1.0.0",
   "description": "## Project Proposal",
   "main": "index.js",
@@ -17,6 +17,7 @@
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
     "http-proxy-middleware": "^3.0.0",
+    "nocache": "^4.0.0",
     "nodemon": "^3.1.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.22.3",
