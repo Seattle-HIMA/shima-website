@@ -117,15 +117,16 @@ const getLetterSection = () => {
     console.log(sectionKeys)
     const letterPar = letterSection.text
 
-    return (<div className={"pres-letter"}>
-        <img src={presidentImg} alt="president"></img>
-        <div className={"letter"}>
-            <h3>{sectionKeys[4]}</h3>
-            {getLetterInfo(letterPar)}
-            <p id="signature">{letterSection.signature}</p>
-            <p>{letterSection.ending}</p>
-        </div>
-    </div>)
+    return (
+        <div className={"pres-letter"}>
+            <img src={presidentImg} alt="president"></img>
+            <div className={"letter"}>
+                <h3>{sectionKeys[4]}</h3>
+                {getLetterInfo(letterPar)}
+                <p id="signature">{letterSection.signature}</p>
+                <p>{letterSection.ending}</p>
+            </div>
+        </div>)
 }
 
 function HomePage(props) {
