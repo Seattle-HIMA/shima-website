@@ -4,14 +4,12 @@ import React from "react";
 import './LoginSignUpButton.css';
 
 const LoginButton = () => {
-    const { loginWithRedirect } = useAuth0();
+    const {loginWithRedirect} = useAuth0();
 
-    return (
-        <button className={"navbar-auth-buttons"} onClick={() => loginWithRedirect()}>
-            <span>Log In</span>
-            <span></span>
-        </button>
-    );
+    return (<button className={"navbar-auth-buttons"} onClick={loginWithRedirect}>
+        <span>Log In</span>
+        <span></span>
+    </button>);
 };
 
 export default LoginButton;

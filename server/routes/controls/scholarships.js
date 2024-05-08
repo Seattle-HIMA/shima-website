@@ -20,27 +20,27 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/update', async (req, res) => {
-  try{
-    // get body params from frontend
-    // format:
-    //    section: the name of the modified section
-    //    newInfo = { partToChange: 'new value' }
-    let { section, newInfo } = req.body;
-    if (section && newInfo) {
-      let updateData = {}
-      updateData.section = section;
-      updateData.part = newInfo.partToChange;
-      updateData.updatedInfo = newInfo.value;
-      let updated = await updateJSONFile('scholarships', updateData);
-      res.json(updated);
+    try {
+        // get body params from frontend
+        // format:
+        //    section: the name of the modified section
+        //    newInfo = { partToChange: 'new value' }
+        let {section, newInfo} = req.body;
+        if (section && newInfo) {
+            let updateData = {}
+            updateData.section = section;
+            updateData.part = newInfo.partToChange;
+            updateData.updatedInfo = newInfo.value;
+            let updated = await updateJSONFile('scholarships', updateData);
+            res.json(updated);
+        }
+    } catch (err) {
+        if (err.code === "ENOENT") {
+            res.status(500).send("file does not exist");
+        } else {
+            res.status(500).send({message: err.message});
+        }
     }
-  } catch (err) {
-    if (err.code === "ENOENT") {
-        res.status(500).send("file does not exist");
-    } else {
-        res.status(500).send({message: err.message});
-    }
-  }
 });
 
 router.post("/add/winner", async (req, res) => {

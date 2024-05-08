@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 
 import './EventsPage.css';
@@ -50,7 +50,8 @@ function makeUpcomingEvent(navigate, title, speaker, description, flyer, eventDa
                 </h2>
                 <p className={"upcoming-event-description" + styleNum}>{description}</p>
                 <p className={"upcoming-event-date" + styleNum}>Date: {eventDate}</p>
-                <button class={"upcoming-event-button" + styleNum} onClick={() => navigate('/Registration')}>Register</button>
+                <button class={"upcoming-event-button" + styleNum} onClick={() => navigate('/Registration')}>Register
+                </button>
             </div>
         </div>
     );

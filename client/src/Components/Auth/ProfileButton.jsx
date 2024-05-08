@@ -9,17 +9,14 @@ const ProfileButton = () => {
     const navigate = useNavigate()
     const {isAuthenticated, isLoading} = useAuth0();
 
-    if (isLoading) {
-        return <div>Loading ...</div>;
-    }
-
-    return (isAuthenticated && (
-        <img
-            src={profileIcon}
-            alt="Profile icon"
-            onClick={() => navigate('/MyProfile')}
-            className="profile-icon-navbar"
-        />));
+    return (isAuthenticated && (<img
+        src={profileIcon}
+        alt="Profile icon"
+        onClick={() => {
+            !isLoading && navigate("/MyProfile");
+        }}
+        className="profile-icon-navbar"
+    />));
 };
 
 export default ProfileButton;
