@@ -69,8 +69,8 @@ router.post('/workshop-checkout-session', async (req, res) => {
       },
     ],
     mode: 'payment',
-    success_url: 'http://localhost:3000/Membership',
-    cancel_url: 'http://localhost:3000/Membership',
+    success_url: '/Membership',
+    cancel_url: '/Membership',
   });
 
   res.json({url: session.url});

@@ -33,7 +33,7 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
     let eventType;
 
     // Check if webhook signing is configured.
-    const webhookSecret = 'whsec_a741a074a1aec754124f36c28168a61088cdeef376fcc367f9d5f909e2ce9891';
+    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
     if (webhookSecret) {
       // Retrieve the event by verifying the signature using the raw body and secret.
       let event;
