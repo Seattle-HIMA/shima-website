@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { AUTH0_AUDIENCE, AUTH0_CALLBACK_URL, AUTH0_CLIENT_ID, AUTH0_DOMAIN } from "./constants";
 
-export const Auth0ProviderWithNavigate = ({ children }) => {
+export const Auth0ProviderWithNavigate = ({children}) => {
     const navigate = useNavigate();
 
     const domain = AUTH0_DOMAIN;

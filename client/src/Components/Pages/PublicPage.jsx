@@ -8,7 +8,7 @@ export const PublicPage = () => {
         let isMounted = true;
 
         const getMessage = async () => {
-            const { data, error } = await getPublicResource();
+            const {data, error} = await getPublicResource();
 
             if (!isMounted) {
                 return;

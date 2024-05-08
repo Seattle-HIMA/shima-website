@@ -1,6 +1,5 @@
 import { getJSONFile, updateJSONFile } from '../utils/fileUtils.js'
 import express from 'express'
-import models from '../../models.js'
 
 const router = express.Router();
 
@@ -22,19 +21,19 @@ router.get('/', async (req, res) => {
 
 // update homepage information
 router.post('/update', async (req, res) => {
-    try{
+    try {
         // get body params from frontend
         // format:
         //    section: the name of the modified section
         //    newInfo = { partToChange: 'new value' }
-        let { section, newInfo } = req.body;
+        let {section, newInfo} = req.body;
         if (section && newInfo) {
-        let updateData = {}
-        updateData.section = section;
-        updateData.part = newInfo.partToChange;
-        updateData.updatedInfo = newInfo.value;
-        let updated = await updateJSONFile('membership', updateData);
-        res.json(updated);
+            let updateData = {}
+            updateData.section = section;
+            updateData.part = newInfo.partToChange;
+            updateData.updatedInfo = newInfo.value;
+            let updated = await updateJSONFile('membership', updateData);
+            res.json(updated);
         }
     } catch (err) {
         if (err.code === "ENOENT") {

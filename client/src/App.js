@@ -17,8 +17,6 @@ import { NotFoundPage } from "./Components/Pages/NotFoundPage";
 import MembershipAppForm from './Components/MembershipPage/MembershipAppForm';
 import Registration from './Components/RegistrationPage/RegistrationPage';
 
-import './utils/variables.css';
-
 // eslint-disable-next-line
 const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 

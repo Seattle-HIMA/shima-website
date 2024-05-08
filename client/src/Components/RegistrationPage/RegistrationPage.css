@@ -31,7 +31,7 @@ label {
 }
 
 input[type="text"],
-input[type="email"]{
+input[type="email"] {
     width: 100%;
     padding: 10px;
     border: none;
@@ -41,8 +41,7 @@ input[type="email"]{
 }
 
 input[type="text"]:focus,
-input[type="email"]:focus
-{
+input[type="email"]:focus {
     border-bottom-color: purple;
     /* change */
 }
@@ -65,7 +64,7 @@ button {
     background-color: #0F233B;
     color: white;
     border-radius: 10px;
-    border:none;
+    border: none;
 }
 
 button:hover {

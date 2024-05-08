@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 import { auth, claimCheck, InsufficientScopeError } from 'express-oauth2-jwt-bearer';
-import { AUTH0_DOMAIN, AUTH0_AUDIENCE } from '../../constants.js';
+import { AUTH0_AUDIENCE, AUTH0_DOMAIN } from '../../constants.js';
 
 config();
 

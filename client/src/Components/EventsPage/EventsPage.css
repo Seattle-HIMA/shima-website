@@ -10,7 +10,7 @@
 .events-label h2, .past-event-section h2:nth-child(1) {
     font-size: 50px;
     font-weight: 250;
-    color: #AAA5A5; 
+    color: #AAA5A5;
     /* 0F233B */
 }
 
@@ -96,7 +96,7 @@
     cursor: pointer;
     align-self: flex-start;
     margin-bottom: 10px;
-    
+
 }
 
 .upcoming-event-button2 {
@@ -106,8 +106,8 @@
 
 .upcoming-event-button1:hover, .upcoming-event-button2:hover {
     background-image: linear-gradient(rgb(0 0 0/25%) 0 0);
-  }
-  
+}
+
 
 .past-event-section {
     padding: 90px 50px;

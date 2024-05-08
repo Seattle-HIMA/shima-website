@@ -37,14 +37,12 @@ function AdminMembersList(props) {
         };
     }, [getAccessTokenSilently]);
 
-    return (
-        <div className="admin-members-list-wrapper">
+    return (<div className="admin-members-list-wrapper">
             this should only be visible to admins
             <div>
                 {message}
             </div>
-        </div>
-    )
+        </div>)
 }
 
 export default AdminMembersList;

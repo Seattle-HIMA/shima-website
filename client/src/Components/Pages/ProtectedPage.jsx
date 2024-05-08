@@ -3,14 +3,14 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export const ProtectedPage = () => {
     const [message, setMessage] = useState('');
-    const { getAccessTokenSilently } = useAuth0();
+    const {getAccessTokenSilently} = useAuth0();
 
     useEffect(() => {
         let isMounted = true;
 
         const getMessage = async () => {
             const accessToken = await getAccessTokenSilently();
-            const { data, error } = await getProtectedResource(accessToken)
+            const {data, error} = await getProtectedResource(accessToken)
 
             if (!isMounted) return;
 

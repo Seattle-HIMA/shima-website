@@ -1,6 +1,6 @@
 import express from 'express';
 import { getAdminMessage, getProtectedMessage, getPublicMessage } from './messages.service.js';
-import { validateAccessToken, checkRequiredPermissions } from '../../middleware/auth0.middleware.js';
+import { checkRequiredPermissions, validateAccessToken } from '../../middleware/auth0.middleware.js';
 import { AdminMessagesPermissions } from './messages-permissions.js';
 
 const messagesRouter = express.Router();

@@ -7,9 +7,9 @@ const LoginButton = () => {
     const {loginWithRedirect} = useAuth0();
 
     return (<button className={"navbar-auth-buttons"} onClick={loginWithRedirect}>
-            <span>Log In</span>
-            <span></span>
-        </button>);
+        <span>Log In</span>
+        <span></span>
+    </button>);
 };
 
 export default LoginButton;

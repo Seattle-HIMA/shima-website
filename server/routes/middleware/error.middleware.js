@@ -7,7 +7,7 @@ const errorHandler = (error, request, response, next) => {
     if (error instanceof InvalidTokenError) {
         const message = "Bad credentials";
 
-        response.status(error.status).json({ message });
+        response.status(error.status).json({message});
 
         return;
     }
@@ -15,7 +15,7 @@ const errorHandler = (error, request, response, next) => {
     if (error instanceof UnauthorizedError) {
         const message = "Requires authentication";
 
-        response.status(error.status).json({ message });
+        response.status(error.status).json({message});
 
         return;
     }
@@ -23,7 +23,7 @@ const errorHandler = (error, request, response, next) => {
     const status = 500;
     const message = "Internal Server Error";
 
-    response.status(status).json({ message });
+    response.status(status).json({message});
 };
 
 module.exports = {
