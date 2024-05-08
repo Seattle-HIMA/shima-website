@@ -1,24 +1,5 @@
-.events-page .header {
-    width: 100%;
-    height: 550px;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.events-page .header img {
-    position: absolute;
-    width: 100%;
-    filter: brightness(0.8);
-}
-
-.events-page .header section {
-    color: white;
-    z-index: 0;
-    text-align: center;
+.header h1 {
+    font-size: var(--page-title);
 }
 
 .events-label, .past-event-section {
@@ -29,7 +10,8 @@
 .events-label h2, .past-event-section h2:nth-child(1) {
     font-size: 50px;
     font-weight: 250;
-    color: #AAA5A5;
+    color: #AAA5A5; 
+    /* 0F233B */
 }
 
 .past-event-section h2:nth-child(1) {
@@ -114,12 +96,18 @@
     cursor: pointer;
     align-self: flex-start;
     margin-bottom: 10px;
+    
 }
 
 .upcoming-event-button2 {
     background-color: #0F233B;
     color: white;
 }
+
+.upcoming-event-button1:hover, .upcoming-event-button2:hover {
+    background-image: linear-gradient(rgb(0 0 0/25%) 0 0);
+  }
+  
 
 .past-event-section {
     padding: 90px 50px;

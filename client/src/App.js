@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import Favicon from 'react-favicon';
 
 import NavBar from './Components/Navbar/Navbar';
 import HomePage from './Components/HomePage/HomePage';
@@ -12,6 +13,7 @@ import LoginPage from './Components/LoginPage/LoginPage';
 import SignUp from './Components/SignUp/SignUp';
 import MyProfile from './Components/ProfilePage/ProfilePage';
 import MembershipAppForm from './Components/MembershipPage/MembershipAppForm';
+import Registration from './Components/RegistrationPage/RegistrationPage';
 
 import './utils/variables.css';
 
@@ -21,7 +23,12 @@ const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 function App() {
     const [showFooter, setShowFooter] = useState(true);
 
+    const [faviconUrl, setFaviconUrl] = useState(
+        "https://i.postimg.cc/CxfDg7Y3/image-13.png"
+    );
+
     return (<div>
+        <Favicon url={faviconUrl} />
             <header>
                 <NavBar/>
             </header>
@@ -36,6 +43,7 @@ function App() {
                     <Route path={'/LogIn'} element={<LoginPage setShowFooter={setShowFooter}/>}/>
                     <Route path={'/SignUp'} element={<SignUp setShowFooter={setShowFooter}/>}/>
                     <Route path={'/MyProfile'} element={<MyProfile setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/Registration'} element={<Registration setShowFooter={setShowFooter}/>}/>
                 </Routes>
             </main>
             <footer>

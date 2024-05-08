@@ -22,12 +22,13 @@ async function main() {
     const UserSchema = new mongoose.Schema({
         username: String,
         firstName: String,
+        email: String,
         lastName: String,
         email: String,
         password: String,
         membershipType: {type: String, default: "none"},
-        customerID: {type: String, default: "none"},
-        paidWorkshops: [WorkshopSchema],
+        customerId: {type: String, default: "none"},
+        paidWorkshops: [WorkshopSchema]
     });
 
     const BoardMemberSchema = new mongoose.Schema({
