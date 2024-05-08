@@ -17,9 +17,6 @@ import { NotFoundPage } from "./Components/Pages/NotFoundPage";
 import MembershipAppForm from './Components/MembershipPage/MembershipAppForm';
 import Registration from './Components/RegistrationPage/RegistrationPage';
 
-// eslint-disable-next-line
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-
 function App() {
     const [showFooter, setShowFooter] = useState(true);
     const faviconUrl = "https://i.postimg.cc/CxfDg7Y3/image-13.png";
