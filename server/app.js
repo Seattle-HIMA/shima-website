@@ -9,9 +9,9 @@ import 'dotenv/config'
 import stripeLib from "stripe";
 import apiRouter from './routes/routes.js';
 import models from './models.js';
-import { CLIENT_ORIGIN_URL, PORT } from './constants.js';
+import { CLIENT_ORIGIN_URL, PORT, STRIPE_TEST_API_KEY } from './constants.js';
 
-const STRIPE = stripeLib("sk_test_51P9G83ADBhgpSGaKwWNh9J3ksWg4l2GvfRKtYRMnwgKngUDwbOrgc6LlhAaONOTCznHBXefAadnye77RzMQgJyHn00W9nSer4f");
+const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
 
 dotenv.config();
 

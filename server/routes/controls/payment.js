@@ -1,10 +1,10 @@
 import express from "express"
 import stripeLib from "stripe";
+import { STRIPE_TEST_API_KEY } from "../../constants.js";
 
 const router = express.Router();
 
-const STRIPE = stripeLib("sk_test_51P9G83ADBhgpSGaKwWNh9J3ksWg4l2GvfRKtYRMnwgKngUDwbOrgc6LlhAaONOTCznHBXefAadnye77RzMQgJyHn00W9nSer4f");
-const endpointSecret = "whsec_a741a074a1aec754124f36c28168a61088cdeef376fcc367f9d5f909e2ce9891";
+const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
 
 // list of "products" (memberships and workshops)
 const student = await STRIPE.products.create({
@@ -77,4 +77,4 @@ router.post('/workshop-checkout-session', async (req, res) => {
     res.json({url: session.url});
 });
 
-export default router
+export default router;
