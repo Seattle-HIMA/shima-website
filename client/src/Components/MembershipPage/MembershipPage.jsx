@@ -1,5 +1,7 @@
 import React, {useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import './MembershipPage.css';
+import MembershipAppForm from './MembershipAppForm';
 
 import backgroundImg from '../../utils/images/membership-background.png';
 import qrImg from '../../utils/images/QR-code.png';
@@ -56,13 +58,15 @@ function MembershipPage(props) {
                             Once you have completed the membership form you will receive a confirmation email with a
                             link to PayPal.
                         </p>
-                        <button class="apply-button">Apply</button>
+                        <Link to="/application-form">
+                            <button class="apply-button">Apply</button>
+                        </Link>
                         <h4>In-person</h4>
                         <p class="caption">
                             Attend one of our upcoming workshops and complete a new membership form.
                         </p>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     )

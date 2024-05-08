@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         res.json(data);
     } catch (err) {
         if (err.code === "ENOENT") {
-            res.type('text').status(500).send("file does not exist");
+            res.type('text').status(500).send("File does not exist. Please double check the file name");
         } else {
             res.type('text').status(500).send({message: err.message});
         }

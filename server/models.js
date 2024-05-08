@@ -15,6 +15,7 @@ async function main() {
         description: String,
         speaker: String,
         flyer: String,
+        attendee: [String],
         recordLink: String
     });
 
@@ -23,6 +24,7 @@ async function main() {
         firstName: String,
         email: String,
         lastName: String,
+        email: String,
         password: String,
         membershipType: {type: String, default: "none"},
         customerId: {type: String, default: "none"},

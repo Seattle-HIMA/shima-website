@@ -12,6 +12,7 @@ import Footer from './Components/Footer/Footer';
 import LoginPage from './Components/LoginPage/LoginPage';
 import SignUp from './Components/SignUp/SignUp';
 import MyProfile from './Components/ProfilePage/ProfilePage';
+import MembershipAppForm from './Components/MembershipPage/MembershipAppForm';
 import Registration from './Components/RegistrationPage/RegistrationPage';
 
 import './utils/variables.css';
@@ -35,6 +36,7 @@ function App() {
                 <Routes>
                     <Route index element={<HomePage setShowFooter={setShowFooter}/>}/>
                     <Route path={'/Membership'} element={<Membership setShowFooter={setShowFooter}/>}/>
+                    <Route path="/application-form" element={<MembershipAppForm/>} />
                     <Route path={'/ScholarShips'} element={<Scholarship setShowFooter={setShowFooter}/>}/>
                     <Route path={'/Events'} element={<EventsPage setShowFooter={setShowFooter}/>}/>
                     <Route path={'/About'} element={<AboutUs setShowFooter={setShowFooter}/>}/>
