@@ -4,6 +4,9 @@
     --page-title: 50px;
     --section-heading: 42px;
 
+    /* mobile fonts */
+    --mobile-section-heading: 36px;
+
     /* colors */
     --dark-blue: #0F233B;
     --white: #fff;
