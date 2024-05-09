@@ -422,3 +422,104 @@
 #signature {
     margin-bottom: 0;
 }
+
+/* mobile styles */
+@media screen and (max-width: 800px) {
+    .title-container {
+        flex-direction: column;     
+    }
+
+    .img-wrapper {
+        margin: 20px 20px 30px 20px;
+    }
+    
+    .description-text {
+        color: var(--white);
+        font-weight: 300;
+        font-size: 16px;
+        margin: 30px 10px 30px 0;
+    }
+
+    .membership-card, .membership-card-content,
+    .membership-benefits-card-content, .pres-letter, .what-we-do-cards {
+        flex-direction: column;
+    }
+
+    .what-we-do-cards {
+        width: 100vw;
+    }
+
+    .benefits-list {
+        margin-bottom: 0px;
+    }
+
+    .benefits-list-item {
+        padding-bottom: 5px;
+    }
+
+    .membership-card {
+        margin: 0px 30px 30px 30px;
+        padding: 0px 10px 20px 30px;
+    }
+
+    .membership-card-title {
+        margin-top: 15px;
+    }
+
+    .membership-card-content {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-top: 0px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .membership-eligibility-card-content {
+        padding-right: 40px;
+    }
+
+    .eligibility-list {
+        margin-bottom: 0px;
+    }
+
+    .pres-letter {
+        margin: 20px 20px;
+    }
+
+    .pres-letter img {
+        margin-left: 40px;
+    }
+    
+    .letter {
+        border-left: solid #D9D9D9 4px;
+        margin-left: 35px;
+        margin-top: 20px;
+        padding-left: 20px;
+        padding-right: 30px;
+    }
+    
+    .title-section, .title-container {
+        margin:0px;
+        padding-right: 10px;
+    }
+
+    .title-text-container {
+        width: 60vw;
+        padding: 0;
+    }
+
+    .title-text {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+
+    .what-we-do-cards {
+        width: 100%;
+    }
+
+    .what-we-do-card {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+}
