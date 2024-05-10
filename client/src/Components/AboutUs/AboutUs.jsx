@@ -113,7 +113,7 @@ function ProfileCard({name, position, degree, currentStatus, about, linkedinUrl,
                         <div className="text-content">
                             <div className="popup-title">
                                 <p>{name}</p>
-                                <a href={linkedinUrl}>
+                                <a href={linkedinUrl} rel="noreferrer" target="_blank">
                                     <img id="linkedin-icon" src={linkedInIcon} alt="linkedin logo"/>
                                 </a>
                                 <img id="close-popup" src={xButton} alt="x button" className="top-right"
