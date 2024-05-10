@@ -47,6 +47,11 @@ const VIDEO_INFO = [
         "title": "Video 2",
         "link": "youtube.com",
         "thumbnail": "placeholder-thumbnail.jpg"
+    },
+    {
+        "title": "Video 3",
+        "link": "youtube.com",
+        "thumbnail": "placeholder-thumbnail.jpg"
     }
 ]
 

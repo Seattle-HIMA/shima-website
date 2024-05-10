@@ -216,12 +216,13 @@
     margin-top: 60px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
 .video-card {
     position: relative;
-    display: inline-block;
+    display: block;
     margin-right: 20px;
     margin-bottom: 20px;
 }
