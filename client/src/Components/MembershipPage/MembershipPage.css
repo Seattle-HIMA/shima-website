@@ -69,8 +69,13 @@
     margin-right: 5%;
     margin-left: 5%;
     border-radius: 15px;
-    box-shadow: 4px 4px #e5e5e5;
+    box-shadow: 8px 8px 4px #e5e5e5;
     margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.membership-page-price-box:hover {
+    box-shadow: 0 0 10px;
 }
 
 .membership-page-price-text {
