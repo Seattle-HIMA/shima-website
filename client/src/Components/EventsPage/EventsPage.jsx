@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
+import lockImg from '../../utils/images/lock.png';
 
 import './EventsPage.css';
 
@@ -112,13 +113,17 @@ function EventsPage(props) {
 
     const videoCards = VIDEO_INFO.map((item, index) => {
         const thumbnailImg = require(`../../utils/images/${item.thumbnail}`);
-
+        console.log(lockImg);
         console.log("video item", item);
         return (
             <div key={index} className="video-card">
-            <div className="video-card-img" style={{ backgroundImage: `url(${thumbnailImg})` }}></div>
+            <div className="video-card-img" style={{ backgroundImage: `url(${thumbnailImg})` }}>
+                <section></section>
+                <img src={lockImg} alt="Lock" className="lock-image" />
+            </div>
             <div className="video-card-content">
                 <h3 className="video-card-title">{item.title}</h3>
+                {/* access link only if the video is unlocked */}
                 <a className="video-card-link" href={item.link} target="_blank" rel="noopener noreferrer">Watch Video</a>
             </div>
         </div>

@@ -220,12 +220,14 @@
 }
 
 .video-card {
+    position: relative;
     display: inline-block;
     margin-right: 20px;
     margin-bottom: 20px;
 }
 
 .video-card-img {
+     position: relative;
     width: 300px;
     height: 200px;
     background-size: cover;
@@ -259,3 +261,14 @@
 .video-card-link:hover {
     text-decoration: underline;
 }
+
+.lock-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: auto;
+    /* z-index: 1; */
+}
+
