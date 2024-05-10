@@ -135,3 +135,10 @@
     top: 30px;
     right: 30px;
 }
+
+.square-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: 50% 15%;
+}
