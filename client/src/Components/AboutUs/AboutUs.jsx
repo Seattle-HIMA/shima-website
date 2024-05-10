@@ -148,7 +148,7 @@ function AboutUs(props) {
             profileImg={item.profileImg}
         />));
 
-    return (<div className={"members-page"}>
+    return (<div className={"board-members-page"}>
             <div className={"header"}>
                 <img src={bg} alt={"member page header"}></img>
                 <section>
@@ -156,11 +156,10 @@ function AboutUs(props) {
                     <p>Meet the 2024 team at SHIMA</p>
                 </section>
             </div>
-            <h1>Executive Board</h1>
+            <h2>Executive Board</h2>
             <div className="member-grid">
                 {profileCards}
             </div>
-            <h1>Volunteers</h1>
         </div>)
 }
 
