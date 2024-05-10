@@ -124,7 +124,7 @@ function EventsPage(props) {
             <div className="video-card-content">
                 <h3 className="video-card-title">{item.title}</h3>
                 {/* access link only if the video is unlocked */}
-                <a className="video-card-link" href={item.link} target="_blank" rel="noopener noreferrer">Watch Video</a>
+                <a className="video-card-link" href={`https://${item.link}`} target="_blank" rel="noopener noreferrer">Watch Video</a>
             </div>
         </div>
         )
