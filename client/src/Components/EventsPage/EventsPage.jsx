@@ -36,6 +36,19 @@ const EVENT_INFO = [
 
 ]
 
+const VIDEO_INFO = [
+    {
+        "title": "Successful Healthcare IT projects",
+        "link": "youtube.com",
+        "thumbnail": "placeholder-thumbnail.jpg"
+    },
+    {
+        "title": "Video 2",
+        "link": "youtube.com",
+        "thumbnail": "placeholder-thumbnail.jpg"
+    }
+]
+
 function makeUpcomingEvent(navigate, title, speaker, description, flyer, eventDate, index) {
     const flyerImg = require(`../../utils/images/${flyer}`);
     const styleNum = index % 2 === 0 ? 1 : 2;
@@ -50,7 +63,7 @@ function makeUpcomingEvent(navigate, title, speaker, description, flyer, eventDa
                 </h2>
                 <p className={"upcoming-event-description" + styleNum}>{description}</p>
                 <p className={"upcoming-event-date" + styleNum}>Date: {eventDate}</p>
-                <button class={"upcoming-event-button" + styleNum} onClick={() => navigate('/Registration')}>Register
+                <button className={"upcoming-event-button" + styleNum} onClick={() => navigate('/Registration')}>Register
                 </button>
             </div>
         </div>
@@ -78,6 +91,7 @@ function makePastEvent(title, speaker, description, flyer, eventDate, index) {
     );
 }
 
+
 function EventsPage(props) {
     const navigate = useNavigate();
     props.setShowFooter(true);
@@ -96,10 +110,25 @@ function EventsPage(props) {
         return acc;
     }, {upcomingEvents: [], pastEvents: []});
 
+    const videoCards = VIDEO_INFO.map((item, index) => {
+        const thumbnailImg = require(`../../utils/images/${item.thumbnail}`);
+
+        console.log("video item", item);
+        return (
+            <div key={index} className="video-card">
+            <div className="video-card-img" style={{ backgroundImage: `url(${thumbnailImg})` }}></div>
+            <div className="video-card-content">
+                <h3 className="video-card-title">{item.title}</h3>
+                <a className="video-card-link" href={item.link} target="_blank" rel="noopener noreferrer">Watch Video</a>
+            </div>
+        </div>
+        )
+    });
+
     return (
         <div>
-            <div class="events-page">
-                <div class="header">
+            <div className="events-page">
+                <div className="header">
                     <img src={backgroundImg} alt="Rooftop view" id="events-img"></img>
                     <section>
                         <h1>Workshops</h1>
@@ -107,7 +136,7 @@ function EventsPage(props) {
                     </section>
                 </div>
             </div>
-            <div class="events-label">
+            <div className="events-label">
                 <h2>Upcoming workshops</h2>
                 <p>Registration Form</p>
                 <p>Speaker Interest Form</p>
@@ -115,9 +144,15 @@ function EventsPage(props) {
             <div>
                 {upcomingEvents}
             </div>
-            <div class="past-event-section">
+            <div className="video-section">
+                <h2>Videos</h2>
+                <div className="video-cards">
+                    {videoCards}
+                </div>
+            </div>
+            <div className="past-event-section">
                 <h2>Previous Workshops</h2>
-                <div class="past-event-cards">
+                <div className="past-event-cards">
                     {pastEvents}
                 </div>
             </div>

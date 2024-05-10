@@ -2,16 +2,16 @@
     font-size: var(--page-title);
 }
 
-.events-label, .past-event-section {
+.events-label, .past-event-section, .video-section {
     text-align: center;
     padding-bottom: 30px;
 }
 
-.events-label h2, .past-event-section h2:nth-child(1) {
+.events-label h2, .video-section h2, .past-event-section h2 {
     font-size: 50px;
     font-weight: 250;
     color: #AAA5A5;
-    /* 0F233B */
+    margin-top: 50px;
 }
 
 .past-event-section h2:nth-child(1) {
@@ -110,7 +110,7 @@
 
 
 .past-event-section {
-    padding: 90px 50px;
+    margin: 60px 50px;
     text-align: center;
 }
 
@@ -209,4 +209,53 @@
 .past-event-card-arrow-button:hover {
     color: var(--purple);
     transition: color 0.3s;
+}
+
+/* styling for video tiles/cards */
+.video-cards {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.video-card {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.video-card-img {
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.video-card-content {
+    padding: 10px;
+    background-color: #0F233B;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+.video-card-title {
+    margin: 0;
+    color: white;
+    font-size: 16px;
+    /* text-align: left;  */
+}
+
+.video-card-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.video-card-link:hover {
+    text-decoration: underline;
 }
