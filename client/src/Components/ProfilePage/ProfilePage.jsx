@@ -41,7 +41,8 @@ function ProfilePage(props) {
         return null;
     }
 
-    return (<div className="profile-page-wrapper">
+    return (
+        <div className="profile-page-wrapper">
         <img src={user.picture} alt={"pfp picture"}/>
         <p>Name: {user.name}</p>
         <p>Email: {user.email}</p>

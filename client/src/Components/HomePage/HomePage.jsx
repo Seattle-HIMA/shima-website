@@ -119,7 +119,10 @@ const getLetterSection = () => {
 
     return (
         <div className={"pres-letter"}>
-            <img src={presidentImg} alt="president"></img>
+            <div className={"president-img-container"}>
+                <img src={presidentImg} alt="president" />
+            </div>
+
             <div className={"letter"}>
                 <h3>{sectionKeys[4]}</h3>
                 {getLetterInfo(letterPar)}
