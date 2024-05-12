@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../Auth/LogoutButton";
 
 import './ProfilePage.css'
-import { PageLoader } from "../PageLoader";
+import { PageLoader } from "../Pages/PageLoader";
 
 function ProfilePage(props) {
     props.setShowFooter(true);
