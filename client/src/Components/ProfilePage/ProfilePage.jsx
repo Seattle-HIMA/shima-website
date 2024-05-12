@@ -23,15 +23,15 @@ function ProfilePage(props) {
 
     return (
         <div className="profile-page-wrapper">
-        <img src={user.picture} alt={"pfp picture"}/>
-        <p>Name: {user.name}</p>
-        <p>Email: {user.email}</p>
+            <img src={user.picture} alt={"pfp picture"}/>
+            <p>Name: {user.name}</p>
+            <p>Email: {user.email}</p>
 
-        <div>
-            <LogoutButton/>
-        </div>
+            <div>
+                <LogoutButton/>
+            </div>
 
-    </div>);
+        </div>);
 }
 
 export default ProfilePage;

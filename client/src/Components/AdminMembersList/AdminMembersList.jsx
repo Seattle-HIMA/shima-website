@@ -5,43 +5,34 @@ import './AdminMembersList.css';
 
 function AdminMembersList(props) {
     props.setShowFooter(true);
-    const isAdmin = props.isAdmin
+    const isAdmin = props.isAdmin // TODO: if user is not an admin display a no access message
 
-
-    const [message, setMessage] = useState();
-
+    const [userList, setUserList] = useState([]);
     const {getAccessTokenSilently} = useAuth0();
 
     useEffect(() => {
         let isMounted = true;
 
-        const getMessage = async () => {
+        const getUserList = async () => {
             const accessToken = await getAccessTokenSilently();
             const {data, error} = await getAdminMembershipList(accessToken);
 
-            console.log(`data: ${JSON.stringify(data)}`)
+            console.log('Data received:');
+            data.forEach(item => {
+                console.log(JSON.stringify(item));
+            });
 
-            if (!isMounted) {
-                return;
-            }
-
-            if (data) {
-                setMessage(JSON.stringify(data));
-            }
-
-            if (error) {
-                setMessage(JSON.stringify(data));
-            }
+            if (!isMounted) return;
+            if (data) setUserList(data);
+            if (error) setUserList(data);
         };
 
-        getMessage();
+        getUserList();
 
         return () => {
             isMounted = false;
         };
     }, []);
-
-    const userList = message
 
     return (
         <div className="admin-members-list-wrapper">
@@ -57,15 +48,15 @@ function AdminMembersList(props) {
                     </tr>
                     </thead>
                     <tbody>
-                    {/*{message.map(user => (*/}
-                    {/*    <tr key={user._id}>*/}
-                    {/*        <td>{user.email}</td>*/}
-                    {/*        <td>{user.firstName || 'N/A'}</td>*/}
-                    {/*        <td>{user.lastName || 'N/A'}</td>*/}
-                    {/*        <td>{user.membershipType || 'none'}</td>*/}
-                    {/*        <td>{user.paidWorkshops && user.paidWorkshops.length > 0 ? user.paidWorkshops.join(', ') : 'none'}</td>*/}
-                    {/*    </tr>*/}
-                    {/*))}*/}
+                    {userList.map(user => (
+                        <tr key={user._id}>
+                            <td>{user.email}</td>
+                            <td>{user.firstName || 'N/A'}</td>
+                            <td>{user.lastName || 'N/A'}</td>
+                            <td>{user.membershipType || 'none'}</td>
+                            <td>{user.paidWorkshops && user.paidWorkshops.length > 0 ? user.paidWorkshops.join(', ') : 'none'}</td>
+                        </tr>
+                    ))}
                     </tbody>
                 </table>
             </div>
