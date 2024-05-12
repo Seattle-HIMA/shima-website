@@ -1,39 +1,5 @@
-.membership-title {
-    position: relative;
-    text-align: center;
-    display: flex;
-    color: white;
-    justify-content: center;
-    flex-direction: column;
-}
-
-#membership-img {
-    width: 100vw;
-    height: auto;
-}
-
-.membership-title-centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    .header h1 {
-        font-size: var(--page-title);
-    }
-
-    .membership-h1 {
-        font-weight: 600;
-    }
-}
-
-.membership-why-join-description-text {
-    .membership-title p {
-        color: white;
-        font-weight: 400;
-        font-size: 20px;
-        margin: 30px 20px 30px 0;
-    }
+.header h1 {
+    font-size: var(--page-title);
 }
 
 .membership-page-apply-button {
@@ -41,53 +7,47 @@
     color: white;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
-
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px 40px 10px 40px;
+    margin-bottom: 42px;
+    padding: 10px 50px 10px 50px;
     border-radius: 10px;
+    border: none;
 }
 
-.membership-why-join-text, .membership-annual-rates-tex {
-    .apply-button:hover {
-        /*background-image: linear-gradient(rgb(0 0 0/25%) 0 0);*/
-    }
-}
-
-
-.membership-h2, .membership-h3 {
+.membership-page h2, .membership-page h3 {
     color: #0F233B;
 }
 
-.membership-why-join-text {
+.information-section h2, .apply-section h2 {
     color: var(--dark-blue);
     font-weight: 600;
     font-size: var(--section-heading);
-    padding-top: 90px;
+}
+
+.information-section h2, .information-section p {
     margin-left: 60px;
 }
 
-.information-section {
-    padding-left: 1%;
-}
 
-.membership-why-join-description {
-    padding-top: 20px;
+.membership-why-join-description, .apply-section p {
+    padding-top: 10px;
     font-size: 20px;
-    margin-left: 60px;
-    margin-right: 60px;
+    padding-right: 60px;
 }
 
-.membership-annual-rates-section {
-    margin-top: 90px;
+.annual-rates-section {
+    margin-top: 60px;
     padding: 40px 20px 90px 20px;
     text-align: center;
     background-color: #F7F7F7;
     font-size: large;
 }
 
-.membership-annual-rates-text {
+.annual-rates p {
     margin-bottom: 50px;
+}
+
+.annual-rates-section h3 {
+    padding-bottom: 20px;
 }
 
 .membership-page-rates-cards {
@@ -95,7 +55,7 @@
     justify-content: center;
 }
 
-h3 {
+.membership-page h3 {
     margin-bottom: 20px;
     margin-top: 20px;
     font-size: 40px;
@@ -109,44 +69,48 @@ h3 {
     margin-right: 5%;
     margin-left: 5%;
     border-radius: 15px;
-    box-shadow: 4px 4px #e5e5e5;
+    box-shadow: 8px 8px 4px #e5e5e5;
     margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.membership-page-price-box:hover {
+    box-shadow: 0 0 10px;
 }
 
 .membership-page-price-text {
-    margin-top: 50px;
+    padding-top: 50px;
+    padding-right: 50px;
     font-size: 25px;
     font-weight: 500;
 }
 
-.membership-page-price-num {
+.membership-page-price-box span {
     font-size: 70px;
     font-weight: 700;
 }
 
 .membership-page-price-type {
+    margin-right: 50px;
     font-size: 25px;
     font-weight: 500;
 }
 
-.membership-page-apply-section-subtext span {
+.apply-section span {
     font-weight: bold;
 }
 
-.membership-page-apply-section {
-    margin: 90px 60px 50px 60px;
+.apply-section {
+    margin: 50px 60px 70px 60px;
 }
 
-.membership-page-apply-section image {
-    margin-left: 10px;
-}
-
-.membership-page-apply-section-text p {
-    margin: 0;
-}
-
-.membership-page-apply-section-text h2 {
+.apply-section h2 {
     padding-bottom: 20px;
+}
+
+.apply-section h4 {
+    font-weight: 600;
+    margin-bottom: 0px;
 }
 
 .membership-form {
@@ -171,4 +135,87 @@ h3 {
 
 .options-questions input {
     margin-right: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        width: 100%;
+        height: 256px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header section h1 {
+        font-size: var(--mobile-section-heading);
+    }
+    
+    .header section {
+        color: white;
+        z-index: 0;
+        text-align: center;
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .membership-page-rates-cards {
+        flex-direction: column;
+    }
+
+    .membership-page-price-box {
+        width: 250px;
+        height: 200px;
+        box-shadow: 8px 8px 4px #e5e5e5;
+        margin: 0 auto 20px auto;
+    }
+
+    .membership-page-price-box span {
+        font-size: 52px;
+        font-weight: 700;
+    }
+
+    .membership-page-price-text {
+        padding-top: 32px;
+        padding-right: 20px;
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    .information-section h2, .information-section p, .apply-section {
+        margin-left: 50px;
+    }
+
+    .membership-page-price-type {
+        padding-left: 30px;
+        text-align: center;
+    }
+    
+    .apply-section p, .membership-why-join-description {
+        padding-right: 4px;
+        font-size: 16px;
+    }
+
+    .membership-why-join-description {
+        padding-right: 40px;
+    }
+
+    .apply-section h2 {
+        font-size: 40px;
+    }
+
+    .annual-rates-section {
+        margin-top: 50px;
+        padding: 30px 20px 50px 20px;
+        text-align: center;
+        background-color: #F7F7F7;
+        font-size: large;
+    }
+
+    .annual-rates-section p {
+        margin-left: 20px;
+        text-align: center;
+    }
 }
