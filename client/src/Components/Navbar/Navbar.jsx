@@ -4,74 +4,40 @@ import './Navbar.css';
 import LoginButton from '../Auth/LoginButton';
 import SignUpButton from '../Auth/SignUpButton';
 import ProfileButton from '../Auth/ProfileButton';
-import { useEffect, useState } from "react";
-import { getAdminStatus } from "../Services/Message.service";
 
 const logo = "https://i.postimg.cc/CxfDg7Y3/image-13.png";
 
-const normalView = (
-    <>
+const normalView = (<>
         <Link className={"nav-btn"} to='/'>Home</Link>
         <Link className={"nav-btn"} to='/Membership'>Membership</Link>
         <Link className={"nav-btn"} to='/Scholarships'>Scholarships</Link>
         <Link className={"nav-btn"} to='/Events'>Events</Link>
         <Link className={"nav-btn"} to='/About'>About Us</Link>
-    </>
-);
+    </>);
 
-const adminView = (
-    <>
+const adminView = (<>
         <Link className={"nav-btn"} to='/'>Home</Link>
         <Link className={"nav-btn"} to='/ViewMembershipList'>Membership List</Link>
-    </>
-);
+    </>);
 
-function NavBar() {
-    const {isAuthenticated, isLoading, getAccessTokenSilently} = useAuth0();
-    const [isAdmin, setIsAdmin] = useState(false);
+function NavBar(props) {
+    const {isAuthenticated} = useAuth0();
+    const isAdmin = props.isAdmin
 
-    useEffect(() => {
-        let isMounted = true;
-
-        const getAdmin = async () => {
-            if (isAuthenticated && !isLoading) {
-                const accessToken = await getAccessTokenSilently();
-                const {data, error} = await getAdminStatus(accessToken);
-
-                if (!isMounted) {
-                    return;
-                }
-
-                if (data) {
-                    setIsAdmin(data.isAdmin);
-                }
-
-                if (error) {
-                    setIsAdmin(false);
-                }
-            }
-        };
-        getAdmin();
-
-        return () => {
-            isMounted = false;
-        };
-    }, [getAccessTokenSilently, isAuthenticated]);
-
-    return (
-        <div className={"navbar"}>
-        <span className={"logo"}><img src={logo} alt={"logo"}
-                                      className={"nav-logo-icon"}/></span>
-            <div className={"pages-links"}>
-                {isAdmin ? adminView : normalView}
-            </div>
-            <div className={"account-btns"}>
-                {isAuthenticated ? (<ProfileButton/>) : (<>
-                    <LoginButton/>
-                    <SignUpButton/>
-                </>)}
-            </div>
-        </div>);
+    return (<div className={"navbar"}>
+        <span className={"logo"}>
+            <img src={logo} alt={"logo"} className={"nav-logo-icon"}/>
+        </span>
+        <div className={"pages-links"}>
+            {isAdmin ? adminView : normalView}
+        </div>
+        <div className={"account-btns"}>
+            {isAuthenticated ? (<ProfileButton/>) : (<>
+                <LoginButton/>
+                <SignUpButton/>
+            </>)}
+        </div>
+    </div>);
 }
 
 export default NavBar;

@@ -57,6 +57,20 @@ export const getAdminStatus = async (accessToken) => {
     return {
         data: data || null, error,
     };
+};
+
+export const getAdminMembershipList = async (accessToken) => {
+    const config = {
+        url: `${apiServerUrl}/routes/messages/membershipList`, method: "GET", headers: {
+            "content-type": "application/json", Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    const {data, error} = await callExternalApi({config});
+
+    return {
+        data: data || null, error,
+    }
 }
 
 

@@ -7,16 +7,6 @@ import { AdminMessagesPermissions } from "./messages/messages-permissions.js";
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-    try {
-        const users = await models.User.find();
-        res.status(200).json(users);
-    } catch (error) {
-        console.error('Error retrieving users:', error);
-        res.status(500).send('Internal Server Error');
-    }
-});
-
 router.post('/add', async (req, res) => {
     try {
         const {email, firstName, lastName} = req.body;
@@ -43,5 +33,16 @@ router.get('/adminStatus', validateAccessToken, checkIfAdminPermissions([AdminMe
         res.status(500).send('Internal Server Error');
     }
 })
+
+router.get('/allMembers', async (req, res) => {
+    try {
+        const users = await models.User.find();
+        res.data = users
+        res.status(200).json(users);
+    } catch (error) {
+        console.error('Error retrieving users:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
 
 export default router;

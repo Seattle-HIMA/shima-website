@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useEffect, useState } from "react";
-import { getAdminResource } from "../Services/Message.service";
+import { getAdminMembershipList, getAdminResource } from "../Services/Message.service";
 import './AdminMembersList.css';
 
 function AdminMembersList(props) {
@@ -15,7 +15,7 @@ function AdminMembersList(props) {
 
         const getMessage = async () => {
             const accessToken = await getAccessTokenSilently();
-            const {data, error} = await getAdminResource(accessToken);
+            const {data, error} = await getAdminMembershipList(accessToken);
 
             if (!isMounted) {
                 return;
@@ -38,11 +38,11 @@ function AdminMembersList(props) {
     }, [getAccessTokenSilently]);
 
     return (<div className="admin-members-list-wrapper">
-            this should only be visible to admins
-            <div>
-                {message}
-            </div>
-        </div>)
+        this should only be visible to admins
+        <div>
+            {message}
+        </div>
+    </div>)
 }
 
 export default AdminMembersList;
