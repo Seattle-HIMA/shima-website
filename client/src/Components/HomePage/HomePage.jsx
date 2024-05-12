@@ -23,7 +23,7 @@ const getTitleSection = (navigate, imageLoaded, setImageLoaded) => {
             <button className={"about-us-button"} onClick={() => navigate('/About')}>About Us
             </button>
         </div>
-        <div className={"img-wrapper"}>
+        <div class={"img-wrapper mobile-first"}>
             {imageLoaded ? (<img
                 src={seattleImg}
                 alt={"space needle sunset"}

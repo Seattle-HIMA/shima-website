@@ -422,3 +422,134 @@
 #signature {
     margin-bottom: 0;
 }
+
+.mobile-first {
+    order: 1;
+}
+
+/* mobile styles */
+@media screen and (max-width: 800px) {
+    .title-container, .membership-card, .membership-card-content,
+    .membership-benefits-card-content, .pres-letter, .what-we-do-cards {
+        flex-direction: column;     
+    }
+
+    .img-wrapper {
+        margin: 20px 20px 30px 20px;
+    }
+
+    .mobile-first {
+        /* order:-1; */
+    }
+    .description-text {
+        color: var(--white);
+        font-weight: 300;
+        font-size: 16px;
+        margin: 30px 10px 30px 0;
+    }
+
+    .what-we-do-cards {
+        width: 100vw;
+    }
+
+    .benefits-list {
+        margin-bottom: 0px;
+    }
+
+    .benefits-list-item {
+        padding-bottom: 5px;
+    }
+
+    .membership-card {
+        margin: 0px 30px 30px 30px;
+        padding: 0px 10px 20px 30px;
+    }
+
+    .membership-card-title {
+        margin-top: 15px;
+        font-size: var(--mobile-section-heading);
+    }
+
+    .membership-card-content {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-top: 0px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .membership-eligibility-card-content {
+        padding-right: 40px;
+    }
+
+    .eligibility-list {
+        margin-bottom: 0px;
+    }
+
+    .pres-letter {
+        margin: 20px 20px;
+    }
+
+    .pres-letter img {
+        margin-left: 60px;
+    }
+    
+    .letter {
+        border-left: solid #D9D9D9 4px;
+        margin-left: 40px;
+        margin-top: 20px;
+        padding-left: 20px;
+        padding-right: 35px;
+    }
+    
+    .title-container {
+        padding-right: 15px;
+        margin: 0px;
+    }
+
+    .title-text-container {
+        width: 80vw;
+        padding: 0px 20px 0px 20px;
+        margin-left: 20px;
+    }
+
+    .title-text {
+        padding-top: 25px;
+        font-size: 20px;
+    }
+
+    .what-we-do-cards {
+        width: 100%;
+    }
+
+    .what-we-do-card {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .become-a-member-section {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .become-member-text, .what-we-do-text {
+        font-size: var(--mobile-section-heading);
+    }
+
+    .become-member-text {
+        padding-top: 60px;
+    }
+
+    .become-member-subtext {
+        font-size: 18px;
+    }
+
+    .about-us-button {
+        background-color: var(--white);
+        border: 1px solid var(--dark-blue);
+        border-radius: 10px;
+        box-sizing: border-box;
+        color: black;
+        margin-bottom: 20px;
+    }
+}
