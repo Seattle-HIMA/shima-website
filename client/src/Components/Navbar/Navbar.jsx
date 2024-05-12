@@ -4,29 +4,76 @@ import './Navbar.css';
 import LoginButton from '../Auth/LoginButton';
 import SignUpButton from '../Auth/SignUpButton';
 import ProfileButton from '../Auth/ProfileButton';
+import { useEffect, useState } from "react";
+import { getAdminStatus } from "../Services/Message.service";
 
 const logo = "https://i.postimg.cc/CxfDg7Y3/image-13.png";
 
-function NavBar() {
-    const {isAuthenticated, isLoading} = useAuth0();
+const normalView = (
+    <div>
+        <Link className={"nav-btn"} to='/'>Home</Link>
+        <Link className={"nav-btn"} to='/Membership'>Membership</Link>
+        <Link className={"nav-btn"} to='/Scholarships'>Scholarships</Link>
+        <Link className={"nav-btn"} to='/Events'>Events</Link>
+        <Link className={"nav-btn"} to='/About'>About Us</Link>
+    </div>
+);
 
-    return (<div className={"navbar"}>
+const adminView = (
+    <div>
+        <Link className={"nav-btn"} to='/'>Home</Link>
+        <Link className={"nav-btn"} to='/ViewMembershipList'>Membership List</Link>
+    </div>
+);
+
+function NavBar() {
+    const {isAuthenticated, isLoading, getAccessTokenSilently} = useAuth0();
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        let isMounted = true;
+
+        const getAdmin = async () => {
+            if (isAuthenticated && !isLoading) {
+                const accessToken = await getAccessTokenSilently();
+                const {data, error} = await getAdminStatus(accessToken);
+
+                if (!isMounted) {
+                    return;
+                }
+
+                if (data) {
+                    setIsAdmin(data.isAdmin);
+                }
+
+                if (error) {
+                    setIsAdmin(false);
+                }
+            }
+        };
+        getAdmin();
+
+        return () => {
+            isMounted = false;
+        };
+    }, [getAccessTokenSilently, isAuthenticated]);
+
+    console.log(isAdmin);
+
+    return (
+        <div className={"navbar"}>
         <span className={"logo"}><img src={logo} alt={"logo"}
                                       className={"nav-logo-icon"}/></span>
-        <div className={"pages-links"}>
-            <Link className={"nav-btn"} to='/'>Home</Link>
-            <Link className={"nav-btn"} to='/Membership'>Membership</Link>
-            <Link className={"nav-btn"} to='/Scholarships'>Scholarships</Link>
-            <Link className={"nav-btn"} to='/Events'>Events</Link>
-            <Link className={"nav-btn"} to='/About'>About Us</Link>
-        </div>
-        <div className={"account-btns"}>
-            {isAuthenticated ? (<ProfileButton/>) : (<>
-                <LoginButton/>
-                <SignUpButton/>
-            </>)}
-        </div>
-    </div>);
+            <div className={"pages-links"}>
+                {isAdmin ? adminView : normalView}
+            </div>
+            <div className={"account-btns"}>
+                {isAuthenticated ? (<ProfileButton/>) : (<>
+                    <LoginButton/>
+                    <SignUpButton/>
+                </>)}
+            </div>
+        </div>);
 }
 
 export default NavBar;

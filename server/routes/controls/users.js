@@ -1,5 +1,9 @@
 import express from 'express'
 import models from '../../models.js';
+import {
+    checkIfAdminPermissions, validateAccessToken
+} from "../middleware/auth0.middleware.js";
+import { AdminMessagesPermissions } from "./messages/messages-permissions.js";
 
 const router = express.Router();
 
@@ -27,7 +31,17 @@ router.post('/add', async (req, res) => {
         }
     } catch (error) {
         console.error('Error adding new user:', error);
-        res.status(500).send(error.message);
+        res.status(500).send('Internal Server Error');
+    }
+})
+
+router.get('/adminStatus', validateAccessToken, checkIfAdminPermissions([AdminMessagesPermissions.Read]), (req, res) => {
+    try {
+        const isAdmin = req.isAdmin;
+        res.json({isAdmin});
+    } catch (error) {
+        console.error('Error retrieving admin status:', error);
+        res.status(500).send('Internal Server Error');
     }
 })
 
