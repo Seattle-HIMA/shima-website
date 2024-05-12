@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAdminMessage, getProtectedMessage, getPublicMessage } from './messages.service.js';
+import { getAdminMessage, getMembershipList, getProtectedMessage, getPublicMessage } from './messages.service.js';
 import { checkRequiredPermissions, validateAccessToken } from '../../middleware/auth0.middleware.js';
 import { AdminMessagesPermissions } from './messages-permissions.js';
 
@@ -19,6 +19,12 @@ messagesRouter.get("/protected", validateAccessToken, (req, res) => {
 
 messagesRouter.get("/admin", validateAccessToken, checkRequiredPermissions([AdminMessagesPermissions.Read]), (req, res) => {
     const message = getAdminMessage();
+
+    res.status(200).json(message);
+});
+
+messagesRouter.get("/membershipList", validateAccessToken, checkRequiredPermissions([AdminMessagesPermissions.Read]), async (req, res) => {
+    const message = await getMembershipList();
 
     res.status(200).json(message);
 });

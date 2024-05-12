@@ -35,7 +35,6 @@ const EVENT_INFO = [{
 function RegistrationPage(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
     };
 
     // radio buttons
