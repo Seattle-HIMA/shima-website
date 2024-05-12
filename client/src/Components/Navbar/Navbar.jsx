@@ -10,20 +10,20 @@ import { getAdminStatus } from "../Services/Message.service";
 const logo = "https://i.postimg.cc/CxfDg7Y3/image-13.png";
 
 const normalView = (
-    <div>
+    <>
         <Link className={"nav-btn"} to='/'>Home</Link>
         <Link className={"nav-btn"} to='/Membership'>Membership</Link>
         <Link className={"nav-btn"} to='/Scholarships'>Scholarships</Link>
         <Link className={"nav-btn"} to='/Events'>Events</Link>
         <Link className={"nav-btn"} to='/About'>About Us</Link>
-    </div>
+    </>
 );
 
 const adminView = (
-    <div>
+    <>
         <Link className={"nav-btn"} to='/'>Home</Link>
         <Link className={"nav-btn"} to='/ViewMembershipList'>Membership List</Link>
-    </div>
+    </>
 );
 
 function NavBar() {
@@ -57,8 +57,6 @@ function NavBar() {
             isMounted = false;
         };
     }, [getAccessTokenSilently, isAuthenticated]);
-
-    console.log(isAdmin);
 
     return (
         <div className={"navbar"}>

@@ -27,7 +27,6 @@ router.post('/add', async (req, res) => {
             const newUser = new models.User({email, firstName, lastName});
             await newUser.save();
             res.status(200).send('New user added successfully');
-            console.log("new user added");
         }
     } catch (error) {
         console.error('Error adding new user:', error);
