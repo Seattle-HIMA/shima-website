@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import getPageDetails from '../../utils/utils';
 import './HomePage.css';
 
-import seattleImg from '../../utils/images/seattle-sunset-image.webp';
-import seattleCompressed from '../../utils/images/seattle-sunset-image-compressed.webp';
-import presidentImg from '../../utils/images/president-photo.png';
+import seattleImg from '../../utils/images/homepage/seattle-sunset-image.webp';
+import seattleCompressed from '../../utils/images/homepage/seattle-sunset-image-compressed.webp';
+import presidentImg from '../../utils/images/homepage/shima-president.webp';
+import presidentCompressed from '../../utils/images/homepage/shima-president-compressed.webp';
 
 let pageInfo = await getPageDetails('homepage');
 let sectionKeys = Object.keys(pageInfo.subsections);
@@ -112,20 +113,38 @@ const getLetterInfo = (content) => {
     return content.map((para, index) => (<p key={index}>{para}</p>));
 }
 
-const getLetterSection = () => {
+const getLetterSection = (presImageLoaded, setPresImageLoaded) => {
     const letterSection = pageInfo.subsections[sectionKeys[4]];
-    console.log(sectionKeys)
-    const letterPar = letterSection.text
+    const letterPar = letterSection.text;
 
-    return (<div className={"pres-letter"}>
-        <img src={presidentImg} alt="president"></img>
-        <div className={"letter"}>
-            <h3>{sectionKeys[4]}</h3>
-            {getLetterInfo(letterPar)}
-            <p id="signature">{letterSection.signature}</p>
-            <p>{letterSection.ending}</p>
-        </div>
-    </div>)
+    const handleImageLoaded = () => {
+        setPresImageLoaded(true);
+    };
+
+    return (
+        <div className={"pres-letter"}>
+
+            {presImageLoaded ? (<img
+                src={presidentImg}
+                alt={"SHIMA President"}
+                className={"president-image"}
+                onLoad={handleImageLoaded}
+                loading={"lazy"}
+            />) : (<img
+                src={presidentCompressed}
+                alt={"SHIMA President"}
+                className={"president-image"}
+                onLoad={handleImageLoaded}
+                loading={"lazy"}
+            />)}
+
+            <div className={"letter"}>
+                <h3>{sectionKeys[4]}</h3>
+                {getLetterInfo(letterPar)}
+                <p id={"signature"}>{letterSection.signature}</p>
+                <p>{letterSection.ending}</p>
+            </div>
+        </div>)
 }
 
 function HomePage(props) {
@@ -136,20 +155,20 @@ function HomePage(props) {
         window.scrollTo(0, 0)
     }, []);
 
-    const [imageLoaded, setImageLoaded] = useState(false);
+    const [sunsetImageLoaded, setSunsetImageLoaded] = useState(false);
+    const [presImageLoaded, setPresImageLoaded] = useState(false);
 
     const whatWeDoSection = pageInfo.subsections[sectionKeys[3]];
     const list = Object.keys(whatWeDoSection).slice(1);
 
     const whatWeDoCards = list.map((item) => {
         const cardInfo = whatWeDoSection[item];
-        console.log(cardInfo);
         return makeWhatWeDoCards(navigate, item, cardInfo.description, cardInfo.image, cardInfo.link);
     });
 
     return (<div className={"home-page-wrapper"}>
         <div className={"title-section"}>
-            {getTitleSection(navigate, imageLoaded, setImageLoaded)}
+            {getTitleSection(navigate, sunsetImageLoaded, setSunsetImageLoaded)}
         </div>
         <div className={"become-a-member-section"}>
             {getBecomeAMemberSection(navigate)}
@@ -165,7 +184,7 @@ function HomePage(props) {
                 {whatWeDoCards}
             </div>
         </div>
-        {getLetterSection()}
+        {getLetterSection(presImageLoaded, setPresImageLoaded)}
     </div>);
 }
 

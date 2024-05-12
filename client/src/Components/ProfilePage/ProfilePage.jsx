@@ -14,7 +14,7 @@ function ProfilePage(props) {
             const response = await fetch('/routes/users/add', {
                 method: 'POST', headers: {
                     'Content-Type': 'application/json',
-                }, body: JSON.stringify({email: user.email, firstName: user.firstName, lastName: user.lastName}),
+                }, body: JSON.stringify({email: user.email, firstName: user["given_name"], lastName: user["family_name"]}),
             });
 
             if (response.ok) {
@@ -41,7 +41,8 @@ function ProfilePage(props) {
         return null;
     }
 
-    return (<div className="profile-page-wrapper">
+    return (
+        <div className="profile-page-wrapper">
         <img src={user.picture} alt={"pfp picture"}/>
         <p>Name: {user.name}</p>
         <p>Email: {user.email}</p>
