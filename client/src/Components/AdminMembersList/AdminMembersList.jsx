@@ -5,6 +5,8 @@ import './AdminMembersList.css';
 
 function AdminMembersList(props) {
     props.setShowFooter(true);
+    const isAdmin = props.isAdmin
+
 
     const [message, setMessage] = useState("");
 

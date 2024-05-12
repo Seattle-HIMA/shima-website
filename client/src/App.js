@@ -23,10 +23,28 @@ function App() {
     const [showFooter, setShowFooter] = useState(true);
     const [isAdmin, setIsAdmin] = useState(false);
     const faviconUrl = "https://i.postimg.cc/CxfDg7Y3/image-13.png";
-    const {isAuthenticated, isLoading, getAccessTokenSilently} = useAuth0();
+    const {user, isAuthenticated, isLoading, getAccessTokenSilently} = useAuth0();
 
     useEffect(() => {
         let isMounted = true;
+
+        async function addUserToDatabase() {
+            try {
+                const response = await fetch('/routes/users/add', {
+                    method: 'POST', headers: {
+                        'Content-Type': 'application/json',
+                    }, body: JSON.stringify({email: user.email, firstName: user.firstName, lastName: user.lastName}),
+                });
+
+                if (response.ok) {
+                    console.log('User added to database successfully');
+                } else {
+                    console.error('Failed to add user to database');
+                }
+            } catch (error) {
+                console.error('Error adding user to database:', error);
+            }
+        }
 
         const getAdmin = async () => {
             if (isAuthenticated && !isLoading) {
@@ -34,18 +52,18 @@ function App() {
                 const {data, error} = await getAdminStatus(accessToken);
 
                 if (!isMounted) return ''
-
                 if (data) setIsAdmin(data.isAdmin);
-
                 if (error) setIsAdmin(false);
             }
         };
+
         getAdmin();
+        addUserToDatabase();
 
         return () => {
             isMounted = false;
         };
-    }, [getAccessTokenSilently, isAuthenticated]);
+    }, [getAccessTokenSilently, isAuthenticated, isLoading]);
 
     return (
         <div>

@@ -9,28 +9,8 @@ function ProfilePage(props) {
     props.setShowFooter(true);
     const {user, isLoading, isAuthenticated} = useAuth0();
 
-    async function addUserToDatabase() {
-        try {
-            const response = await fetch('/routes/users/add', {
-                method: 'POST', headers: {
-                    'Content-Type': 'application/json',
-                }, body: JSON.stringify({email: user.email, firstName: user.firstName, lastName: user.lastName}),
-            });
-
-            if (response.ok) {
-                console.log('User added to database successfully');
-            } else {
-                console.error('Failed to add user to database');
-            }
-        } catch (error) {
-            console.error('Error adding user to database:', error);
-        }
-    }
-
     useEffect(() => {
         window.scrollTo(0, 0);
-        addUserToDatabase();
-
     }, [])
 
     if (isLoading) {
