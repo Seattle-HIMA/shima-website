@@ -32,13 +32,13 @@ function MembershipPage(props) {
                 <h3>Annual Rates</h3>
                 <div className="membership-page-rates-cards">
                     <div className="membership-page-price-box">
-                        <p className="membership-page-price-text"><span
-                            className="membership-page-price-num">$5</span> / year</p>
+                        <p className="membership-page-price-text">
+                            <span>$5</span> / year</p>
                         <p className="membership-page-price-type">Student</p>
                     </div>
                     <div className="membership-page-price-box">
-                        <p className="membership-page-price-text"><span
-                            className="membership-page-price-num">$20</span> / year</p>
+                        <p className="membership-page-price-text">
+                            <span>$20</span> / year</p>
                         <p className="membership-page-price-type">Professional</p>
                     </div>
                 </div>

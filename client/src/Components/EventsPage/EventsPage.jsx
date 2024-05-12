@@ -118,8 +118,6 @@ function EventsPage(props) {
 
     const videoCards = VIDEO_INFO.map((item, index) => {
         const thumbnailImg = require(`../../utils/images/${item.thumbnail}`);
-        console.log(lockImg);
-        console.log("video item", item);
         return (
             <div key={index} className="video-card">
             <div className="video-card-img" style={{ backgroundImage: `url(${thumbnailImg})` }}>

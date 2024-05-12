@@ -85,13 +85,13 @@
     font-weight: 500;
 }
 
-.membership-page-price-num {
+.membership-page-price-box span {
     font-size: 70px;
     font-weight: 700;
 }
 
 .membership-page-price-type {
-    padding-right: 50px;
+    margin-right: 50px;
     font-size: 25px;
     font-weight: 500;
 }
@@ -135,4 +135,87 @@
 
 .options-questions input {
     margin-right: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        width: 100%;
+        height: 256px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header section h1 {
+        font-size: var(--mobile-section-heading);
+    }
+    
+    .header section {
+        color: white;
+        z-index: 0;
+        text-align: center;
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .membership-page-rates-cards {
+        flex-direction: column;
+    }
+
+    .membership-page-price-box {
+        width: 250px;
+        height: 200px;
+        box-shadow: 8px 8px 4px #e5e5e5;
+        margin: 0 auto 20px auto;
+    }
+
+    .membership-page-price-box span {
+        font-size: 52px;
+        font-weight: 700;
+    }
+
+    .membership-page-price-text {
+        padding-top: 32px;
+        padding-right: 20px;
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    .information-section h2, .information-section p, .apply-section {
+        margin-left: 50px;
+    }
+
+    .membership-page-price-type {
+        padding-left: 30px;
+        text-align: center;
+    }
+    
+    .apply-section p, .membership-why-join-description {
+        padding-right: 4px;
+        font-size: 16px;
+    }
+
+    .membership-why-join-description {
+        padding-right: 40px;
+    }
+
+    .apply-section h2 {
+        font-size: 40px;
+    }
+
+    .annual-rates-section {
+        margin-top: 50px;
+        padding: 30px 20px 50px 20px;
+        text-align: center;
+        background-color: #F7F7F7;
+        font-size: large;
+    }
+
+    .annual-rates-section p {
+        margin-left: 20px;
+        text-align: center;
+    }
 }
