@@ -114,7 +114,6 @@ const getLetterInfo = (content) => {
 
 const getLetterSection = () => {
     const letterSection = pageInfo.subsections[sectionKeys[4]];
-    console.log(sectionKeys)
     const letterPar = letterSection.text
 
     return (<div className={"pres-letter"}>
@@ -143,7 +142,6 @@ function HomePage(props) {
 
     const whatWeDoCards = list.map((item) => {
         const cardInfo = whatWeDoSection[item];
-        console.log(cardInfo);
         return makeWhatWeDoCards(navigate, item, cardInfo.description, cardInfo.image, cardInfo.link);
     });
 

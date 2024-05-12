@@ -16,6 +16,7 @@ import { AuthenticationGuard } from "./Components/AuthenticationGuard";
 import { NotFoundPage } from "./Components/Pages/NotFoundPage";
 import MembershipAppForm from './Components/MembershipPage/MembershipAppForm';
 import Registration from './Components/RegistrationPage/RegistrationPage';
+import { PaymentConfirmPage } from './Components/Pages/PaymentConfirmPage';
 
 function App() {
     const [showFooter, setShowFooter] = useState(true);
@@ -49,6 +50,7 @@ function App() {
                 {/* Page not found */}
                 <Route path="*" element={<NotFoundPage setShowFooter={setShowFooter}/>}/>
 
+                <Route path={"/Payment-Success"} element={<PaymentConfirmPage setShowFooter={setShowFooter}/>} />
             </Routes>
 
         </main>

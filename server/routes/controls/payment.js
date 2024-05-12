@@ -6,6 +6,7 @@ const router = express.Router();
 
 const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
 const REDIRECTURL = CLIENT_ORIGIN_URL + '/Membership';
+const SUCCESSURL = CLIENT_ORIGIN_URL + '/Payment-Success';
 
 // list of "products" (memberships and workshops)
 const student = await STRIPE.products.create({
@@ -42,7 +43,9 @@ router.get('/get-product-id', (req, res) => {
 
 // create a checkout session for subscription (membership)
 router.post('/create-checkout-session', async (req, res) => {
-    const {id} = req.body;
+    const {id, email, type} = req.body;
+
+    req.session.email = email;
 
     const session = await STRIPE.checkout.sessions.create({
         line_items: [
@@ -52,8 +55,12 @@ router.post('/create-checkout-session', async (req, res) => {
             },
         ],
         mode: 'subscription',
-        success_url: REDIRECTURL + `?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: REDIRECTURL
+        success_url: SUCCESSURL + `?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: REDIRECTURL,
+        metadata: {
+            email: email,
+            product: type
+        }
     });
 
     res.json({url: session.url});
@@ -72,7 +79,7 @@ router.post('/workshop-checkout-session', async (req, res) => {
         ],
         mode: 'payment',
         success_url: REDIRECTURL,
-        cancel_url: REDIRECTURL,
+        cancel_url: REDIRECTURL
     });
 
     res.json({url: session.url});
