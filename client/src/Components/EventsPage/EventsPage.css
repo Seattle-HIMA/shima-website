@@ -1,10 +1,14 @@
 .header h1 {
     font-size: var(--page-title);
 }
+.events-label {
+    padding-bottom: 50px;
+    border-bottom: 1px solid #AAA5A5;
+}
 
 .events-label, .past-event-section, .video-section {
     text-align: center;
-    padding-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .events-label h2, .video-section h2, .past-event-section h2 {
@@ -43,68 +47,68 @@
     transform: translate(-50%, -50%);
 }
 
-.upcoming-event-section1, .upcoming-event-section2 {
+.upcoming-event-section {
     display: flex;
     align-items: center;
-    background-color: #0F233B;
+    background-color: white;
+    margin: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #AAA5A5;
 }
 
-.upcoming-event-section2 {
-    background-color: #FBFAFA;
+.event-date {
+    display: flex;
+    flex-direction: horizontal;
 }
 
-.upcoming-event-image1, .upcoming-event-image2 {
-    /* align image2 to the right */
+.event-date img {
+    height: 20px;
+    margin-top: 2px;
+}
+
+.event-date p {
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+
+.upcoming-event-image {
+    width: 300px;
     flex-shrink: 0;
-    margin-right: 40px;
+    padding-right: 40px;
 }
 
-.upcoming-event-body1, .upcoming-event-body2 {
+.upcoming-event-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 20px;
 }
 
-.upcoming-event-title1, .upcoming-event-title2 {
+.upcoming-event-title {
     font-size: 48px;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 10px;
-    color: #FFFFFF;
+    color: #0F233B;
 }
 
-.upcoming-event-title1 span,
-.upcoming-event-title2 span {
-    font-weight: lighter;
+.upcoming-event-title span {
+    font-weight: 300;
 }
 
-.upcoming-event-description1, .upcoming-event-description2, .upcoming-event-date1, .upcoming-event-date2 {
-    margin-bottom: 20px;
-    color: #FFFFFF
-}
-
-.upcoming-event-title2, .upcoming-event-description2, .upcoming-event-date2 {
-    color: #0F233B
-}
-
-.upcoming-event-button1, .upcoming-event-button2 {
-    padding: 10px 20px;
-    background-color: #FFFFFF;
-    color: black;
+.upcoming-event-section button {
+    padding: 8px 60px;
+    background-color: #0F233B;
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     align-self: flex-start;
     margin-bottom: 10px;
 
 }
 
-.upcoming-event-button2 {
-    background-color: #0F233B;
-    color: white;
-}
-
-.upcoming-event-button1:hover, .upcoming-event-button2:hover {
+.upcoming-event-button:hover {
     background-image: linear-gradient(rgb(0 0 0/25%) 0 0);
 }
 
