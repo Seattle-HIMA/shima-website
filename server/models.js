@@ -25,7 +25,7 @@ async function main() {
         firstName: String,
         lastName: String,
         membershipType: {type: String, default: "none"},
-        customerId: {type: String, default: "none"},
+        expireDate: Date,
         paidWorkshops: [WorkshopSchema]
     });
 

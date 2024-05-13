@@ -10,9 +10,9 @@ const validateAccessToken = auth({
 
 const checkRequiredPermissions = (requiredPermissions) => {
     return (req, res, next) => {
-        const permissionCheck = claimCheck((payload) => {
+        console.log(requiredPermissions);
+        const permissionCheck = claimCheck((payload, req) => {
             const permissions = payload.permissions || [];
-
             const hasPermissions = requiredPermissions.every((requiredPermission) => permissions.includes(requiredPermission));
 
             if (!hasPermissions) {
@@ -26,6 +26,19 @@ const checkRequiredPermissions = (requiredPermissions) => {
     };
 }
 
+const checkIfAdminPermissions = (requiredPermissions) => {
+    return (req, res, next) => {
+        const permissionCheck = claimCheck((payload) => {
+            const permissions = payload.permissions || [];
+            req.isAdmin = requiredPermissions.every((requiredPermission) => permissions.includes(requiredPermission));
+
+            return true;
+        })
+
+        permissionCheck(req, res, next);
+    }
+}
+
 export {
-    validateAccessToken, checkRequiredPermissions
+    validateAccessToken, checkRequiredPermissions, checkIfAdminPermissions
 };
