@@ -1,9 +1,11 @@
 .header h1 {
     font-size: var(--page-title);
 }
+
 .events-label {
     padding-bottom: 50px;
     border-bottom: 1px solid #AAA5A5;
+    margin: -20px 60px;
 }
 
 .events-label, .past-event-section, .video-section {
@@ -51,7 +53,7 @@
     display: flex;
     align-items: center;
     background-color: white;
-    margin: 50px;
+    margin: 60px;
     padding-bottom: 50px;
     border-bottom: 1px solid #AAA5A5;
 }
