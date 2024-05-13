@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 import lockImg from '../../utils/images/lock.png';
+import VideoPreviewModal from './VideoPreviewModal';
 
 import './EventsPage.css';
 
@@ -34,7 +35,6 @@ const EVENT_INFO = [
         "flyerSource": "spheres-and-shades.jpg",
         "date": "2024-05-04"
     }
-
 ]
 
 const VIDEO_INFO = [
@@ -80,30 +80,40 @@ function makePastEvent(title, speaker, description, flyer, eventDate, index) {
     const flyerImg = require(`../../utils/images/${flyer}`);
 
     return (
-        <article className="past-event-card">
-            <div className={"past-event-card-header-img"} style={{backgroundImage: `url(${flyerImg}`}}></div>
-            <div className={"past-event-card-body"}>
-                <h3 className={"past-event-card-name"}>{title} by {speaker}</h3>
-                <h3 className={"past-event-card-text"}>
-                    {description}
-                </h3>
-                <h3 className={"past-event-card-arrow-button"} onClick={() => {
-                }}>
-                    <div className={"past-event-card-read-more-text"}>Read More</div>
-                    <span className={"material-symbols-outlined"}>expand_circle_right</span>
-                </h3>
-            </div>
-        </article>
+        <div>
+            <article className="past-event-card">
+                <div className={"past-event-card-header-img"} style={{backgroundImage: `url(${flyerImg}`}}></div>
+                <div className={"past-event-card-body"}>
+                    <h3 className={"past-event-card-name"}>{title} by {speaker}</h3>
+                    <h3 className={"past-event-card-text"}>
+                        {description}
+                    </h3>
+                    <h3 className={"past-event-card-arrow-button"} onClick={() => {
+                    }}>
+                        <div className={"past-event-card-read-more-text"}>Read More</div>
+                        <span className={"material-symbols-outlined"}>expand_circle_right</span>
+                    </h3>
+                </div>
+            </article>
+        </div>
     );
 }
 
 
-function EventsPage(props) {
+function EventsPage() {
     const navigate = useNavigate();
-    props.setShowFooter(true);
+    const [isOpen, setOpen] = useState(false);
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
+
+    const handleModalOpen = () => {
+        setOpen(true);
+    }
+
+    const handleModalClose = () => {
+        setOpen(false);
+    }
 
     var currentDate = new Date();
     const {upcomingEvents, pastEvents} = EVENT_INFO.reduce((acc, item, index) => {

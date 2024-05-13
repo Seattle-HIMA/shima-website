@@ -23,7 +23,7 @@ const getTitleSection = (navigate, imageLoaded, setImageLoaded) => {
             <button className={"about-us-button"} onClick={() => navigate('/About')}>About Us
             </button>
         </div>
-        <div class={"img-wrapper mobile-first"}>
+        <div className={"img-wrapper mobile-first"}>
             {imageLoaded ? (<img
                 src={seattleImg}
                 alt={"space needle sunset"}
@@ -92,8 +92,9 @@ const getMembershipCards = () => {
 };
 
 
-const makeWhatWeDoCards = (navigate, name, content, img, link) => {
-    return (<article className="what-we-do-card">
+const makeWhatWeDoCards = (navigate, name, content, img, link, index) => {
+    return (
+        <article className="what-we-do-card" key={index}>
         <div className={"what-we-do-card-header-img"}
              style={{backgroundImage: `url(${require(`../../utils/images/${img}`)})`}}></div>
         <div className={"what-we-do-card-body"}>
@@ -147,9 +148,8 @@ const getLetterSection = (presImageLoaded, setPresImageLoaded) => {
         </div>)
 }
 
-function HomePage(props) {
+function HomePage() {
     const navigate = useNavigate();
-    props.setShowFooter(true);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -161,9 +161,9 @@ function HomePage(props) {
     const whatWeDoSection = pageInfo.subsections[sectionKeys[3]];
     const list = Object.keys(whatWeDoSection).slice(1);
 
-    const whatWeDoCards = list.map((item) => {
+    const whatWeDoCards = list.map((item, index) => {
         const cardInfo = whatWeDoSection[item];
-        return makeWhatWeDoCards(navigate, item, cardInfo.description, cardInfo.image, cardInfo.link);
+        return makeWhatWeDoCards(navigate, item, cardInfo.description, cardInfo.image, cardInfo.link, index);
     });
 
     return (<div className={"home-page-wrapper"}>

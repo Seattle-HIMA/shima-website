@@ -1,7 +1,6 @@
 import React from "react";
 
-export const NotFoundPage = (props) => {
-    props.setShowFooter(false);
+export const NotFoundPage = () => {
 
     const styles = {
         notFound: {

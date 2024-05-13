@@ -5,8 +5,7 @@ import LogoutButton from "../Auth/LogoutButton";
 import './ProfilePage.css'
 import { PageLoader } from "../Pages/PageLoader";
 
-function ProfilePage(props) {
-    props.setShowFooter(true);
+function ProfilePage() {
     const {user, isLoading, isAuthenticated} = useAuth0();
 
     useEffect(() => {

@@ -21,56 +21,56 @@ import { PaymentConfirmPage } from './Components/Pages/PaymentConfirmPage';
 import { getAdminStatus } from "./Components/Services/Message.service";
 
 function App() {
-    const [showFooter, setShowFooter] = useState(true);
     const [isAdmin, setIsAdmin] = useState(false);
     const faviconUrl = "https://i.postimg.cc/CxfDg7Y3/image-13.png";
     const {user, isAuthenticated, isLoading, getAccessTokenSilently} = useAuth0();
 
     useEffect(() => {
         let isMounted = true;
+        if (isAuthenticated) {
+            async function addUserToDatabase() {
+                try {
+                    const response = await fetch('/routes/users/add', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: user.email,
+                            firstName: user["given_name"],
+                            lastName: user["family_name"]
+                        }),
+                    });
 
-        async function addUserToDatabase() {
-            try {
-                const response = await fetch('/routes/users/add', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: user.email,
-                        firstName: user["given_name"],
-                        lastName: user["family_name"]
-                    }),
-                });
-
-                if (response.ok) {
-                    console.log('User added to database successfully');
-                } else {
-                    console.error('Failed to add user to database');
+                    if (response.ok) {
+                        console.log('User added to database successfully');
+                    } else {
+                        console.error('Failed to add user to database');
+                    }
+                } catch (error) {
+                    console.error('Error adding user to database:', error);
                 }
-            } catch (error) {
-                console.error('Error adding user to database:', error);
             }
+
+            const getAdmin = async () => {
+                if (isAuthenticated && !isLoading) {
+                    const accessToken = await getAccessTokenSilently();
+                    const {data, error} = await getAdminStatus(accessToken);
+
+                    if (!isMounted) return ''
+                    if (data) setIsAdmin(data.isAdmin);
+                    if (error) setIsAdmin(false);
+                }
+            };
+
+            getAdmin();
+            addUserToDatabase();
         }
-
-        const getAdmin = async () => {
-            if (isAuthenticated && !isLoading) {
-                const accessToken = await getAccessTokenSilently();
-                const {data, error} = await getAdminStatus(accessToken);
-
-                if (!isMounted) return ''
-                if (data) setIsAdmin(data.isAdmin);
-                if (error) setIsAdmin(false);
-            }
-        };
-
-        getAdmin();
-        addUserToDatabase();
 
         return () => {
             isMounted = false;
         };
-    }, [getAccessTokenSilently, isAuthenticated, isLoading]);
+    }, [getAccessTokenSilently, isAuthenticated]);
 
     return (
         <div>
@@ -80,38 +80,36 @@ function App() {
             </header>
             <main>
                 <Routes>
-                    <Route index element={<HomePage setShowFooter={setShowFooter}/>}/>
-                    <Route path={'/Membership'} element={<Membership setShowFooter={setShowFooter}/>}/>
-                    <Route path={'/ScholarShips'} element={<Scholarship setShowFooter={setShowFooter}/>}/>
-                    <Route path={'/Events'} element={<EventsPage setShowFooter={setShowFooter}/>}/>
-                    <Route path={'/About'} element={<AboutUs setShowFooter={setShowFooter}/>}/>
+                    <Route index element={<HomePage />}/>
+                    <Route path={'/Membership'} element={<Membership />}/>
+                    <Route path={'/ScholarShips'} element={<Scholarship />}/>
+                    <Route path={'/Events'} element={<EventsPage />}/>
+                    <Route path={'/About'} element={<AboutUs />}/>
                     <Route path="/application-form" element={<MembershipAppForm/>}/>
-                    <Route path={'/Registration'} element={<Registration setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/Registration'} element={<Registration />}/>
 
                     {/* Protected Routes */}
                     <Route
                         path={"/MyProfile"}
                         element={<AuthenticationGuard
-                            component={MyProfile}
-                            setShowFooter={setShowFooter}/>}
+                            component={MyProfile}/>}
                     />
                     <Route
                         path={"/ViewMembershipList"}
                         element={<AuthenticationGuard
                             component={AdminMembersList}
-                            setShowFooter={setShowFooter}
                             isAdmin={isAdmin}/>}
                     />
 
                     {/* Page not found */}
-                    <Route path="*" element={<NotFoundPage setShowFooter={setShowFooter}/>}/>
+                    <Route path="*" element={<NotFoundPage />}/>
 
-                <Route path={"/Payment-Success"} element={<PaymentConfirmPage setShowFooter={setShowFooter}/>} />
+                <Route path={"/Payment-Success"} element={<PaymentConfirmPage />} />
             </Routes>
 
             </main>
             <footer>
-                {showFooter && <Footer/>}
+                <Footer/>
             </footer>
         </div>)
 }

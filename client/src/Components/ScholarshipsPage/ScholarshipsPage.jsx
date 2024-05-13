@@ -7,8 +7,7 @@ import background from '../../utils/images/scholarships-page.jpg';
 let pageInfo = await getPageDetails('scholarships');
 let sectionKeys = Object.keys(pageInfo.subsections);
 
-function ScholarshipsPage(props) {
-    props.setShowFooter(true);
+function ScholarshipsPage() {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
