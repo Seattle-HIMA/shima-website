@@ -1,4 +1,5 @@
 import React from "react";
+import './VideoPreviewModal.css';
 
 function VideoPreviewModal({ video, onClose }) {
 
