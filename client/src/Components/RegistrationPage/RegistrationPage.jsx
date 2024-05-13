@@ -32,10 +32,9 @@ const EVENT_INFO = [{
 
 ]
 
-function RegistrationPage(props) {
+function RegistrationPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
     };
 
     // radio buttons
@@ -48,13 +47,12 @@ function RegistrationPage(props) {
     const [formData, setFormData] = useState({
         firstName: '', lastName: '', email: '', workshop: 'workshop1', payment: 'credit_card'
     });
-    props.setShowFooter(true);
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
 
     return (<div className="registration-page">
-        <div class="header">
+        <div className="header">
             <img src={backgroundImg} alt="Rooftop view"></img>
             <section>
                 <h1>Workshops</h1>

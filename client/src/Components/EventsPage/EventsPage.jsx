@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 import lockImg from '../../utils/images/lock.png';
 import calendarImg from '../../utils/images/calendar-icon.png';
-
-
+import VideoPreviewModal from './VideoPreviewModal';
 import './EventsPage.css';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const EVENT_INFO = [
     {
@@ -36,7 +36,6 @@ const EVENT_INFO = [
         "flyerSource": "spheres-and-shades.jpg",
         "date": "2024-05-04"
     }
-
 ]
 
 const VIDEO_INFO = [
@@ -89,38 +88,56 @@ function makeUpcomingEvent(navigate, title, speaker, description, flyer, eventDa
     );
 }
 
-function makePastEvent(title, speaker, description, flyer, eventDate, index) {
+function makePastEvent(title, speaker, description, flyer) {
     const flyerImg = require(`../../utils/images/${flyer}`);
 
     return (
-        <article className="past-event-card">
-            <div className={"past-event-card-header-img"} style={{backgroundImage: `url(${flyerImg}`}}></div>
-            <div className={"past-event-card-body"}>
-                <h3 className={"past-event-card-name"}>{title} by {speaker}</h3>
-                <h3 className={"past-event-card-text"}>
-                    {description}
-                </h3>
-                <h3 className={"past-event-card-arrow-button"} onClick={() => {
-                }}>
-                    <div className={"past-event-card-read-more-text"}>Read More</div>
-                    <span className={"material-symbols-outlined"}>expand_circle_right</span>
-                </h3>
-            </div>
-        </article>
+        <div>
+            <article className="past-event-card">
+                <div className={"past-event-card-header-img"} style={{backgroundImage: `url(${flyerImg}`}}></div>
+                <div className={"past-event-card-body"}>
+                    <h3 className={"past-event-card-name"}>{title} by {speaker}</h3>
+                    <h3 className={"past-event-card-text"}>
+                        {description}
+                    </h3>
+                    <h3 className={"past-event-card-arrow-button"} onClick={() => {
+                    }}>
+                        <div className={"past-event-card-read-more-text"}>Read More</div>
+                        <span className={"material-symbols-outlined"}>expand_circle_right</span>
+                    </h3>
+                </div>
+            </article>
+        </div>
     );
 }
 
-
-function EventsPage(props) {
+function EventsPage() {
     const navigate = useNavigate();
-    props.setShowFooter(true);
+    const {loginWithRedirect, isAuthenticated} = useAuth0();
+
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     }, []);
 
-    var currentDate = new Date();
+    const [showVideoModal, setShowVideoModal] = useState(false);
+    const [selectedVideo, setSelectedVideo] = useState(null);
+
+    const handleOpenVideoModal = (video) => {
+        if (isAuthenticated) {
+            setSelectedVideo(video);
+            setShowVideoModal(true);
+        } else {
+            loginWithRedirect()
+        }
+    }
+
+    const handleCloseVideoModal = () => {
+        setShowVideoModal(false);
+    }
+
+    const currentDate = new Date();
     const {upcomingEvents, pastEvents} = EVENT_INFO.reduce((acc, item, index) => {
-        var eventDate = new Date(item.date);
+        const eventDate = new Date(item.date);
         if (currentDate <= eventDate) {
             acc.upcomingEvents.push(makeUpcomingEvent(navigate, item.title, item.speaker, item.description, item.flyerSource, item.date, index));
         } else {
@@ -129,20 +146,21 @@ function EventsPage(props) {
         return acc;
     }, {upcomingEvents: [], pastEvents: []});
 
-    const videoCards = VIDEO_INFO.map((item, index) => {
-        const thumbnailImg = require(`../../utils/images/${item.thumbnail}`);
+    const videoCards = VIDEO_INFO.map((video, index) => {
+        const thumbnailImg = require(`../../utils/images/${video.thumbnail}`);
         return (
-            <div key={index} className="video-card">
-            <div className="video-card-img" style={{ backgroundImage: `url(${thumbnailImg})` }}>
-                <section></section>
-                <img src={lockImg} alt="Lock" className="lock-image" />
+            <div key={index} className="video-card" onClick={() => handleOpenVideoModal(video)}>
+                <div className="video-card-img" style={{backgroundImage: `url(${thumbnailImg})`}}>
+                    <section></section>
+                    <img src={lockImg} alt="Lock" className="lock-image"/>
+                </div>
+                <div className="video-card-content">
+                    <h3 className="video-card-title">{video.title}</h3>
+                    {/* access link only if the video is unlocked */}
+                    <a className="video-card-link" href={`https://${video.link}`} target="_blank"
+                       rel="noopener noreferrer">Watch Video</a>
+                </div>
             </div>
-            <div className="video-card-content">
-                <h3 className="video-card-title">{item.title}</h3>
-                {/* access link only if the video is unlocked */}
-                <a className="video-card-link" href={`https://${item.link}`} target="_blank" rel="noopener noreferrer">Watch Video</a>
-            </div>
-        </div>
         )
     });
 
@@ -169,6 +187,10 @@ function EventsPage(props) {
                 <h2>Videos</h2>
                 <div className="video-cards">
                     {videoCards}
+
+                    {showVideoModal && (
+                        <VideoPreviewModal video={selectedVideo} onClose={handleCloseVideoModal} />
+                    )}
                 </div>
             </div>
             <div className="past-event-section">

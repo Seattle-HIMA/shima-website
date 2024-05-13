@@ -4,8 +4,7 @@ import './MembershipPage.css';
 
 import backgroundImg from '../../utils/images/membership-background.png';
 
-function MembershipPage(props) {
-    props.setShowFooter(true);
+function MembershipPage() {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])

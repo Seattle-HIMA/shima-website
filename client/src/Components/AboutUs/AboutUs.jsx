@@ -131,8 +131,7 @@ function ProfileCard({name, position, degree, currentStatus, about, linkedinUrl,
         </div>);
 }
 
-function AboutUs(props) {
-    props.setShowFooter(true);
+function AboutUs() {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
