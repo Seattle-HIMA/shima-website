@@ -35,7 +35,6 @@ const EVENT_INFO = [
         "flyerSource": "spheres-and-shades.jpg",
         "date": "2024-05-04"
     }
-
 ]
 
 const VIDEO_INFO = [
@@ -101,10 +100,9 @@ function makePastEvent(title, speaker, description, flyer, eventDate, index) {
 }
 
 
-function EventsPage(props) {
+function EventsPage() {
     const navigate = useNavigate();
     const [isOpen, setOpen] = useState(false);
-    props.setShowFooter(true);
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);

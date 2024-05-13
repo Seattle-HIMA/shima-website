@@ -11,9 +11,7 @@ const getPageDetails = async (fileName) => {
     try {
         let res = await fetch(`routes/${fileName}`);
         await statusCheck(res);
-        let details = await res.json();
-        console.log(details);
-        return details;
+        return await res.json();
     } catch (err) {
         console.log(err);
     }
