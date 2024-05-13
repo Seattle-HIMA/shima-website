@@ -1,5 +1,6 @@
 import React from 'react';
 import './MembershipPage.css';
+import { useAuth0 } from "@auth0/auth0-react";
 
 let studentId;
 let profId;
@@ -28,18 +29,40 @@ await membershipId();
 console.log(`student: ${studentId}`);
 
 function MembershipAppForm() {
+    const {user, isLoading, isAuthenticated} = useAuth0();
+
+    const createPaymentSession = async (event) => {
+        event.preventDefault();
+        try {
+            let response = await fetch("/routes/payment/create-checkout-session", {
+                method: "POST",
+                body: JSON.stringify({
+                    id: document.querySelector('input[type="radio"]:checked').value,
+                    type: document.querySelector('input[type="radio"]:checked').id,
+                    email: user.email}),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            response = await response.json();
+            window.location.href = response.url;
+        } catch (error) {
+            console.error("Error", error);
+        }
+    }
+
     return (
         <div className={"membership-form"}>
             <h1>Membership sign up</h1>
             <form>
                 <label for="fname">First Name</label>
-                <input type="text" name="fname" id="fname" required/>
+                <input type="text" name="fname" id="fname"/>
 
                 <label for="lname">Last Name</label>
-                <input type="text" name="lname" id="lname" required/>
+                <input type="text" name="lname" id="lname"/>
 
                 <label for="email">Email</label>
-                <input type="text" name="email" id="email" required/>
+                <input type="text" name="email" id="email"/>
 
                 <p>Select a membership registration type:</p>
                 <div className={"options-questions"}>
@@ -53,10 +76,10 @@ function MembershipAppForm() {
                 </div>
 
                 <label for="job">Current job title</label>
-                <input type="text" name="job" id="job" required/>
+                <input type="text" name="job" id="job" />
 
                 <label for="employer">Employer name</label>
-                <input type="text" name="employer" id="employer" required/>
+                <input type="text" name="employer" id="employer" />
 
                 <p>Current professional credentials (select all that apply):</p>
                 <div className={"options-questions"}>
@@ -140,23 +163,6 @@ function MembershipAppForm() {
             </form>
         </div>
     )
-}
-
-async function createPaymentSession(event) {
-    event.preventDefault();
-    try {
-        let response = await fetch("/routes/payment/create-checkout-session", {
-            method: "POST",
-            body: JSON.stringify({id: document.querySelector('input[type="radio"]:checked').value}),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-        response = await response.json();
-        window.location.href = response.url;
-    } catch (error) {
-        console.error("Error", error);
-    }
 }
 
 export default MembershipAppForm;

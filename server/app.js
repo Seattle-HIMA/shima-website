@@ -11,8 +11,7 @@ import apiRouter from './routes/routes.js';
 import models from './models.js';
 import { CLIENT_ORIGIN_URL, PORT, STRIPE_TEST_API_KEY, STRIPE_TEST_WEBHOOK_SECRET } from './constants.js';
 
-let apiKey = STRIPE_TEST_API_KEY
-const STRIPE = stripeLib(apiKey);
+const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
 
 dotenv.config();
 
@@ -25,10 +24,11 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
-app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const oneDay = 1000 * 60 * 60 * 24;
 
 app.use((req, res, next) => {
     res.contentType("application/json; charset=utf-8");
@@ -38,7 +38,7 @@ app.use((req, res, next) => {
 app.use(nocache());
 
 app.use(cors({
-    origin: CLIENT_ORIGIN_URL, methods: ["GET"], allowedHeaders: ["Authorization", "Content-Type"], maxAge: 86400,
+    origin: CLIENT_ORIGIN_URL, methods: ["GET"], allowedHeaders: ["Authorization", "Content-Type"], maxAge: 86400
 }));
 
 // mongodb middleware
@@ -46,6 +46,8 @@ app.use((req, res, next) => {
     req.models = models;
     next();
 });
+
+let endDate;
 
 // webhook endpoint to handle stripe events send back
 app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) => {
@@ -81,31 +83,50 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
         eventType = req.body.type;
     }
 
-    switch (eventType) {
-        case 'checkout.session.completed':
-            // Payment is successful and the subscription is created.
-            // save info into db
-            // connect customerID with logged in username
-            console.log(data);
-            console.log(`username: ${data.object}`)
+    let subscription;
+    let status;
+    // Handle the event
+        if (eventType === 'customer.subscription.updated') {
+            subscription = data.object;
+            console.log(subscription);
 
-            // add a message/loading page about successful payment
-            break;
-        case 'invoice.paid':
-            // Continue to provision the subscription as payments continue to be made.
-            // Store the status in your database and check when a user accesses your service.
-            // This approach helps you avoid hitting rate limits.
-            break;
-        case 'invoice.payment_failed':
-            // The payment failed or the customer does not have a valid payment method.
-            // The subscription becomes past_due. Notify your customer and send them to the
-            // customer portal to update their payment information.
-            break;
-        default:
-        // Unhandled event type
-    }
+            if(subscription.status === 'active') {
+                endDate = subscription['current_period_end'];
+            }
+            // Then define and call a method to handle the subscription update.
+            // handleSubscriptionUpdated(subscription);
+        }
+        if (eventType === 'checkout.session.completed') {
+            subscription = data.object;
+            status = subscription;
+            let user = subscription.metadata;
+            console.log(endDate);
+            console.log("what");
+            console.log(user);
+            let saveData = {
+                membershipType: user.product,
+                expireDate: endDate
+            }
 
-    res.sendStatus(200);
+            console.log(saveData);
+
+            let updated = await models.User.findOneAndUpdate({email: user.email}, saveData, {new: true});
+
+            console.log('after updating')
+            console.log(updated);
+            // Then define and call a method to handle the subscription trial ending.
+            // handleSubscriptionTrialEnding(subscription);
+        }
+    //   case 'customer.subscription.deleted':
+    //     subscription = data.object;
+    //     status = subscription.status;
+    //     console.log(`Subscription status is ${status}.`);
+    //     // Then define and call a method to handle the subscription deleted.
+    //     // handleSubscriptionDeleted(subscriptionDeleted);
+    //     break;
+    // Unexpected event type
+    // Return a 200 response to acknowledge receipt of the event
+    res.send("ok");
 });
 
 app.use(express.json());

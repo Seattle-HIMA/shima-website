@@ -10,9 +10,10 @@ const validateAccessToken = auth({
 
 const checkRequiredPermissions = (requiredPermissions) => {
     return (req, res, next) => {
-        const permissionCheck = claimCheck((payload) => {
+        console.log(requiredPermissions);
+        const permissionCheck = claimCheck((payload, req) => {
+            const userName = req.user;
             const permissions = payload.permissions || [];
-
             const hasPermissions = requiredPermissions.every((requiredPermission) => permissions.includes(requiredPermission));
 
             if (!hasPermissions) {
