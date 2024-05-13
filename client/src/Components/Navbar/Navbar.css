@@ -8,7 +8,6 @@
     width: 100%;
     padding: 0;
     box-shadow: 0 2px 10px var(--light-gray);
-
     font-family: "Arimo", sans-serif;
     font-weight: 600;
     font-size: 16px;
@@ -53,4 +52,90 @@
 
 .nav-logo-icon {
     width: 57px;
+}
+
+/* Styles for hamburger menu */
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
+    margin-right: 20px;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.pages-links {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+}
+
+.pages-links .nav-btn {
+    text-decoration: none;
+    color: var(--dark-blue);
+}
+
+.pages-links {
+    left: 50%;
+}
+
+.pages-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pages-links ul li {
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.pages-links ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Media query for mobile */
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 100vw;
+    }
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+    }
+    .pages-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background-color: var(--gray-white);
+        box-shadow: 0 2px 10px var(--light-gray);
+        z-index: 998;
+    }
+
+    .pages-links.open {
+        display: block;
+    }
+
+    .pages-links.open ul {
+        padding: 20px 0;
+    }
+    
+    .pages-links ul li {
+        padding-top: 0px;
+        margin: 0px;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+        cursor: pointer;
+    }
 }

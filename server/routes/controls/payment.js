@@ -45,8 +45,6 @@ router.get('/get-product-id', (req, res) => {
 router.post('/create-checkout-session', async (req, res) => {
     const {id, email, type} = req.body;
 
-    req.session.email = email;
-
     const session = await STRIPE.checkout.sessions.create({
         line_items: [
             {

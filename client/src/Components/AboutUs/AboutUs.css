@@ -1,8 +1,4 @@
 /* HEADER */
-.header h1 {
-    font-size: var(--page-title);
-}
-
 .member-grid {
     display: flex;
     flex-wrap: wrap;
@@ -107,8 +103,9 @@
     margin-bottom: 10px;
 }
 
-.members-page h1 {
-    padding-left: 40px;
+.board-members-page h2 {
+    margin-left: 40px;
+    margin-top: 50px;
     font-size: 44px;
 }
 
@@ -134,4 +131,11 @@
     position: absolute;
     top: 30px;
     right: 30px;
+}
+
+.square-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: 50% 15%;
 }

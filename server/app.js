@@ -9,13 +9,9 @@ import 'dotenv/config'
 import stripeLib from "stripe";
 import apiRouter from './routes/routes.js';
 import models from './models.js';
-import sessions from 'express-session';
-import { CLIENT_ORIGIN_URL, PORT, STRIPE_TEST_API_KEY, STRIPE_TEST_WEBHOOK_SECRET, SESSION_SECRET } from './constants.js';
-import { stat } from 'fs';
+import { CLIENT_ORIGIN_URL, PORT, STRIPE_TEST_API_KEY, STRIPE_TEST_WEBHOOK_SECRET } from './constants.js';
 
-
-let apiKey = STRIPE_TEST_API_KEY
-const STRIPE = stripeLib(apiKey);
+const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
 
 dotenv.config();
 
@@ -33,16 +29,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const oneDay = 1000 * 60 * 60 * 24;
-app.use(sessions({
-    secret: SESSION_SECRET,
-    saveUninitialized: true,
-    cookie: {
-        httpOnly: true,
-        secure: false,
-        maxAge: oneDay,
-      },
-    resave: false
-}));
 
 app.use((req, res, next) => {
     res.contentType("application/json; charset=utf-8");
