@@ -4,7 +4,6 @@ import { getAdminMembershipList } from "../Services/Message.service";
 import './AdminMembersList.css';
 
 function AdminMembersList(props) {
-    props.setShowFooter(true);
     const isAdmin = props.isAdmin // TODO: if user is not an admin display a no access message
 
     const [userList, setUserList] = useState([]);

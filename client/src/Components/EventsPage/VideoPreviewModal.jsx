@@ -1,3 +1,7 @@
+import React from "react";
+import './VideoPreviewModal.css';
+
+function VideoPreviewModal({ video, onClose }) {
 import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -54,6 +58,21 @@ function VideoPreviewModal() {
   }
 
   return (
+      <div className="video-preview-modal">
+          <div className="video-modal-content">
+              <button className="video-model-close-button" onClick={onClose}>Close</button>
+              <h2>{video.title}</h2>
+              <div className="workshop-video-thumbnail">
+                  <img src={video.thumbnail} alt="Video Thumbnail"/>
+              </div>
+              <div className="workshop-video-description">
+                  <p>{video.description}</p>
+              </div>
+              <div className="workshop-video-link">
+                  <a href={`https://${video.link}`} target="_blank" rel="noopener noreferrer">Watch Video</a>
+              </div>
+          </div>
+      </div>
     <div className="modal">
         <button className="modal-close-btn" >
           Close

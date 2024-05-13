@@ -26,8 +26,6 @@ const membershipId = async () => {
 
 await membershipId();
 
-console.log(`student: ${studentId}`);
-
 function MembershipAppForm() {
     const {user, isLoading, isAuthenticated} = useAuth0();
 
