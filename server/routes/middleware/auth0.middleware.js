@@ -12,7 +12,6 @@ const checkRequiredPermissions = (requiredPermissions) => {
     return (req, res, next) => {
         console.log(requiredPermissions);
         const permissionCheck = claimCheck((payload, req) => {
-            const userName = req.user;
             const permissions = payload.permissions || [];
             const hasPermissions = requiredPermissions.every((requiredPermission) => permissions.includes(requiredPermission));
 
