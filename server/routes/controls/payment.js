@@ -17,6 +17,10 @@ const professional = await STRIPE.products.create({
     name: 'Professional membership',
 });
 
+const testVideo = await STRIPE.products.create({
+    name: 'Test workshop recording',
+});
+
 // prices for each product
 const studentPrice = await STRIPE.prices.create({
     currency: 'usd',
@@ -36,14 +40,31 @@ const profPrice = await STRIPE.prices.create({
     }
 });
 
+const VidPriceMem = await STRIPE.prices.create({
+    currency: 'usd',
+    product: testVideo.id,
+    unit_amount: 500
+});
+
+const VidPriceNonMem = await STRIPE.prices.create({
+    currency: 'usd',
+    product: testVideo.id,
+    unit_amount: 1000
+});
+
 // retrieve products' price id
 router.get('/get-product-id', (req, res) => {
-    res.json({"student_id": studentPrice.id, "prof_id": profPrice.id});
+    res.json({
+        "student_id": studentPrice.id,
+        "prof_id": profPrice.id,
+        "vid1NonMem": VidPriceNonMem.od,
+        "vid1Mem": VidPriceMem
+    });
 });
 
 // create a checkout session for subscription (membership)
 router.post('/create-checkout-session', async (req, res) => {
-    const {id, email, type} = req.body;
+    const {id, email, vid} = req.body;
 
     const session = await STRIPE.checkout.sessions.create({
         line_items: [
@@ -52,12 +73,12 @@ router.post('/create-checkout-session', async (req, res) => {
                 quantity: 1,
             },
         ],
-        mode: 'subscription',
+        mode: 'payment',
         success_url: SUCCESSURL + `?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: REDIRECTURL,
         metadata: {
             email: email,
-            product: type
+            vidName: vid
         }
     });
 
@@ -66,7 +87,7 @@ router.post('/create-checkout-session', async (req, res) => {
 
 // create a checkout session for one time payment
 router.post('/workshop-checkout-session', async (req, res) => {
-    const productId = req.body.id;
+    const {id, email, type} = req.body;
 
     const session = await STRIPE.checkout.sessions.create({
         line_items: [

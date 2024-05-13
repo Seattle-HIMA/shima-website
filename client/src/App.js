@@ -19,6 +19,7 @@ import MembershipAppForm from './Components/MembershipPage/MembershipAppForm';
 import Registration from './Components/RegistrationPage/RegistrationPage';
 import { PaymentConfirmPage } from './Components/Pages/PaymentConfirmPage';
 import { getAdminStatus } from "./Components/Services/Message.service";
+import VideoPreviewModal from './Components/EventsPage/VideoPreviewModal';
 
 function App() {
     const [showFooter, setShowFooter] = useState(true);
@@ -83,7 +84,7 @@ function App() {
                     <Route index element={<HomePage setShowFooter={setShowFooter}/>}/>
                     <Route path={'/Membership'} element={<Membership setShowFooter={setShowFooter}/>}/>
                     <Route path={'/ScholarShips'} element={<Scholarship setShowFooter={setShowFooter}/>}/>
-                    <Route path={'/Events'} element={<EventsPage setShowFooter={setShowFooter}/>}/>
+                    <Route path={'/Events'} element={<VideoPreviewModal setShowFooter={setShowFooter}/>}/>
                     <Route path={'/About'} element={<AboutUs setShowFooter={setShowFooter}/>}/>
                     <Route path="/application-form" element={<MembershipAppForm/>}/>
                     <Route path={'/Registration'} element={<Registration setShowFooter={setShowFooter}/>}/>
