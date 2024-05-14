@@ -1,12 +1,8 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import './VideoPreviewModal.css';
 
-function VideoPreviewModal({ video, onClose }) {
-import React, { useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-
-let nonMem;
-let mem;
+let priceId;
 
 const statusCheck = async (res) => {
   if (!res.ok) {
@@ -15,13 +11,11 @@ const statusCheck = async (res) => {
   return res;
 }
 
-const videosId = async () => {
+const videosId = async (user) => {
   try {
       let res = await fetch("routes/payment/get-product-id");
       await statusCheck(res);
-      let info = await res.json();
-      nonMem = info['vid1NonMem'];
-      mem = info['vid1Mem'];
+      priceId = await res.json();
   } catch (err) {
       console.log(err);
   }
@@ -29,22 +23,42 @@ const videosId = async () => {
 
 await videosId();
 
-function VideoPreviewModal() {
+function VideoPreviewModal({ video, onClose }) {
   const {user, isLoading, isAuthenticated} = useAuth0();
 
-  const payVideo = async () => {
-    const isMem = true;
-    let id;
-    if (isMem) {
-      id = mem;
-    }
-
+  console.log(user);
+  const checkMembership = async () => {
     try {
+      //check if member
+      let res = await fetch("routes/users/get-membership-type", {
+        method: "POST",
+        body: JSON.stringify({
+            email: user.email}),
+        headers: {
+            "Content-Type": "application/json"
+        }
+      });
+      await statusCheck(res);
+      let membership = await res.json();
+
+      if (membership.membership === "none") {
+        return priceId["vid1NonMem"];
+      } else {
+        return priceId["vid1Mem"];
+      }
+    } catch(err) {
+      console.error(err);
+    }
+  }
+
+  const payVideo = async () => {
+    try {
+        let id = await checkMembership();
         let response = await fetch("/routes/payment/workshop-checkout-session", {
             method: "POST",
             body: JSON.stringify({
                 id: id,
-                vid: "video name",
+                vid: "123",
                 email: user.email}),
             headers: {
                 "Content-Type": "application/json"
@@ -58,29 +72,21 @@ function VideoPreviewModal() {
   }
 
   return (
-      <div className="video-preview-modal">
-          <div className="video-modal-content">
-              <button className="video-model-close-button" onClick={onClose}>Close</button>
-              <h2>{video.title}</h2>
-              <div className="workshop-video-thumbnail">
-                  <img src={video.thumbnail} alt="Video Thumbnail"/>
-              </div>
-              <div className="workshop-video-description">
-                  <p>{video.description}</p>
-              </div>
-              <div className="workshop-video-link">
-                  <a href={`https://${video.link}`} target="_blank" rel="noopener noreferrer">Watch Video</a>
-              </div>
-          </div>
-      </div>
-    <div className="modal">
-        <button className="modal-close-btn" >
-          Close
-        </button>
-        <h1>Video Title</h1>
-        <p>Description:</p>
-        <p>bla bla bla</p>
-        <button onClick={payVideo}>Pay to watch</button>
+    <div className="video-preview-modal">
+        <div className="video-modal-content">
+            <button className="video-model-close-button" onClick={onClose}>Close</button>
+            <h2>{video.title}</h2>
+            <div className="workshop-video-thumbnail">
+                <img src={"http://img.youtube.com/vi/hdIYBmOpugA/mqdefault.jpg"} alt="Video Thumbnail"/>
+            </div>
+            <div className="workshop-video-description">
+                <p>{video.description}</p>
+            </div>
+            <div className="workshop-video-link">
+                <a className={"hidden"} href={`https://${video.link}`} target="_blank" rel="noopener noreferrer">Watch Video</a>
+            </div>
+            <button onClick={payVideo}>Pay to watch</button>
+        </div>
     </div>
   );
 }

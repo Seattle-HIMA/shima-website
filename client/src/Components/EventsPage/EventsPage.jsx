@@ -103,7 +103,7 @@ function makePastEvent(title, speaker, description, flyer) {
 
 function EventsPage() {
     const navigate = useNavigate();
-    const {loginWithRedirect, isAuthenticated} = useAuth0();
+    const {loginWithRedirect, isAuthenticated, user, isLoading} = useAuth0();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -123,6 +123,25 @@ function EventsPage() {
 
     const handleCloseVideoModal = () => {
         setShowVideoModal(false);
+    }
+
+    const statusCheck = async (res) => {
+        if (!res.ok) {
+            throw new Error(await res.text());
+        }
+        return res;
+    }
+
+    // retrieved user's paid workshops
+    const getPaidWorkshops = async () => {
+        try{
+            let res = await fetch('/routes/users//get-paid-workshops');
+            await statusCheck(res);
+            let workshops = await res.json();
+            console.log(workshops);
+        }catch (err) {
+            console.error(err);
+        }
     }
 
     const currentDate = new Date();

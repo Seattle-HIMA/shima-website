@@ -19,7 +19,6 @@ import MembershipAppForm from './Components/MembershipPage/MembershipAppForm';
 import Registration from './Components/RegistrationPage/RegistrationPage';
 import { PaymentConfirmPage } from './Components/Pages/PaymentConfirmPage';
 import { getAdminStatus } from "./Components/Services/Message.service";
-import VideoPreviewModal from './Components/EventsPage/VideoPreviewModal';
 
 function App() {
     const [isAdmin, setIsAdmin] = useState(false);

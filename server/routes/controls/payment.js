@@ -57,8 +57,8 @@ router.get('/get-product-id', (req, res) => {
     res.json({
         "student_id": studentPrice.id,
         "prof_id": profPrice.id,
-        "vid1NonMem": VidPriceNonMem.od,
-        "vid1Mem": VidPriceMem
+        "vid1NonMem": VidPriceNonMem.id,
+        "vid1Mem": VidPriceMem.id
     });
 });
 
@@ -73,7 +73,7 @@ router.post('/create-checkout-session', async (req, res) => {
                 quantity: 1,
             },
         ],
-        mode: 'payment',
+        mode: 'subscription',
         success_url: SUCCESSURL + `?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: REDIRECTURL,
         metadata: {
@@ -92,13 +92,17 @@ router.post('/workshop-checkout-session', async (req, res) => {
     const session = await STRIPE.checkout.sessions.create({
         line_items: [
             {
-                price: productId,
+                price: id,
                 quantity: 1,
             },
         ],
         mode: 'payment',
         success_url: REDIRECTURL,
-        cancel_url: REDIRECTURL
+        cancel_url: REDIRECTURL,
+        metadata: {
+            email: email,
+            vidId: "123"
+        }
     });
 
     res.json({url: session.url});

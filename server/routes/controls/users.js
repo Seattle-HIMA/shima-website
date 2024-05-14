@@ -23,6 +23,29 @@ router.post('/add', async (req, res) => {
         console.error('Error adding new user:', error);
         res.status(500).send('Internal Server Error');
     }
+});
+
+// need to find a new home for these endpoints, i don't think they belong in the users.js file
+router.post('/get-paid-workshops', async (req, res) => {
+    try {
+        const { email } = req.body;
+        const user = await models.User.findOne({email});
+        res.json({ "workshops": user.paidWorkshops});
+    } catch(error) {
+        console.error('Error adding new user:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+router.post('/get-membership-type', async (req, res) => {
+    try {
+        const { email } = req.body;
+        const user = await models.User.findOne({email});
+        res.json({ "membership": user.membershipType});
+    } catch(error) {
+        console.error('Error adding new user:', error);
+        res.status(500).send('Internal Server Error');
+    }
 })
 
 router.get('/adminStatus', validateAccessToken, checkIfAdminPermissions([AdminMessagesPermissions.Read]), (req, res) => {
