@@ -5,7 +5,6 @@ import { CLIENT_ORIGIN_URL, STRIPE_TEST_API_KEY } from '../../constants.js';
 const router = express.Router();
 
 const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
-const REDIRECTURL = CLIENT_ORIGIN_URL + '/Membership';
 const SUCCESSURL = CLIENT_ORIGIN_URL + '/Payment-Success';
 
 // list of "products" (memberships and workshops)
@@ -75,7 +74,7 @@ router.post('/create-checkout-session', async (req, res) => {
         ],
         mode: 'subscription',
         success_url: SUCCESSURL + `?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: REDIRECTURL,
+        cancel_url: CLIENT_ORIGIN_URL + '/Membership',
         metadata: {
             email: email,
             vidName: vid
@@ -97,8 +96,8 @@ router.post('/workshop-checkout-session', async (req, res) => {
             },
         ],
         mode: 'payment',
-        success_url: REDIRECTURL,
-        cancel_url: REDIRECTURL,
+        success_url: SUCCESSURL,
+        cancel_url: CLIENT_ORIGIN_URL + '/Events',
         metadata: {
             email: email,
             vidId: "123"

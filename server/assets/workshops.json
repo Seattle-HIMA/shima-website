@@ -3,7 +3,8 @@
   "description": "Upcoming workshops and events.",
   "subsections": {
     "Upcoming workshops": {
-      "description": ""
+      "description": "",
+      "Forms": ["Registration Form", "Speaker Interest Form"]
     },
     "Videos": {},
     "Previous Workshops": {}

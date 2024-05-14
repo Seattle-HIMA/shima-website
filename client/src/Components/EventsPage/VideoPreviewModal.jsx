@@ -24,7 +24,11 @@ const videosId = async (user) => {
 await videosId();
 
 function VideoPreviewModal({ video, onClose }) {
+  console.log(video);
   const {user, isLoading, isAuthenticated} = useAuth0();
+
+  let thumbnail = video.recordLink.split('/');
+  thumbnail = thumbnail[thumbnail.length - 1];
 
   console.log(user);
   const checkMembership = async () => {
@@ -58,7 +62,7 @@ function VideoPreviewModal({ video, onClose }) {
             method: "POST",
             body: JSON.stringify({
                 id: id,
-                vid: "123",
+                vid: video._id,
                 email: user.email}),
             headers: {
                 "Content-Type": "application/json"
@@ -75,15 +79,15 @@ function VideoPreviewModal({ video, onClose }) {
     <div className="video-preview-modal">
         <div className="video-modal-content">
             <button className="video-model-close-button" onClick={onClose}>Close</button>
-            <h2>{video.title}</h2>
+            <h2>{video.name}</h2>
             <div className="workshop-video-thumbnail">
-                <img src={"http://img.youtube.com/vi/hdIYBmOpugA/mqdefault.jpg"} alt="Video Thumbnail"/>
+                <img src={`http://img.youtube.com/vi/${thumbnail}/mqdefault.jpg`} alt="Video Thumbnail"/>
             </div>
             <div className="workshop-video-description">
                 <p>{video.description}</p>
             </div>
             <div className="workshop-video-link">
-                <a className={"hidden"} href={`https://${video.link}`} target="_blank" rel="noopener noreferrer">Watch Video</a>
+                <a className={"hidden"} href={`https://${video.recordLink}`} target="_blank" rel="noopener noreferrer">Watch Video</a>
             </div>
             <button onClick={payVideo}>Pay to watch</button>
         </div>

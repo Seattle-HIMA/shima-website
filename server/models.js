@@ -38,7 +38,7 @@ async function main() {
 
     models.User = mongoose.model('User', UserSchema);
     models.BoardMembers = mongoose.model('BoardMembers', BoardMemberSchema);
-
+    models.Workshops = mongoose.model('Workshops', WorkshopSchema);
     console.log('Models created');
 }
 

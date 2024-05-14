@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './ScholarshipsPage.css'
-import getPageDetails from '../../utils/utils';
+import {getPageDetails} from '../../utils/utils';
 
 import background from '../../utils/images/scholarships-page.jpg';
 
