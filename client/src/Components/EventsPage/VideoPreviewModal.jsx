@@ -70,6 +70,10 @@ function VideoPreviewModal({ video, onClose }) {
         });
         response = await response.json();
         window.location.href = response.url;
+
+        // payment is successful here
+        // add link to popup
+
     } catch (error) {
         console.error("Error", error);
     }
