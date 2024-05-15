@@ -1,0 +1,102 @@
+.membership-form {
+  margin: 140px auto;
+  width: 50%;
+}
+
+.membership-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.membership-form h1 {
+  margin-bottom: 40px;
+}
+
+
+.membership-form input[type='text'] {
+  border: solid black 1px;
+  border-radius: 4px;
+  width: 25em;
+  height: 2.5em;
+}
+
+.membership-form .name-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.membership-form .name-info div {
+  margin-right: 100px;
+}
+
+.membership-form button {
+  margin: auto;
+}
+
+.membership-form h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.form-section {
+  padding-bottom: 30px;
+}
+
+.email-info {
+  padding-top: 20px;
+}
+
+.name-info div {
+  margin-right: 15px;
+}
+
+.membership-type-holder {
+  display: flex;
+}
+
+.options-questions {
+  border-radius: 8px;
+  border: 3px solid;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.options-questions input {
+  align-self: start;
+  margin-right: 0;
+  margin-top: 4px;
+}
+
+.options-questions label {
+  margin-right: 24px;
+}
+
+.price {
+  margin-bottom: 0;
+}
+
+.job-info div {
+  margin-bottom: 20px;
+}
+
+.prof-credentials {
+  display: flex;
+}
+
+.options-section .options-questions {
+  margin-bottom: 10px;
+}
+
+.options-section .options-questions label {
+  margin-left: 10px;
+}
+
+.student-section div {
+  padding-bottom: 20px;
+}
+
+.parti-options {
+  display: flex;
+}
