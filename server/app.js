@@ -38,7 +38,9 @@ app.use((req, res, next) => {
 app.use(nocache());
 
 app.use(cors({
-    origin: CLIENT_ORIGIN_URL, methods: ["GET"], allowedHeaders: ["Authorization", "Content-Type"], maxAge: 86400
+    origin: CLIENT_ORIGIN_URL, methods: ["GET"],
+    allowedHeaders: ["Authorization", "Content-Type", "email"],
+    maxAge: 86400
 }));
 
 // mongodb middleware

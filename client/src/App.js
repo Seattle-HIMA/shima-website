@@ -57,7 +57,7 @@ function App() {
                     const accessToken = await getAccessTokenSilently();
                     const {data, error} = await getAdminStatus(accessToken);
 
-                    if (!isMounted) return ''
+                    if (!isMounted) return '';
                     if (data) setIsAdmin(data.isAdmin);
                     if (error) setIsAdmin(false);
                 }

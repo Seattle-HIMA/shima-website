@@ -46,4 +46,21 @@ router.get('/allMembers', async (req, res) => {
     }
 });
 
+router.get('/currentUser', validateAccessToken, async (req, res) => {
+    try {
+        const currUserEmail = req.headers.email;
+        const user = await models.User.findOne({email: currUserEmail});
+
+        if (user) {
+            res.data = user;
+            res.status(200).json(user);
+        } else {
+            res.status(401).json({message: "No user found"});
+        }
+    } catch (error) {
+        console.error('Error retrieving current user:', error);
+        res.status(500).send('Internal Server Error');
+    }
+})
+
 export default router;
