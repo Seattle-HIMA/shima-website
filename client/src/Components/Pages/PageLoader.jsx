@@ -2,7 +2,8 @@ import React from "react";
 import './PageLoader.css';
 
 export const PageLoader = () => {
-    return (<div style={{marginTop: "400px", height: "30vh"}}>
+    return (
+        <div className="loading-container">
             <div className="loader"></div>
         </div>
     );

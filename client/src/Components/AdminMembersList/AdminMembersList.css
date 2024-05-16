@@ -1,3 +1,156 @@
-.admin-members-list-wrapper {
-    padding-top: 100px;
+/* Header Section */
+.admin-members-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
+
+.admin-members-list-wrapper {
+    padding: 100px;
+    margin: 50px 0 0 30px;
+
+    width: 100%;
+}
+
+.admin-members-list-title-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.admin-members-list-title {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.admin-members-list-subtitle {
+    font-size: 15px;
+    color: var(--light-blue);
+}
+
+/* Search Box */
+.admin-members-list-search-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.admin-members-list-search-input {
+    padding: 10px 30px 10px 10px;
+    border: none;
+    border-bottom: 1px solid var(--gray);
+    background-color: #F9FBFF;
+    transition: 0.3s ease;
+    outline: none;
+}
+
+.admin-members-list-search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+.admin-members-list-search-button i {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    color: var(--dark-blue);
+    font-size: 15px;
+}
+
+.admin-members-list-search-button span {
+    display: none;
+}
+
+.admin-members-list-search-container:focus-within .admin-members-list-search-input {
+    background-color: var(--gray-white);
+    transition: 0.3s ease;
+    border: none;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+/* Sort Dropdown */
+.admin-members-list-sort-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin-members-list-sort-dropdown {
+    padding: 8px;
+    color: var(--gray);
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    outline: none;
+    background-color: #F9FBFF;
+    border: none;
+}
+
+.admin-members-list-sort-dropdown option {
+    background-color: var(--white);
+    color: var(--gray);
+}
+
+/* Table */
+.admin-members-list-table-wrapper {
+    margin: 80px 30px 0 30px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+}
+
+.admin-members-list-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-members-list-header-item {
+    text-align: left;
+    font-weight: 400;
+    color: var(--light-gray);
+    padding-bottom: 20px;
+}
+
+.admin-members-list-row-item {
+    padding: 25px 7px;
+    max-width: 140px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+/* Pagination */
+.admin-members-list-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.admin-members-list-pagination button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: 1px solid var(--dark-blue);
+    background-color: transparent;
+    color: var(--dark-blue);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-members-list-pagination button:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.admin-members-list-pagination span {
+    margin: 0 10px;
+    font-size: 14px;
+}
+

@@ -247,12 +247,7 @@
 }
 
 .benefits-list-item {
-    transition: transform 0.3s ease-in-out;
     transform-origin: left;
-}
-
-.benefits-list-item:hover {
-    transform: scale(1.05);
 }
 
 .eligibility-list {
@@ -269,12 +264,7 @@
 }
 
 .eligibility-list-item {
-    transition: transform 0.3s ease-in-out;
     transform-origin: left;
-}
-
-.eligibility-list-item:hover {
-    transform: scale(1.05);
 }
 
 .membership-eligibility-card-content {
