@@ -31,26 +31,32 @@ function RegistrationPage() {
                 <p className={"caption-text"}>Upcoming workshops and events.</p>
             </section>
         </div>
-        <h2>Registration Form</h2>
         <div className="registration-page-form">
+            <h2>Registration Form</h2>
             <form onSubmit={handleSubmit}>
-                <div className="registration-page-form-group">
-                    <label className="registration-form-label" htmlFor="firstName">First Name</label>
-                    <input type="text" id="firstName" name="firstName" value={formData.firstName}
-                           onChange={handleInputChange} required/>
+                <div className={"form-section"}>
+                    <h3>Personal Information</h3>
+                    <div className={"name-info"}>
+                        <div className='left-side name-input'>
+                            <label for="fname">First Name</label>
+                            <input type="text" name="fname" id="fname" value={formData.firstName}
+                                onChange={handleInputChange} required/>
+                        </div>
+                        <div className='name-input'>
+                            <label for="lname">Last Name</label>
+                            <input type="text" name="lname" id="lname" value={formData.lastName}
+                                onChange={handleInputChange} required/>
+                        </div>
+                    </div>
+                    <div className={"email-info"}>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" value={formData.email}
+                            onChange={handleInputChange} required/>
+                    </div>
                 </div>
+
                 <div className="registration-page-form-group">
-                    <label className="registration-form-label" htmlFor="lastName">Last Name</label>
-                    <input type="text" id="lastName" name="lastName" value={formData.lastName}
-                           onChange={handleInputChange} required/>
-                </div>
-                <div className="registration-page-form-group">
-                    <label className="registration-form-label" htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange}
-                           required/>
-                </div>
-                <div className="registration-page-form-group">
-                    <label className="registration-form-label" htmlFor="workshop">Workshop Name</label>
+                    <h3>Workshop Name</h3>
                     <select id="workshop" name="workshop" value={formData.workshop} onChange={handleInputChange}
                             required>
                         {/* to update w actual workshops */}
@@ -59,24 +65,13 @@ function RegistrationPage() {
                         <option value="workshop3">Workshop 3</option>
                     </select>
                 </div>
+
                 <div className="registration-page-form-group">
                     <label className="registration-form-label">Payment</label><br/>
                     <p>Members: $15</p>
                     <p>Non - Members: $25</p>
-                    <input type="radio" id="payment1" name="payment" value="paypal"
-                           checked={formData.payment === 'paypal'} onChange={handleInputChange} required/>
-                    <label className="radio-label registration-form-label" htmlFor="payment1">Pay with PayPal using this
-                        link:
-                        PayPal</label><br/>
-                    <input type="radio" id="payment2" name="payment" value="zelle"
-                           checked={formData.payment === 'zelle'} onChange={handleInputChange}/>
-                    <label className="radio-label registration-form-label" htmlFor="payment2">Pay with Zelle:
-                        info.seattlehima@gmail.com</label><br/>
-                    <input type="radio" id="payment3" name="payment" value="stripe"
-                           checked={formData.payment === 'stripe'} onChange={handleInputChange}/>
-                    <label className="radio-label registration-form-label" htmlFor="payment3">Pay with credit card</label>
                 </div>
-                <button className={"registration-form-button"} type="submit">Submit</button>
+                <button className={"registration-form-button"} type="submit">Pay with Stripe</button>
             </form>
         </div>
     </div>);
