@@ -1,12 +1,47 @@
 import React, { useEffect, useState } from 'react';
-// import {useNavigate} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
+import { useAuth0 } from "@auth0/auth0-react";
+import { statusCheck, getProductsId, checkMembership } from '../../utils/utils';
 
 import './RegistrationPage.css';
 
 function RegistrationPage() {
-    const handleSubmit = (e) => {
+    const {user, isLoading, isAuthenticated} = useAuth0();
+
+    const location = useLocation();
+    const data = location.state;
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            let member = await checkMembership(user.email);
+            let id = await getProductsId();
+            let price;
+            if (member === "none") {
+              price = id["workshopNonMem"];
+            } else {
+              price = id["workshopMem"];
+            }
+
+            let response = await fetch("/routes/payment/workshop-checkout-session", {
+                method: "POST",
+                body: JSON.stringify({
+                    id: price,
+                    vid: data._id,
+                    email: user.email,
+                    workshopType: 'upcoming'}),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            await statusCheck(response);
+            response = await response.json();
+            window.location.href = response.url;
+
+        } catch (error) {
+            console.error("Error", error);
+        }
     };
 
     // radio buttons
@@ -16,9 +51,11 @@ function RegistrationPage() {
             ...prevState, [name]: value
         }));
     };
+
     const [formData, setFormData] = useState({
         firstName: '', lastName: '', email: '', workshop: 'workshop1', payment: 'credit_card'
     });
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, []);
