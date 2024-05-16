@@ -1,6 +1,25 @@
 .membership-form {
   margin: 140px auto;
-  width: 50%;
+  border: solid var(--dark-blue) 1px;
+  border-radius: 5px;
+  padding: 40px;
+  color: var(--dark-blue);
+  width: 100%;
+  max-width: 600px;
+}
+
+.membership-form .btn-wrapper {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.membership-form button {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  border: 2px solid var(--dark-blue);
+  border-radius: 8px;
+  padding: 10px 40px;
 }
 
 .membership-form label {
@@ -9,68 +28,77 @@
 }
 
 .membership-form h1 {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  font-weight: bolder;
 }
 
+.membership-form h2 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
 
 .membership-form input[type='text'] {
-  border: solid black 1px;
+  border: solid var(--dark-blue) 1px;
   border-radius: 4px;
-  width: 25em;
-  height: 2.5em;
+  width: 100%;
 }
 
-.membership-form .name-info {
+.membership-form .name-info, .membership-form .job-info {
   display: flex;
   flex-wrap: wrap;
 }
 
-.membership-form .name-info div {
-  margin-right: 100px;
-}
-
-.membership-form button {
-  margin: auto;
-}
-
-.membership-form h2 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
 .form-section {
   padding-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.name-input {
+  flex: 1;
+}
+
+.name-info div, .job-info div {
+  width: 50%;
+  min-width: 200px;
 }
 
 .email-info {
-  padding-top: 20px;
-}
-
-.name-info div {
-  margin-right: 15px;
+  padding-top: 15px;
 }
 
 .membership-type-holder {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.options-questions {
+.options-questions, .credentials-question {
   border-radius: 8px;
-  border: 3px solid;
-  padding: 8px 10px;
+  border: 3px solid var(--dark-blue);
+  padding: 8px 10px 8px 20px;
   display: flex;
-  align-items: center;
-  margin: 0 10px;
+  align-items: baseline;
 }
 
-.options-questions input {
+.credentials-question {
+  width: 150px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.credentials-question label {
+  margin-left: 5px;
+}
+
+.membership-type-holder .options-questions {
+  width: 45%;
+}
+
+.options-questions input[type='radio'] {
   align-self: start;
   margin-right: 0;
   margin-top: 4px;
-}
-
-.options-questions label {
-  margin-right: 24px;
+  margin-left: auto;
 }
 
 .price {
@@ -83,10 +111,19 @@
 
 .prof-credentials {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.options-section {
+  margin-right: 10px;
+  width: 200px;
 }
 
 .options-section .options-questions {
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .options-section .options-questions label {
@@ -99,4 +136,17 @@
 
 .parti-options {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.parti-options .options-section {
+  width: 45%;
+}
+
+@media (min-width: 600px) {
+  .name-info .left-side, .job-info .left-side {
+    margin-right: 25px;
+  }
 }
