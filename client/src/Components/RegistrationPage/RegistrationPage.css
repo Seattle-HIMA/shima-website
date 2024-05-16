@@ -26,8 +26,8 @@
     color: #0F233B;
 }
 
-input[type="text"],
-input[type="email"] {
+.registration-page input[type="text"],
+.registration-page input[type="email"] {
     width: 100%;
     padding: 10px;
     border: none;
@@ -36,13 +36,13 @@ input[type="email"] {
     transition: border-bottom-color 0.3s;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus {
-    border-bottom-color: purple;
+.registration-page input[type="text"]:focus,
+.registration-page input[type="email"]:focus {
+    border-bottom-color: black;
     /* change */
 }
 
-input[type="radio"] {
+.registration-page input[type="radio"] {
     margin-right: 10px;
     vertical-align: middle;
 }

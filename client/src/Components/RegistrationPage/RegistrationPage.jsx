@@ -111,7 +111,7 @@ function RegistrationPage() {
                         info.seattlehima@gmail.com</label><br/>
                     <input type="radio" id="payment3" name="payment" value="stripe"
                            checked={formData.payment === 'stripe'} onChange={handleInputChange}/>
-                    <label className="radio-label registration-form-label" htmlFor="payment3">Pay with Stripe</label>
+                    <label className="radio-label registration-form-label" htmlFor="payment3">Pay with credit card</label>
                 </div>
                 <button className={"registration-form-button"} type="submit">Submit</button>
             </form>
