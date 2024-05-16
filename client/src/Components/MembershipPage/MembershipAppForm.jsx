@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './MembershipPage.css';
 import { statusCheck, getProductsId } from '../../utils/utils';
 import { useAuth0 } from "@auth0/auth0-react";
@@ -13,6 +13,9 @@ profId = productsId['prof_id'];
 
 function MembershipAppForm() {
     const {user, isLoading, isAuthenticated} = useAuth0();
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
 
     const createPaymentSession = async (event) => {
         event.preventDefault();
