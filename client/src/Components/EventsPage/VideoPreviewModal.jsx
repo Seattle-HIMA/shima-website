@@ -1,27 +1,9 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import './VideoPreviewModal.css';
+import { checkMembership, getProductsId, statusCheck } from "../../utils/utils";
 
-let priceId;
-
-const statusCheck = async (res) => {
-  if (!res.ok) {
-      throw new Error(await res.text());
-  }
-  return res;
-}
-
-const videosId = async () => {
-  try {
-      let res = await fetch("routes/payment/get-product-id");
-      await statusCheck(res);
-      priceId = await res.json();
-  } catch (err) {
-      console.log(err);
-  }
-}
-
-await videosId();
+let priceId = await getProductsId();
 
 function VideoPreviewModal({ video, onClose, paid }) {
   const {user, isLoading, isAuthenticated} = useAuth0();
@@ -29,43 +11,27 @@ function VideoPreviewModal({ video, onClose, paid }) {
   let thumbnail = video.recordLink.split('/');
   thumbnail = thumbnail[thumbnail.length - 1];
 
-  const checkMembership = async () => {
-    try {
-      //check if member
-      let res = await fetch("routes/users/get-membership-type", {
-        method: "POST",
-        body: JSON.stringify({
-            email: user.email}),
-        headers: {
-            "Content-Type": "application/json"
-        }
-      });
-      await statusCheck(res);
-      let membership = await res.json();
-
-      if (membership.membership === "none") {
-        return priceId["vid1NonMem"];
-      } else {
-        return priceId["vid1Mem"];
-      }
-    } catch(err) {
-      console.error(err);
-    }
-  }
-
   const payVideo = async () => {
     try {
-        let id = await checkMembership();
+        let id = await checkMembership(user.email);
+        let vidId;
+        if (id === "none") {
+          vidId = priceId["vid1NonMem"];
+        } else {
+          vidId = priceId["vid1Mem"];
+        }
+
         let response = await fetch("/routes/payment/workshop-checkout-session", {
             method: "POST",
             body: JSON.stringify({
-                id: id,
+                id: vidId,
                 vid: video._id,
                 email: user.email}),
             headers: {
                 "Content-Type": "application/json"
             }
         });
+        await statusCheck(response);
         response = await response.json();
         window.location.href = response.url;
 

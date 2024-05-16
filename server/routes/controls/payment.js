@@ -20,6 +20,10 @@ const testVideo = await STRIPE.products.create({
     name: 'Test workshop recording',
 });
 
+const upcomingWorkshop = await STRIPE.products.create({
+    name: 'Upcoming Workshop',
+});
+
 // prices for each product
 const studentPrice = await STRIPE.prices.create({
     currency: 'usd',
@@ -51,13 +55,27 @@ const VidPriceNonMem = await STRIPE.prices.create({
     unit_amount: 1000
 });
 
+const workshopMem = await STRIPE.prices.create({
+    currency: 'usd',
+    product: testVideo.id,
+    unit_amount: 1500
+});
+
+const workshopNonMem = await STRIPE.prices.create({
+    currency: 'usd',
+    product: testVideo.id,
+    unit_amount: 2500
+});
+
 // retrieve products' price id
 router.get('/get-product-id', (req, res) => {
     res.json({
         "student_id": studentPrice.id,
         "prof_id": profPrice.id,
         "vid1NonMem": VidPriceNonMem.id,
-        "vid1Mem": VidPriceMem.id
+        "vid1Mem": VidPriceMem.id,
+        "workshopMem": workshopMem.id,
+        "workshopNonMem": workshopNonMem.id
     });
 });
 

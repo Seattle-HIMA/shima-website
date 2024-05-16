@@ -1,30 +1,14 @@
 import React from 'react';
 import './MembershipPage.css';
+import { statusCheck, getProductsId } from '../../utils/utils';
 import { useAuth0 } from "@auth0/auth0-react";
 
 let studentId;
 let profId;
 
-const statusCheck = async (res) => {
-    if (!res.ok) {
-        throw new Error(await res.text());
-    }
-    return res;
-}
-
-const membershipId = async () => {
-    try {
-        let res = await fetch("routes/payment/get-product-id");
-        await statusCheck(res);
-        let info = await res.json();
-        studentId = info['student_id'];
-        profId = info['prof_id'];
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-await membershipId();
+let productsId = await getProductsId();
+studentId = productsId['student_id'];
+profId = productsId['prof_id'];
 
 function MembershipAppForm() {
     const {user, isLoading, isAuthenticated} = useAuth0();
@@ -42,6 +26,7 @@ function MembershipAppForm() {
                     "Content-Type": "application/json"
                 }
             });
+            await statusCheck(response);
             response = await response.json();
             window.location.href = response.url;
         } catch (error) {
