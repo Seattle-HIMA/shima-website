@@ -1,8 +1,15 @@
 /* Header Section */
+.admin-members-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .admin-members-list-wrapper {
-    padding-top: 100px;
-    margin: 50px;
-    max-width: 1200px;
+    padding: 100px;
+    margin: 50px 0 0 30px;
+
+    width: 100%;
 }
 
 .admin-members-list-title-section {
@@ -67,25 +74,57 @@
 
 /* Table */
 .admin-members-list-table-wrapper {
-    margin-top: 50px;
+    margin: 80px 30px 0 30px;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
 }
 
 .admin-members-list-table {
-    margin: 0 auto;
-}
-
-.admin-members-list-header {
-
+    width: 100%;
+    border-collapse: collapse;
 }
 
 .admin-members-list-header-item {
-
-}
-
-.admin-members-list-rows {
-
+    text-align: left;
+    font-weight: 400;
+    color: var(--light-gray);
+    padding-bottom: 20px;
 }
 
 .admin-members-list-row-item {
-
+    padding: 25px 7px;
+    max-width: 140px;
+    border-bottom: 1px solid var(--light-gray);
 }
+
+/* Pagination */
+.admin-members-list-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.admin-members-list-pagination button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: 1px solid var(--dark-blue);
+    background-color: transparent;
+    color: var(--dark-blue);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-members-list-pagination button:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.admin-members-list-pagination span {
+    margin: 0 10px;
+    font-size: 14px;
+}
+
