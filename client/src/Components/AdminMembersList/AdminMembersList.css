@@ -33,14 +33,16 @@
     position: relative;
     display: inline-block;
     margin-top: 25px;
+    font-size: 15px;
 }
 
 .admin-members-list-search-input {
     padding: 10px 30px 10px 10px;
     border: none;
-    border-bottom: 2px solid var(--gray);
-    background-color: var(--white);
+    border-bottom: 1px solid var(--gray);
+    background-color: #F9FBFF;
     transition: 0.3s ease;
+    outline: none;
 }
 
 .admin-members-list-search-button {
@@ -69,7 +71,31 @@
 .admin-members-list-search-container:focus-within .admin-members-list-search-input {
     background-color: var(--gray-white);
     transition: 0.3s ease;
+    border: none;
     border-bottom: 1px solid var(--dark-blue);
+}
+
+/* Sort Dropdown */
+.admin-members-list-sort-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.admin-members-list-sort-dropdown {
+    padding: 8px;
+    color: var(--gray);
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    outline: none;
+    background-color: #F9FBFF;
+    border: none;
+}
+
+.admin-members-list-sort-dropdown option {
+    background-color: var(--white);
+    color: var(--gray);
 }
 
 /* Table */

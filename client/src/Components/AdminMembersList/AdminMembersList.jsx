@@ -7,15 +7,16 @@ function AdminMembersList() {
     const [userList, setUserList] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
+    const [sortBy, setSortBy] = useState('');
     const usersPerPage = 10; // Number of users to display per page
-    const {getAccessTokenSilently} = useAuth0();
+    const { getAccessTokenSilently } = useAuth0();
 
     useEffect(() => {
         let isMounted = true;
 
         const getUserList = async () => {
             const accessToken = await getAccessTokenSilently();
-            const {data, error} = await getAdminMembershipList(accessToken);
+            const { data, error } = await getAdminMembershipList(accessToken);
 
             if (!isMounted) return;
             if (data) setUserList(data);
@@ -34,7 +35,25 @@ function AdminMembersList() {
         setCurrentPage(1);
     };
 
-    const filteredUserList = userList.filter(user =>
+    const handleSortChange = (e) => {
+        setSortBy(e.target.value);
+    };
+
+    const sortedUserList = [...userList].sort((a, b) => {
+        if (sortBy === 'email') {
+            return a.email.localeCompare(b.email);
+        } else if (sortBy === 'firstName') {
+            return (a.firstName || '').localeCompare(b.firstName || '');
+        } else if (sortBy === 'lastName') {
+            return (a.lastName || '').localeCompare(b.lastName || '');
+        } else if (sortBy === 'membershipType') {
+            return (a.membershipType || '').localeCompare(b.membershipType || '');
+        } else {
+            return 0;
+        }
+    });
+
+    const filteredUserList = sortedUserList.filter(user =>
         user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (user.firstName && user.firstName.toLowerCase().includes(searchQuery.toLowerCase())) ||
         (user.lastName && user.lastName.toLowerCase().includes(searchQuery.toLowerCase())) ||
@@ -79,6 +98,16 @@ function AdminMembersList() {
                     </div>
                 </div>
 
+                <div className="admin-members-list-sort-container">
+                    <select className="admin-members-list-sort-dropdown" onChange={handleSortChange}>
+                        <option value="">Sort By</option>
+                        <option value="email">Email</option>
+                        <option value="firstName">First Name</option>
+                        <option value="lastName">Last Name</option>
+                        <option value="membershipType">Membership Type</option>
+                    </select>
+                </div>
+
                 <div className={"admin-members-list-table-wrapper"}>
                     <table className={"admin-members-list-table"}>
                         <thead className={"admin-members-list-header"}>
@@ -105,7 +134,7 @@ function AdminMembersList() {
 
             <div className="admin-members-list-pagination">
                 <button onClick={prevPage} disabled={currentPage === 1}>Prev</button>
-                <span>{currentPage} / {totalPages}</span>
+                <span>{currentPage} of {totalPages}</span>
                 <button onClick={nextPage} disabled={currentPage === totalPages}>Next</button>
             </div>
 
