@@ -11,7 +11,7 @@ const statusCheck = async (res) => {
   return res;
 }
 
-const videosId = async (user) => {
+const videosId = async () => {
   try {
       let res = await fetch("routes/payment/get-product-id");
       await statusCheck(res);
@@ -23,14 +23,12 @@ const videosId = async (user) => {
 
 await videosId();
 
-function VideoPreviewModal({ video, onClose }) {
-  console.log(video);
+function VideoPreviewModal({ video, onClose, paid }) {
   const {user, isLoading, isAuthenticated} = useAuth0();
 
   let thumbnail = video.recordLink.split('/');
   thumbnail = thumbnail[thumbnail.length - 1];
 
-  console.log(user);
   const checkMembership = async () => {
     try {
       //check if member
@@ -71,11 +69,20 @@ function VideoPreviewModal({ video, onClose }) {
         response = await response.json();
         window.location.href = response.url;
 
-        // payment is successful here
-        // add link to popup
-
     } catch (error) {
         console.error("Error", error);
+    }
+  }
+
+  const playVideo = () => {
+    window.location.href = video.recordLink;
+  }
+
+  const setBtnText = () => {
+    if(!paid) {
+      return <button onClick={payVideo}>Pay to watch</button>
+    } else {
+      return <button onClick={playVideo}>Watch video</button>
     }
   }
 
@@ -93,7 +100,7 @@ function VideoPreviewModal({ video, onClose }) {
             <div className="workshop-video-link">
                 <a className={"hidden"} href={`https://${video.recordLink}`} target="_blank" rel="noopener noreferrer">Watch Video</a>
             </div>
-            <button onClick={payVideo}>Pay to watch</button>
+            {setBtnText()}
         </div>
     </div>
   );

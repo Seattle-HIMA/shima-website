@@ -30,6 +30,37 @@ router.get('/get-all-workshops', async (req, res) => {
   }
 });
 
+// get all paid workshop for the given user
+router.post('/get-paid-workshops', async (req, res) => {
+    try {
+        const { email } = req.body;
+        const user = await models.User.findOne({email});
+        res.json({ "workshops": user.paidWorkshops});
+    } catch(error) {
+        console.error('Error adding new user:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+// check if the user has paid for the given recording
+router.post('/workshop-isPaid/:id', async (req, res) => {
+    try {
+        let vid = req.params.id;
+        const { email } = req.body;
+        const user = await models.User.findOne({email});
+        let paid = user.paidWorkshops;
+
+        if (paid.includes(vid)) {
+            res.json({isPaid: true});
+        } else {
+            res.json({isPaid: false});
+        }
+    } catch {
+        console.error('Error checking paid recordings:', error);
+        res.status(500).send('Internal Server Error');
+    }
+})
+
 // add new workshop to the db
 router.post('/add', async (req, res) => {
   try {

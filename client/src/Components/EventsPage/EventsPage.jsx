@@ -13,7 +13,7 @@ let sectionKeys;
 let workshopsInfo;
 let pastWorkshops = [];
 let upcomingWorkshops = [];
-let pastRecordings = []
+let pastRecordings = [];
 
 async function fetchPageInfo() {
     try {
@@ -51,6 +51,43 @@ async function getWorkshopsInfo() {
     }
 }
 
+// retrieved user's paid workshops
+async function getPaidWorkshops(user) {
+    try{
+        let res = await fetch('/routes/workshops/get-paid-workshops', {
+            method: "POST",
+            body: JSON.stringify({
+                email: user.email}),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        await statusCheck(res);
+        let workshops = await res.json();
+        return workshops;
+    }catch (err) {
+        console.error(err);
+    }
+}
+
+async function checkPaidWorkshop(user, id) {
+    try{
+        let res = await fetch(`/routes/workshops/workshop-isPaid/${id}`, {
+            method: "POST",
+            body: JSON.stringify({
+                email: user.email}),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        await statusCheck(res);
+        let alrPaid = await res.json();
+        return alrPaid.isPaid;
+    }catch (err) {
+        console.error(err);
+    }
+}
+
 function makePastEvent(title, speaker, description, flyer) {
     return (
         <div>
@@ -74,19 +111,32 @@ function makePastEvent(title, speaker, description, flyer) {
 
 function EventsPage() {
     const navigate = useNavigate();
-    const {loginWithRedirect, isAuthenticated, user, isLoading} = useAuth0();
+    const {loginWithRedirect, isAuthenticated, user} = useAuth0();
+    const [userPaidWorkshops, setUserPaidWorkshops] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    useEffect(() => {
+        if (isAuthenticated && user) {
+            (async () => {
+                const workshops = await getPaidWorkshops(user);
+                setUserPaidWorkshops(workshops['workshops']);
+            })();
+        }
+    }, [isAuthenticated, user]);
+
     const [showVideoModal, setShowVideoModal] = useState(false);
     const [selectedVideo, setSelectedVideo] = useState(null);
+    const [paidVideo, setPaidVideo] = useState(false);
 
-    const handleOpenVideoModal = (video) => {
+    const handleOpenVideoModal = async (video) => {
         if (isAuthenticated) {
             setSelectedVideo(video);
             setShowVideoModal(true);
+            let paid = await checkPaidWorkshop(user, video._id);
+            setPaidVideo(paid);
         } else {
             loginWithRedirect()
         }
@@ -96,26 +146,23 @@ function EventsPage() {
         setShowVideoModal(false);
     }
 
-    // retrieved user's paid workshops
-    const getPaidWorkshops = async () => {
-        try{
-            let res = await fetch('/routes/users//get-paid-workshops');
-            await statusCheck(res);
-            let workshops = await res.json();
-            console.log(workshops);
-        }catch (err) {
-            console.error(err);
-        }
-    }
-
-
     const videoCards = pastRecordings.map((video, index) => {
+        let isPaid = false;
+
+        if(userPaidWorkshops) {
+            if (userPaidWorkshops.includes(video._id)) {
+                isPaid = true;
+            }
+        }
+
+        console.log(isPaid);
+
         const thumbnailImg = require(`../../utils/images/placeholder-thumbnail.jpg`);
         return (
             <div key={index} className="video-card" onClick={() => handleOpenVideoModal(video)}>
                 <div className="video-card-img" style={{backgroundImage: `url(${thumbnailImg})`}}>
                     <section></section>
-                    <img src={lockImg} alt="Lock" className="lock-image"/>
+                    {!isPaid && <img src={lockImg} alt="Lock" className="lock-image"/>}
                 </div>
                 <div className="video-card-content">
                     <h3 className="video-card-title">{video.name}</h3>
@@ -193,7 +240,6 @@ function EventsPage() {
 
     return (
         <div>
-            <p>Hi</p>
             <div className={"events-page"}>
                 <div className={"header"}>
                     <img src={backgroundImg} alt="Rooftop view" id="events-img"></img>
@@ -206,16 +252,16 @@ function EventsPage() {
             {makeUpcomingSectionHeader()}
             {makeUpcomingWorkshops()}
 
-            <div className="video-section">
+            {isAuthenticated && <div className="video-section">
                 <h2>{sectionKeys[1]}</h2>
                 <div className="video-cards">
                     {videoCards}
 
                     {showVideoModal && (
-                        <VideoPreviewModal video={selectedVideo} onClose={handleCloseVideoModal} />
+                        <VideoPreviewModal paid={paidVideo} video={selectedVideo} onClose={handleCloseVideoModal} />
                     )}
                 </div>
-            </div>
+            </div>}
             {makePastWorkshops()}
         </div>
     )
