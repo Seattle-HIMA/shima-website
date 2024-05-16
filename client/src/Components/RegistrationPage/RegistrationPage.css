@@ -1,18 +1,34 @@
 .registration-page h2 {
-    font-size: 50px;
-    font-weight: 250;
-    color: #AAA5A5;
-    margin-left: 100px;
-    margin-top: 50px;
+    margin-bottom: 30px;
+    font-weight: bolder;
 }
 
 .registration-page-form {
-    width: 60%;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
+    margin: 80px auto;
+    border: solid var(--dark-blue) 1px;
     border-radius: 5px;
+    padding: 40px;
+    color: var(--dark-blue);
+    width: 100%;
+    max-width: 600px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-page-form h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.registration-page-form input[type='text'],
+.registration-page input[type="email"] {
+    border: solid var(--dark-blue) 1px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.registration-page-form .name-info {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .registration-page-form-group {
@@ -24,16 +40,6 @@
     margin-bottom: 5px;
     font-weight: 500;
     color: #0F233B;
-}
-
-.registration-page input[type="text"],
-.registration-page input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid #AAA5A5;
-    outline: none;
-    transition: border-bottom-color 0.3s;
 }
 
 .registration-page input[type="text"]:focus,
