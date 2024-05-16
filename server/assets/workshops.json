@@ -1,13 +1,12 @@
 {
   "title": "Workshops",
   "description": "Upcoming workshops and events.",
-  "subsections": [
-    {
-      "Upcoming workshops": {
-        "description": "",
-        "Registration Form": "link",
-        "Speaker Interest Form": "link"
-      }
-    }
-  ]
+  "subsections": {
+    "Upcoming workshops": {
+      "description": "",
+      "Forms": ["Registration Form", "Speaker Interest Form"]
+    },
+    "Videos": {},
+    "Previous Workshops": {}
+  }
 }

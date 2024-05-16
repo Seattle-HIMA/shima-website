@@ -1,100 +1,98 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 import lockImg from '../../utils/images/lock.png';
 import calendarImg from '../../utils/images/calendar-icon.png';
 import VideoPreviewModal from './VideoPreviewModal';
+import {getPageDetails, statusCheck} from '../../utils/utils';
 import './EventsPage.css';
 import { useAuth0 } from "@auth0/auth0-react";
 
-const EVENT_INFO = [
-    {
-        "title": "Successful Healthcare IT projects",
-        "speaker": "Tabitha Lieberman",
-        "description": "A renowned health IT leader, Tabitha Lieberman has more than 30 years of experience powering transformational implementations, digital integrations, and deployments.",
-        "flyerSource": "flyer-1.png",
-        "date": "2025-10-21"
-    },
-    {
-        "title": "From Data Entry to Policy Input",
-        "speaker": "Jim Condon",
-        "description": "Dr. Jim Condon is an Associate Teaching Professor and Director of the Health Informatics and Health Information Management undergraduate and graduate programs at the University of Washington",
-        "flyerSource": "flyer-2.png",
-        "date": "2025-11-18"
-    },
-    {
-        "title": "Event 3",
-        "speaker": "Speaker 3",
-        "description": "description here",
-        "flyerSource": "flyer-3.jpg",
-        "date": "2023-04-21"
-    },
-    {
-        "title": "Spheres & Shades",
-        "speaker": "Isaac Gribben",
-        "description": "A Look Into The Venn Diagram Of Differing Aspects Of Clinical Operations And Risk Stratification",
-        "flyerSource": "spheres-and-shades.jpg",
-        "date": "2024-05-04"
+let pageInfo;
+let sectionKeys;
+let workshopsInfo;
+let pastWorkshops = [];
+let upcomingWorkshops = [];
+let pastRecordings = [];
+
+async function fetchPageInfo() {
+    try {
+        pageInfo = await getPageDetails('workshops');
+        sectionKeys = Object.keys(pageInfo.subsections);
+        workshopsInfo = await getWorkshopsInfo();
+
+        workshopsInfo.forEach(workshop => {
+            let currDate = new Date();
+            if(new Date(workshop.date) > currDate) {
+                upcomingWorkshops.push(workshop);
+            } else {
+                pastWorkshops.push(workshop);
+            }
+
+            if(workshop.recordLink) {
+                pastRecordings.push(workshop);
+            }
+        });
+    }catch(err) {
+        console.log(err);
     }
-]
+}
 
-const VIDEO_INFO = [
-    {
-        "title": "Successful Healthcare IT projects",
-        "link": "youtube.com",
-        "thumbnail": "placeholder-thumbnail.jpg"
-    },
-    {
-        "title": "Video 2",
-        "link": "youtube.com",
-        "thumbnail": "placeholder-thumbnail.jpg"
-    },
-    {
-        "title": "Video 3",
-        "link": "youtube.com",
-        "thumbnail": "placeholder-thumbnail.jpg"
+await fetchPageInfo();
+
+async function getWorkshopsInfo() {
+    try {
+        let res = await fetch('/routes/workshops/get-all-workshops');
+        await statusCheck(res);
+        let workshops = await res.json();
+        return workshops;
+    } catch(err){
+        console.log(err);
     }
-]
+}
 
-function makeUpcomingEvent(navigate, title, speaker, description, flyer, eventDate, index) {
-    const flyerImg = require(`../../utils/images/${flyer}`);
-    const date = new Date(eventDate);
-    date.setDate(date.getDate() + 1);
+// retrieved user's paid workshops
+async function getPaidWorkshops(user) {
+    try{
+        let res = await fetch('/routes/workshops/get-paid-workshops', {
+            method: "POST",
+            body: JSON.stringify({
+                email: user.email}),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        await statusCheck(res);
+        let workshops = await res.json();
+        return workshops;
+    }catch (err) {
+        console.error(err);
+    }
+}
 
-    const formattedDate = date.toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric', // Day of the month
-        year: 'numeric', // Full year
-      });
-
-    return (
-        <div className={"upcoming-event-section"}>
-            <div>
-                <img className={"upcoming-event-image"} src={flyerImg} alt="Event Flyer"/>
-            </div>
-            <div className={"upcoming-event-body"}>
-                <div className="event-date">
-                    <img src={calendarImg} alt="Calendar"/>
-                    <p>{formattedDate}</p>
-                </div>
-                <h2 className={"upcoming-event-title"}>
-                    {title}<br></br><span>by {speaker}</span>
-                </h2>
-                <p className={"upcoming-event-description"}>{description}</p>
-                <button className={""} onClick={() => navigate('/Registration')}>Register
-                </button>
-            </div>
-        </div>
-    );
+async function checkPaidWorkshop(user, id) {
+    try{
+        let res = await fetch(`/routes/workshops/workshop-isPaid/${id}`, {
+            method: "POST",
+            body: JSON.stringify({
+                email: user.email}),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        await statusCheck(res);
+        let alrPaid = await res.json();
+        return alrPaid.isPaid;
+    }catch (err) {
+        console.error(err);
+    }
 }
 
 function makePastEvent(title, speaker, description, flyer) {
-    const flyerImg = require(`../../utils/images/${flyer}`);
-
     return (
         <div>
             <article className="past-event-card">
-                <div className={"past-event-card-header-img"} style={{backgroundImage: `url(${flyerImg}`}}></div>
+                <div className={"past-event-card-header-img"} style={{backgroundImage: `url(${flyer}`}}></div>
                 <div className={"past-event-card-body"}>
                     <h3 className={"past-event-card-name"}>{title} by {speaker}</h3>
                     <h3 className={"past-event-card-text"}>
@@ -113,19 +111,32 @@ function makePastEvent(title, speaker, description, flyer) {
 
 function EventsPage() {
     const navigate = useNavigate();
-    const {loginWithRedirect, isAuthenticated} = useAuth0();
+    const {loginWithRedirect, isAuthenticated, user} = useAuth0();
+    const [userPaidWorkshops, setUserPaidWorkshops] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
+    useEffect(() => {
+        if (isAuthenticated && user) {
+            (async () => {
+                const workshops = await getPaidWorkshops(user);
+                setUserPaidWorkshops(workshops['workshops']);
+            })();
+        }
+    }, [isAuthenticated, user]);
+
     const [showVideoModal, setShowVideoModal] = useState(false);
     const [selectedVideo, setSelectedVideo] = useState(null);
+    const [paidVideo, setPaidVideo] = useState(false);
 
-    const handleOpenVideoModal = (video) => {
+    const handleOpenVideoModal = async (video) => {
         if (isAuthenticated) {
             setSelectedVideo(video);
             setShowVideoModal(true);
+            let paid = await checkPaidWorkshop(user, video._id);
+            setPaidVideo(paid);
         } else {
             loginWithRedirect()
         }
@@ -135,70 +146,123 @@ function EventsPage() {
         setShowVideoModal(false);
     }
 
-    const currentDate = new Date();
-    const {upcomingEvents, pastEvents} = EVENT_INFO.reduce((acc, item, index) => {
-        const eventDate = new Date(item.date);
-        if (currentDate <= eventDate) {
-            acc.upcomingEvents.push(makeUpcomingEvent(navigate, item.title, item.speaker, item.description, item.flyerSource, item.date, index));
-        } else {
-            acc.pastEvents.push(makePastEvent(item.title, item.speaker, item.description, item.flyerSource, item.date, index));
-        }
-        return acc;
-    }, {upcomingEvents: [], pastEvents: []});
+    const videoCards = pastRecordings.map((video, index) => {
+        let isPaid = false;
 
-    const videoCards = VIDEO_INFO.map((video, index) => {
-        const thumbnailImg = require(`../../utils/images/${video.thumbnail}`);
+        if(userPaidWorkshops) {
+            if (userPaidWorkshops.includes(video._id)) {
+                isPaid = true;
+            }
+        }
+
+        console.log(isPaid);
+
+        const thumbnailImg = require(`../../utils/images/placeholder-thumbnail.jpg`);
         return (
             <div key={index} className="video-card" onClick={() => handleOpenVideoModal(video)}>
                 <div className="video-card-img" style={{backgroundImage: `url(${thumbnailImg})`}}>
                     <section></section>
-                    <img src={lockImg} alt="Lock" className="lock-image"/>
+                    {!isPaid && <img src={lockImg} alt="Lock" className="lock-image"/>}
                 </div>
                 <div className="video-card-content">
-                    <h3 className="video-card-title">{video.title}</h3>
+                    <h3 className="video-card-title">{video.name}</h3>
                     {/* access link only if the video is unlocked */}
-                    <a className="video-card-link" href={`https://${video.link}`} target="_blank"
+                    <a className="video-card-link" href={`https://${video.recordLink}`} target="_blank"
                        rel="noopener noreferrer">Watch Video</a>
                 </div>
             </div>
         )
     });
 
+    const makeUpcomingSectionHeader = () => {
+        let sectionInfo = pageInfo.subsections[sectionKeys[0]];
+        let forms = sectionInfo.Forms.map(form => {
+            return <p key={form}>{form}</p>
+        } );
+
+        return(
+            <div className={"events-label"}>
+                <h2>{sectionKeys[0]}</h2>
+                {forms}
+            </div>
+        )
+    }
+
+    const makeUpcomingWorkshops = () => {
+        let upcoming = upcomingWorkshops.map(workshop => {
+            let flyerImg = require(`../../utils/images/${workshop.flyer}`);
+            let date = new Date(workshop.date)
+            let formattedDate = date.toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric', // Day of the month
+                year: 'numeric', // Full year
+            });
+
+            return (
+                <div className={"upcoming-event-section"}>
+                    <div>
+                        <img className={"upcoming-event-image"} src={flyerImg} alt="Event Flyer"/>
+                    </div>
+                    <div className={"upcoming-event-body"}>
+                        <div className="event-date">
+                            <img src={calendarImg} alt="Calendar"/>
+                            <p>{formattedDate}</p>
+                        </div>
+                        <h2 className={"upcoming-event-title"}>
+                            {workshop.name}<br></br><span>by {workshop.speaker}</span>
+                        </h2>
+                        <p className={"upcoming-event-description"}>{workshop.description}</p>
+                        <button className={""} onClick={() => navigate('/Registration')}>Register
+                        </button>
+                    </div>
+                </div>
+            );
+        });
+
+        return (
+            <div>{upcoming}</div>
+        );
+    };
+
+    const makePastWorkshops = () => {
+        let workshops = pastWorkshops.map(evt => {
+            let flyerImg = require(`../../utils/images/${evt.flyer}`);
+            return makePastEvent(evt.name, evt.speaker, evt.description, flyerImg);
+        });
+
+        return(
+            <div className="past-event-section">
+                <h2>{sectionKeys[2]}</h2>
+                {workshops}
+            </div>
+        );
+    }
+
     return (
         <div>
-            <div className="events-page">
-                <div className="header">
+            <div className={"events-page"}>
+                <div className={"header"}>
                     <img src={backgroundImg} alt="Rooftop view" id="events-img"></img>
                     <section>
-                        <h1>Workshops</h1>
-                        <p className={"caption-text"}>Upcoming workshops and events.</p>
+                        <h1 className={"title-text"}>{pageInfo.title}</h1>
+                        <p className={"caption-text"}>{pageInfo.description}</p>
                     </section>
                 </div>
             </div>
-            <div className="events-label">
-                <h2>Upcoming workshops</h2>
-                <p>Registration Form</p>
-                <p>Speaker Interest Form</p>
-            </div>
-            <div>
-                {upcomingEvents}
-            </div>
-            <div className="video-section">
-                <h2>Videos</h2>
+            {makeUpcomingSectionHeader()}
+            {makeUpcomingWorkshops()}
+
+            {isAuthenticated && <div className="video-section">
+                <h2>{sectionKeys[1]}</h2>
                 <div className="video-cards">
                     {videoCards}
 
                     {showVideoModal && (
-                        <VideoPreviewModal video={selectedVideo} onClose={handleCloseVideoModal} />
+                        <VideoPreviewModal paid={paidVideo} video={selectedVideo} onClose={handleCloseVideoModal} />
                     )}
                 </div>
-            </div>
-            <div className="past-event-section">
-                <h2>Previous Workshops</h2>
-                <div className="past-event-cards">
-                    {pastEvents}
-                </div>
-            </div>
+            </div>}
+            {makePastWorkshops()}
         </div>
     )
 }
