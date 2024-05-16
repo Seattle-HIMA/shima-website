@@ -4,34 +4,6 @@ import backgroundImg from '../../utils/images/events-background.png';
 
 import './RegistrationPage.css';
 
-const EVENT_INFO = [{
-    "title": "Successful Healthcare IT projects",
-    "speaker": "Tabitha Lieberman",
-    "description": "A renowned health IT leader, Tabitha Lieberman has more than 30 years of experience powering transformational implementations, digital integrations, and deployments.",
-    "flyerSource": "flyer-1.png",
-    "date": "2023-10-21"
-}, {
-    "title": "From Data Entry to Policy Input",
-    "speaker": "Jim Condon",
-    "description": "Dr. Jim Condon is an Associate Teaching Professor and Director of the Health Informatics and Health Information Management undergraduate and graduate programs at the University of Washington",
-    "flyerSource": "flyer-2.png",
-    "date": "2023-11-18"
-}, {
-    "title": "Event 3",
-    "speaker": "Speaker 3",
-    "description": "description here",
-    "flyerSource": "flyer-3.jpg",
-    "date": "2025-04-21"
-}, {
-    "title": "Spheres & Shades",
-    "speaker": "Isaac Gribben",
-    "description": "A Look Into The Venn Diagram Of Differing Aspects Of Clinical Operations And Risk Stratification",
-    "flyerSource": "spheres-and-shades.jpg",
-    "date": "2024-05-04"
-}
-
-]
-
 function RegistrationPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -102,7 +74,7 @@ function RegistrationPage() {
                         info.seattlehima@gmail.com</label><br/>
                     <input type="radio" id="payment3" name="payment" value="stripe"
                            checked={formData.payment === 'stripe'} onChange={handleInputChange}/>
-                    <label className="radio-label registration-form-label" htmlFor="payment3">Pay with Stripe</label>
+                    <label className="radio-label registration-form-label" htmlFor="payment3">Pay with credit card</label>
                 </div>
                 <button className={"registration-form-button"} type="submit">Submit</button>
             </form>

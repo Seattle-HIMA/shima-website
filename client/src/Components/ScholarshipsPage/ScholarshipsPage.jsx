@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './ScholarshipsPage.css'
-import getPageDetails from '../../utils/utils';
+import {getPageDetails} from '../../utils/utils';
 
 import background from '../../utils/images/scholarships-page.jpg';
 
@@ -52,8 +52,8 @@ function ScholarshipsPage() {
     })
 
     return (
-        <div className={"scholarships-section"}>
-            <div className={"scholarships-header"}>
+        <div className=gi{"scholarships-section"}>
+            <div className={"header"}>
                 <img src={background} alt="library view"></img>
                 <section>
                     <h1>{pageInfo.title}</h1>

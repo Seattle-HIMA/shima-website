@@ -5,7 +5,6 @@ import { CLIENT_ORIGIN_URL, STRIPE_TEST_API_KEY } from '../../constants.js';
 const router = express.Router();
 
 const STRIPE = stripeLib(STRIPE_TEST_API_KEY);
-const REDIRECTURL = CLIENT_ORIGIN_URL + '/Membership';
 const SUCCESSURL = CLIENT_ORIGIN_URL + '/Payment-Success';
 
 // list of "products" (memberships and workshops)
@@ -19,6 +18,10 @@ const professional = await STRIPE.products.create({
 
 const testVideo = await STRIPE.products.create({
     name: 'Test workshop recording',
+});
+
+const upcomingWorkshop = await STRIPE.products.create({
+    name: 'Upcoming Workshop',
 });
 
 // prices for each product
@@ -52,13 +55,27 @@ const VidPriceNonMem = await STRIPE.prices.create({
     unit_amount: 1000
 });
 
+const workshopMem = await STRIPE.prices.create({
+    currency: 'usd',
+    product: testVideo.id,
+    unit_amount: 1500
+});
+
+const workshopNonMem = await STRIPE.prices.create({
+    currency: 'usd',
+    product: testVideo.id,
+    unit_amount: 2500
+});
+
 // retrieve products' price id
 router.get('/get-product-id', (req, res) => {
     res.json({
         "student_id": studentPrice.id,
         "prof_id": profPrice.id,
         "vid1NonMem": VidPriceNonMem.id,
-        "vid1Mem": VidPriceMem.id
+        "vid1Mem": VidPriceMem.id,
+        "workshopMem": workshopMem.id,
+        "workshopNonMem": workshopNonMem.id
     });
 });
 
@@ -87,8 +104,7 @@ router.post('/create-checkout-session', async (req, res) => {
 
 // create a checkout session for one time payment
 router.post('/workshop-checkout-session', async (req, res) => {
-    const {id, email, type} = req.body;
-
+    const {id, email, vid} = req.body;
     const session = await STRIPE.checkout.sessions.create({
         line_items: [
             {
@@ -97,11 +113,11 @@ router.post('/workshop-checkout-session', async (req, res) => {
             },
         ],
         mode: 'payment',
-        success_url: SUCCESSURL,
+        success_url: CLIENT_ORIGIN_URL + '/Events',
         cancel_url: CLIENT_ORIGIN_URL + '/Events',
         metadata: {
             email: email,
-            vidId: "123"
+            vidId: vid
         }
     });
 
