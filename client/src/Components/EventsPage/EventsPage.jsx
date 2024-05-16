@@ -188,6 +188,18 @@ function EventsPage() {
         )
     }
 
+    const [selectedEvents, setSelectedEvents] = useState(null);
+
+    const handleWorkshopReg = (workshop) => {
+        console.log(workshop);
+        if(isAuthenticated) {
+            setSelectedEvents(workshop);
+            navigate('/Registration', { state: workshop });
+        } else {
+            loginWithRedirect()
+        }
+    }
+
     const makeUpcomingWorkshops = () => {
         let upcoming = upcomingWorkshops.map(workshop => {
             let flyerImg = require(`../../utils/images/${workshop.flyer}`);
@@ -212,7 +224,7 @@ function EventsPage() {
                             {workshop.name}<br></br><span>by {workshop.speaker}</span>
                         </h2>
                         <p className={"upcoming-event-description"}>{workshop.description}</p>
-                        <button className={""} onClick={() => navigate('/Registration')}>Register
+                        <button  onClick={() => {handleWorkshopReg(workshop)}}>Register
                         </button>
                     </div>
                 </div>

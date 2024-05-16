@@ -26,7 +26,8 @@ function VideoPreviewModal({ video, onClose, paid }) {
             body: JSON.stringify({
                 id: vidId,
                 vid: video._id,
-                email: user.email}),
+                email: user.email,
+                workshopType: 'past'}),
             headers: {
                 "Content-Type": "application/json"
             }
