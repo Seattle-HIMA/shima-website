@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getAdminMembershipList } from "../Services/Message.service";
 import './AdminMembersList.css';
 
-function AdminMembersList(props) {
-    const isAdmin = props.isAdmin // TODO: if user is not an admin display a no access message
-
+function AdminMembersList() {
     const [userList, setUserList] = useState([]);
     const {getAccessTokenSilently} = useAuth0();
 
@@ -15,11 +13,6 @@ function AdminMembersList(props) {
         const getUserList = async () => {
             const accessToken = await getAccessTokenSilently();
             const {data, error} = await getAdminMembershipList(accessToken);
-
-            console.log('Data received:');
-            data.forEach(item => {
-                console.log(JSON.stringify(item));
-            });
 
             if (!isMounted) return;
             if (data) setUserList(data);
@@ -33,27 +26,42 @@ function AdminMembersList(props) {
         };
     }, []);
 
+    // filter by user.paidWorkshops
+
     return (
         <div className="admin-members-list-wrapper">
-            <div>
-                <table>
-                    <thead>
+            <div className={"admin-members-list-title-section"}>
+                <div>
+                    <div className={"admin-members-list-title"}>Members</div>
+                    <div className={"admin-members-list-subtitle"}>Active Members</div>
+                </div>
+
+                <div className="admin-members-list-search-container">
+                    <input type="text" className="admin-members-list-search-input" placeholder="Search..."/>
+                    <button className="admin-members-list-search-button">
+                        <i className="fa fa-search" aria-hidden="true" />
+                        <span>Search</span>
+                    </button>
+                </div>
+            </div>
+
+            <div className={"admin-members-list-table-wrapper"}>
+                <table className={"admin-members-list-table"}>
+                    <thead className={"admin-members-list-header"}>
                     <tr>
-                        <th>Email</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Membership</th>
-                        <th>Registered Workshops</th>
+                        <th className={"admin-members-list-header-item"}>Email</th>
+                        <th className={"admin-members-list-header-item"}>First Name</th>
+                        <th className={"admin-members-list-header-item"}>Last Name</th>
+                        <th className={"admin-members-list-header-item"}>Membership</th>
                     </tr>
                     </thead>
                     <tbody>
                     {userList.map(user => (
-                        <tr key={user._id}>
-                            <td>{user.email}</td>
-                            <td>{user.firstName || 'N/A'}</td>
-                            <td>{user.lastName || 'N/A'}</td>
-                            <td>{user.membershipType || 'none'}</td>
-                            <td>{user.paidWorkshops && user.paidWorkshops.length > 0 ? user.paidWorkshops.join(', ') : 'none'}</td>
+                        <tr key={user._id} className={"admin-members-list-rows"}>
+                            <td className={"admin-members-list-row-item"}>{user.email}</td>
+                            <td className={"admin-members-list-row-item"}>{user.firstName || 'N/A'}</td>
+                            <td className={"admin-members-list-row-item"}>{user.lastName || 'N/A'}</td>
+                            <td className={"admin-members-list-row-item"}>{user.membershipType || 'none'}</td>
                         </tr>
                     ))}
                     </tbody>

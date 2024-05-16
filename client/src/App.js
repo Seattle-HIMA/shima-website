@@ -96,9 +96,7 @@ function App() {
                     />
                     <Route
                         path={"/ViewMembershipList"}
-                        element={<AuthenticationGuard
-                            component={AdminMembersList}
-                            isAdmin={isAdmin}/>}
+                        element={<AuthenticationGuard component={AdminMembersList} />}
                     />
 
                     {/* Page not found */}

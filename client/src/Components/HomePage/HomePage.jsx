@@ -95,19 +95,19 @@ const getMembershipCards = () => {
 const makeWhatWeDoCards = (navigate, name, content, img, link, index) => {
     return (
         <article className="what-we-do-card" key={index}>
-        <div className={"what-we-do-card-header-img"}
-             style={{backgroundImage: `url(${require(`../../utils/images/${img}`)})`}}></div>
-        <div className={"what-we-do-card-body"}>
-            <h2 className={"what-we-do-card-name"}>{name}</h2>
-            <h3 className={"what-we-do-card-text"}>
-                {content}
-            </h3>
-            <h3 className={"what-we-do-card-arrow-button"} onClick={() => navigate(link)}>
-                <div className={"what-we-do-card-read-more-text"}>Read More</div>
-                <span className={"material-symbols-outlined"}>expand_circle_right</span>
-            </h3>
-        </div>
-    </article>);
+            <div className={"what-we-do-card-header-img"}
+                 style={{backgroundImage: `url(${require(`../../utils/images/${img}`)})`}}></div>
+            <div className={"what-we-do-card-body"}>
+                <h2 className={"what-we-do-card-name"}>{name}</h2>
+                <h3 className={"what-we-do-card-text"}>
+                    {content}
+                </h3>
+                <h3 className={"what-we-do-card-arrow-button"} onClick={() => navigate(link)}>
+                    <div className={"what-we-do-card-read-more-text"}>Read More</div>
+                    <span className={"material-symbols-outlined"}>expand_circle_right</span>
+                </h3>
+            </div>
+        </article>);
 }
 
 const getLetterInfo = (content) => {

@@ -1,3 +1,91 @@
+/* Header Section */
 .admin-members-list-wrapper {
     padding-top: 100px;
+    margin: 50px;
+    max-width: 1200px;
+}
+
+.admin-members-list-title-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.admin-members-list-title {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.admin-members-list-subtitle {
+    font-size: 15px;
+    color: var(--light-blue);
+}
+
+/* Search Box */
+.admin-members-list-search-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+.admin-members-list-search-input {
+    padding: 10px 30px 10px 10px;
+    border: none;
+    border-bottom: 2px solid var(--gray);
+    background-color: var(--white);
+    transition: 0.3s ease;
+}
+
+.admin-members-list-search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+.admin-members-list-search-button i {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    color: var(--dark-blue);
+    font-size: 15px;
+}
+
+.admin-members-list-search-button span {
+    display: none;
+}
+
+.admin-members-list-search-container:focus-within .admin-members-list-search-input {
+    background-color: var(--gray-white);
+    transition: 0.3s ease;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+/* Table */
+.admin-members-list-table-wrapper {
+    margin-top: 50px;
+}
+
+.admin-members-list-table {
+    margin: 0 auto;
+}
+
+.admin-members-list-header {
+
+}
+
+.admin-members-list-header-item {
+
+}
+
+.admin-members-list-rows {
+
+}
+
+.admin-members-list-row-item {
+
 }
