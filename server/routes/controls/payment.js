@@ -105,7 +105,6 @@ router.post('/create-checkout-session', async (req, res) => {
 // create a checkout session for one time payment
 router.post('/workshop-checkout-session', async (req, res) => {
     const {id, email, vid} = req.body;
-
     const session = await STRIPE.checkout.sessions.create({
         line_items: [
             {

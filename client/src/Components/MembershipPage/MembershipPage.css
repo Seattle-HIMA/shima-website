@@ -113,30 +113,6 @@
     margin-bottom: 0px;
 }
 
-.membership-form {
-    margin: 100px 20px;
-}
-
-.membership-form input[type=text] {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.membership-form input[type=text] {
-    outline: 0;
-    border-width: 0 0 2px;
-    width: 80%;
-    border-color: black
-}
-
-.membership-form label {
-    margin-top: 20px;
-}
-
-.options-questions input {
-    margin-right: 10px;
-}
-
 @media screen and (max-width: 800px) {
     .header {
         width: 100%;
@@ -151,7 +127,7 @@
     .header section h1 {
         font-size: var(--mobile-section-heading);
     }
-    
+
     .header section {
         color: white;
         z-index: 0;
@@ -192,7 +168,7 @@
         padding-left: 30px;
         text-align: center;
     }
-    
+
     .apply-section p, .membership-why-join-description {
         padding-right: 4px;
         font-size: 16px;
