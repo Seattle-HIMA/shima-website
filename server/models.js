@@ -26,7 +26,7 @@ async function main() {
         lastName: String,
         membershipType: {type: String, default: "none"},
         expireDate: Date,
-        paidWorkshops: [WorkshopSchema]
+        paidWorkshops: [String]
     });
 
     const BoardMemberSchema = new mongoose.Schema({
@@ -38,7 +38,7 @@ async function main() {
 
     models.User = mongoose.model('User', UserSchema);
     models.BoardMembers = mongoose.model('BoardMembers', BoardMemberSchema);
-
+    models.Workshops = mongoose.model('Workshops', WorkshopSchema);
     console.log('Models created');
 }
 

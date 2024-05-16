@@ -1,0 +1,152 @@
+.membership-form {
+  margin: 140px auto;
+  border: solid var(--dark-blue) 1px;
+  border-radius: 5px;
+  padding: 40px;
+  color: var(--dark-blue);
+  width: 100%;
+  max-width: 600px;
+}
+
+.membership-form .btn-wrapper {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.membership-form button {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  border: 2px solid var(--dark-blue);
+  border-radius: 8px;
+  padding: 10px 40px;
+}
+
+.membership-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.membership-form h1 {
+  margin-bottom: 30px;
+  font-weight: bolder;
+}
+
+.membership-form h2 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.membership-form input[type='text'] {
+  border: solid var(--dark-blue) 1px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.membership-form .name-info, .membership-form .job-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-section {
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.name-input {
+  flex: 1;
+}
+
+.name-info div, .job-info div {
+  width: 50%;
+  min-width: 200px;
+}
+
+.email-info {
+  padding-top: 15px;
+}
+
+.membership-type-holder {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.options-questions, .credentials-question {
+  border-radius: 8px;
+  border: 3px solid var(--dark-blue);
+  padding: 8px 10px 8px 20px;
+  display: flex;
+  align-items: baseline;
+}
+
+.credentials-question {
+  width: 150px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.credentials-question label {
+  margin-left: 5px;
+}
+
+.membership-type-holder .options-questions {
+  width: 45%;
+}
+
+.options-questions input[type='radio'] {
+  align-self: start;
+  margin-right: 0;
+  margin-top: 4px;
+  margin-left: auto;
+}
+
+.price {
+  margin-bottom: 0;
+}
+
+.job-info div {
+  margin-bottom: 20px;
+}
+
+.prof-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.options-section {
+  margin-right: 10px;
+  width: 200px;
+}
+
+.options-section .options-questions {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.options-section .options-questions label {
+  margin-left: 10px;
+}
+
+.student-section div {
+  padding-bottom: 20px;
+}
+
+.parti-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.parti-options .options-section {
+  width: 45%;
+}
+
+@media (min-width: 600px) {
+  .name-info .left-side, .job-info .left-side {
+    margin-right: 25px;
+  }
+}

@@ -39,3 +39,7 @@
 .workshop-video-description p {
     margin-top: 10px;
 }
+
+.hidden {
+    display: none;
+}

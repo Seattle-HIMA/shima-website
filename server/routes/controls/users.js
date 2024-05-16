@@ -23,6 +23,17 @@ router.post('/add', async (req, res) => {
         console.error('Error adding new user:', error);
         res.status(500).send('Internal Server Error');
     }
+});
+
+router.post('/get-membership-type', async (req, res) => {
+    try {
+        const { email } = req.body;
+        const user = await models.User.findOne({email});
+        res.json({ "membership": user.membershipType});
+    } catch(error) {
+        console.error('Error adding new user:', error);
+        res.status(500).send('Internal Server Error');
+    }
 })
 
 router.get('/adminStatus', validateAccessToken, checkIfAdminPermissions([AdminMessagesPermissions.Read]), (req, res) => {

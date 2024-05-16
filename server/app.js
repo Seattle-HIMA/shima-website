@@ -91,33 +91,29 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
         if (eventType === 'customer.subscription.updated') {
             subscription = data.object;
             console.log(subscription);
-
             if(subscription.status === 'active') {
                 endDate = subscription['current_period_end'];
             }
-            // Then define and call a method to handle the subscription update.
-            // handleSubscriptionUpdated(subscription);
         }
+
         if (eventType === 'checkout.session.completed') {
             subscription = data.object;
-            status = subscription;
             let user = subscription.metadata;
-            console.log(endDate);
-            console.log("what");
-            console.log(user);
-            let saveData = {
-                membershipType: user.product,
-                expireDate: endDate
+
+            // membership payment
+            if(subscription.mode === "subscription") {
+                let saveData = {
+                    membershipType: user.product,
+                    expireDate: endDate
+                }
+
+                await models.User.findOneAndUpdate({email: user.email}, saveData, {new: true});
+            } else { //one-time payment to access a past recording
+                console.log(subscription)
+                // update the list of paid workshop recordings
+                let test = await models.User.findOneAndUpdate({email: user.email}, {"$push": {paidWorkshops: user.vidId}}, {new: true});
+                console.log(test);
             }
-
-            console.log(saveData);
-
-            let updated = await models.User.findOneAndUpdate({email: user.email}, saveData, {new: true});
-
-            console.log('after updating')
-            console.log(updated);
-            // Then define and call a method to handle the subscription trial ending.
-            // handleSubscriptionTrialEnding(subscription);
         }
     //   case 'customer.subscription.deleted':
     //     subscription = data.object;

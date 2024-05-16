@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import getPageDetails from '../../utils/utils';
+import {getPageDetails} from '../../utils/utils';
 import './HomePage.css';
 
 import seattleImg from '../../utils/images/homepage/seattle-sunset-image.webp';
