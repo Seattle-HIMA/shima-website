@@ -86,42 +86,37 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
     let subscription;
     let status;
     // Handle the event
-        if (eventType === 'customer.subscription.updated') {
-            subscription = data.object;
-            console.log(subscription);
-            if(subscription.status === 'active') {
-                endDate = subscription['current_period_end'];
-            }
+    if (eventType === 'customer.subscription.updated') {
+        subscription = data.object;
+        console.log(subscription);
+        if(subscription.status === 'active') {
+            endDate = subscription['current_period_end'];
         }
+    }
 
-        if (eventType === 'checkout.session.completed') {
-            subscription = data.object;
-            let user = subscription.metadata;
+    if (eventType === 'checkout.session.completed') {
+        subscription = data.object;
+        let user = subscription.metadata;
 
-            // membership payment
-            if(subscription.mode === "subscription") {
-                let saveData = {
-                    membershipType: user.product,
-                    expireDate: endDate
-                }
-
-                await models.User.findOneAndUpdate({email: user.email}, saveData, {new: true});
-            } else { //one-time payment to access a past recording
-                console.log(subscription)
-                // update the list of paid workshop recordings
-                let test = await models.User.findOneAndUpdate({email: user.email}, {"$push": {paidWorkshops: user.vidId}}, {new: true});
-                console.log(test);
+        // membership payment
+        if(subscription.mode === "subscription") {
+            let saveData = {
+                membershipType: user.product,
+                expireDate: endDate
             }
+
+            await models.User.findOneAndUpdate({email: user.email}, saveData, {new: true});
+        } else { //one-time payment to for workshops
+            // for past recordings
+            if(user.type === 'upcoming') {
+                let registerd = await models.Workshops.findOneAndUpdate({_id: user.vidId}, {"$push": {attendee: user.email}}, {new: true});
+            }
+
+            // update the list of paid workshop
+            await models.User.findOneAndUpdate({email: user.email}, {"$push": {paidWorkshops: user.vidId}}, {new: true});
         }
-    //   case 'customer.subscription.deleted':
-    //     subscription = data.object;
-    //     status = subscription.status;
-    //     console.log(`Subscription status is ${status}.`);
-    //     // Then define and call a method to handle the subscription deleted.
-    //     // handleSubscriptionDeleted(subscriptionDeleted);
-    //     break;
-    // Unexpected event type
-    // Return a 200 response to acknowledge receipt of the event
+    }
+
     res.send("ok");
 });
 
