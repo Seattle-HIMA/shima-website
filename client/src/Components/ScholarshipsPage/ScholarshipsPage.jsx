@@ -52,7 +52,7 @@ function ScholarshipsPage() {
     })
 
     return (
-        <div className=gi{"scholarships-section"}>
+        <div className={"scholarships-section"}>
             <div className={"header"}>
                 <img src={background} alt="library view"></img>
                 <section>
