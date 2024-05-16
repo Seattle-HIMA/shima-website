@@ -383,30 +383,56 @@
 }
 
 /* LETTER FROM PRESIDENT */
+.letter-from-pres-wrapper {
+    padding: 70px 50px;
+}
+.pres-letter-box .pres-letter-overlap-group {
+    height: 328px;
+    width: 210px;
+    position: relative;
+    margin-top: 50%;
+}
+
+.pres-letter-box .pres-letter-rectangle {
+    background-color: var(--dark-blue);
+    height: 100%;
+    width: 100%;
+}
+
+.pres-letter-box .pres-letter-img {
+    height: 100%;
+    width: 100%;
+    left: 20px;
+    object-fit: cover;
+    position: absolute;
+    top: 20px;
+}
+
 .pres-letter {
     display: flex;
     flex-direction: row;
-    margin: 20px 200px;
-}
-
-.president-image {
-    width: 15%;
-    height: 15%;
+    margin: 0 120px;
 }
 
 .letter {
     margin: 0 10px 0 40px;
 }
 
-.letter h3 {
-    font-size: 35px;
-    margin-bottom: 20px;
+.letter-from-pres-text {
     color: var(--text-gray);
-    font-weight: 200;
+    font-weight: 300;
+    font-size: var(--section-heading);
+    text-align: center;
+    padding-bottom: 80px;
 }
 
 .letter p {
+    margin-left: 10px;
+    padding-top: 7px;
     font-size: 14px;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    color: var(--dark-blue);
 }
 
 #signature {
@@ -417,11 +443,18 @@
     order: 1;
 }
 
+.letter-section-vertical-line {
+    margin-left: 80px;
+    height: 560px;
+    width: 10px;
+    background-color: var(--light-gray); /* Adjust color as needed */
+}
+
 /* mobile styles */
 @media screen and (max-width: 800px) {
     .title-container, .membership-card, .membership-card-content,
     .membership-benefits-card-content, .pres-letter, .what-we-do-cards {
-        flex-direction: column;     
+        flex-direction: column;
     }
 
     .img-wrapper {
@@ -431,6 +464,7 @@
     .mobile-first {
         /* order:-1; */
     }
+
     .description-text {
         color: var(--white);
         font-weight: 300;
@@ -483,7 +517,7 @@
     .pres-letter img {
         margin-left: 60px;
     }
-    
+
     .letter {
         border-left: solid #D9D9D9 4px;
         margin-left: 40px;
@@ -491,7 +525,7 @@
         padding-left: 20px;
         padding-right: 35px;
     }
-    
+
     .title-container {
         padding-right: 15px;
         margin: 0px;
