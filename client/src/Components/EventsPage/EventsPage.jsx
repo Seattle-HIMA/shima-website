@@ -88,24 +88,41 @@ async function checkPaidWorkshop(user, id) {
     }
 }
 
-function makePastEvent(title, speaker, description, flyer) {
+function PastEventCard({flyer}) {
+    const closeFlyerButton = require(`../../utils/images/close.png`);
+
+    const [popupVisible, setPopupVisible] = useState(false);
+
+    const showPopup = () => {
+        setPopupVisible(true);
+    };
+
+    const closePopup = () => {
+        setPopupVisible(false);
+    };
+
     return (
-        <div>
-            <article className="past-event-card">
-                <div className={"past-event-card-header-img"} style={{backgroundImage: `url(${flyer}`}}></div>
-                <div className={"past-event-card-body"}>
-                    <h3 className={"past-event-card-name"}>{title} by {speaker}</h3>
-                    <h3 className={"past-event-card-text"}>
-                        {description}
-                    </h3>
-                    <h3 className={"past-event-card-arrow-button"} onClick={() => {
-                    }}>
-                        <div className={"past-event-card-read-more-text"}>Read More</div>
-                        <span className={"material-symbols-outlined"}>expand_circle_right</span>
-                    </h3>
+        <article className="past-event-card">
+            <img src={flyer} alt="flyer details" className="past-flyer" onClick={showPopup}/>
+            {popupVisible && (<div className="popup-content">
+                <div className="flyer-popup">
+                    <img src={flyer} alt="flyer details" className="flyer-popup-img"/>
+                    <img src={closeFlyerButton} alt="close flyer" className="close-flyer-button" onClick={closePopup}/>
                 </div>
-            </article>
-        </div>
+            </div>)}
+        </article>
+    );
+}
+
+function makePastEvent(title, speaker, description, flyer) {
+    const showLargerFlyer = () => {
+        console.log("large flyer");
+        
+    }
+    return (
+        <article className="past-event-card">
+            <img src={flyer} alt="flyer details" onClick={showLargerFlyer}></img>
+        </article>
     );
 }
 
@@ -239,18 +256,26 @@ function EventsPage() {
     };
 
     const makePastWorkshops = () => {
-        let workshops = pastWorkshops.map(evt => {
-            let flyerImg = require(`../../utils/images/${evt.flyer}`);
-            return makePastEvent(evt.name, evt.speaker, evt.description, flyerImg);
+        const workshops = pastWorkshops.map((item, index) => {
+            const flyerImg = require(`../../utils/images/${item.flyer}`);
+            return (
+                <PastEventCard
+                    key={index}
+                    flyer={flyerImg}
+                />
+            );
         });
-
-        return(
+    
+        return (
             <div className="past-event-section">
                 <h2>{sectionKeys[2]}</h2>
-                {workshops}
+                <div className="past-event-flyers">
+                    {workshops}
+                </div>
             </div>
         );
     }
+    
 
     return (
         <div>
