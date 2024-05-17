@@ -69,7 +69,7 @@ function ScholarshipsPage() {
             </div>
 
             <div className={"winner-section"}>
-                <h2>{scholarshipSection.description}</h2>
+                <h2>{winnersSection.description}</h2>
                 {winnerCards}
             </div>
         </div>
