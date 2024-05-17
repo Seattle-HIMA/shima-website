@@ -26,7 +26,8 @@ async function main() {
         lastName: String,
         membershipType: {type: String, default: "none"},
         expireDate: Date,
-        paidWorkshops: [String]
+        registeredEvents: [String],
+        registeredPastRecordings: [String]
     });
 
     const BoardMemberSchema = new mongoose.Schema({
