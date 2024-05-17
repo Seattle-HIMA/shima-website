@@ -97,11 +97,12 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
     if (eventType === 'checkout.session.completed') {
         subscription = data.object;
         let user = subscription.metadata;
+        console.log(user);
 
         // membership payment
         if(subscription.mode === "subscription") {
             let saveData = {
-                membershipType: user.product,
+                membershipType: user.type,
                 expireDate: endDate
             }
 
