@@ -93,7 +93,6 @@ const getMembershipCards = () => {
 
 
 const makeWhatWeDoCards = (navigate, name, content, img, link, index) => {
-    console.log(`name: ${name}, link: ${link}`);
     return (
         <article className="what-we-do-card" key={index}>
             <div className={"what-we-do-card-header-img"}
@@ -167,7 +166,6 @@ function HomePage() {
 
     const whatWeDoCards = list.map((item, index) => {
         const cardInfo = whatWeDoSection[item];
-        console.log(`card info: ${JSON.stringify(cardInfo)}`);
         return makeWhatWeDoCards(navigate, item, cardInfo.description, cardInfo.image, cardInfo.link, index);
     });
 

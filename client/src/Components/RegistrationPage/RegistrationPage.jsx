@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 import { useAuth0 } from "@auth0/auth0-react";
 import { statusCheck, getProductsId, checkMembership } from '../../utils/utils';
@@ -24,17 +24,16 @@ function RegistrationPage() {
     let video;
 
     const handleSubmit = async (e) => {
-        if(isAuthenticated) {
+        if (isAuthenticated) {
             e.preventDefault();
-            console.log(video);
             try {
                 let member = await checkMembership(user.email);
                 let id = await getProductsId();
                 let price;
                 if (member === "none") {
-                price = id["workshopNonMem"];
+                    price = id["workshopNonMem"];
                 } else {
-                price = id["workshopMem"];
+                    price = id["workshopMem"];
                 }
 
                 let response = await fetch("/routes/payment/workshop-checkout-session", {
@@ -43,7 +42,8 @@ function RegistrationPage() {
                         id: price,
                         vid: video,
                         email: user.email,
-                        workshopType: 'upcoming'}),
+                        workshopType: 'upcoming'
+                    }),
                     headers: {
                         "Content-Type": "application/json"
                     }
@@ -55,6 +55,7 @@ function RegistrationPage() {
             } catch (error) {
                 console.error("Error", error);
             }
+
         } else {
             loginWithRedirect();
         }
@@ -81,17 +82,15 @@ function RegistrationPage() {
     }
 
     const makePrePop = () => {
-        console.log(data.workshop);
         return <div>{data.workshop.name}</div>
     }
 
     const [formData, setFormData] = useState({});
 
-    if(data.workshop) {
+    if (data.workshop) {
         video = data.workshop._id;
-    }else{
+    } else {
         video = formData.workshop;
-        console.log(video);
     }
 
     useEffect(() => {
@@ -108,19 +107,19 @@ function RegistrationPage() {
                         <div className='left-side name-input'>
                             <label for="firstName">First Name</label>
                             <input type="text" id="firstName" name="firstName" value={formData.firstName}
-                                onChange={handleInputChange} required/>
+                                   onChange={handleInputChange} required/>
                         </div>
                         <div className='name-input'>
                             <label for="lastName">Last Name</label>
                             <input type="text" id="lastName" name="lastName" value={formData.lastName}
-                                onChange={handleInputChange} required/>
+                                   onChange={handleInputChange} required/>
                         </div>
                     </div>
                     <div className={"email-info"}>
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" value={formData.email}
-                            onChange={handleInputChange} required
-                            readOnly={isAuthenticated && formData.email !== ''} />
+                               onChange={handleInputChange} required
+                               readOnly={isAuthenticated && formData.email !== ''}/>
                     </div>
                 </div>
 

@@ -17,7 +17,7 @@
     margin-bottom: 20px;
 }
 
-.events-label h2, .past-event-section h2 {
+.events-label h2, .video-section h2, .past-event-section h2 {
     font-size: 50px;
     font-weight: 250;
     color: #AAA5A5;
@@ -232,6 +232,8 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+    width: 30px;
+    height: auto;
 }
 
 .flyer-popup-img {

@@ -5,11 +5,12 @@
     font-family: var(--main-font);
 }
 
-.contact-us {
+.footer-content {
     margin-bottom: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    max-height: 150px;
 }
 
 .contact-us h1 {
@@ -22,13 +23,52 @@
 
 .links {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-right: 400px;
+    align-items: flex-start;
 }
 
 .links .nav-btn {
-    margin: 20px 30px;
+    margin: 12px 32px;
     text-decoration: none;
     color: var(--white);
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
+}
+
+.social-links {
+    margin-right: 60px;
+    width: 200px;
+}
+
+.social-links p {
+    margin: 0;
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.social-icon {
+    width: 24px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.footer-logo {
+    width: 120px;
+    height: auto;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.social-links h2 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 16px;
 }

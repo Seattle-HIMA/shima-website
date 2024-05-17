@@ -14,7 +14,7 @@ export const getPageDetails = async (fileName) => {
         await statusCheck(res);
         return await res.json();
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 }
 
@@ -45,6 +45,6 @@ export const getProductsId = async () => {
         let priceId = await res.json();
         return priceId;
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 }
