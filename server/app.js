@@ -106,7 +106,7 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
 
             await models.User.findOneAndUpdate({email: user.email}, saveData, {new: true});
         } else { //one-time payment to for workshops
-            // for past recordings
+            // for upcoming recordings
             if(user.type === 'upcoming') {
                 await models.Workshops.findOneAndUpdate({_id: user.vidId}, {"$push": {attendee: user.email}}, {new: true});
                 await models.User.findOneAndUpdate({email: user.email}, {"$push": {registeredEvents: user.vidId}}, {new: true});
