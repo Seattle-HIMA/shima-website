@@ -12,6 +12,7 @@ function VideoPreviewModal({ video, onClose, paid }) {
   let thumbnail = video.recordLink.split('/');
   thumbnail = thumbnail[thumbnail.length - 1];
 
+  // handle payment
   const payVideo = async () => {
     try {
         let id = await checkMembership(user.email);
