@@ -8,6 +8,9 @@
 
 .member-profile-card {
     text-align: center;
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .member-name {
@@ -23,12 +26,11 @@
     text-transform: uppercase;
     color: #0A7AFF;
     font-weight: 500;
-    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .popup {
     cursor: pointer;
-    width: 240px;
     height: auto;
 }
 
@@ -58,7 +60,7 @@
 
 .popup-profile-photo {
     padding: 40px 20px 40px 20px;
-    width: 220px;
+    width: 240px;
     height: auto;
 }
 
@@ -67,7 +69,7 @@
     display: flex;
     flex-direction: column;
     padding-right: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .text-content p, .text-content h3 {
@@ -78,7 +80,7 @@
 .text-content p:nth-child(1) {
     font-size: 18px;
     font-weight: 700;
-    padding-top: 20px;
+    margin-top: 20px;
 }
 
 .text-content p:nth-child(2) {
@@ -134,8 +136,8 @@
 }
 
 .square-image {
-    width: 250px;
-    height: 250px;
+    width: 320px;
+    height: 320px;
     object-fit: cover;
     object-position: 50% 15%;
 }

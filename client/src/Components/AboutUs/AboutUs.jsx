@@ -104,8 +104,7 @@ function ProfileCard({name, position, degree, currentStatus, about, linkedinUrl,
         setPopupVisible(false);
     };
 
-    return (<div>
-            <article className="member-profile-card">
+    return (<article className="member-profile-card">
                 <img src={imgSrc} alt="profile" className="popup square-image" onClick={togglePopup}/>
                 {popupVisible && (<div className="overlay" onClick={closePopup}></div>)}
                 {popupVisible && (<div className="popup-content">
@@ -127,8 +126,7 @@ function ProfileCard({name, position, degree, currentStatus, about, linkedinUrl,
                     </div>)}
                 <p className="member-name">{name}</p>
                 <p className="member-position">{position}</p>
-            </article>
-        </div>);
+            </article>);
 }
 
 function AboutUs() {
