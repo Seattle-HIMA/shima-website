@@ -82,7 +82,6 @@ function RegistrationPage() {
     }
 
     const makePrePop = () => {
-        console.log(data.workshop);
         return <div>{data.workshop.name}</div>
     }
 

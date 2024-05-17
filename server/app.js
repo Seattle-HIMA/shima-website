@@ -88,7 +88,7 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
     // Handle the event
     if (eventType === 'customer.subscription.updated') {
         subscription = data.object;
-        if(subscription.status === 'active') {
+        if (subscription.status === 'active') {
             endDate = subscription['current_period_end'];
         }
     }
@@ -98,7 +98,7 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
         let user = subscription.metadata;
 
         // membership payment
-        if(subscription.mode === "subscription") {
+        if (subscription.mode === "subscription") {
             let saveData = {
                 membershipType: user.product,
                 expireDate: endDate
@@ -107,7 +107,7 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
             await models.User.findOneAndUpdate({email: user.email}, saveData, {new: true});
         } else { //one-time payment to for workshops
             // for upcoming recordings
-            if(user.type === 'upcoming') {
+            if (user.type === 'upcoming') {
                 await models.Workshops.findOneAndUpdate({_id: user.vidId}, {"$push": {attendee: user.email}}, {new: true});
                 await models.User.findOneAndUpdate({email: user.email}, {"$push": {registeredEvents: user.vidId}}, {new: true});
             } else {

@@ -93,7 +93,6 @@ const getMembershipCards = () => {
 
 
 const makeWhatWeDoCards = (navigate, name, content, img, link, index) => {
-    console.log(`name: ${name}, link: ${link}`);
     return (
         <article className="what-we-do-card" key={index}>
             <div className={"what-we-do-card-header-img"}
