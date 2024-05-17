@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import LogoutButton from "../Auth/LogoutButton";
 import './ProfilePage.css';
 import { PageLoader } from "../Pages/PageLoader";
@@ -94,7 +96,6 @@ function ProfilePage() {
     if (!isAuthenticated || !user) {
         return null;
     }
-
     return (
         <div className="profile-page">
             <div className="profile-header">
@@ -103,54 +104,58 @@ function ProfilePage() {
 
             <div className="profile-info">
                 <div className="profile-info-field">
-                    <label>Name</label>
-                    <div className={"profile-info-field-text"}>{userName}</div>
+                    <label className="profile-info-label">Name</label>
+                    <div className="profile-info-field-text">{userName}</div>
                 </div>
                 <div className="profile-info-field">
-                    <label>Email</label>
-                    <div className={"profile-info-field-text"}>{userEmail}</div>
+                    <label className="profile-info-label">Email</label>
+                    <div className="profile-info-field-text">{userEmail}</div>
                 </div>
             </div>
 
             <div className="membership-status">
-                <h3>Membership status</h3>
-                <p>{membershipStatus !== "none" ? membershipStatus : 'No membership'}</p>
+                <h3 className="membership-status-heading">Membership status</h3>
+                <p className="membership-status-text">{membershipStatus !== "none" ? membershipStatus : 'No membership'}</p>
             </div>
 
             <div className="profile-event-history">
-                <h3>Registered Events</h3>
-                <div className={"profile-event-history-content"}>
+                <h3 className="event-history-heading">Registered Events</h3>
+                <Carousel showThumbs={false} showStatus={false} infiniteLoop useKeyboardArrows className="carousel">
                     {currUser && currUser.registeredEvents.length > 0 ? (
                         currUser.registeredEvents.map((workshopId, index) => {
                             const registeredEvent = registeredEventDetails[workshopId];
                             return registeredEvent ? (
-                                <RegisteredEventCard key={index} workshop={registeredEvent}/>
+                                <div key={index} className="slide">
+                                    <RegisteredEventCard workshop={registeredEvent}/>
+                                </div>
                             ) : (
-                                <div key={index} className="event">Loading...</div>
+                                <div key={index} className="event-loading">Loading...</div>
                             );
                         })
                     ) : (
-                        <div className="event">No registered events.</div>
+                        <div className="event-loading">No registered events.</div>
                     )}
-                </div>
+                </Carousel>
             </div>
 
             <div className="profile-recording-history">
-                <h3>Purchased Workshop Recordings</h3>
-                <div className={"profile-recording-history-content"}>
+                <h3 className="recording-history-heading">Purchased Workshop Recordings</h3>
+                <Carousel showThumbs={false} showStatus={false} infiniteLoop useKeyboardArrows className="carousel">
                     {currUser && currUser.registeredPastRecordings.length > 0 ? (
                         currUser.registeredPastRecordings.map((workshopId, index) => {
                             const purchasedRecording = purchasedRecordingDetails[workshopId];
                             return purchasedRecording ? (
-                                <PurchasedRecordingCard key={index} workshop={purchasedRecording}/>
+                                <div key={index} className="slide">
+                                    <PurchasedRecordingCard workshop={purchasedRecording}/>
+                                </div>
                             ) : (
-                                <div key={index} className="event">Loading...</div>
+                                <div key={index} className="event-loading">Loading...</div>
                             );
                         })
                     ) : (
-                        <div className="event">No workshop recordings purchased.</div>
+                        <div className="event-loading">No workshop recordings purchased.</div>
                     )}
-                </div>
+                </Carousel>
             </div>
 
             <div className="logout-button">
@@ -158,6 +163,8 @@ function ProfilePage() {
             </div>
         </div>
     );
+
+
 }
 
 export default ProfilePage;
