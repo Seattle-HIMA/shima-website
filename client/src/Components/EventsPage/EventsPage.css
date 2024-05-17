@@ -8,6 +8,10 @@
     margin: 50px 60px;
 }
 
+.events-label p {
+    cursor: pointer;
+}
+
 .events-label, .past-event-section, .video-section {
     text-align: center;
     margin-bottom: 10px;

@@ -111,11 +111,12 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
         } else { //one-time payment to for workshops
             // for past recordings
             if(user.type === 'upcoming') {
-                let registerd = await models.Workshops.findOneAndUpdate({_id: user.vidId}, {"$push": {attendee: user.email}}, {new: true});
+                await models.Workshops.findOneAndUpdate({_id: user.vidId}, {"$push": {attendee: user.email}}, {new: true});
+                await models.User.findOneAndUpdate({email: user.email}, {"$push": {registeredEvents: user.vidId}}, {new: true});
+            } else {
+                // update the list of paid workshop
+                await models.User.findOneAndUpdate({email: user.email}, {"$push": {registeredPastRecordings: user.vidId}}, {new: true});
             }
-
-            // update the list of paid workshop
-            await models.User.findOneAndUpdate({email: user.email}, {"$push": {paidWorkshops: user.vidId}}, {new: true});
         }
     }
 
