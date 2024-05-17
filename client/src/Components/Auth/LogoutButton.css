@@ -1,0 +1,16 @@
+/* Logout Button */
+.logout-button-styling {
+    background-color: var(--gray);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button-styling:hover {
+    background-color: var(--dark-blue);
+}
+

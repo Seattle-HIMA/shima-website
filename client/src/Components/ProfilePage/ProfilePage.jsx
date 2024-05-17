@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../Auth/LogoutButton";
-
-import './ProfilePage.css'
+import './ProfilePage.css';
 import { PageLoader } from "../Pages/PageLoader";
 import { getCurrentUser } from "../Services/Users.service";
 
@@ -11,10 +10,11 @@ function ProfilePage() {
     const [currUser, setCurrUser] = useState(null);
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
+    const [membershipStatus, setMembershipStatus] = useState("");
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [])
+    }, []);
 
     useEffect(() => {
         let isMounted = true;
@@ -30,7 +30,7 @@ function ProfilePage() {
                     if (data) setCurrUser(data);
                     if (error) setCurrUser(null);
                 }
-            }
+            };
 
             getUser();
         }
@@ -38,12 +38,13 @@ function ProfilePage() {
         return () => {
             isMounted = false;
         };
-    }, [getAccessTokenSilently, isAuthenticated])
+    }, [getAccessTokenSilently, isAuthenticated]);
 
     useEffect(() => {
         if (currUser) {
             setUserName(currUser.firstName ? `${currUser.firstName} ${currUser.lastName || ''}` : user.name);
             setUserEmail(currUser.email || user.email);
+            setMembershipStatus(currUser.membershipType);
         }
     }, [currUser]);
 
@@ -55,17 +56,41 @@ function ProfilePage() {
         return null;
     }
 
-    return (
-        <div className="profile-page-wrapper">
-            <img src={user.picture} alt={"pfp picture"}/>
-            <p>Name: {userName}</p>
-            <p>Email: {userEmail}</p>
+    console.log("user: ", JSON.stringify(membershipStatus));
 
-            <div>
+    return (
+        <div className="profile-page">
+            <div className="profile-header">
+                <img src={user.picture} alt="Profile" className="profile-picture"/>
+            </div>
+            <div className="profile-info">
+                <div className="profile-info-field">
+                    <label>Name</label>
+                    <div className={"profile-info-field-text"}>{userName}</div>
+                </div>
+                <div className="profile-info-field">
+                    <label>Email</label>
+                    <div className={"profile-info-field-text"}>{userEmail}</div>
+                </div>
+            </div>
+            <div className="membership-status">
+                <h3>Membership status</h3>
+                <p>{membershipStatus !== "none" ? membershipStatus : 'No membership'}</p>
+            </div>
+            <div className="event-history">
+                <h3>Event history</h3>
+                <div className={"event-history-content"}>
+                    <div className="event">
+                        event name
+                    </div>
+                </div>
+
+            </div>
+            <div className="logout-button">
                 <LogoutButton/>
             </div>
-
-        </div>);
+        </div>
+    );
 }
 
 export default ProfilePage;
