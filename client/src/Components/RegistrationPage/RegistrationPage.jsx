@@ -80,14 +80,18 @@ function RegistrationPage() {
         )
     }
 
-    const [formData, setFormData] = useState({
-        firstName: '', lastName: '', email: '', workshop: 'workshop1', payment: 'credit_card'
-    });
+    const makePrePop = () => {
+        console.log(data.workshop);
+        return <div>{data.workshop.name}</div>
+    }
+
+    const [formData, setFormData] = useState({});
 
     if(data.workshop) {
         video = data.workshop._id;
     }else{
         video = formData.workshop;
+        console.log(video);
     }
 
     useEffect(() => {
@@ -122,7 +126,7 @@ function RegistrationPage() {
 
                 <div className="form-section">
                     <h3>Workshop Name</h3>
-                    {makeWorkshopOptions()}
+                    {!data.workshop ? makeWorkshopOptions() : makePrePop()}
                 </div>
 
                 <div className="form-section">
