@@ -31,10 +31,14 @@ async function main() {
     });
 
     const BoardMemberSchema = new mongoose.Schema({
-        imageURL: String,
+        firstName: String,
+        lastName: String,
+        position: String,
+        imageURL: {type: String, default: "profile-photo.png"},
         about: String,
         degree: [String],
-        currJob: String
+        currJob: String,
+        linkedIn: String
     });
 
     models.User = mongoose.model('User', UserSchema);
