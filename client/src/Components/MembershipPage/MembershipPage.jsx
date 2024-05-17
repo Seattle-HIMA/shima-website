@@ -32,12 +32,12 @@ function MembershipPage() {
                 <div className="membership-page-rates-cards">
                     <div className="membership-page-price-box">
                         <p className="membership-page-price-text">
-                            <span>$5</span> / year</p>
+                            <span>$10</span> / year</p>
                         <p className="membership-page-price-type">Student</p>
                     </div>
                     <div className="membership-page-price-box">
                         <p className="membership-page-price-text">
-                            <span>$20</span> / year</p>
+                            <span>$25</span> / year</p>
                         <p className="membership-page-price-type">Professional</p>
                     </div>
                 </div>

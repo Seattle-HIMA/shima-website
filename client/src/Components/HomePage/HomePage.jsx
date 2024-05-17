@@ -167,7 +167,6 @@ function HomePage() {
 
     const whatWeDoCards = list.map((item, index) => {
         const cardInfo = whatWeDoSection[item];
-        console.log(`card info: ${JSON.stringify(cardInfo)}`);
         return makeWhatWeDoCards(navigate, item, cardInfo.description, cardInfo.image, cardInfo.link, index);
     });
 
