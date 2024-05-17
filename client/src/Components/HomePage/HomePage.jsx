@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import {getPageDetails} from '../../utils/utils';
+import { getPageDetails } from '../../utils/utils';
 import './HomePage.css';
 
 import seattleImg from '../../utils/images/homepage/seattle-sunset-image.webp';
@@ -95,19 +95,19 @@ const getMembershipCards = () => {
 const makeWhatWeDoCards = (navigate, name, content, img, link, index) => {
     return (
         <article className="what-we-do-card" key={index}>
-        <div className={"what-we-do-card-header-img"}
-             style={{backgroundImage: `url(${require(`../../utils/images/${img}`)})`}}></div>
-        <div className={"what-we-do-card-body"}>
-            <h2 className={"what-we-do-card-name"}>{name}</h2>
-            <h3 className={"what-we-do-card-text"}>
-                {content}
-            </h3>
-            <h3 className={"what-we-do-card-arrow-button"} onClick={() => navigate(link)}>
-                <div className={"what-we-do-card-read-more-text"}>Read More</div>
-                <span className={"material-symbols-outlined"}>expand_circle_right</span>
-            </h3>
-        </div>
-    </article>);
+            <div className={"what-we-do-card-header-img"}
+                 style={{backgroundImage: `url(${require(`../../utils/images/${img}`)})`}}></div>
+            <div className={"what-we-do-card-body"}>
+                <h2 className={"what-we-do-card-name"}>{name}</h2>
+                <h3 className={"what-we-do-card-text"}>
+                    {content}
+                </h3>
+                <h3 className={"what-we-do-card-arrow-button"} onClick={() => navigate(link)}>
+                    <div className={"what-we-do-card-read-more-text"}>Read More</div>
+                    <span className={"material-symbols-outlined"}>expand_circle_right</span>
+                </h3>
+            </div>
+        </article>);
 }
 
 const getLetterInfo = (content) => {
@@ -123,27 +123,30 @@ const getLetterSection = (presImageLoaded, setPresImageLoaded) => {
     };
 
     return (
-        <div className={"pres-letter"}>
+        <div className={"letter-from-pres-wrapper"}>
 
-            {presImageLoaded ? (<img
-                src={presidentImg}
-                alt={"SHIMA President"}
-                className={"president-image"}
-                onLoad={handleImageLoaded}
-                loading={"lazy"}
-            />) : (<img
-                src={presidentCompressed}
-                alt={"SHIMA President"}
-                className={"president-image"}
-                onLoad={handleImageLoaded}
-                loading={"lazy"}
-            />)}
+            <h3 className={"letter-from-pres-text"}>{sectionKeys[4]}</h3>
+            <div className={"pres-letter"}>
+                <div className={"pres-letter-box"}>
+                    <div className={"pres-letter-overlap-group"}>
+                        <div className="pres-letter-rectangle"/>
+                        <img
+                            className="pres-letter-img"
+                            alt="SHIMA President"
+                            src={presImageLoaded ? presidentImg : presidentCompressed}
+                            onLoad={handleImageLoaded}
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
 
-            <div className={"letter"}>
-                <h3>{sectionKeys[4]}</h3>
-                {getLetterInfo(letterPar)}
-                <p id={"signature"}>{letterSection.signature}</p>
-                <p>{letterSection.ending}</p>
+                <div className="letter-section-vertical-line"></div>
+
+                <div className={"letter"}>
+                    {getLetterInfo(letterPar)}
+                    <p id={"signature"}>{letterSection.signature}</p>
+                    <p>{letterSection.ending}</p>
+                </div>
             </div>
         </div>)
 }
