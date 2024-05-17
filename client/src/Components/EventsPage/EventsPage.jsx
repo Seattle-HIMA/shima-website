@@ -116,7 +116,6 @@ function PastEventCard({flyer}) {
 
 function makePastEvent(title, speaker, description, flyer) {
     const showLargerFlyer = () => {
-        console.log("large flyer");
         
     }
     return (

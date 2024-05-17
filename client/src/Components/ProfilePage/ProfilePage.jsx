@@ -16,6 +16,7 @@ function ProfilePage() {
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [membershipStatus, setMembershipStatus] = useState("");
+    const [membershipExpireDate, setMembershipExpireDate] = useState("");
     const [purchasedRecordingDetails, setPurchasedRecordingDetails] = useState({});
     const [registeredEventDetails, setRegisteredEventDetails] = useState({});
 
@@ -54,6 +55,7 @@ function ProfilePage() {
             setUserName(currUser.firstName ? `${currUser.firstName} ${currUser.lastName || ''}` : user.name);
             setUserEmail(currUser.email || user.email);
             setMembershipStatus(currUser.membershipType);
+            setMembershipExpireDate(currUser.expireDate);
 
             if (currUser.registeredPastRecordings) {
                 const fetchPurchasedRecordingDetails = async () => {
@@ -96,6 +98,11 @@ function ProfilePage() {
     if (!isAuthenticated || !user) {
         return null;
     }
+
+    if (membershipStatus !== "none") {
+        console.log(`expiredate: ${membershipExpireDate}`);
+    }
+
     return (
         <div className="profile-page">
             <div className="profile-header">
