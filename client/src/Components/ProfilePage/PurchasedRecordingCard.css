@@ -1,0 +1,42 @@
+.workshop-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    background-color: #fff;
+}
+
+.workshop-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.workshop-title {
+    margin-bottom: 12px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.workshop-description {
+    margin-bottom: 12px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.workshop-detail {
+    margin: 6px 0;
+    color: #777;
+}
+
+.workshop-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.workshop-link:hover {
+    text-decoration: underline;
+}

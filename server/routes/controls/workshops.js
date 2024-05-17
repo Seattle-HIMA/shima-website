@@ -42,6 +42,21 @@ router.post('/get-paid-workshops', async (req, res) => {
     }
 });
 
+// get workshop by ID
+router.get('/getWorkshop/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const workshop = await models.Workshops.findById(id);
+        if (!workshop) {
+            return res.status(404).send('Workshop not found');
+        }
+        res.json(workshop);
+    } catch (error) {
+        console.error('Error retrieving workshop:', error);
+        res.status(500).send('Internal Server Error');
+    }
+})
+
 // check if the user has paid for the given recording
 router.post('/workshop-isPaid/:id', async (req, res) => {
     try {

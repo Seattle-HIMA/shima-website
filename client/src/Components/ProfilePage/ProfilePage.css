@@ -100,13 +100,13 @@
 }
 
 /* EVENT HISTORY */
-.event-history {
+.profile-recording-history {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
 }
 
-.event-history h3 {
+.profile-recording-history h3 {
     margin: 50px 0 10px 0;
     color: var(--dark-blue);
     font-size: 30px;
@@ -140,7 +140,7 @@
         grid-template-columns: 1fr;
     }
 
-    .event-history {
+    .profile-recording-history {
         flex-direction: column;
     }
 
