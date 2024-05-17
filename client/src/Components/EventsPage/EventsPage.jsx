@@ -106,9 +106,8 @@ function PastEventCard({flyer}) {
             <img src={flyer} alt="flyer details" className="past-flyer" onClick={showPopup}/>
             {popupVisible && (<div className="popup-content">
                 <div className="flyer-popup">
-                    <img src={flyer} alt="flyer details"/>
-                    <img src={closeFlyerButton} alt="close flyer" className="close-flyer-button top-right" onClick={closePopup}/>
-
+                    <img src={flyer} alt="flyer details" className="flyer-popup-img"/>
+                    <img src={closeFlyerButton} alt="close flyer" className="close-flyer-button" onClick={closePopup}/>
                 </div>
             </div>)}
         </article>

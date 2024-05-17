@@ -28,8 +28,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const oneDay = 1000 * 60 * 60 * 24;
-
 app.use((req, res, next) => {
     res.contentType("application/json; charset=utf-8");
     next();

@@ -202,15 +202,38 @@
     transform: translate(-50%, -50%);
     width: 40px;
     height: auto;
-    /* z-index: 1; */
-}
-
-.close-flyer-button {
-    width: 40px;
-    height: auto;
-
 }
 
 .past-event-card .popup-content {
+    z-index: 9999;
+    background-color: transparent;
+    padding: 0;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none; 
+}
 
+.past-event-card .flyer-popup {
+    position: relative;
+}
+
+.past-event-card .popup-flyer {
+    width: 0%; 
+    height: auto;
+    max-width: 200px;
+}
+
+.past-event-card .close-flyer-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.flyer-popup-img {
+    max-width: 410px;
+    height: auto;
 }
