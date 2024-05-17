@@ -68,8 +68,8 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
                 webhookSecret
             );
         } catch (err) {
-            console.log(err);
-            console.log(`⚠️  Webhook signature verification failed.`);
+            console.error(err);
+            console.error(`⚠️  Webhook signature verification failed.`);
             return res.sendStatus(400);
         }
 
@@ -88,7 +88,6 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
     // Handle the event
     if (eventType === 'customer.subscription.updated') {
         subscription = data.object;
-        console.log(subscription);
         if(subscription.status === 'active') {
             endDate = subscription['current_period_end'];
         }

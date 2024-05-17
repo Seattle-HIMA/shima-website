@@ -8,7 +8,6 @@ let studentId;
 let profId;
 
 let productsId = await getProductsId();
-console.log(productsId);
 studentId = productsId['student_id'];
 profId = productsId['prof_id'];
 
