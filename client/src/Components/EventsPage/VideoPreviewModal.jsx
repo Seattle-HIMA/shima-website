@@ -7,6 +7,7 @@ let priceId = await getProductsId();
 
 function VideoPreviewModal({ video, onClose, paid }) {
   const {user, isLoading, isAuthenticated} = useAuth0();
+  const xButton = require(`../../utils/images/board-members/close-popup.png`);
 
   let thumbnail = video.recordLink.split('/');
   thumbnail = thumbnail[thumbnail.length - 1];
@@ -46,26 +47,30 @@ function VideoPreviewModal({ video, onClose, paid }) {
   }
 
   const setBtnText = () => {
+    return <button className="recording-btn" onClick={() => {
+      !paid ? payVideo() : playVideo();
+    }}>{!paid ? "Unlock Video" : "Watch Video"}</button>
+  }
+
+  const makeThumbnail = () => {
     if(!paid) {
-      return <button onClick={payVideo}>Pay to watch</button>
+      return <img src={`http://img.youtube.com/vi/${thumbnail}/mqdefault.jpg`} className="locked" alt="Video Thumbnail"/>
     } else {
-      return <button onClick={playVideo}>Watch video</button>
+      return <img src={`http://img.youtube.com/vi/${thumbnail}/mqdefault.jpg`} alt="Video Thumbnail"/>
     }
   }
 
   return (
     <div className="video-preview-modal">
         <div className="video-modal-content">
-            <button className="video-model-close-button" onClick={onClose}>Close</button>
+        <img className="video-model-close-button" src={xButton} alt="x button"
+                                    onClick={onClose}></img>
             <h2>{video.name}</h2>
-            <div className="workshop-video-thumbnail">
-                <img src={`http://img.youtube.com/vi/${thumbnail}/mqdefault.jpg`} alt="Video Thumbnail"/>
-            </div>
             <div className="workshop-video-description">
                 <p>{video.description}</p>
             </div>
-            <div className="workshop-video-link">
-                <a className={"hidden"} href={`https://${video.recordLink}`} target="_blank" rel="noopener noreferrer">Watch Video</a>
+            <div className="workshop-video-thumbnail">
+                {makeThumbnail()}
             </div>
             {setBtnText()}
         </div>
