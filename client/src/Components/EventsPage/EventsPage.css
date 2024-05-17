@@ -14,7 +14,7 @@
 
 .events-label, .past-event-section, .video-section {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .events-label h2, .video-section h2, .past-event-section h2 {
@@ -212,6 +212,7 @@
     height: auto;
     border-radius: 0;
     box-shadow: none; 
+    justify-content: center;
 }
 
 .past-event-card .flyer-popup {
@@ -236,4 +237,15 @@
 .flyer-popup-img {
     max-width: 600px;
     height: auto;
+}
+
+@media screen and (max-width: 800px) {
+    .upcoming-event-section, .past-event-flyers {
+        flex-direction: column;
+    }
+
+    .flyer-popup-img {
+        max-width: 360px;
+    }
+
 }
