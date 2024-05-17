@@ -27,15 +27,18 @@
       "description": "",
       "Opportunities": {
         "description": "Host workshops, panel disscussions, speakers, and create networking opportunities.",
-        "image": "opportunities-photo.jpeg"
+        "image": "opportunities-photo.jpeg",
+        "link": "/Events"
       },
       "Scholarships": {
         "description": "Provide Undergraduate and Graduate Scholarships for Health Information Management and Informatics students.",
-        "image": "scholarships-photo.jpeg"
+        "image": "scholarships-photo.jpeg",
+        "link": "/ScholarShips"
       },
       "Membership": {
         "description": "Provide professional exam fee reimbursement for the AHIMA credentials.",
-        "image": "reimbursement-photo.jpeg"
+        "image": "reimbursement-photo.jpeg",
+        "link": "/Membership"
       }
     },
     "A letter from the President": {
