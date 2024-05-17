@@ -123,7 +123,7 @@
 
 .past-event-card {
     text-align: center;
-    width: calc(33.33% + 100px);
+    width: calc(33.33% - 20px);
     margin-bottom: 20px;
     box-sizing: border-box;
 }
@@ -234,6 +234,6 @@
 }
 
 .flyer-popup-img {
-    max-width: 410px;
+    max-width: 600px;
     height: auto;
 }
