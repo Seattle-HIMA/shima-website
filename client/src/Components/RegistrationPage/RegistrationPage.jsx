@@ -7,7 +7,7 @@ import { statusCheck, getProductsId, checkMembership } from '../../utils/utils';
 import './RegistrationPage.css';
 
 function RegistrationPage() {
-    const {user, isLoading, isAuthenticated} = useAuth0();
+    const {user, loginWithRedirect, isAuthenticated} = useAuth0();
 
     useEffect(() => {
         if (isAuthenticated && user) {
@@ -24,35 +24,39 @@ function RegistrationPage() {
     let video;
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(video);
-        try {
-            let member = await checkMembership(user.email);
-            let id = await getProductsId();
-            let price;
-            if (member === "none") {
-              price = id["workshopNonMem"];
-            } else {
-              price = id["workshopMem"];
-            }
-
-            let response = await fetch("/routes/payment/workshop-checkout-session", {
-                method: "POST",
-                body: JSON.stringify({
-                    id: price,
-                    vid: video,
-                    email: user.email,
-                    workshopType: 'upcoming'}),
-                headers: {
-                    "Content-Type": "application/json"
+        if(isAuthenticated) {
+            e.preventDefault();
+            console.log(video);
+            try {
+                let member = await checkMembership(user.email);
+                let id = await getProductsId();
+                let price;
+                if (member === "none") {
+                price = id["workshopNonMem"];
+                } else {
+                price = id["workshopMem"];
                 }
-            });
-            await statusCheck(response);
-            response = await response.json();
-            window.location.href = response.url;
 
-        } catch (error) {
-            console.error("Error", error);
+                let response = await fetch("/routes/payment/workshop-checkout-session", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        id: price,
+                        vid: video,
+                        email: user.email,
+                        workshopType: 'upcoming'}),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+                await statusCheck(response);
+                response = await response.json();
+                window.location.href = response.url;
+
+            } catch (error) {
+                console.error("Error", error);
+            }
+        } else {
+            loginWithRedirect();
         }
     };
 

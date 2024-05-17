@@ -17,7 +17,7 @@
     margin-bottom: 10px;
 }
 
-.events-label h2, .video-section h2, .past-event-section h2 {
+.events-label h2, .past-event-section h2 {
     font-size: 50px;
     font-weight: 250;
     color: #AAA5A5;
@@ -246,7 +246,7 @@
 }
 
 .video-card-content {
-    padding: 10px;
+    padding: 20px;
     background-color: #0F233B;
     width: 100%;
     position: relative;

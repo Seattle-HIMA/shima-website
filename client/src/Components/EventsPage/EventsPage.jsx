@@ -164,9 +164,6 @@ function EventsPage() {
                 </div>
                 <div className="video-card-content">
                     <h3 className="video-card-title">{video.name}</h3>
-                    {/* access link only if the video is unlocked */}
-                    <a className="video-card-link" href={`https://${video.recordLink}`} target="_blank"
-                       rel="noopener noreferrer">Watch Video</a>
                 </div>
             </div>
         )
