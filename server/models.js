@@ -3,7 +3,7 @@ import { MONGO_PW } from "./constants.js";
 
 let models = {};
 
-main().catch(err => console.log(err));
+main().catch(err => console.error(err));
 
 async function main() {
     console.log('Connecting to database...');

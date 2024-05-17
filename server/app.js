@@ -68,8 +68,8 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
                 webhookSecret
             );
         } catch (err) {
-            console.log(err);
-            console.log(`⚠️  Webhook signature verification failed.`);
+            console.error(err);
+            console.error(`⚠️  Webhook signature verification failed.`);
             return res.sendStatus(400);
         }
 
@@ -88,7 +88,6 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
     // Handle the event
     if (eventType === 'customer.subscription.updated') {
         subscription = data.object;
-        console.log(subscription);
         if(subscription.status === 'active') {
             endDate = subscription['current_period_end'];
         }
@@ -107,7 +106,7 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
 
             await models.User.findOneAndUpdate({email: user.email}, saveData, {new: true});
         } else { //one-time payment to for workshops
-            // for past recordings
+            // for upcoming recordings
             if(user.type === 'upcoming') {
                 await models.Workshops.findOneAndUpdate({_id: user.vidId}, {"$push": {attendee: user.email}}, {new: true});
                 await models.User.findOneAndUpdate({email: user.email}, {"$push": {registeredEvents: user.vidId}}, {new: true});

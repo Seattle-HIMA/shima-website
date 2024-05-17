@@ -34,7 +34,7 @@ async function fetchPageInfo() {
             }
         });
     }catch(err) {
-        console.log(err);
+        console.error(err);
     }
 }
 
@@ -47,7 +47,7 @@ async function getWorkshopsInfo() {
         let workshops = await res.json();
         return workshops;
     } catch(err){
-        console.log(err);
+        console.error(err);
     }
 }
 
@@ -181,9 +181,6 @@ function EventsPage() {
                 </div>
                 <div className="video-card-content">
                     <h3 className="video-card-title">{video.name}</h3>
-                    {/* access link only if the video is unlocked */}
-                    <a className="video-card-link" href={`https://${video.recordLink}`} target="_blank"
-                       rel="noopener noreferrer">Watch Video</a>
                 </div>
             </div>
         )
@@ -193,7 +190,6 @@ function EventsPage() {
         let sectionInfo = pageInfo.subsections[sectionKeys[0]];
         let forms = sectionInfo.Forms.map(form => {
             if(form === "Registration Form") {
-                console.log('here');
                 return <p key={form} onClick={() => {navigate('/Registration', { state: {upcoming: upcomingWorkshops} })}}>{form}</p>
             } else {
                 return <p key={form}>{form}</p>

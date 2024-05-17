@@ -13,7 +13,7 @@ async function getMembersInfo() {
         res = await res.json();
         MEMBER_INFO = res;
     }catch(err){
-        console.log(err);
+        console.error(err);
     }
 }
 

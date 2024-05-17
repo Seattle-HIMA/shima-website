@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import backgroundImg from '../../utils/images/events-background.png';
 import { useAuth0 } from "@auth0/auth0-react";
 import { statusCheck, getProductsId, checkMembership } from '../../utils/utils';
@@ -7,7 +7,7 @@ import { statusCheck, getProductsId, checkMembership } from '../../utils/utils';
 import './RegistrationPage.css';
 
 function RegistrationPage() {
-    const {user, isLoading, isAuthenticated} = useAuth0();
+    const {user, loginWithRedirect, isAuthenticated} = useAuth0();
 
     useEffect(() => {
         if (isAuthenticated && user) {
@@ -24,35 +24,40 @@ function RegistrationPage() {
     let video;
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log(video);
-        try {
-            let member = await checkMembership(user.email);
-            let id = await getProductsId();
-            let price;
-            if (member === "none") {
-              price = id["workshopNonMem"];
-            } else {
-              price = id["workshopMem"];
+        if (isAuthenticated) {
+            e.preventDefault();
+            try {
+                let member = await checkMembership(user.email);
+                let id = await getProductsId();
+                let price;
+                if (member === "none") {
+                    price = id["workshopNonMem"];
+                } else {
+                    price = id["workshopMem"];
+                }
+
+                let response = await fetch("/routes/payment/workshop-checkout-session", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        id: price,
+                        vid: video,
+                        email: user.email,
+                        workshopType: 'upcoming'
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+                await statusCheck(response);
+                response = await response.json();
+                window.location.href = response.url;
+
+            } catch (error) {
+                console.error("Error", error);
             }
 
-            let response = await fetch("/routes/payment/workshop-checkout-session", {
-                method: "POST",
-                body: JSON.stringify({
-                    id: price,
-                    vid: video,
-                    email: user.email,
-                    workshopType: 'upcoming'}),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
-            await statusCheck(response);
-            response = await response.json();
-            window.location.href = response.url;
-
-        } catch (error) {
-            console.error("Error", error);
+        } else {
+            loginWithRedirect();
         }
     };
 
@@ -76,13 +81,16 @@ function RegistrationPage() {
         )
     }
 
-    const [formData, setFormData] = useState({
-        firstName: '', lastName: '', email: '', workshop: 'workshop1', payment: 'credit_card'
-    });
+    const makePrePop = () => {
+        console.log(data.workshop);
+        return <div>{data.workshop.name}</div>
+    }
 
-    if(data.workshop) {
+    const [formData, setFormData] = useState({});
+
+    if (data.workshop) {
         video = data.workshop._id;
-    }else{
+    } else {
         video = formData.workshop;
     }
 
@@ -100,25 +108,25 @@ function RegistrationPage() {
                         <div className='left-side name-input'>
                             <label for="firstName">First Name</label>
                             <input type="text" id="firstName" name="firstName" value={formData.firstName}
-                                onChange={handleInputChange} required/>
+                                   onChange={handleInputChange} required/>
                         </div>
                         <div className='name-input'>
                             <label for="lastName">Last Name</label>
                             <input type="text" id="lastName" name="lastName" value={formData.lastName}
-                                onChange={handleInputChange} required/>
+                                   onChange={handleInputChange} required/>
                         </div>
                     </div>
                     <div className={"email-info"}>
                         <label for="email">Email</label>
                         <input type="email" name="email" id="email" value={formData.email}
-                            onChange={handleInputChange} required
-                            readOnly={isAuthenticated && formData.email !== ''} />
+                               onChange={handleInputChange} required
+                               readOnly={isAuthenticated && formData.email !== ''}/>
                     </div>
                 </div>
 
                 <div className="form-section">
                     <h3>Workshop Name</h3>
-                    {makeWorkshopOptions()}
+                    {!data.workshop ? makeWorkshopOptions() : makePrePop()}
                 </div>
 
                 <div className="form-section">
