@@ -53,7 +53,7 @@ function AdminMembersList(props) {
                             <td>{user.firstName || 'N/A'}</td>
                             <td>{user.lastName || 'N/A'}</td>
                             <td>{user.membershipType || 'none'}</td>
-                            <td>{user.paidWorkshops && user.paidWorkshops.length > 0 ? user.paidWorkshops.join(', ') : 'none'}</td>
+                            <td>{user.registeredPastRecordings && user.registeredPastRecordings.length > 0 ? user.registeredPastRecordings.join(', ') : 'none'}</td>
                         </tr>
                     ))}
                     </tbody>

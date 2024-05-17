@@ -35,7 +35,7 @@ router.post('/get-paid-workshops', async (req, res) => {
     try {
         const { email } = req.body;
         const user = await models.User.findOne({email});
-        res.json({ "workshops": user.paidWorkshops});
+        res.json({ "workshops": user.registeredPastRecordings});
     } catch(error) {
         console.error('Error adding new user:', error);
         res.status(500).send('Internal Server Error');
@@ -48,7 +48,7 @@ router.post('/workshop-isPaid/:id', async (req, res) => {
         let vid = req.params.id;
         const { email } = req.body;
         const user = await models.User.findOne({email});
-        let paid = user.paidWorkshops;
+        let paid = user.registeredPastRecordings;
 
         if (paid.includes(vid)) {
             res.json({isPaid: true});

@@ -155,8 +155,6 @@ function EventsPage() {
             }
         }
 
-        console.log(isPaid);
-
         const thumbnailImg = require(`../../utils/images/placeholder-thumbnail.jpg`);
         return (
             <div key={index} className="video-card" onClick={() => handleOpenVideoModal(video)}>
@@ -177,7 +175,12 @@ function EventsPage() {
     const makeUpcomingSectionHeader = () => {
         let sectionInfo = pageInfo.subsections[sectionKeys[0]];
         let forms = sectionInfo.Forms.map(form => {
-            return <p key={form}>{form}</p>
+            if(form === "Registration Form") {
+                console.log('here');
+                return <p key={form} onClick={() => {navigate('/Registration', { state: {upcoming: upcomingWorkshops} })}}>{form}</p>
+            } else {
+                return <p key={form}>{form}</p>
+            }
         } );
 
         return(
@@ -191,10 +194,9 @@ function EventsPage() {
     const [selectedEvents, setSelectedEvents] = useState(null);
 
     const handleWorkshopReg = (workshop) => {
-        console.log(workshop);
         if(isAuthenticated) {
             setSelectedEvents(workshop);
-            navigate('/Registration', { state: workshop });
+            navigate('/Registration', { state: {workshop: workshop, upcoming: upcomingWorkshops} });
         } else {
             loginWithRedirect()
         }
