@@ -2,7 +2,6 @@ import React from 'react';
 import './RegisteredEventCard.css';
 
 function RegisteredEventCard({workshop}) {
-    console.log(JSON.stringify(workshop));
     return (
         <div className="workshop-card">
             <h4 className="workshop-title">{workshop.name}</h4>

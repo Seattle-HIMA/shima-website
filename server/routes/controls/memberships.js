@@ -8,7 +8,6 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     try {
         let data = await getJSONFile('./assets/memberships.json')
-        console.log(data)
         res.json(data);
     } catch (err) {
         if (err.code === "ENOENT") {

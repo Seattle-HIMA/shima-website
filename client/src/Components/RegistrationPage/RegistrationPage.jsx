@@ -25,7 +25,6 @@ function RegistrationPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(video);
         try {
             let member = await checkMembership(user.email);
             let id = await getProductsId();
