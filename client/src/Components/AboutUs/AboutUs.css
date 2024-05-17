@@ -1,49 +1,48 @@
-/* HEADER */
-.member-grid {
+.member-profile-card-container {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
     justify-content: space-between;
-    padding: 40px;
+    margin: 40px auto;
 }
 
-.member-profile-card {
+.member-profile-card .card-photo {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 230px;
+    margin: 20px 20px;
+}
+
+.member-profile-card .card-content {
     text-align: center;
+    margin-bottom: 40px;
 }
 
-.member-name {
-    margin-top: 15px;
-    font-size: 24px;
-    color: #0F233B;
-    margin-bottom: 5px;
-    font-weight: 800;
+.member-profile-card .card-content h2 {
+    font-size: 1.2em;
 }
 
-.member-position {
-    font-size: 16px;
-    text-transform: uppercase;
+.member-profile-card .card-content p {
+    font-size: 1em;
     color: #0A7AFF;
-    font-weight: 500;
-    padding-bottom: 15px;
 }
 
-.popup {
-    cursor: pointer;
-    width: 240px;
+.member-profile-card .square-image {
+    width: 100%;
     height: auto;
+    aspect-ratio: 1.5 / 1.75;
+    object-fit: cover;
+    cursor: pointer;
 }
 
-.popup-content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
+.popup-profile-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
 .overlay {
@@ -52,90 +51,68 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9998;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
-.popup-profile-photo {
-    padding: 40px 20px 40px 20px;
-    width: 220px;
-    height: auto;
+.popup-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1000px;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    display: flex;
 }
 
 .text-content {
-    color: black;
-    display: flex;
-    flex-direction: column;
-    padding-right: 20px;
-    padding-bottom: 20px;
-}
-
-.text-content p, .text-content h3 {
-    text-align: left;
-    margin: 0px;
-}
-
-.text-content p:nth-child(1) {
-    font-size: 18px;
-    font-weight: 700;
-    padding-top: 20px;
-}
-
-.text-content p:nth-child(2) {
-    font-size: 14px;
-    font-style: italic;
-    color: darkgray;
-    margin-bottom: 5px;
-}
-
-.text-content p:nth-child(3) {
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.text-content p:nth-child(4) {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.text-content p:nth-child(5) {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.board-members-page h2 {
     margin-left: 40px;
-    margin-top: 50px;
-    font-size: 44px;
+}
+
+.text-content > p {
+    margin-top: 7px;
+    font-weight: 600;
+}
+
+.text-content em {
+    display: block;
+}
+
+.text-content .about-section h4 {
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 .popup-title {
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+
+.popup-title div {
+    display: flex;
+    align-items: center;
+}
+
+.popup-title div h3 {
+    margin-right: 10px;
+    margin-bottom: 0px;
+    font-size: 1.8em;
+    font-weight: bold;
 }
 
 #linkedin-icon {
     width: 24px;
-    height: auto;
-    margin-left: 10px;
-    margin-bottom: 8px;
+    height: 24px;
 }
 
 #close-popup {
-    width: 40px;
-    height: auto;
-    padding-left: 20px;
-}
-
-.popup-content img.top-right {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-}
-
-.square-image {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    object-position: 50% 15%;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
 }
