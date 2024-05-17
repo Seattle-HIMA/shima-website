@@ -52,11 +52,11 @@ function ProfileCard(memberObj) {
     return (
         <div className="member-profile-card">
             <div className="card-photo">
-                <img src={imgSrc} alt="profile" className="popup square-image" onClick={togglePopup}/>
+                <img src={imgSrc} alt="profile" className="square-image" onClick={togglePopup}/>
                 {popupVisible && (<div className="overlay" onClick={closePopup}></div>)}
                 {popupVisible && (<div>
                     <div className="popup-content">
-                        <img id="popup-profile-photo" src={imgSrc} alt="profile" className="popup-profile-photo"/>
+                        <img src={imgSrc} alt="profile" className="popup-profile-photo"/>
                         <div className="text-content">
                             <div className="popup-title">
                                 <div>

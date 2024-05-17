@@ -39,9 +39,9 @@
 }
 
 .popup-profile-photo {
-    width: 100%;
+    width: 200px;
     height: auto;
-    aspect-ratio: 1 / 1;
+    /* aspect-ratio: 1 / 1; */
     object-fit: cover;
 }
 
@@ -67,6 +67,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1001;
     display: flex;
+    align-items: flex-start;
 }
 
 .text-content {
