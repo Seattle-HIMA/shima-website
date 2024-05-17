@@ -22,7 +22,7 @@
     flex-direction: row;
 }
 
-.nav-btn {
+.navbar .nav-btn {
     padding: 40px 0 20px 0;
     margin: 0 25px 20px 25px;
     align-content: center;

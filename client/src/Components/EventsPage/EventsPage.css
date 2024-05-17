@@ -232,6 +232,8 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+    width: 30px;
+    height: auto;
 }
 
 .flyer-popup-img {
