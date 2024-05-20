@@ -81,7 +81,7 @@ router.get('/get-product-id', (req, res) => {
 
 // create a checkout session for subscription (membership)
 router.post('/create-checkout-session', async (req, res) => {
-    const {id, email, vid} = req.body;
+    const {id, email, type} = req.body;
 
     const session = await STRIPE.checkout.sessions.create({
         line_items: [
@@ -91,11 +91,11 @@ router.post('/create-checkout-session', async (req, res) => {
             },
         ],
         mode: 'subscription',
-        success_url: SUCCESSURL + `?session_id={CHECKOUT_SESSION_ID}`,
+        success_url: CLIENT_ORIGIN_URL + '/Membership' + `?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: CLIENT_ORIGIN_URL + '/Membership',
         metadata: {
             email: email,
-            vidName: vid
+            type: type
         }
     });
 
