@@ -41,7 +41,7 @@ app.use(cors({
     maxAge: 86400
 }));
 
-// mongodb middleware
+// mongodb middleware to access the database
 app.use((req, res, next) => {
     req.models = models;
     next();
@@ -84,8 +84,8 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
     }
 
     let subscription;
-    let status;
-    // Handle the event
+
+    // when the customer successfully paid for a membership
     if (eventType === 'customer.subscription.updated') {
         subscription = data.object;
         if (subscription.status === 'active') {
@@ -93,10 +93,10 @@ app.post("/webhook", express.raw({type: 'application/json'}), async (req, res) =
         }
     }
 
+    // success payment
     if (eventType === 'checkout.session.completed') {
         subscription = data.object;
         let user = subscription.metadata;
-        console.log(user);
 
         // membership payment
         if (subscription.mode === "subscription") {

@@ -47,7 +47,7 @@ export const getAdminResource = async (accessToken) => {
 
 export const getAdminStatus = async (accessToken) => {
     const config = {
-        url: `${apiServerUrl}/routes/users/adminStatus`, method: "GET", headers: {
+        url: `${apiServerUrl}/routes/users/admin-status`, method: "GET", headers: {
             "content-type": "application/json", Authorization: `Bearer ${accessToken}`,
         },
     };
